@@ -1,0 +1,191 @@
+<div class="vblock-83064">
+        <div class="header-83064">
+            <div class="header-83064_inner">Partners</div>
+        </div>
+        <div id="vblock-83064" class="content-83064"></div>
+        <div class="buttons-83064">
+            <div id="vbutton-back-83064" class="vbutton vbutton-back-83064"></div>
+            <div id="vbutton-forward-83064" class="vbutton vbutton-forward-83064"></div>        
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+.vblock-83064 {
+/*            width: 300px;*/
+            background: #fff;
+            padding: 20px 0px 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .vblock-83064 .header-83064 {
+            margin-bottom: 20px;
+            background: #ed1c24;
+            padding: 0 7px;
+            display: inline-block;
+        }
+
+            .vblock-83064 .header-83064 .header-83064_inner{
+                height: 30px;
+                position: relative;   
+
+                color: rgb(255, 255, 255);
+                font-family: Montserrat, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: bold;
+                line-height: 30px;    
+                text-align: left !important;
+                text-transform: uppercase;                        
+            }
+
+        .vblock-83064 .content-83064 {
+            height: 390px;
+            overflow: hidden;
+        }
+
+            .vblock-83064 .content-83064 .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83064 .item-83064 {
+            overflow: hidden;
+            display: block;
+            padding: 0px;
+        }
+        .vblock-83064 .image-83064 {
+            float: left;
+            display: block;
+            width: 120px;
+            height: 70px;
+            overflow: hidden;
+        }        
+        .vblock-83064 .title-83064 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0px;
+            margin-left: 130px;
+            max-height: 80px;
+
+            color: rgb(68, 68, 68);
+            font-family: Montserrat, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 16px;  
+            text-align: left !important;
+            text-transform: uppercase;
+        }
+        .vblock-83064 .title-83064 a:hover {
+            text-decoration: none !important;
+            color: rgb(135, 135, 135);
+        }
+
+            .buttons-83064{
+                padding: 3px 0px 0px;
+
+                text-align: right;
+            }
+
+                .buttons-83064 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-83064{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83064{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+
+
+
+
+
+
+
+
+var vblock_properties = {
+            "item": {
+                "size": {"width": 300, "height": 77}
+            },
+            "hs": {
+                "size": 2,
+                "style": "solid",
+                "color": "#efefef",
+                "padding": {"top": 2, "bottom": 15, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83064', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }), JsAPI.Dom.createDom('img', {
+                                'class': 'image-83064',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 120, 70)
+                        }),
+                        JsAPI.Dom.createDom('div', 'title-83064', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                      
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83064, JsAPI.Dom.getElement('vblock-83064'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83064'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83064'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+
+
+                
+
+
+
+
+
+
+

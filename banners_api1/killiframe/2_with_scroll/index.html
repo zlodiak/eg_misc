@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>82272</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            /*@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,cyrillic-ext,cyrillic);*/
+
+            
+             @font-face {
+                font-family: 'Roboto Slab'; 
+                src: url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.ttf'); 
+               }            
+
+            .hblock-82272 {
+                height: 365px;
+                max-width: 950px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .hblock-82272 .header-82272 {
+                color: #000;
+                padding-top: 30px;
+                padding-bottom: 18px;
+                font-family: 'Roboto Slab', Georgia, sans;
+                font-size: 18px;
+                font-weight: 100;
+                position: relative;
+            }
+            .hblock-82272 .content-82272 {
+                height: 285px;
+            }
+
+            .hblock-82272 .item-82272 {
+                width: 300px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82272 img {
+                width: 300px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82272 .wrapper-82272 {
+
+            }
+            .hblock-82272 .wrapper-82272 div {
+                padding-top: 5px;
+            }
+            .hblock-82272 .title a {
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                text-decoration: none;
+                font-family: 'Roboto Slab', Georgia, sans;
+                font-size: 14px;
+                font-weight: bold;
+                color: #000 !important;
+            }
+            .hblock-82272 .title a:hover {
+                text-decoration: none;
+                color: #000 !important;
+            }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="hblock-82272">
+            <div class="header-82272">Новости наших партнеров</div>
+            <div id="hblock-82272" class="content-82272"></div>
+        </div>
+
+        <script>
+            /*JsAPI.Config.setDomain('news.net.finam.ru');*/
+            /*JsAPI.Config.setDomain('news.smi2.net');*/
+            /*JsAPI.Config.setDomain('news.outlet.dev.smi2.net');*/
+
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 250, "height": 250}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#ccc",
+                    "padding": {"top": 3, "bottom": 3, "left": 3, "right": 3},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82272', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 190)
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-82272', [
+                                JsAPI.Dom.createDom('div', 'topic-82272', model['topic_name']),
+                                JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82272, JsAPI.Dom.getElement('hblock-82272'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                console && console.log('Ok', block);
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82272'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82272'), 'click', function () {
+                    block.scrollForward();
+                });
+
+            }, function (reason) {
+                console && console.error('Error', reason);
+            });
+
+        </script>
+    </body>
+</html>

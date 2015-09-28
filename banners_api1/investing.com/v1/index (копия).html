@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>№81554 «v1»</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <style>
+            /** Вертикальный блок */
+            .vblock-81554 {
+                max-width: 1000px;
+                height: 390px;
+            }
+
+            .vblock-81554 .header-81554 {
+                color: #555;
+                display: block;
+                font-family: Arial, sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+
+                border-bottom: 2px solid #4c854c;
+                padding-bottom: 7px;
+                margin-bottom: 7px;
+            }
+            .vblock-81554 .content-81554 {
+                height: 390px;
+            }
+
+            .vblock-81554 .item-81554 {
+                font-family: Arial, sans-serif;
+                margin: 0 10px 0 0;
+            }
+            .vblock-81554 .image-81554 {
+                float: left;
+                width: 90px;
+                height: 90px;
+            }
+            .vblock-81554 .title-81554 a {
+                text-decoration: none !important;
+                color: #1256A0 !important;
+                display: block;
+                font-family: Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+                font-size: 12px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+
+                margin-left: 110px;
+            }
+            .vblock-81554 .title-81554 a:hover {
+                text-decoration: underline !important;
+            }
+            .vblock-81554 .scroll-container{
+                top: 0 !important;
+            }
+
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="vblock-81554">
+            <div class="header-81554">Новости Финам</div>
+
+            <div id="vblock-81554" class="content-81554"></div>
+        </div>
+
+        <script>
+            /* Настройки блока */
+            var vblock_properties = {
+                "item": {
+                    "size": {
+                        "width": 1000, 
+                        "height": 90
+                    }
+                },
+                "hs": {
+                    "size": 10,
+                    "style": "solid",
+                    "color": "#fff",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#fff",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            /* Callback-функция рендера содержимого элемента блока */
+            var vblock_renderer = function (parent, model, index) {
+                var aImageElement, aTitleElement;
+                var fclick = function () { window.open(model['url']); };
+
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-81554', [
+                        JsAPI.Dom.createDom('div', 'topic', model['topic_name']),
+                        aImageElement = JsAPI.Dom.createDom('a', {
+                            'href': 'javascript:void(0);',
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('div', undefined, JsAPI.Dom.createDom('img', {
+                            'class': 'image-81554',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 90, 90)
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'title-81554', aTitleElement = JsAPI.Dom.createDom('a', {
+                            'href': 'javascript:void(0);',
+                            'target': '_blank'
+                        }, model['title'])))
+                    ]
+                ));
+
+                JsAPI.Event.listen(aImageElement, "click", fclick);
+                JsAPI.Event.listen(aTitleElement, "click", fclick);       
+            };   
+
+            /* Маска параметров (полей) новостей */
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;                    
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 81554, JsAPI.Dom.getElement('vblock-81554'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /* console && console.log('Ok', block); */
+            }, function (reason) {
+                /* console && console.error('Error', reason); */
+            });
+        </script>
+    </body>
+</html>

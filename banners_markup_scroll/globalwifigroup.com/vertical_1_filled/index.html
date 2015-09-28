@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>gfg</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            #mycontainer_81162{
+                height: 400px;
+            }
+
+                #mycontainer_81162 > div{
+
+                }
+
+                #mycontainer_81162 > div > div > div{
+                  /*  width: 200px !important;*/
+                }
+
+                #mycontainer_81162 > div > div > div div a{
+                    display: block;
+                }             
+
+            #back_81162, #forward_81162{
+                position: absolute;
+                top: 434px;
+                width: 32px;
+                height: 32px;
+                z-index: 100;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                background-image: url('http://static.smi2.net/static/blocks/img/arrows/arr_spr.png');
+                background-repeat: no-repeat;
+                outline: none;
+            }
+
+            #back_81162{
+                right: 42px;
+                background-position: left;
+            }
+
+            #forward_81162{
+                right: 5px;
+                background-position: right;
+            }
+
+                .sk_wrap0_81162{
+
+                }
+
+                    .sk_wrap_81162{
+                        overflow: hidden;
+                        border: 1px solid #349400;
+                        padding-bottom: 35px;
+                        position: relative;
+                    }
+
+                        .sk_head_81162{
+                            background: #349400;
+                            margin-bottom: 10px;
+                            padding: 4px 10px;
+                            margin: 0 0px 7px;
+
+                            font-family: arial, sans-serif;
+                            font-size: 16px;
+                            font-stretch: normal;
+                            font-style: normal;
+                            font-variant: normal;
+                            font-weight: normal;
+                            line-height: 21px;  
+                            color: #000;    
+                            text-transform: uppercase;  
+                        }       
+
+                        .sk_item_81162{
+                            overflow: hidden; 
+                            text-align: center; 
+                            padding: 0 7px 7px; 
+                        }
+
+                            .sk_a1_81162{
+                                display: inline-block; 
+                                width: 85px; 
+                                float: left;
+                            }
+
+                                .sk_a1_81162 img{
+                                    display: block;
+                                }
+
+                            .sk_a2_81162:hover{
+                                text-decoration: underline;
+                                color: #000;
+                            }
+
+                            .sk_a2_81162:visited,
+                            .sk_a2_81162{
+                                display: block; 
+                                margin-left: 82px; 
+                                text-align: left; 
+
+                                color: #000;
+                                font-family: Arial;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: normal;
+                                line-height: 14px;              
+                                text-decoration: none;      
+                            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="sk_wrap0_81162">
+            <div class="sk_wrap_81162" style=" ">
+                <div class="sk_head_81162">НОВОСТИ</div>
+                <div id="mycontainer_81162"></div>               
+                <button id="back_81162"></button>
+                <button id="forward_81162"></button>                
+            </div>
+        </div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v0.ru_RU.js"></script>
+
+        <script>
+            JsAPI.Config.setDomain('news.advert.mirtesen.ru');
+
+            /* Создание горизонтального блока */
+            JsAPI.Ui.VBlock.create(81162, "mycontainer_81162").then(function (block) {
+                /* Документ */
+                var _doc = document;
+
+                /* Родительский элемент */
+                var _parent = _doc.getElementById("mycontainer_81162");
+
+                /* Кнопка Назад */
+                var back = _doc.getElementById("back_81162");
+
+                /* Регистрация обработчика click-события для элемента кнопки Назад */
+                JsAPI.Event.listen(back, "click", function () {
+                    /* Выполнить перемещение содержимого блока назад */
+                    block.scrollBack();
+                });
+
+                /* Кнопка Вперед */
+                var forward = _doc.getElementById("forward_81162");
+
+                /* Регистрация обработчика click-события для элемента кнопки Вперед */
+                JsAPI.Event.listen(forward, "click", function () {
+                    /* Выполнить перемещение содержимого блока вперед */
+                    block.scrollForward();
+                });
+
+            },function(reason){
+                /* Обработка ошибки */
+            });
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+

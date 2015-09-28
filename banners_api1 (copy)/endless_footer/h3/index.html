@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - dayonline</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        #smi2adblock_75734 a {
+        font-family: Arial, sans-serif;
+        color: #428BCA;
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      #smi2adblock_75734 a:hover {
+        color: #349400;
+        text-decoration: underline;
+      }
+
+      #smi2adblock_75734 td {
+        border-style: none;
+      }
+
+      #smi2adblock_75734 tr td:last-child {
+        border-right-style: none;
+      }
+
+      #smi2adblock_75734 tr:last-child td {
+        border-bottom-style: none;
+      } 
+     
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+</head>
+
+<body style="max-width: 600px; margin: auto;">
+    <div id="smi2adblock_75734"><a href="http://smi2.net/">Новости СМИ2</a></div>
+
+    <script id="smi2-block-template" type="text/x-smi2-block-template"><![CDATA[
+      <table cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+        <%= itemsContent %>        </tbody>
+      </table>]]></script>
+    <script id="smi2-items-template" type="text/x-smi2-block-template"><![CDATA[
+      <tr>
+        <% for (var i = 0; i < items.length; i++) { %>        <td style="text-align: center; vertical-align: top; padding: 0 10px 10px 10px">
+          <div style="margin: 0 0 5px 0">
+            <a href="<%= items[i].url %>" target="_blank"><img border="0" src="<%= items[i].img %>"></a>
+          </div>
+          <a href="<%= items[i].url %>" target="_blank"><%= items[i].title %></a>
+        </td>
+        <% } %>      </tr>]]></script>
+    <script type="text/javascript" src="//static.smi2.net/static/js/smi2adinfinity.js"></script>
+    <script type="text/javascript">
+      Smi2AdInfinity.blockId = 75734;
+      Smi2AdInfinity.adCount = 5;
+      Smi2AdInfinity.init();
+    </script>
+</body>
+</html>

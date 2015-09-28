@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>82669</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+        <style>
+            .hblock-82669 {
+                margin: 0 19px;
+                max-width: 1000px;
+                position: relative;
+            }
+
+            .hblock-82669 .content-82669 {
+                height: 340px;
+                max-width: 1000px;
+                
+            }
+
+            .hblock-82669 .item-82669 {
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82669 img {
+                width: 213px;
+                height: 166px;
+                display: block;
+            }
+            .hblock-82669 .wrapper-82669 {
+
+            }
+            .hblock-82669 .wrapper-82669 div {
+                padding-top: 9px;
+            }
+            .hblock-82669 .title a {
+                display: block;
+                margin: 0 auto;
+
+                color: rgb(34, 34, 34);
+                font-family: Raleway-ExtraBold;
+                font-size: 14px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 600;
+                letter-spacing: -0.3px;
+                line-height: 22px;
+                text-decoration: none;
+            }
+            .hblock-82669 .title a:hover {
+                text-decoration: none !important;
+                color: rgb(239, 119, 14) !important;
+                transition: 1s;   
+            }
+
+                    .hbutton-back-82669{
+                        background: #ffcc00 url('//static.smi2.net/srcimg/2411725.jpeg') -56px -5px no-repeat;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 2px;
+                        cursor: pointer;
+                        right: -2px;
+                        position: absolute;
+                        z-index: 100;
+                        top: 79px;                        
+                    }
+
+                    .hbutton-forward-82669{
+                        background: #ffcc00 url('//static.smi2.net/srcimg/2411725.jpeg') -7px -5px no-repeat;                     
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 2px;
+                        cursor: pointer;   
+                        left: -20px;  
+                        position: absolute;
+                        z-index: 100;
+                        top: 79px;                                                
+                    }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="hblock-82669">
+            <div id="hblock-82669" class="content-82669"></div>
+            <div id="hbutton-back-82669" class="hbutton hbutton-back-82669"></div>
+            <div id="hbutton-forward-82669" class="hbutton hbutton-forward-82669"></div>                     
+        </div>
+
+        <script>
+            /*JsAPI.Config.setDomain('news.net.finam.ru');*/
+            /*JsAPI.Config.setDomain('news.smi2.net');*/
+            /*JsAPI.Config.setDomain('news.outlet.dev.smi2.net');*/
+
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 213, "height": 340}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#349400",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82669', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 213, 166)
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-82669', [
+                                JsAPI.Dom.createDom('div', 'topic-82669', model['topic_name']),
+                                JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82669, JsAPI.Dom.getElement('hblock-82669'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82669'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82669'), 'click', function () {
+                    block.scrollForward();
+                });
+
+            }, function (reason) {
+                /*console && console.error('Error', reason);*/
+            });
+
+        </script>
+    </body>
+</html>

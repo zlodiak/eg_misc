@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>indiatvnews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.en_IN.js "></script>
+
+    <style>
+    #smi2adblock_82020 {
+        width: auto !important;
+        height: auto !important;
+    }
+
+        #container{
+            padding: 0 !important;
+            width: 660px;
+            background: cyan ;
+        }
+
+        #container .fluidgrid-container {
+        }
+        #container .fluidgrid-container-item {
+            background-color: white;
+        }
+        #container .fluidgrid-container-item-hover {
+            box-shadow: 0 0 5px 2px #ccc;
+        }
+        #container .fluidgrid-container-item .item {
+            text-decoration: none;
+
+            display: block;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+            #container .fluidgrid-container-item .item img{
+                width: 159px;
+                height: 96px;
+            }
+
+        #container .fluidgrid-container-item .wrapper {
+        }
+        #container .fluidgrid-container-item .topic {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            color: rgb(52, 148, 0);
+            margin: 10px 15px 0px;
+            text-align: left;
+        }
+        #container .fluidgrid-container-item .title {
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            margin: 10px 15px 0px;
+            color: rgb(0, 139, 204);
+            border: none !important;
+            background: none !important;
+        }
+        #container .fluidgrid-container-item .text {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: rgb(69, 68, 65);
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+        #container .fluidgrid-container-item .domain {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: lightgray;
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+
+        .sk_title_area{
+            background-image: url('http://static.smi2.net/srcimg/2317711.gif') !important;
+            height: 24px !important;
+            margin: 10px 0 10px !important;
+            padding: 0px !important;
+            border-bottom: none !important;            
+        }
+
+            .sk_title_area h1{
+                background-color: #787878 !important;
+                color: #fff!important;
+                display: inline-block!important;
+                font-size: 15px!important;
+                font-weight: bold!important;
+                height: 15px!important;
+                line-height: 15px!important;
+                padding: 5px 10px 4px!important;
+                text-transform: uppercase!important;
+                float: left;
+                margin: 0px;                
+            }
+    </style>
+</head>
+<body>
+<div class="sk_title_area"><h1>Promoted Content</h1></div>
+<div id="container"></div>
+<script type="text/javascript">
+    var properties = {
+            'item': {
+                'width': 159,
+                'margin': 8
+            }
+        };
+
+        var renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('a', {
+                        'class': 'item',
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, [
+                        JsAPI.Dom.createDom('img', {
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 159, 96)
+                        }),
+                        JsAPI.Dom.createDom('div', 'topic', model['topic_name']),
+                        JsAPI.Dom.createDom('div', 'title', model['title']),
+                        JsAPI.Dom.createDom('div', 'domain', model['domain'])
+                    ]
+            ));
+        };
+
+        var opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TOPIC
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.DOMAIN;
+
+
+        JsAPI.Ui.FluidGridBlockFactory.create(
+                JsAPI.Ui.Align.CENTER /* Выравнивание содержимого блока */,
+                82020 /* Идентификатор блока */,
+                20 /* Размер страницы (количество) загружаемых элементов */,
+                Infinity /* Максимальное количество загружаемых страниц элементов */,
+                JsAPI.Dom.getElement("container") /* Родительский элемент */,
+                properties /* Настройки блока */,
+                renderer /* Рендер содержимого новости */,
+                opt_fields /* Маска требуемых параметров новостей */
+        ).then(function (block) {
+
+        });
+</script>
+</body>
+</html>

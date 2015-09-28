@@ -1,0 +1,256 @@
+/* font-family: "SegoeUIRegular"; */
+@font-face {
+    font-family: "Segoe UI";
+    src: url("../fonts/SegoeUIRegular/SegoeUIRegular.eot");
+    src: url("../fonts/SegoeUIRegular/SegoeUIRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SegoeUIRegular/SegoeUIRegular.woff") format("woff"),
+    url("../fonts/SegoeUIRegular/SegoeUIRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "SegoeUIBold"; */
+@font-face {
+    font-family: "Segoe UI Bold";
+    src: url("../fonts/SegoeUIBold/SegoeUIBold.eot");
+    src: url("../fonts/SegoeUIBold/SegoeUIBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SegoeUIBold/SegoeUIBold.woff") format("woff"),
+    url("../fonts/SegoeUIBold/SegoeUIBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "SegoeUIItalic"; */
+@font-face {
+    font-family: "SegoeUIItalic";
+    src: url("../fonts/SegoeUIItalic/SegoeUIItalic.eot");
+    src: url("../fonts/SegoeUIItalic/SegoeUIItalic.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SegoeUIItalic/SegoeUIItalic.woff") format("woff"),
+    url("../fonts/SegoeUIItalic/SegoeUIItalic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "SegoeUILight"; */
+@font-face {
+    font-family: "SegoeUILight";
+    src: url("../fonts/SegoeUILight/SegoeUILight.eot");
+    src: url("../fonts/SegoeUILight/SegoeUILight.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SegoeUILight/SegoeUILight.woff") format("woff"),
+    url("../fonts/SegoeUILight/SegoeUILight.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "SegoeUISemiBold"; */
+@font-face {
+    font-family: "SegoeUISemiBold";
+    src: url("../fonts/SegoeUISemiBold/SegoeUISemiBold.eot");
+    src: url("../fonts/SegoeUISemiBold/SegoeUISemiBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/SegoeUISemiBold/SegoeUISemiBold.woff") format("woff"),
+    url("../fonts/SegoeUISemiBold/SegoeUISemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+  
+
+  .sk_wrap0_82682{
+    overflow: hidden;
+    margin: 10px auto 10px;
+  }
+
+    .sk_wrap_82682{
+      overflow: hidden;
+      position: relative;
+    }
+
+      .sk_header_82682{
+        color: #000 !important;
+        font-family: 'Segoe UI Bold', 'Segoe WP Bold', 'Segoe WP', 'Segoe UI', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: normal;
+        text-transform: uppercase;
+
+        padding: 10px 0px 4px;
+        border-bottom: 1px solid #333;
+      }
+
+      .sk_frame_82682{
+          padding: 10px 0 0px;
+      }
+
+        .sk_item_82682{
+          overflow: hidden; 
+          text-align: center; 
+          padding: 0 0px 10px; 
+          border-bottom: 1px solid rgba(0,0,0,.15);
+          margin-bottom: 10px;
+        }
+
+          .sk_a1_82682{
+            display: block; 
+            float: left;
+          }
+
+            .sk_a1_82682 img{
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0 !important;
+            }
+
+          .sk_a2_82682:hover{
+            text-decoration: none !important;
+            color: #000 !important;
+          }
+
+          .sk_a2_82682:visited,
+          .sk_a2_82682{
+            display: block; 
+            margin-left: 90px; 
+            text-align: left; 
+
+            color: #000 !important;
+            font-family: 'Segoe UI', 'Segoe WP', Arial, sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 18px;
+            text-decoration: none !important;
+          }  
+
+  @media (max-width: 400px) {
+    .sk_a1_82682 img{
+      width: 100px !important;
+    }
+
+    .sk_a2_82682:visited,
+    .sk_a2_82682{
+      margin-left: 110px; 
+    }    
+
+    .sk_header_82682{
+      border: none !important;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .sk82683_out{
+    clear: both;
+    margin: 10px 0;
+  }
+
+    .sk82683_head{
+      color: #000 !important;
+      font-family: 'Segoe UI Bold', 'Segoe WP Bold', 'Segoe WP', 'Segoe UI', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: normal;
+      text-transform: uppercase;
+
+      padding: 10px 0px 4px;
+      border-bottom: 1px solid #333;
+      margin-bottom: 10px;
+    }
+
+    .sk82683_wrap_outer{
+
+    }
+
+      .sk82683_wrap{
+        overflow: hidden; 
+        text-align: left; 
+      }
+
+        .sk82683_item:nth-child(3),
+        .sk82683_item:nth-child(1){
+          width: 51.5%;
+        }
+
+        .sk82683_item:nth-child(4),
+        .sk82683_item:nth-child(2){
+          width: 48.5%;
+        }        
+
+        .sk82683_item{
+          width: 50%; 
+          overflow: hidden; 
+          float: left;
+          vertical-align: top; 
+          padding-bottom: 9px;
+          
+        }  
+
+          .sk82683_item:nth-child(6) .sk82683_item_inner,
+          .sk82683_item:nth-child(4) .sk82683_item_inner,
+          .sk82683_item:nth-child(2) .sk82683_item_inner{
+            border-right: 0;
+            margin-right: 0;
+          }
+
+          .sk82683_item_inner{
+            border-right: 1px solid rgba(0,0,0,.15);  
+            margin-right: 13px;          
+            margin-bottom: 1px;
+            padding-right: 16px;
+          }    
+
+            .sk82683_item_inner2{
+              border-bottom: 1px solid rgba(0,0,0,.15);
+              padding-bottom: 10px;
+            }            
+
+              .sk82683_a1{
+                display: block; 
+                float: left;    
+                width: 139px;
+                height: 110px;               
+              }
+
+                .sk82683_a1 img{
+                  display: block;
+                  width: 139px;
+                  height: 110px;
+                  border: none;
+                }
+
+              .sk82683_a2:hover{
+                text-decoration: none; 
+                color: #000
+              }
+
+              .sk82683_a2{
+                display: block; 
+                margin-left: 153px; 
+                height: 110px;
+
+                color: rgb(0, 0, 0);
+                font-family: 'Segoe UI', 'Segoe WP', Arial, sans-serif;
+                font-size: 15px;
+                font-weight: normal;
+                line-height: 22px;
+                text-decoration: none; 
+              }
+
+                .sk82683_title{
+                  overflow: hidden;
+                  height: 44px;
+                  margin-top: -5px;
+                }
+
+                .sk82683_announce{
+                  color: rgb(102, 102, 102);
+                  font-family: 'Segoe UI', 'Segoe WP', Arial, sans-serif;
+                  font-size: 13px;
+                  font-weight: normal;
+                  line-height: 18px;
+
+                  margin-top: 9px;
+                  overflow: hidden;
+                  height: 38px;                  
+                }

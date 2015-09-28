@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bfm m3_2 82138</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+</head>
+
+<body>
+    <div>
+        <style>        
+            .sk_head_82138{
+                color: #848484;
+                display: block;
+                font-family: 'Noto Sans', Arial;
+                font-size: 12px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;   
+                
+                padding-top: 17px;             
+                padding-bottom: 17px;             
+            }
+
+            #sk_wrap_82138{
+                max-width: 700px;    
+                overflow: hidden;        
+            } 
+
+                .sk_item_82138:nth-child(6),
+                .sk_item_82138:nth-child(3){
+                    width: 32%;
+                }
+
+                .sk_item_82138{
+                    width: 33.7%;
+                    display: inline-block;
+                    overflow: hidden;
+                    margin-bottom: 14px;
+
+                    vertical-align: top;
+                }
+
+                    .sk_a1_82138{
+                        display: block;
+                        float: left;
+                    }
+
+                        .sk_a1_82138 img{
+                            display: block;
+                        }
+
+                    .sk_a2_82138:hover{
+                        color: #1F77BB;
+                        text-decoration: none !important;                     
+                    }
+
+                    .sk_a2_82138{
+                        display: block;
+                        margin-left: 60px;
+                        margin-right: 4px;
+
+                        color: black;
+                        font-family: 'Noto Sans', Arial;
+                        font-size: 12px;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: 300;
+                        line-height: 14px;   
+                        text-decoration: none !important;                     
+                    }
+
+                    @media (max-width: 767px) {
+/*                        body{
+                            background: red;
+                        }*/
+                        .sk_item_82138:nth-child(6),
+                        .sk_item_82138:nth-child(3),
+                        .sk_item_82138{
+                            width: 100%;
+                        }
+                    }
+
+                                          
+        </style>
+        <div class="sk_head_82138">НОВОСТИ ПАРТНЕРОВ</div>
+        <div id='sk_wrap_82138'></div>
+    </div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText),
+                    massiveLength = massive.news.length;
+
+                //console.log(massive);
+                //console.log(massiveLength);
+                // http://joxi.ru/Q2KjKjOf65Ekmj
+
+                var _doc = document;   
+                var _sk_wrap0 = _doc.getElementById('sk_wrap_82138');
+                            
+                for (var i = 0; i < massiveLength; i++) {
+                    var _sk_wrap = _doc.createElement("div");
+
+                    _sk_wrap.className = 'sk_item_82138';
+
+
+                    //console.log(massive.news[i].url);
+                    //console.log(massive.news[i].img);
+                    //console.log(massive.news[i].title);
+
+
+                    _sk_wrap.innerHTML = '<a href="' + massive.news[i].url + '" class="sk_a1_82138"><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '"></a><a href="' + massive.news[i].url + '" class="sk_a2_82138">' + massive.news[i].title + '</a>';      
+
+                    _sk_wrap0.appendChild(_sk_wrap);
+                }                
+            }
+        }
+
+        xmlhttp.open("GET","http://news.net.finam.ru/data/js/82138.js",true);
+        xmlhttp.send();
+
+/*        {
+            "news": [{
+                "img": "http://static2.smi2.net/img/100x100/2283030.jpeg",
+                "title": "Это войдет в историю - Путин один остановил многотысячную толпу",
+                "url": "http://news.net.finam.ru/newdata/news?ad=782131&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "782131"
+            }, {
+                "img": "http://static5.smi2.net/img/100x100/2329292.jpeg",
+                "title": "Разбившийся под Астраханью МиГ-29 сбросил бомбы перед крушением",
+                "url": "http://news.net.finam.ru/newdata/news?ad=829933&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "829933"
+            }, {
+                "img": "http://static8.smi2.net/img/100x100/2319880.jpeg",
+                "title": "Греф предупредил Россию о серьезной опасности",
+                "url": "http://news.net.finam.ru/newdata/news?ad=813179&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "813179"
+            }, {
+                "img": "http://static4.smi2.net/img/100x100/2307933.jpeg",
+                "title": "Военный эксперт призвал проучить Францию на полную катушку",
+                "url": "http://news.net.finam.ru/newdata/news?ad=793054&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "793054"
+            }, {
+                "img": "http://static6.smi2.net/img/100x100/2166208.jpeg",
+                "title": "Кремль прокомментировал странные вопросы о жизни Путина в западных СМИ",
+                "url": "http://news.net.finam.ru/newdata/news?ad=813201&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "813201"
+            }, {
+                "img": "http://static7.smi2.net/img/100x100/2306466.jpeg",
+                "title": "Международные инвесторы внезапно бросились выводить капиталы из РФ",
+                "url": "http://news.net.finam.ru/newdata/news?ad=790192&bl=82138&ct=adpreview&st=16&in=UCbJAACVSgEz7wsA7akMAHtoDADeGQwAkWgMALAODAA%3D&ag=19",
+                "id": "790192"
+            }]
+        }*/
+
+    </script>
+</body>
+</html>

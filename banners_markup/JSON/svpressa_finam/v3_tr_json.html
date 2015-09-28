@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>svpressa vertical 82201</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+</head>
+
+<body>
+    <div>
+        <style>           
+            #sk_wrap_82201{
+                max-width: 240px;    
+                overflow: hidden;        
+            } 
+
+                .b-partners__ad{ 
+                    margin-bottom: 10px;
+                    display: block;          
+                    overflow: hidden;      
+                }
+
+                    .b-partners__ad .b-partners__img{
+                        display: block;
+                        float: left;
+                    }   
+
+                        .b-partners__ad .b-partners__img img{
+                            display: block;
+                        }
+
+                    .b-partners__ad .b-partners__title{
+                        margin-left: 80px;  
+                        display: block;    
+
+                        color: #000;                      
+                        text-decoration: none;
+                        font: 14px arial, sans-serif;
+                    }    
+
+                                          
+        </style>
+        <div id='sk_wrap_82201'></div>
+    </div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText),
+                    massiveLength = massive.news.length;
+
+                //console.log(massive);
+                //console.log(massiveLength);
+
+                var _doc = document;   
+                var _sk_wrap0 = _doc.getElementById('sk_wrap_82201');
+                            
+                for (var i = 0; i < massiveLength; i++) {
+                    var _sk_wrap = _doc.createElement("div");
+
+                    _sk_wrap.className = 'b-partners__ad';
+
+
+                    //console.log(massive.news[i].url);
+                    //console.log(massive.news[i].img);
+                    //console.log(massive.news[i].title);
+
+
+                    _sk_wrap.innerHTML = '<a href="' + massive.news[i].url + '" class="b-partners__img"><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '"></a><a href="' + massive.news[i].url + '" class="b-partners__title">' + massive.news[i].title + '</a>';      
+
+                    _sk_wrap0.appendChild(_sk_wrap);
+                }                
+            }
+        }
+
+        xmlhttp.open("GET","http://news.smi2.ru/data/js/82201.js",true);
+        xmlhttp.send();
+
+    </script>
+</body>
+</html>

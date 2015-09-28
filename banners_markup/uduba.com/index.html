@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>колдубыдуны</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+</head>
+
+<body>
+<div>
+    <style>
+        #sk_wrap0{
+            width: 430px;     
+            height: 430px;
+            
+            list-style-type: none;       
+        }
+
+            #sk_wrap{
+                overflow: hidden;
+            }   
+
+                .sk_item{
+                    overflow: hidden; 
+                    position: relative;
+                }
+
+                    .sk_a1{
+                        display: inline-block; 
+                        float: left;
+                                                
+                    }
+
+                        .sk_a1 img{
+                            
+                        }
+
+	                    .sk_title{
+	                        display: block; 
+	      					position: absolute;
+	      					bottom: 10px;
+	      					left: 5px;
+	      					right: 5px;
+	      					height: 60px;
+
+	      					color: #fff;
+							font-family: Georgia, Times, 'Times New Roman', serif;
+							font-size: 16px;
+							font-style: italic;
+							font-weight: bold;
+							line-height: normal;	      					
+	                    }  
+
+	                    	.sk_title .sk_inner_inner{
+	      						vertical-align: bottom;
+	                    	} 
+
+                                            
+    </style>
+    <li id='sk_wrap0'></li>
+</div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText);
+
+                console.log(massive.news[0].id);
+                console.log(massive.news[0].img);
+                console.log(massive.news[0].title);
+                console.log(massive.news[0].url);
+
+                var _doc = document;   
+
+                var _sk_wrap0 = _doc.getElementById('sk_wrap0');
+                
+                var _sk_wrap = _doc.createElement("div");   
+                _sk_wrap.id = 'sk_wrap';      
+                _sk_wrap.innerHTML = '<div class="sk_item" style=""> \
+                    <a class="sk_a1" href="' + massive.news[0].url + '" target="_blank" style="  "> \
+                        <img src="' + massive.news[0].img +'" width="430" height="430" style="" /> \
+                        <table class="sk_title"><tr><td height="60" valign="bottom" align="center">' + massive.news[0].title + '</td></tr/></table></span> \
+                    </a> \
+                </div>';      
+
+                _sk_wrap0.appendChild(_sk_wrap);
+            }
+        }
+
+        xmlhttp.open("GET", "http://news.smi2.ru/data/js/81785.js",true);
+        xmlhttp.send();
+
+
+
+		/*
+		{
+		    "news": [{
+		        "img": "http://static5.smi2.net/img/400x300/2245512.jpeg",
+		        "title": "Уверенность, которая всегда с тобой! Защитный нож в ремне «Grizzly»",
+		        "url": "http://news.smi2.ru/newdata/news?ad=769601&bl=81785&ct=direct&st=16&in=CAU0AQDOB9JBvgsA",
+		        "id": "769601"
+		    }]
+		}
+		*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>№81552 «v2»</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <style>
+            .vblock-81599 {
+                max-width: 500px;
+                height: 327px;
+                border: 1px solid #bababa;
+                margin: 20px 0;
+            }
+            .vblock-81599 .header-81599 {
+                color: #555;
+                display: block;
+                font-family: Arial, sans-serif;
+                font-size: 15px;
+                font-weight: bold;
+                line-height: 28px;
+                height: 28px;
+                padding: 0 10px;
+                margin-bottom: 10px;
+                background: #f2f2f2;
+            }
+            .vblock-81599 .content-81599 {
+                height: 250px;
+                padding: 0 10px;
+            }
+
+            .vblock-81599 .item-81599 {
+                font-family: Arial, sans-serif;
+                margin: 0 10px 0 0;
+            }
+            .vblock-81599 .item-81599 a {
+                text-decoration: none !important;
+            }
+            .vblock-81599 .image-81599 {
+                float: left;
+                width: 50px;
+                height: 33px;
+            }
+            .vblock-81599 .title-81599 {
+                color: #1256A0 !important;
+                display: block;
+                font-family: Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+                font-size: 12px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                line-height: 16px;
+                margin-left: 62px;
+            }
+            .vblock-81599 .title-81599:hover {
+                text-decoration: underline !important;
+            }
+            .vblock-81599 .scroll-container{
+                position: absolute !important;
+                /*top: 0 !important;*/
+                left: 10px !important;
+            }
+
+            .buttons-81599{
+                background: #fff;
+                padding: 5px 10px 4px;
+
+                text-align: right;
+            }
+
+                .buttons-81599 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                    .vbutton-back-81599{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                    }
+
+                    .vbutton-forward-81599{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                    }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="vblock-81599">
+            <div class="header-81599">In Other Media</div>
+
+            <div id="vblock-81599" class="content-81599"></div>
+
+            <div class="buttons-81599">
+                <div id="vbutton-back-81599" class="vbutton vbutton-back-81599"></div>
+                <div id="vbutton-forward-81599" class="vbutton vbutton-forward-81599"></div>        
+            </div>            
+        </div>
+
+        <script>
+            var vblock_properties = {
+                "item": {"size": {"width": 500, "height": 33}},
+                "hs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#dadada",
+                    "padding": {"top": 10, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#fff",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                var aElement;
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-81599', aElement =
+                                JsAPI.Dom.createDom('a', {
+                                    'href': 'javascript:void(0);'
+                                }, [
+                                    JsAPI.Dom.createDom('div', undefined, JsAPI.Dom.createDom('img', {
+                                        'class': 'image-81599',
+                                        'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 90, 90)
+                                    })),
+                                    JsAPI.Dom.createDom('div', 'title-81599', model['title'])
+                                ])
+                ));
+                JsAPI.Event.listen(aElement, 'click', function () {
+                    window.open(model['url'], '_blank');
+                });
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI | JsAPI.Dao.NewsField.IMAGE | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(
+                    JsAPI.Ui.Orientation.VERTICAL,
+                    81599,
+                    JsAPI.Dom.getElement('vblock-81599'),
+                    vblock_properties,
+                    vblock_renderer,
+                    vblock_opt_fields).then(function (block) {
+                        JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-81599'), 'click', function () {
+                            block.scrollBack();
+                        });
+
+                        JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-81599'), 'click', function () {
+                            block.scrollForward();
+                        }); 
+                    }, function (reason) {});
+        </script>
+    </body>
+</html>

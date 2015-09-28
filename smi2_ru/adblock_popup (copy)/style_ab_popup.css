@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic);
+
+.ab_overlay{
+  background: #000 !important;
+  opacity: 0.6 !important;
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  z-index: 100000 !important;
+  box-sizing: content-box !important;
+}
+
+.ab_popup{
+  min-width: 150px !important;
+  max-width: 380px !important;
+  padding: 30px !important;
+  position: absolute !important;
+  left: 50% !important;
+  margin-left: -220px !important;
+  top: 200px;
+  z-index: 100500 !important;
+  background: #fff !important;
+  border-radius: 5px !important;
+  -webkit-box-shadow: 0px 0px 30px 2px rgba(234,234,234,1) !important;
+  -moz-box-shadow: 0px 0px 30px 2px rgba(234,234,234,1) !important;
+  box-shadow: 0px 0px 30px 2px rgba(234,234,234,1) !important;
+  box-sizing: content-box !important;
+}
+
+  .ab_head{
+    overflow: hidden !important;
+    padding-bottom: 20px !important;
+    box-sizing: content-box !important;
+  }
+
+    .ab_sign{
+      display: block !important;
+      float: left !important;
+      box-sizing: content-box !important;
+    }
+
+    .ab_close:hover{
+      background-position: right top !important;
+      box-sizing: content-box !important;
+    }
+
+    .ab_close{
+      display: block !important;
+      float: right !important;
+      position: absolute !important;
+      top: 15px !important;
+      right: 15px !important;
+      width: 16px!important;
+      height: 16px !important; 
+      cursor: pointer !important;
+      background: url('http://static.smi2.net/srcimg/2515695.png') left top no-repeat !important;
+      overflow: hidden !important;
+      box-sizing: content-box !important;
+
+      text-indent: -9999px !important;
+    }  
+
+
+  .ab_content{
+    overflow: hidden !important;
+    padding-bottom: 13px !important;
+    box-sizing: content-box !important;
+
+    line-height: 24px !important;
+    color: #302f2f !important;
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 14px !important;
+  }
+
+  .ab_footer{
+    overflow: hidden !important;
+    box-sizing: content-box !important;
+  }
+
+    .ab_ok_button:hover{
+      background: #197bb5 !important;
+      box-sizing: content-box !important;
+    }
+
+    .ab_ok_button{
+      height: 30px !important;
+      padding: 0 12px !important;
+      float: left !important;
+      background: #208ccc !important;
+      border-radius: 4px !important;
+      cursor: pointer !important;
+      box-sizing: content-box !important;
+
+      font-family: 'PT Sans', sans-serif !important;
+      color: #fff !important;
+      line-height: 31px !important;
+      font-size: 13px !important;
+      text-transform: uppercase !important;
+    }

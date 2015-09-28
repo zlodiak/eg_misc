@@ -1,0 +1,30 @@
+{"type":"default","topics":null,"news":{"type":"default","size":{"width":250,"height":80},"background":"white","image":{"type":"default","size":{"width":60,"height":60},"border":{"size":2,"rounded":true,"color":"lightblue"},"padding":{"top":5,"bottom":10,"left":5,"right":10},"floating":"left","align":"left"},"topic":{"type":"default","font":{"size":11,"family":"Arial,sans-serif","style":"normal","weight":"bold","color":"#349400"},"padding":{"top":5,"bottom":0,"left":0,"right":10},"align":"left"},"title":{"type":"default","font":{"size":13,"family":"Arial,sans-serif","style":"normal","weight":"normal","color":"#008bcc"},"padding":{"top":0,"bottom":0,"left":0,"right":10},"align":"left"},"text":{"type":"default","font":{"size":12,"family":"Arial,sans-serif","style":"normal","weight":"normal","color":"black"},"padding":{"top":0,"bottom":0,"left":0,"right":10},"align":"left"}},"hs":{"size":1,"style":"solid","color":"#e3e3e3","padding":{"top":5,"bottom":5,"left":5,"right":5}},"vs":{"size":1,"style":"solid","color":"#e3e3e3","padding":{"top":5,"bottom":5,"left":5,"right":5}},"scroll":{"size":3,"rounded":false,"background":"white","color":"#349400","padding":{"top":2,"bottom":2,"left":0,"right":0}}}
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hblock"><div class="header">Популярные новости<div class="logo"><img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" height="20px"/></div></div><div id="hblock" class="content"></div></div><button id="hbutton-back" class="hbutton">Назад</button><button id="hbutton-forward" class="hbutton">Вперед</button>
+
+
+
+
+.hblock{width:798px;height:213px;border:1px solid #349400;}.hblock .header{background-color:#349400;color:white;height:40px;line-height:40px;padding-left:8px;font-size:15px;font-family:Arial,sans-serif;position:relative;}.hblock .header .logo{position:absolute;top:0px;right:8px;}.hblock .content{width:795px;height:171px;}.hbutton{background-color:#349400;color:white;border:none;padding:10px 15px;font-size:13px;font-family:Arial,sans-serif;outline:none;cursor:pointer;margin:4px;}
+
+
+JsAPI.Ui.HBlock.create(80468,"hblock").then(function(block){JsAPI.Event.listen(document.getElementById("hbutton-back"),"click",function(){block.scrollBack();});JsAPI.Event.listen(document.getElementById("hbutton-forward"),"click",function(){block.scrollForward();});},function(reason){});
+
+
+
+
+0
+
+
+===============

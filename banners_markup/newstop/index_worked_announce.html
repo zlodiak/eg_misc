@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>newstop.kz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+</head>
+
+<body>
+<div>
+    <style>
+        #sk_wrap0{
+            width: 334px; 
+
+            background-color: #fff;
+            background-image: -webkit-linear-gradient(to right, #ededee 20%, #fff 30%); 
+            background-image:    -moz-linear-gradient(to right, #ededee 20%, #fff 30%); 
+            background-image:     -ms-linear-gradient(to right, #ededee 20%, #fff 30%); 
+            background-image:      -o-linear-gradient(to right, #ededee 20%, #fff 30%); 
+            background-image:         linear-gradient(to right, #ededee 20%, #fff 30%);         
+            
+            list-style-type: none;       
+        }
+
+            #sk_wrap{
+                overflow: hidden;
+            }   
+
+                .sk_item{
+                    overflow: hidden; 
+                    /*border-bottom: 3px solid #ED3237;*/
+                    padding: 0px 0 20px;
+                }
+
+                    .sk_a1{
+                        display: inline-block; 
+                        float: left;
+                                                
+                    }
+
+                        .sk_a1 img{
+                            
+                        }
+
+                    .sk_a2:hover{
+                        text-decoration: underline;
+                    }
+
+                    .sk_a2{
+                        display: block; 
+                        margin-left: 166px; 
+                        padding-bottom: 5px;
+
+                        color: #000;
+                        font-family: 'PT Sans';
+                        font-size: 16px;
+                        font-weight: bold;              
+                        text-decoration: none;  
+                        text-transform: uppercase;          
+                    }   
+
+                    #sk_wrap p{
+                        color: #747474;
+                        display: block;
+                        font-family: 'PT Sans';
+                        font-size: 14px;
+
+                        margin: 0;
+                        margin-left: 167px;
+                    }                                                 
+    </style>
+    <li id='sk_wrap0'></li>
+</div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText);
+
+                console.log(massive.news[0].id);
+                console.log(massive.news[0].img);
+                console.log(massive.news[0].title);
+                console.log(massive.news[0].announce);
+                console.log(massive.news[0].url);
+
+                var _doc = document;   
+
+                var _sk_wrap0 = _doc.getElementById('sk_wrap0');
+                
+                var _sk_wrap = _doc.createElement("div");   
+                _sk_wrap.id = 'sk_wrap';      
+                _sk_wrap.innerHTML = '<div class="sk_item" style=""> \
+                    <a class="sk_a1" href="' + massive.news[0].url + '" target="_blank" style="  "> \
+                        <img src="' + massive.news[0].img +'" width="160" height="120" style="" /> \
+                    </a> \
+                    <a class="sk_a2" href="' + massive.news[0].url + '" target="_blank" style=" ">' + massive.news[0].title + '</a> \
+                    <p>' + massive.news[0].announce + '</p> \
+                </div>';      
+
+                _sk_wrap0.appendChild(_sk_wrap);
+            }
+        }
+
+        xmlhttp.open("GET","http://news.smi2.ru/data/js/81060.js",true);
+        xmlhttp.send();
+
+    </script>
+</body>
+</html>

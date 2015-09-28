@@ -1,0 +1,154 @@
+.sk_wrap0_81426{
+
+            }
+
+                .sk_wrap_81426{
+                    overflow: hidden;
+                    width: 240px;
+                    clear: both;
+                }
+
+                    .sk_head_outer_81426{
+                        background: #2c9ed5;
+                        margin-bottom: 10px;
+                        padding: 11px 0px 7px;
+                        margin: 0px;
+                        overflow: hidden;   
+                    }
+
+                        .sk_head_81426{
+                            display: block; 
+                            float: left;
+                            width: 170px;
+                            margin-left: 8px;
+                            display: none;
+
+                            color: white;
+                            font-family: Arial, sans-serif;
+                            font-size: 16px;
+                        }       
+
+                        .sk_logo_81426{
+                            display: block;
+                            margin-right: 8px;
+                            float: right;
+                            width: 52px;
+                            height: 20px;
+                            position: relative;
+                            top: -1px;
+                            border: none;
+                            outline: none;
+                        }
+
+                            .sk_logo_81426 img{
+                                width: 52px;
+                                height: 20px;                       
+                                display: block;
+                                border: none;
+                                outline: none;                                
+                            }
+
+                        .sk_frame_81426{
+                            border: 1px solid #2c9ed5;
+                        }
+
+                            .sk_frame_81426 > div > div{
+                                overflow: hidden; 
+                                
+                                height: auto !important;
+                                width: 238px !important;
+                            }
+
+                            .sk_frame_81426 > div > div> div:nth-child(even){
+                                display: none !important;
+                            }         
+
+                                .sk_frame_81426 > div > div > div{   
+                                    background: #F5F5F5;                            
+                                }                             
+
+                                .sk_frame_81426 > div > div> div:nth-child(4n+1){
+                                    background: #fff;
+                                }     
+
+                                .sk_frame_81426 > div > div > div > div,
+                                .sk_frame_81426 > div > div > div{
+                                    height: auto !important;
+                                }
+
+                                .sk_frame_81426 > div > div > div > div > div{
+                                    padding-left: 7px !important;
+                                }
+
+                                    .sk_frame_81426 > div > div > div > div > div a{
+                                        display: block; 
+                                        width: 16px !important;
+                                        height: 16px !important;
+                                        padding: 10px 0;
+                                        float: left !important;
+                                    }
+
+                                        .sk_frame_81426 > div > div > div > div > div a img{
+                                            display: block !important;
+                                            width: 16px !important;
+                                            height: 16px !important;
+                                            background: none !important;
+                                            border: none !important;
+                                        }
+
+                                    .sk_frame_81426 > div > div > div > div > div + div:hover,
+                                    .sk_frame_81426 > div > div > div > div > div + div a:hover{
+                                        text-decoration: none;
+                                        color: #252525;
+                                        /*background: none !important;*/
+                                    }
+
+                                    .sk_frame_81426 > div > div > div > div > div + div{
+                                        display: block !important;
+                                        margin: 0 !important;
+                                        margin-left: 23px !important;
+                                        text-align: left !important;
+                                        overflow: hidden !important;
+                                        width: 195px !important;
+                                        
+                                    }
+
+                                        .sk_frame_81426 > div > div > div > div > div + div a{
+                                            color: #252525 !important;
+                                            cursor: auto !important;
+                                            display: block !important;
+                                            font-family: Arial, sans-serif !important;
+                                            font-size: 12px !important;
+                                            text-decoration: none !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                            overflow: hidden !important;
+
+                                            width: 200px !important;
+                                        }     
+
+
+            .my_container{
+                width: 240px;
+                height: 360px;
+            }     
+
+                .my_container > div{
+                    top: 0 !important;
+                }
+
+
+
+
+
+
+<div class="sk_wrap0_81426">
+            <div class="sk_wrap_81426">
+                <div class="sk_head_outer_81426">
+                    <div class="sk_head_81426">Популярные новости</div>
+                    <a class="sk_logo_81426" href="smi2.ru"><img src="http://static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" alt=""></a>      
+                </div>
+
+                <div class="sk_frame_81426"><div class="my_container" id="mycontainer"></div></div>
+            </div>
+        </div>                

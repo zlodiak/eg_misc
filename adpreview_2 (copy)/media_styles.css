@@ -1,0 +1,348 @@
+/***/
+#mCSB_2_scrollbar_vertical{
+  right: -10px !important;
+}
+
+.container-all.menu-opened .overlay-wrap {
+  -webkit-transform: translate(224px, 0);
+  -moz-transform: translate(224px, 0);
+  -o-transform: translate(224px, 0);
+  -ms-transform: translate(224px, 0);
+  transform: translate(224px, 0);
+}
+
+
+@media (max-width: 1201px) {
+ 
+}
+
+@media (min-width: 1201px) {
+    body{
+      background: lime;
+    }
+
+    .left-column{
+      left: -224px;
+    }
+
+    .overlay-wrap{
+      padding-left: 0;
+    }     
+
+    .right-column {
+        width: 551px;
+        display: block;
+    }
+
+    .sk_right_column .item .body {
+        width: 462px;
+    }
+
+    .overlay-wrap {
+        padding-right: 550px;
+    }
+
+    .top-panel {
+        padding-right:550px;
+        padding-left: 0;
+    }
+
+    .top-panel .first-line .logo {
+      left: 80px;
+    }      
+
+    .top-panel .first-line .menu-btn {
+      display: block;
+      z-index: 10000;
+    }    
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }  
+
+
+    .container-all.menu-opened .overlay-wrap{
+      padding-left: 0px;
+      padding-right: 778px !important;
+    }        
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }   
+
+    .container-all.menu-opened .top-panel{
+      padding-left: 0;
+      padding-right: 774px !important;
+    }      
+
+    .container-all.menu-opened .sk_first_line .title{
+      display: none;
+    }    
+
+}
+
+
+@media (min-width: 1301px) {
+    body{
+      background: red;
+    }
+
+    .left-column{
+      left: -224px;
+    }
+
+    .overlay-wrap{
+      padding-left: 0;
+    }     
+
+    .right-column {
+        width: 651px;
+        display: block;
+    }
+
+    .sk_right_column .item .body {
+        width: 562px;
+    }
+
+    .overlay-wrap {
+        padding-right: 650px;
+    }
+
+    .top-panel {
+        padding-right: 650px;
+    }
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }   
+
+
+    .container-all.menu-opened .overlay-wrap{
+      padding-left: 0px;
+      padding-right: 878px !important;
+    }        
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }   
+
+    .container-all.menu-opened .top-panel{
+      padding-left: 0;
+      padding-right: 874px !important;
+    }      
+
+    .container-all.menu-opened .sk_first_line .title{
+      display: none;
+    }       
+  
+}
+
+
+@media (min-width: 1501px) {
+    body{
+      background: orange;
+    }
+
+    .left-column{
+      left: 0px;
+    }     
+
+    .left-column{
+      left: 0px;
+    }
+
+    .right-column {
+        width: 651px;
+        display: block;
+    }
+
+    .sk_right_column .item .body {
+        width: 562px;
+    }
+
+    .top-panel {
+        padding-right: 650px;
+        padding-left: 224px;
+    }
+
+    .top-panel .first-line .logo {
+      left: 15px;
+    }    
+
+    .top-panel .first-line .menu-btn {
+      display: none;
+    }     
+
+    .container-all .overlay-wrap{
+      padding-left: 224px;
+      padding-right: 650px;
+    } 
+
+    .container-all.menu-opened .overlay-wrap{
+      padding-left: 0px;
+      padding-right: 878px !important;
+    }        
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }   
+
+    .container-all.menu-opened .top-panel{
+      padding-left: 0;
+      padding-right: 874px !important;
+    }  
+
+    .container-all.menu-opened .sk_first_line .title{
+      display: block;
+    }  
+
+}
+
+
+
+@media (min-width: 1900px) {
+    body{
+      background: yellow;
+    }
+
+    .right-column {
+        width: 701px;
+        display: block;
+    }
+
+    .sk_right_column .item .body {
+        width: 612px;
+    }
+
+    .overlay-wrap {
+        padding-right: 700px !important;
+    }
+
+    .top-panel {
+        padding-right: 700px !important;
+    }
+
+    .masonry .item,
+    .masonry .grid-sizer {
+        width: 25%;
+    }    
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+    body{
+      background: cyan;
+    }
+
+/*.sk_right_column{
+  position: static !important;
+}*/    
+
+   .right-column{
+      position: absolute;
+      height: 100%;
+    }
+
+    .left-column {
+        left: -224px;
+    }
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }    
+
+    .container-all{
+        width: 1161px;
+    }
+    .overlay-wrap {
+        width: 852px;
+        padding-left: 0px !important;
+    }
+
+    .top-panel {
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+        width: 561px;
+    }
+
+    #news-list .item {
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      -webkit-transform: none !important;
+      transform: none !important;
+      width: 50% !important;
+    }    
+
+    .top-panel .first-line .title{
+
+    }   
+
+    .sk_info_block .img{
+      width: 22%;
+      padding-bottom: 20px;
+    }
+
+    .sk_info_block .body {
+      width: 75%;
+    } 
+
+    .top-panel .first-line .logo {
+      left: 80px;
+    }    
+
+    .top-panel .first-line .menu-btn {
+      display: block;
+      z-index: 10000;
+    }    
+
+    .container-all.menu-opened .sk_first_line .title{
+      display: none;
+    }
+
+    .container-all.menu-opened .overlay-wrap{
+      padding-left: 0px;
+      padding-right: 517px !important;
+    }        
+
+    .container-all.menu-opened .mp-overlay {
+      display: block;
+    }
+
+    .container-all.menu-opened .left-column {
+      left: 0;
+    }   
+
+    .container-all.menu-opened .top-panel{
+      padding-left: 0;
+      padding-right: 874px !important;
+    }  
+
+}

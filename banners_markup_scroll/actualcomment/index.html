@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>vertical</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .smi2adblock_80247  { border-style: solid; border-width: 1px; border-color: #CCCCCC; } 
+            .smi2adblock_80247 a { font-family: Arial,sans-serif; color: #333333; font-size: 13px; text-decoration: none;line-height:15px;display:block; } 
+            .smi2adblock_80247 td { border-style: none; } 
+            .smi2adblock_80247 tr td:last-child { border-right-style: none; } 
+            .smi2adblock_80247 tr:last-child td { border-bottom-style: none; } 
+            #mycontainer_80247{
+                width: 228px;
+                height: 261px;
+                
+            }
+                #mycontainer_80247 div,
+                #mycontainer_80247 > div > div > div > div,
+                #mycontainer_80247 > div > div > div{
+                    clear: none !important;
+                }
+
+            .smi2adblock_80247{
+                position: relative;
+                max-width: 238px;
+            }
+
+            #back_80247, #forward_80247{
+                position: absolute;
+                z-index: 100;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                background: url('http://static.smi2.net/static/blocks/img/arrows/arr_spr.png') left top no-repeat;
+                outline: none;
+                width: 33px;
+                height: 26px;  
+                bottom: 6px;                 
+            }
+
+            #back_80247{
+                left: 0;
+                background-position: 0 0;
+                right: 38px !important;
+                left: auto;
+                
+            }
+
+            #forward_80247{
+                right: 0px;
+                background-position: -33px 0;
+            } 
+
+        </style>
+    </head>
+
+    <body>
+        <div class="smi2adblock_80247">
+            <div style="background:#d8dee1; color:#333;font-weight:bold;font-size:16px;padding:5px 10px;">Новости партнеров</div>
+            <div style="padding:10px 10px 47px 0px;">
+                <div id="mycontainer_80247"></div>
+
+                <button id="back_80247"></button>
+                <button id="forward_80247"></button>                    
+            </div>
+        </div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v0.ru_RU.js"></script>
+
+        <script>
+            /* Создание вертикального блока */
+            JsAPI.Ui.VBlock.create(80247, "mycontainer_80247").then(function (block) {
+                /* Документ */
+                var _doc = document;
+
+                /* Родительский элемент */
+                var _parent = _doc.getElementById("mycontainer_80247");
+
+                /* Кнопка Назад */
+                var back = _doc.getElementById("back_80247");
+
+                /* Регистрация обработчика click-события для элемента кнопки Назад */
+                JsAPI.Event.listen(back, "click", function () {
+                    /* Выполнить перемещение содержимого блока назад */
+                    block.scrollBack();
+                });
+
+                /* Кнопка Вперед */
+                var forward = _doc.getElementById("forward_80247");
+
+                /* Регистрация обработчика click-события для элемента кнопки Вперед */
+                JsAPI.Event.listen(forward, "click", function () {
+                    /* Выполнить перемещение содержимого блока вперед */
+                    block.scrollForward();
+                });
+
+            },function(reason){
+                /* Обработка ошибки */
+            });
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+

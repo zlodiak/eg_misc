@@ -1,0 +1,65 @@
+matr 4_2
+120
+80
+
+
+<div class="sk_wrap_outer">
+	<div class="sk_wrap">
+		<div class="sk_head">Новости партнеров</div>%ITEMS%
+	</div>
+</div>
+
+<style>
+	.sk_wrap_outer{
+		margin-top: 20px;
+	}
+
+		.sk_wrap{
+			overflow: hidden; 
+			margin-bottom: 40px;
+			border: 1px solid #ccc;
+			padding: 0 13px;		
+		}
+
+			.sk_head{
+				font-family: 'Times New Roman', serif;
+				font-size: 22px;
+				text-indent: 2px;
+				line-height: 13px;
+				padding: 07px 7px 0px;
+				background: #ebebeb;
+				margin: 0 -13px 13px;
+				height: 31px;
+			}
+
+			.sk_item{
+				width: 49%; 
+				overflow: hidden; 
+				display: inline-block; 
+				vertical-align: top; 
+				margin-bottom: 13px;
+			}
+
+			.sk_a2{
+				color: #333;
+				font-family: 'Open Sans Webfont', Arial, sans-serif;
+				font-size: 13px;
+				font-weight: bold;
+				line-height: 20px;
+				text-align: left; 
+				text-decoration: none; 
+
+				margin-left:127px; 
+				display: block;
+			}
+</style>
+
+
+
+<div class="sk_item" style="">
+	<a class="sk_a1" href="%URL%" target="_blank" style="display: block; width: 90px; float: left; ">
+		<img src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" style="border: solid 1px #ccc" />
+	</a>
+
+	<a class="sk_a2" href="%URL%" target="_blank" style="">%TITLE%</a>
+</div>

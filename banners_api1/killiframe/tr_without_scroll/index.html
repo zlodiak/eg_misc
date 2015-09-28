@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>killiframe - horiz without scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .hblock-82816 {
+                margin: 0;
+                position: relative;
+                min-width: 700px;
+                overflow: hidden;
+
+                text-align: left !important;
+            }
+
+            .hblock-82816 .content-82816 {
+                height: 90px;
+                overflow: hidden;
+            }
+
+                .hblock-82816 .content-82816 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .hblock-82816 .item-82816 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .hblock-82816 .image-82816 {
+                float: left;
+                display: block;
+                width: 90px;
+                height: 90px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .hblock-82816 .title-82816 a:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            .hblock-82816 .title-82816{
+                position: static !important;
+                margin-top: 7px;
+            }
+
+                .hblock-82816 .title-82816 a {
+                    display: block;
+                    overflow: hidden;
+                    height: 81px;
+                    margin-left: 88px;
+                    text-align: left !important;
+
+                    color: #000 !important;
+                    font-family: Arial, sans-serif !important;
+                    font-size: 14px !important;
+                    font-weight: normal !important;
+                    text-decoration: none !important;
+                }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-82816">
+            <div id="hblock-82816" class="content-82816"></div>
+        </div>
+
+        <script>    
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 200, "height": 90}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "#fff",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82816', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-82816',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 90, 90)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-82816', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82816, JsAPI.Dom.getElement('hblock-82816'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {          
+            }, function (reason) {});          
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/*.animate(@time: 0.3s, @type: fadeInRight) {
+    -webkit-animation-name: @type;
+    animation-name: @type;
+    -webkit-animation-duration: @time;
+    animation-duration: @time;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    .gpuSpeed()
+}*/
+body.modal-open .container-all {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+.modal-header {
+  padding: 15px 30px;
+  border-bottom: none;
+}
+.modal-body {
+  padding: 15px 30px;
+}
+h4 {
+  color: #000;
+  font-size: 18px;
+}

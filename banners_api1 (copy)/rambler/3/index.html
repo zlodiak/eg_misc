@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>horizontal 82290</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-82290:after {
+            position: absolute;
+            right: 9px;
+            top: 8px;
+            z-index: 100;
+            width: 3px;
+            height: 244px;
+            background: #efefef;
+
+            content: '';
+        }
+
+        .vblock-82290 {
+            height: 244px;
+            overflow: hidden;
+        }
+
+        .vblock-82290 .content-82290 {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .vblock-82290 .scroll-container-item-82290{
+            top: 0 !important;
+        }
+
+        .vblock-82290 .inner-82290 {
+            padding: 5px 3px 5px;
+            background-color: #efefef;
+
+        }
+        .vblock-82290 .item-82290:hover {
+            box-shadow: 0 0 5px 2px #ccc;
+        }
+
+        .vblock-82290 .item-82290 {
+            padding: 20px;
+            text-decoration: none;
+            display: block;
+            background-color: #fff;
+            text-align: right;
+            height: 194px;
+        }
+        .vblock-82290 .title-82290:before {
+            content: "«";
+            text-indent: -7px;
+            display: inline-block;
+        }
+        .vblock-82290 .title-82290:after {
+            content: "»";
+        }
+
+        .vblock-82290 .title-82290 {
+            color: #000;
+            display: block;
+            font-family: 'PT Sans', arial, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+        .vblock-82290 .text-82290 {
+            color: black;
+            display: inline-block;
+            font-family: 'PT Sans', arial, sans-serif;
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: normal;
+            padding-right: 10px;
+            text-decoration: none;
+            vertical-align: middle;
+            width: 70%;
+            max-height: 91px;
+            overflow: hidden;
+        }
+        .vblock-82290 .item-82290 img {
+            display: inline-block;
+            border-radius: 50px;
+            border: none;
+            width: 50px;
+            height: 50px;
+
+            vertical-align: middle;
+        }
+    </style>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+
+</head>
+<body>
+
+    <div class="vblock-82290">
+        <div id="vblock-82290" class="content-82290"></div>                
+    </div>
+
+    <script>
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 260, "height": 300}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#000",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent,
+                    JsAPI.Dom.createDom('div', 'inner-82290',
+                    JsAPI.Dom.createDom('a', {
+                                'class': 'item-82290',
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, [
+                                JsAPI.Dom.createDom('div', 'title-82290', model['title']),
+                                JsAPI.Dom.createDom('div', 'text-82290', model['text']),
+                                 JsAPI.Dom.createDom('img', {
+                                 'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 50, 50)
+                                 })
+                            ]
+                    )));
+        };        
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TEXT 
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 82290, JsAPI.Dom.getElement('vblock-82290'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

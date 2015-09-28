@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title data-default="Новостной агрегатор СМИ2 - все главные новости России">
+        Новостной агрегатор СМИ2 - все главные новости России    </title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+            <link rel="shortcut icon" href="/favicon.ico">
+    
+            <meta name="apple-itunes-app" content="app-id=952182633, affiliate-data=at=10lRrz">
+        <meta name="google-play-app" content="app-id=ru.smi2.news.android">
+    
+    <link rel="apple-touch-icon-precomposed" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-152.png">
+
+    <link href="//static.smi2.net/static/aggregator_v2/css/bootstrap-tn.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/bootstrap-custom.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/jquery.mCustomScrollbar.css" rel="stylesheet" type='text/css'>
+    <link href="css/style.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/odometer-theme-default.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/js/smartbanner/jquery.smartbanner.css" rel="stylesheet" type='text/css'>
+
+    <link href="//static.smi2.net/static/aggregator_v2/css/resolution.css" rel="stylesheet" type='text/css'>
+
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery.scrollTo.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/odometer.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/smartbanner/jquery.smartbanner.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/visibility-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/script.js"></script>
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/aggregator.js"></script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript" src="//static.smi2.net/static/ie/PIE.js"></script>
+    <![endif]-->
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    
+    
+            <script type='text/javascript'>
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+            (function() {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+            })();
+        </script>
+
+        <script type='text/javascript'>
+            googletag.cmd.push(function() {
+                googletag.defineSlot('/424561488/240x400', [240, 400], 'div-gpt-ad-1427730181300-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+
+        <script type='text/javascript'>
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/424561488/180x150', [180, 150], 'div-gpt-ad-1434399375664-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        </script>
+
+        <script>
+          $( document ).ready(function() {
+            installPanelCheck();
+
+            $(window).resize(function(){
+              installPanelCheck();
+            });
+
+            function installPanelCheck(){
+              var leftCol = $('.left-column'),
+                  rightCol = $('.right-column'),
+                  topBlock = $('#top-block'),
+                  contentBlock = $('#content-block'),
+                  winWidth = $(window).width(),
+                  leftColOffset,
+                  rightColOffset,
+                  topBlockOffset,
+                  contentBlockOffset;
+
+              if(winWidth > 500){
+                if ($('#pluginInstall').is(':visible')) {
+                  leftColOffset = 80;
+                  rightColOffset = 80;
+                  topBlockOffset = 60;
+                  contentBlockOffset = 60;
+                }else{
+                  leftColOffset = 20;
+                  rightColOffset = 20;
+                  topBlockOffset = 0;
+                  contentBlockOffset = 60;               
+                }
+              }else{
+                if ($('#pluginInstall').is(':visible')) {
+                  leftColOffset = 190;
+                  rightColOffset = 190;
+                  topBlockOffset = 170;
+                  contentBlockOffset = 230;
+                }else{
+                  leftColOffset = 20;
+                  rightColOffset = 20;
+                  topBlockOffset = 0;
+                  contentBlockOffset = 60;               
+                }
+              }
+
+              leftCol.css({'padding-top': leftColOffset + 'px'});
+              rightCol.css({'padding-top': rightColOffset + 'px'});
+              topBlock.css({'top': topBlockOffset + 'px'});
+              contentBlock.css({'padding-top': contentBlockOffset + 'px'});              
+            }
+
+            $('#installPluginClose').on('click', function(){
+              $('#pluginInstall').hide();
+              installPanelCheck();
+            });
+          });
+        </script>
+    
+</head>
+<body class="">
+    <div class="container-all">
+        <div class="plugin-install" id="pluginInstall">
+            <div class="plugin-install-inner">
+                <img class="logo" src="images/logo_promo.png" alt="" />
+                <div class="text"> — место для самых интересных новостей. Установите плагин и будьте в курсе главных событий!<a class="install-button" href="#"><img class="" src="images/install_button_promo.png" alt="" /></a></div>                
+            </div>
+            <span class="close-button" id="installPluginClose"><img class="" src="images/close_button_promo.png" alt="" /></span>
+        </div>
+
+        <div class="left-column">
+            <div class="left-column-inner">
+                <ul class="main-menu">
+                                            <li>
+                            <ul>
+                                                                    <li class="active"><a href="/?sort=null" class="icon-fire">Главные новости</a></li>
+                                                                    <li class=""><a href="/?sort=views.search" class="">Что ищут</a></li>
+                                                                    <li class=""><a href="/?sort=views.social" class="">Соцсети</a></li>
+                                                            </ul>
+                        </li>
+                    
+                                            <li>
+                            <ul id="topics-list">
+                                                                    <li class=""><a href="/?cohort=11" class="">Экономика и финансы</a></li>
+                                                                    <li class=""><a href="/?cohort=12" class="">Авто</a></li>
+                                                                    <li class=""><a href="/?cohort=13" class="">Спорт</a></li>
+                                                                    <li class=""><a href="/?cohort=14" class="">Недвижимость</a></li>
+                                                            </ul>
+                        </li>
+                    
+                                            <li>
+                            <ul>
+                                                                    <li class="sk_prices exchange-current" data-code="USDRUB">
+                                        <a href="/rateCurrency" style="padding-left: 0;">
+                                            <div class="price ex-value">68.42</div>
+                                            <div class="delta ex-delta up" style="">1.22</div>
+                                            <div class="text ex-label">рублей за доллар</div>
+                                        </a>
+                                    </li>
+                                                                    <li class="sk_prices exchange-current" data-code="EURRUB">
+                                        <a href="/rateCurrency" style="padding-left: 0;">
+                                            <div class="price ex-value">76.3</div>
+                                            <div class="delta ex-delta up" style="">1.51</div>
+                                            <div class="text ex-label">рублей за евро</div>
+                                        </a>
+                                    </li>
+                                                                    <li class="sk_prices exchange-current" data-code="BRENT">
+                                        <a href="/rateCurrency" style="padding-left: 0;">
+                                            <div class="price ex-value">49.12</div>
+                                            <div class="delta ex-delta " style="display:none"></div>
+                                            <div class="text ex-label">$ за баррель Brent</div>
+                                        </a>
+                                    </li>
+                                
+                                
+                                                                    <li>
+                                        <a class="buy-currency-button" href="http://news.smi2.ru/newdata/news?ad=749008&bl=4000&st=14&ct=adpreview&out=1" target="_blank">
+                                            Купить по выгодному курсу
+                                            <img class="finam-logo" src="//static.smi2.net/static/logo/finam-logo.png" alt="" />
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </li>
+                    
+                    <li>
+                        <ul>
+                                                            <li><a href="#" class="icon-question" data-toggle="modal" data-target="#aboutModal">О проекте</a></li>
+                            
+                            <li><a href="http://smi2.net/pages/advertisers" target="_blank">Рекламодателям</a></li>
+                        </ul>
+                    </li>
+
+                                        <li>
+                        <ul>
+                            <li><a href="#" class="icon-pin" data-toggle="modal" data-target="#regionModal">Регион: Россия</a></li>
+                                                    </ul>
+                    </li>
+                    
+                                    </ul>
+
+
+                                    <!-- /424561488/180x150 -->
+                    <div id='div-gpt-ad-1434399375664-0' style='height:150px; width:180px;'>
+                        <div id="div-gpt-ad-1434399375664-0-title" style="text-align: center;font-weight: bold;margin-bottom: 5px;display: none">У ПАРТНЕРОВ СМИ2</div>
+                        <script type='text/javascript'>
+                            googletag.cmd.push(function () {
+                                googletag.display('div-gpt-ad-1434399375664-0');
+                            });
+                        </script>
+                    </div>
+                    <div style="height: 20px"></div>
+
+                    <script type="application/javascript">
+                        $(document).ready(function () {
+                            var count = 0, interval = setInterval(function () {
+                                var $block = $('#div-gpt-ad-1434399375664-0'),
+                                    $iframe = $('iframe', $block);
+
+                                if ($iframe.length) {
+                                    if ($('body', $iframe[0].contentDocument).html()) {
+                                        $('#' + $block.attr('id') + '-title').show();
+                                        interval && clearInterval(interval);
+                                    }
+                                }
+
+                                if (++count >= 20) {
+                                    interval && clearInterval(interval);
+                                }
+                            }, 2000);
+                        });
+                    </script>
+                
+                            </div>
+
+        </div>
+
+        <div class="right-column">
+            <div class="right-column-inner">
+                <div class="block info-block">
+                    <div id="time" class="day"></div>
+                                    </div>
+
+                <div class="block block-240-400">
+                                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- 240x400 для старой транзитки -->
+                        <ins class="adsbygoogle"
+                        style="display:inline-block;width:240px;height:400px"
+                        data-ad-client="ca-pub-7271064300430605"
+                        data-ad-slot="3678760778"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                                    </div>
+
+                                    <div class="block block-240-400">
+                        <!-- 240x400 -->
+                        <div id='div-gpt-ad-1427730181300-0' style='width:240px; height:400px;'>
+                            <script type='text/javascript'>
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1427730181300-0'); });
+                            </script>
+                        </div>
+                    </div>
+                
+                                    <section class="section download-buttons">
+                        <div class="delimeter"></div>
+                        <h3 class="h3 header">Скачайте приложение СМИ2 на смартфон</h3>
+
+                        <div class="links-wrap">
+                            <a class="link link-right" target="_blank" href="https://play.google.com/store/apps/details?id=ru.smi2.news.android"><img src="//static.smi2.net/static/aggregator_v2/img/google.png" alt=""></a>
+                            <a class="link" target="_blank" href="https://itunes.apple.com/ru/app/smi2-novosti/id952182633"><img src="//static.smi2.net/static/aggregator_v2/img/appstore.png" alt=""></a>
+                        </div>
+                    </section>
+                            </div>
+        </div>
+
+        <div class="mp-overlay"><!----></div>
+
+        <div class="overlay-wrap">
+
+            <div id="top-block" class="top-panel">
+                <div class="first-line">
+                    <a class="menu-btn" href="#"><!----></a>
+                    <div class="logo">
+                        <a href="/">
+                            <img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="sort-block">
+                                            <a href="/?time=24" class="">Сутки</a>
+                                            <a href="/?time=1" class="active">Час</a>
+                                        </div>
+                    <div class="title">
+                                                    Главные новости
+                                            </div>
+                </div>
+
+                <div id="refresh-block" class="subscribe-line refresh-line">
+                    <div class="title">Показать <strong id="refresh-new-count"></strong> <span id="refresh-new-comment" data-one="новую запись" data-two="новые записи" data-five="новых записей"></span></div>
+                </div>
+            </div>
+
+            <div id="content-block" class="content-wrap" style="padding-top: 60px;">
+            <div class="content">
+                <div id="articles-list" class="news-block" style="position: relative">
+                    
+                                            <div id="af12836527" class="news-item-big article-full " data-id="12836527" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=446755&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836527&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjAsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY1MjcsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdnimg.rg.ru/img/content/116/13/95/4646_default.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rg.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">rg.ru</span>
+                                        <span class="date">7 Сентября, 08:32</span>
+                                    </span>
+                                    <span class="title article-title">Крупный метеорит упал в столице Таиланда</span>
+                                    <span class="desc article-announce">Крупный метеорит упал в столице Таиланда</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://cdnimg.rg.ru/img/content/116/13/95/4646_default.jpg" data-social-link="http://smi2.ru/?article=12836527">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836527" href="http://news.smi2.ru/newdata/news?ad=446755&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836527&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjAsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY1MjcsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="news-item article" data-id="12836527">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rg.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Крупный метеорит упал в столице Таиланда</span>
+                        </a>
+                                            <div id="af12836028" class="news-item-big article-full " data-id="12836028" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=588778&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836028&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYwMjgsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://photocdn4.itar-tass.com/fit/400x300_b2b00b17/tass/m2/uploads/i/20150907/4082819.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/itar-tass.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">tass.ru</span>
+                                        <span class="date">7 Сентября, 08:25</span>
+                                    </span>
+                                    <span class="title article-title">СМИ: крупный метеорит упал в Таиланде</span>
+                                    <span class="desc article-announce">В понедельник жители Бангкока могли наблюдать, как по небу пролетел крупный неизвестный объект, оставляя за собой полосу белого дыма</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://photocdn4.itar-tass.com/fit/400x300_b2b00b17/tass/m2/uploads/i/20150907/4082819.jpg" data-social-link="http://smi2.ru/?article=12836028">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836028" href="http://news.smi2.ru/newdata/news?ad=588778&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836028&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYwMjgsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836028">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/itar-tass.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">СМИ: крупный метеорит упал в Таиланде</span>
+                        </a>
+                                            <div id="af12836394" class="news-item-big article-full " data-id="12836394" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836394&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjIsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYzOTQsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://rsncontent.ru/static/posts/2015/09/385994/gr/north/209484bac0408ac4c78b2fa33aa1fac0.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">rusnovosti.ru</span>
+                                        <span class="date">7 Сентября, 08:41</span>
+                                    </span>
+                                    <span class="title article-title">В Европу под видом беженцев проникли более 4 тысяч боевиков ИГ</span>
+                                    <span class="desc article-announce">В Европу под видом беженцев проникли более 4 тысяч боевиков ИГ, сообщает газета Sunday Express со ссылкой на источник в организации. По его словам, члены запрещённой в РФ группировки вливаются в поток мигрантов в турецких...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://rsncontent.ru/static/posts/2015/09/385994/gr/north/209484bac0408ac4c78b2fa33aa1fac0.jpg" data-social-link="http://smi2.ru/?article=12836394">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836394" href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836394&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjIsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYzOTQsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836394">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">В Европу под видом беженцев проникли более 4 тысяч боевиков ИГ</span>
+                        </a>
+                                            <div id="af12836608" class="news-item-big article-full " data-id="12836608" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=450767&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836608&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjMsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2MDgsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://pics.utro.ru/utro_photos/2015/09/07/1254532big.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/utro.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">utro.ru</span>
+                                        <span class="date">7 Сентября, 09:00</span>
+                                    </span>
+                                    <span class="title article-title">СМИ: Порошенко задумался о походе на Москву</span>
+                                    <span class="desc article-announce">Президент Украины представил себя Наполеоном. В интервью отечественным телеканалам он назвал три сценария дальнейшего развития событий в Донбассе. Один из них - путь французского императора в Россию</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://pics.utro.ru/utro_photos/2015/09/07/1254532big.jpg" data-social-link="http://smi2.ru/?article=12836608">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836608" href="http://news.smi2.ru/newdata/news?ad=450767&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836608&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjMsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2MDgsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="news-item article" data-id="12836608">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/utro.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">СМИ: Порошенко задумался о походе на Москву</span>
+                        </a>
+                                            <div id="af12836045" class="news-item-big article-full " data-id="12836045" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836045&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjQsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYwNDUsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://rsncontent.ru/static/posts/2015/09/385991/gr/north/aa830f84376b3a7ea18725a8504bb157.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">rusnovosti.ru</span>
+                                        <span class="date">7 Сентября, 08:17</span>
+                                    </span>
+                                    <span class="title article-title">Игорь Сечин счёл невозможным вступление России в ОПЕК</span>
+                                    <span class="desc article-announce">Игорь Сечин счёл невозможным вступление России в ОПЕК. Глава «Роснефти» заявил, что не видит в этом смысла. Причинами бизнесмен назвал технологические различия в методах добычи нефти и тот факт, что российский рынок...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://rsncontent.ru/static/posts/2015/09/385991/gr/north/aa830f84376b3a7ea18725a8504bb157.jpg" data-social-link="http://smi2.ru/?article=12836045">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836045" href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836045&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjQsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzYwNDUsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836045">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Игорь Сечин счёл невозможным вступление России в ОПЕК</span>
+                        </a>
+                                            <div id="af12836673" class="news-item-big article-full " data-id="12836673" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836673&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjUsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2NzMsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn12.img22.ria.ru/images/121311/59/1213115933.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">ria.ru</span>
+                                        <span class="date">7 Сентября, 08:57</span>
+                                    </span>
+                                    <span class="title article-title">Ляшко об избрании Порошенко: самая большая ошибка со времен Майдана</span>
+                                    <span class="desc article-announce">Петр Порошенко говорит неправду, заявляя, что Радикальная партия вышла из коалиции и присоединилась к оппозиционному блоку, чтобы нападать на власть за деньги олигархов, заявил глава Радикальной партии Украины Олег Ляшко.</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://cdn12.img22.ria.ru/images/121311/59/1213115933.jpg" data-social-link="http://smi2.ru/?article=12836673">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836673" href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836673&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjUsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2NzMsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836673">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Ляшко об избрании Порошенко: самая большая ошибка со времен Майдана</span>
+                        </a>
+                                            <div id="af12836596" class="news-item-big article-full -noimg" data-id="12836596" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=329108&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836596&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjYsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY1OTYsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/echo.msk.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">echo.msk.ru</span>
+                                        <span class="date">7 Сентября, 08:39</span>
+                                    </span>
+                                    <span class="title article-title">Евгений Киселёв, Увязнем, братцы, в Сирии?</span>
+                                    <span class="desc article-announce">Что теперь делать официальным кремлевским представителям? Опять рассказывать про добровольцев, на этот раз оправившихся на время отпуска выручать сирийских единоверцев...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836596">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836596" href="http://news.smi2.ru/newdata/news?ad=329108&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836596&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjYsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY1OTYsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="news-item article" data-id="12836596">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/echo.msk.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Евгений Киселёв, Увязнем, братцы, в Сирии?</span>
+                        </a>
+                                            <div id="af12836682" class="news-item-big article-full " data-id="12836682" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836682&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjcsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2ODIsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn12.img22.ria.ru/images/121311/59/1213115933.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">ria.ru</span>
+                                        <span class="date">7 Сентября, 08:47</span>
+                                    </span>
+                                    <span class="title article-title">Порошенко вмешался в конфликт между Яценюком и Саакашвили</span>
+                                    <span class="desc article-announce">Возникший конфликт между премьером и Одесским губернатором отражает недовольство реформами, проводимыми в государстве, считает президент Украины, подчеркивая, что политикам не стоит выносить на публику такие вещи.</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://cdn12.img22.ria.ru/images/121311/59/1213115933.jpg" data-social-link="http://smi2.ru/?article=12836682">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836682" href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836682&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjcsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY2ODIsImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836682">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Порошенко вмешался в конфликт между Яценюком и Саакашвили</span>
+                        </a>
+                                            <div id="af12836498" class="news-item-big article-full -noimg" data-id="12836498" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=402984&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836498&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjgsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY0OTgsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/fontanka.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">fontanka.ru</span>
+                                        <span class="date">7 Сентября, 08:35</span>
+                                    </span>
+                                    <span class="title article-title">На Лесбосе лагерь беженцев забросали &quot;коктейлями Молотова&quot;</span>
+                                    <span class="desc article-announce">В городе Митилини на острове Лесбос арестованы двое молодых людей 17 и 19 лет, которые бросили несколько бутылок с зажигательной смесью в палатки беженцев, сообщила греческая полиция.</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836498">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836498" href="http://news.smi2.ru/newdata/news?ad=402984&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836498&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjgsImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY0OTgsImFnZW5jeSI6MCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVZWQ5OTE1NDMxNTYwNTMxODE0OGZjODdmYmQ4ODQxODYxOGFiZTlkNyJ9" target="_blank" class="news-item article" data-id="12836498">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/fontanka.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">На Лесбосе лагерь беженцев забросали &quot;коктейлями Молотова&quot;</span>
+                        </a>
+                                            <div id="af12836449" class="news-item-big article-full -noimg" data-id="12836449" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=572721&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836449&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjksImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY0NDksImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/russian.rt.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">russian.rt.com</span>
+                                        <span class="date">7 Сентября, 08:37</span>
+                                    </span>
+                                    <span class="title article-title">Игорь Сечин пояснил, почему мировые цены на нефть должны вырасти</span>
+                                    <span class="desc article-announce">Глава «Роснефти» Игорь Сечин считает, что мировые цены на нефть должны значительно вырасти относительно текущих уровней, чтобы полностью покрывать издержки добычи.</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836449">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836449" href="http://news.smi2.ru/newdata/news?ad=572721&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836449&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjksImR0IjoiMjAxNTA5MDcwOTI1MTciLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZzb3J0PW51bGwiLCJhcnRpZCI6MTI4MzY0NDksImFnZW5jeSI6MCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836449">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/russian.rt.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Игорь Сечин пояснил, почему мировые цены на нефть должны вырасти</span>
+                        </a>
+                                            <div id="af12834390" class="news-item-big article-full " data-id="12834390" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=588778&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834390&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEwLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0MzkwLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://photocdn2.itar-tass.com/fit/400x300_b2b00b17/tass/m2/uploads/i/20150907/4082797.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/itar-tass.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">tass.ru</span>
+                                        <span class="date">7 Сентября, 06:51</span>
+                                    </span>
+                                    <span class="title article-title">Сечин: ОПЕК предлагала России стать членом организации, но РФ остается наблюдателем</span>
+                                    <span class="desc article-announce">Глава &quot;Роснефти&quot; также сообщил, что Европа остается основным потребителем российской нефти</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://photocdn2.itar-tass.com/fit/400x300_b2b00b17/tass/m2/uploads/i/20150907/4082797.jpg" data-social-link="http://smi2.ru/?article=12834390">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12834390" href="http://news.smi2.ru/newdata/news?ad=588778&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834390&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEwLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0MzkwLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12834390">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/itar-tass.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Сечин: ОПЕК предлагала России стать членом организации, но РФ остается наблюдателем</span>
+                        </a>
+                                            <div id="af12836406" class="news-item-big article-full -noimg" data-id="12836406" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=449910&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836406&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjExLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2NDA2LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2264618.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">dni.ru</span>
+                                        <span class="date">7 Сентября, 08:30</span>
+                                    </span>
+                                    <span class="title article-title">Смерть игрока сборной России повергла в шок</span>
+                                    <span class="desc article-announce">Серебряный призер Универсиады-2013 Владислав Тимаков скончался на сборах в Болгарии</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836406">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836406" href="http://news.smi2.ru/newdata/news?ad=449910&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836406&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjExLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2NDA2LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836406">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2264618.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Смерть игрока сборной России повергла в шок</span>
+                        </a>
+                                            <div id="af12836146" class="news-item-big article-full " data-id="12836146" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=12623&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836146&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEyLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2MTQ2LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://svpressa.ru/p/131157/131157.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/svpressa.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">svpressa.ru</span>
+                                        <span class="date">7 Сентября, 08:22</span>
+                                    </span>
+                                    <span class="title article-title">Порошенко призывает отнять у России право вето</span>
+                                    <span class="desc article-announce">Украинский президент выступил с очередным проектом переустройства мира</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://svpressa.ru/p/131157/131157.jpg" data-social-link="http://smi2.ru/?article=12836146">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836146" href="http://news.smi2.ru/newdata/news?ad=12623&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836146&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEyLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2MTQ2LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12836146">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/svpressa.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Порошенко призывает отнять у России право вето</span>
+                        </a>
+                                            <div id="af12835019" class="news-item-big article-full " data-id="12835019" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=452082&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12835019&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEzLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM1MDE5LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://www.kp.ru/f/12/image/48/06/8990648.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/kp.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">kp.ru</span>
+                                        <span class="date">7 Сентября, 07:35</span>
+                                    </span>
+                                    <span class="title article-title">Ляшко заявил, что Порошенко ведет Украину к катастрофе</span>
+                                    <span class="desc article-announce">Глава государства, по его словам, возглавил всю коррупцию в стране и является главным олигархом</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://www.kp.ru/f/12/image/48/06/8990648.jpg" data-social-link="http://smi2.ru/?article=12835019">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12835019" href="http://news.smi2.ru/newdata/news?ad=452082&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12835019&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjEzLCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM1MDE5LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12835019">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/kp.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Ляшко заявил, что Порошенко ведет Украину к катастрофе</span>
+                        </a>
+                                            <div id="af12836587" class="news-item-big article-full -noimg" data-id="12836587" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=619376&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836587&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjE0LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2NTg3LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/ren.tv.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">ren.tv</span>
+                                        <span class="date">7 Сентября, 08:39</span>
+                                    </span>
+                                    <span class="title article-title">27-летняя москвичка стала жертвой насильника</span>
+                                    <span class="desc article-announce">На юго-востоке Москвы 27-летнюю девушку изнасиловал неизвестный ей мужчина, сообщил источник РЕН ТВ. Инцидент произошел в квартире жилого дома. На место происшествия прибыли оперативники, которые осмотрели и сфотографировали...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836587">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836587" href="http://news.smi2.ru/newdata/news?ad=619376&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836587&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjE0LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2NTg3LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12836587">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/ren.tv.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">27-летняя москвичка стала жертвой насильника</span>
+                        </a>
+                                            <div id="af12834325" class="news-item-big article-full -noimg" data-id="12834325" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=440240&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834325&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjE1LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0MzI1LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/vedomosti.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">vedomosti.ru</span>
+                                        <span class="date">7 Сентября, 06:52</span>
+                                    </span>
+                                    <span class="title article-title">Порошенко назвал «поход на Москву» возможным вариантом возвращения Донбасса</span>
+                                    <span class="desc article-announce">Наиболее приемлемым вариантом восстановления власти Киева на Донбассе президент Украины считает соблюдение минских договоренностей, заявил он в интервью «5 каналу» 6 сентября. «Есть три сценария развития событий. Первый -...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12834325">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12834325" href="http://news.smi2.ru/newdata/news?ad=440240&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834325&amp;sct=social&amp;casual=on&amp;gateid=1&amp;gateparams=eyJwb3MiOjE1LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0MzI1LCJhZ2VuY3kiOjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVWVkOTkxNTQzMTU2MDUzMTgxNDhmYzg3ZmJkODg0MTg2MThhYmU5ZDcifQ%3D%3D" target="_blank" class="news-item article" data-id="12834325">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/vedomosti.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Порошенко назвал «поход на Москву» возможным вариантом возвращения Донбасса</span>
+                        </a>
+                                            <div id="af12836887" class="news-item-big article-full -noimg" data-id="12836887" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=475117&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836887&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE2LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2ODg3LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/bfm.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">bfm.ru</span>
+                                        <span class="date">7 Сентября, 08:50</span>
+                                    </span>
+                                    <span class="title article-title">Более 4 тысяч боевиков ИГ под видом беженцев заехали в Европу</span>
+                                    <span class="desc article-announce">Они вливаются в поток беженцев в портах турецких городов Измир и Мерсин</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://smi2.ru/?article=12836887">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836887" href="http://news.smi2.ru/newdata/news?ad=475117&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836887&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE2LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2ODg3LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12836887">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/bfm.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Более 4 тысяч боевиков ИГ под видом беженцев заехали в Европу</span>
+                        </a>
+                                            <div id="af12836043" class="news-item-big article-full " data-id="12836043" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836043&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE3LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2MDQzLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://rsncontent.ru/static/posts/2015/09/385992/gr/north/b0ac9fd159e68202493a8304d3ec8e87.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">rusnovosti.ru</span>
+                                        <span class="date">7 Сентября, 08:24</span>
+                                    </span>
+                                    <span class="title article-title">В Подмосковье после ДТП в авто сгорели четыре человека</span>
+                                    <span class="desc article-announce">В Подмосковье после ДТП в авто сгорели четыре человека. Авария произошла в Щёлковском районе Московской области. По предварительной информации, водитель «Ниссан-Тиана», в салоне которого находились три пассажира, не справился с управлением на мокрой трассе и вылетел в кювет...</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://rsncontent.ru/static/posts/2015/09/385992/gr/north/b0ac9fd159e68202493a8304d3ec8e87.jpg" data-social-link="http://smi2.ru/?article=12836043">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12836043" href="http://news.smi2.ru/newdata/news?ad=451127&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12836043&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE3LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM2MDQzLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12836043">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rusnovosti.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">В Подмосковье после ДТП в авто сгорели четыре человека</span>
+                        </a>
+                                            <div id="af12834278" class="news-item-big article-full " data-id="12834278" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=618867&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834278&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE4LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0Mjc4LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://mir24.tv/media/images/uploaded/small9159663.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/mir24.tv.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">mir24.tv</span>
+                                        <span class="date">7 Сентября, 06:35</span>
+                                    </span>
+                                    <span class="title article-title">Группу рабочих жестоко расстреляли в Новой Москве</span>
+                                    <span class="desc article-announce">Нападению предшествовал конфликт рабочих с двумя неизвестными, которые незаконно пробрались на территорию стройки.</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://mir24.tv/media/images/uploaded/small9159663.jpg" data-social-link="http://smi2.ru/?article=12834278">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12834278" href="http://news.smi2.ru/newdata/news?ad=618867&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12834278&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE4LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM0Mjc4LCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12834278">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/mir24.tv.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Группу рабочих жестоко расстреляли в Новой Москве</span>
+                        </a>
+                                            <div id="af12835253" class="news-item-big article-full " data-id="12835253" style="display:none">
+                            <a href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12835253&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE5LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM1MjUzLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn12.img22.ria.ru/images/102538/46/1025384623.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">ria.ru</span>
+                                        <span class="date">7 Сентября, 07:50</span>
+                                    </span>
+                                    <span class="title article-title">МИД Японии: визит главы Минтранспорта РФ на Кунашир &quot;неприемлем&quot;</span>
+                                    <span class="desc article-announce">МИД Японии: визит главы Минтранспорта РФ на Кунашир &quot;неприемлем&quot;</span>
+                                    <span class="read-btn">Читать подробнее</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://cdn12.img22.ria.ru/images/102538/46/1025384623.jpg" data-social-link="http://smi2.ru/?article=12835253">
+                                    <a href="#" class="-vk social social-vk" data-social="vk"></a>                                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                    <a href="#" class="-ok social social-ok" data-social="ok"></a>                                </span>
+                            </div>
+                        </div>
+
+                        <a id="a12835253" href="http://news.smi2.ru/newdata/news?ad=442616&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=12835253&amp;sct=social&amp;gateid=1&amp;gateparams=eyJwb3MiOjE5LCJkdCI6IjIwMTUwOTA3MDkyNTE3IiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmc29ydD1udWxsIiwiYXJ0aWQiOjEyODM1MjUzLCJhZ2VuY3kiOjAsImNhc3VhbCI6ZmFsc2UsIm1vYiI6bnVsbCwidXVpZCI6IlVlZDk5MTU0MzE1NjA1MzE4MTQ4ZmM4N2ZiZDg4NDE4NjE4YWJlOWQ3In0%3D" target="_blank" class="news-item article" data-id="12835253">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/ria.ru.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">МИД Японии: визит главы Минтранспорта РФ на Кунашир &quot;неприемлем&quot;</span>
+                        </a>
+                                    </div>
+                <div class="news-block">
+                                        <a id="articles-loading" href="/?offset=20" class="news-item-loading">
+                        <span class="title">Показать ещё</span>
+                        <span class="loader"><img src="//static.smi2.net/static/aggregator_v2/img/loader.gif" alt=""/></span>
+                    </a>
+                                    </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="regionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Выберите регион</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="country">
+                                                    <li><a href="http://smi2.ru" class="-checked"><img src="//static.smi2.net/static/aggregator_v2/img/ru.png" alt=""/> Россия</a></li>
+                                                    <li><a href="http://smi2.ua" class=""><img src="//static.smi2.net/static/aggregator_v2/img/ua.png" alt=""/> Украина</a></li>
+                                                    <li><a href="http://e-generator.com" class=""><img src="//static.smi2.net/static/aggregator_v2/img/us.png" alt=""/> США</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">О проекте</h4>
+                </div>
+                <div class="modal-body">
+                    <p>СМИ2 - точка сбора самых интересных и актуальных новостей российских онлайн-медиа. "Картина дня" формируется автоматически на базе популярности материалов у читателей, также используются данные обменной новостной сети <a href="http://smi2.net" target="_blank">СМИ2.net</a>. В проекте участвуют отобранные нами русскоязычные издания.</p>
+                    <p>Вы можете просмотреть ленту за час или за сутки, а также выбрать конкретные темы и получить выборку новостей по ним. При клике на заголовок новости или на "читать подробнее" вы попадете на полнотекстовый материал на сайте издания. При клике на иконку социальной сети вы сможете поделиться интересной вам новостью с друзьями.</p>
+                    <p>Агрегатор СМИ2 работает в тесной связке с новостной сетью <a href="http://smi2.net" target="_blank">СМИ2.net</a>. Участие в обоих проектах бесплатно, по вопросам сотрудничества обращайтесь на <a href="mailto:info@smi2.net">info@smi2.net</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <script id="banner-template" type="text/x-handlebars-template">
+            <section id="banner-section" class="section sk_banner" style="text-align: center">
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-7271064300430605" data-ad-slot="7719311979"></ins>
+            </section>
+        </script>
+    
+    
+    <script id="article-template" type="text/x-handlebars-template">
+        <a href="{{ url }}" target="_blank" class="news-item article">
+            <span class="icon"><img src="{{ pub_logo }}" class="img-responsive" alt="" /></span>
+            <span class="title">{{ title }}</span>
+        </a>
+    </script>
+
+    <script id="article-full-template" type="text/x-handlebars-template">
+        <div class="news-item-big article-full {{#unless img_url}}-noimg{{/unless}}" style="display: none">
+            <a href="{{ url }}" target="_blank" class="big-href">
+                <span class="img-wrap">
+                    <img src="{{ img_url }}" alt="" />
+                </span>
+                <span class="text-wrap">
+                <span class="source-icon-wrap">
+                    <span class="icon"><img src="{{ pub_logo }}" alt="" class="img-responsive article-image" /></span>
+                         <span class="icon-name">{{ pub_domain }}</span>
+                         <span class="date">{{ create_date }}</span>
+                    </span>
+                    <span class="title article-title">{{ title }}</span>
+                    <span class="desc article-announce">{{ announce }}</span>
+                    <span class="read-btn">Читать подробнее</span>
+                </span>
+            </a>
+
+            <div class="social-helper">
+                <span></span>
+                <span class="social-wrap social-block" data-social-image="{{#if img_share}}{{ img_share }}{{else}}http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg{{/if}}" data-social-link="{{ link_share }}">
+                    <a href="#" class="-vk social social-vk" data-social="vk"></a>
+                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                    <a href="#" class="-ok social social-ok" data-social="ok"></a>
+                </span>
+            </div>
+        </div>
+    </script>
+    
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Aggregator.snap = 'S_1501__201509070924';
+            Aggregator.articlesParams.offset = 0;
+            Aggregator.messages.weekdayNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+            Aggregator.init();
+        });
+    </script>
+
+
+            <script type="text/javascript">
+            $(document).ready(function () {
+                if ($.smartbanner instanceof Function && !(/(iPad|iPhone|iPod).*OS [6-7].*AppleWebKit.*Mobile.*Safari/.test(navigator.userAgent))) {
+                    $.smartbanner({
+                        title: 'СМИ2 Новости',
+                        author: 'Smi2',
+                        price: 'Бесплатно',
+                        appStoreLanguage: 'ru',
+                        inAppStore: 'App Store',
+                        inGooglePlay: 'Google Play',
+                        icon: null,
+                        iconGloss: null,
+                        button: 'Установить',
+                        scale: '1',
+                        speedIn: 300,
+                        speedOut: 400,
+                        daysHidden: 120,
+                        daysReminder: 120,
+                        force: null,
+                        GooglePlayParams: "utm_source%3Dsmi2ru%26utm_medium%3Dtopbanner",
+                        appendToSelector: '#articles-list',
+                        onShow: function () {
+                            $('html').css('margin-top', '0');
+                            $('#content-block').css({paddingTop: $('#top-block').height() + 'px'});
+                        },
+                        onHide: function () {
+                            $('#smartbanner').remove();
+                            $('#content-block').css({paddingTop: $('#top-block').height() + 'px'});
+                        }
+                    });
+                }
+            });
+        </script>
+    
+
+            <!-- Yandex.Metrika counter -->
+        <script type="text/javascript">
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter25116563 = new Ya.Metrika({id: 25116563,
+                            webvisor: true,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true});
+                    } catch (e) {
+                    }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                    s = d.createElement("script"),
+                    f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        </script>
+        <noscript>
+            <div><img src="//mc.yandex.ru/watch/25116563" style="position:absolute; left:-9999px;" alt="" /></div>
+        </noscript>
+        <!-- /Yandex.Metrika counter -->
+
+                    <!--LiveInternet counter-->
+            <script type="text/javascript"><!--
+                new Image().src = "//counter.yadro.ru/hit?r"+
+                escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                ";"+Math.random();//-->
+            </script>
+            <!--/LiveInternet-->
+            
+            <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-30531101-1']);
+            _gaq.push(['_setDomainName', 'smi2.ru']);
+            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    
+
+    <!-- articles_state : OK -->
+</body>
+</html>

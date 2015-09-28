@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v inf 82066</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #container82066 {
+
+        }
+
+        #container82066 .list-container-item {
+            padding-bottom: 5px;
+        }
+        #container82066 .list-container-item-hover {
+        }
+        #container82066 .list-container-item .image {
+            display: block;
+            float: left;
+            border: none;
+            width: 45px;
+            height: 45px;
+        }
+        #container82066 .list-container-item .title {
+            display: block;
+            margin-left: 50px;
+        }
+        #container82066 .list-container-item .title a {
+            display: block;
+
+            text-decoration: underline;
+            color: rgb(34, 34, 34);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 11px;
+        }
+        #container82066 .list-container-item .title a:hover {
+            color: #5C688E;
+            text-decoration: none;
+        }
+        #container82066 .list-container-item .clear {
+            clear: left;
+        }
+
+    </style>
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+</head>
+<body>
+<div id="container82066"></div>
+<script type="text/javascript">
+    var properties = {};
+
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image',
+                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 45, 45)
+            })),
+            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    var opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TITLE;
+
+    JsAPI.Ui.ListBlockFactory.create(
+            82066 /* Идентификатор блока */,
+            30 /* Размер страницы (количество) загружаемых элементов */,
+            Infinity /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container82066") /* Родительский элемент */,
+            properties /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            opt_fields /* Маска требуемых параметров новостей */
+    ).then(function (block) {}, function (reason) {/*alert('Error: ' + reason);*/});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>83024</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <style>
+            .vblock-83024 {
+                max-width: 240px;
+                margin: 0;
+                
+
+                text-align: left !important;
+            }
+
+                .vblock-83024 div{
+                    
+                }
+
+            .vblock-83024 .header-83024 {
+                display: none;
+                
+            }
+
+                .vblock-83024 .header-83024 .header-83024_inner{
+                      
+                }
+
+                    .vblock-83024 .header-83024 .header-83024_inner .teaser2-top {
+                      margin-bottom: 15px;
+                      clear: both;
+                      height: 26px;
+                      background: url(/i/img/teaser2top.png) repeat-x bottom left;
+                    }
+
+                    .vblock-83024 .header-83024 .header-83024_inner .teaser2-logo {
+                      float: left;
+                    }
+
+                    .vblock-83024 .header-83024 .header-83024_inner .teaser2-np {
+                      text-align: right;
+                      color: #bfbfbf;
+                      font-family: Arial;
+                      margin-top: 0px;
+                      font-size: 11px;
+                      float: right;
+                      line-height: 12px;
+                      display: block;
+                      width: 70px;
+                    }
+
+            .vblock-83024 .content-83024 {
+                height: 478px;
+                overflow: hidden;
+                
+            }
+
+                .vblock-83024 .content-83024 .scroll-container{
+                    top: 0 !important;
+                }
+
+            .vblock-83024 .item-83024 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+                
+            }
+            .vblock-83024 .image-83024 {
+                display: block;
+                width: 160px;
+                height: 90px;
+                margin: 0 auto;
+                overflow: hidden;
+                
+            }
+            .vblock-83024 .title-83024 a:hover {
+                text-decoration: underline !important;
+
+                          
+            }
+
+            .vblock-83024 .title-83024{
+                width: 160px;
+                margin: 10px auto;
+                             
+            }
+
+                .vblock-83024 .title-83024 a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    text-align: left !important;
+
+                    color: rgb(57, 56, 56);
+                    font-family: Arial, sans-serif;
+                    font-size: 12px;
+                    line-height: 15px;
+                    
+                }
+
+                    .buttons-83024{
+                        background: #fff;
+                        padding: 5px 0px 10px;
+                        display: none;
+
+                        text-align: right;
+                    }
+
+                        .buttons-83024 > div{
+                            display: inline-block;
+                            width: 26px;
+                            height: 25px;
+                            border: none;
+                            margin-left: 5px;
+                            cursor: pointer;
+                        }
+
+                        .vbutton-back-83024{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                        }
+
+                        .vbutton-forward-83024{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                        }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="vblock-83024">
+            <!--<div class="header-83024">
+                <div class="header-83024_inner">
+                    <div class="teaser2-top"><div class="teaser2-logo"><img alt="СМИ2" src="/img/d/teaser-smi2.png"></div><div class="teaser2-np">новости<br>партнеров</div></div>
+                </div>
+            </div>-->
+
+            <div id="vblock-83024" class="content-83024"></div>
+
+            <!--<div class="buttons-83024">
+                <div id="vbutton-back-83024" class="vbutton vbutton-back-83024"></div>
+                <div id="vbutton-forward-83024" class="vbutton vbutton-forward-83024"></div>        
+            </div>-->
+        </div>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 240, "height": 125}
+                },
+                "hs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#bfbfbf",
+                    "padding": {"top": 10, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 5, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83024', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83024',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 160, 90)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83024', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83024, JsAPI.Dom.getElement('vblock-83024'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                /*JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83024'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83024'), 'click', function () {
+                    block.scrollForward();
+                });  */          
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

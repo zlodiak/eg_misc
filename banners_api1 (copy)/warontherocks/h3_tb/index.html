@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - war on the rocks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Quando' rel='stylesheet' type='text/css'>
+
+    <style>
+        .hblock-82857 {
+            position: relative;
+            padding: 0 100px;
+        }
+        .hblock-82857 .content-82857 {
+            min-height: 240px;
+        }
+
+        .hblock-82857 .item-82857 {
+            font-family: Arial, sans-serif;
+            margin: 0 3px 0 0;
+        }
+        .hblock-82857 .image-82857 {
+            width: 100%;
+        }
+        .hblock-82857 .wrapper-82857 {
+        }
+        .hblock-82857 .wrapper-82857 div {
+            padding-top: 5px;
+        }
+        .hblock-82857 .title-82857 a:hover {
+            color: rgb(177, 34, 57) !important;
+            text-decoration: none !important;
+        }
+
+        .hblock-82857 .title-82857 a {
+            color: #000;
+            font-family: Quando, sans-serif;
+            font-size: 15px;
+            text-decoration: none !important;
+
+            cursor: pointer;
+            /*height: 78px;*/
+            display: block;
+            overflow: hidden;            
+        }
+     
+            .hbutton-82857{
+                position: absolute;
+                top: 60px;
+                width: 10px;
+                height: 20px;
+                border: none;
+                cursor: pointer;
+                z-index: 200;
+            }
+
+            .hbutton-back-82857{
+                background: url('http://static.smi2.net/srcimg/2437692.png') left top no-repeat;
+                left: 35px;
+            }
+
+            .hbutton-forward-82857{
+                background: url('http://static.smi2.net/srcimg/2437693.png') left top no-repeat;             
+                right: 35px;
+            }   
+
+
+        @media (max-width: 650px) {
+            .hblock .content-82857 {
+                min-height: 340px;
+            }
+        }      
+
+        @media (max-width: 500px) {
+            .hblock .content-82857 {
+                min-height: 240px;
+            }
+        }                  
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+</head>
+
+<body>
+    <div class="hblock-82857">
+        <div id="hblock-82857" class="content-82857"></div>
+
+        <div id="hbutton-back-82857" class="hbutton-82857 hbutton-back-82857"></div>
+        <div id="hbutton-forward-82857" class="hbutton-82857 hbutton-forward-82857"></div>           
+    </div>
+
+    <script>
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 200, "height": 250}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#ccc",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82857', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-82857',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 170, 110)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-82857', [
+                            JsAPI.Dom.createDom('div', 'title-82857', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82857, JsAPI.Dom.getElement('hblock-82857'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82857'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82857'), 'click', function () {
+                    block.scrollForward();
+                });             
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

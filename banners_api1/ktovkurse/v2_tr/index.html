@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>ktovkurse v2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .vblock-82847 {
+                max-width: 690px;
+                margin: 0 auto;
+
+                text-align: left !important;
+            }
+
+            .vblock-82847 .content-82847 {
+                height: 164px;
+                overflow: hidden;
+            }
+
+                .vblock-82847 .content-82847 .scroll-container{
+                    top: 0 !important;
+                }
+
+            .vblock-82847 .item {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .vblock-82847 .image {
+                float: left;
+                display: block;
+                width: 86px;
+                height: 72px;
+                overflow: hidden;
+            }
+            .vblock-82847 .title a:hover {
+                text-decoration: none !important;
+                color: rgb(87, 87, 87) !important;
+            }
+
+            .vblock-82847 .title{
+                position: static !important;
+            }
+
+                .vblock-82847 .title a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    height: 86px;
+                    margin-left: 94px;
+                    text-align: left !important;
+
+                    color: rgb(87, 87, 87);
+                    font-family: Arial;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: bold;
+                    line-height: 22px;
+                }
+
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+    </head>
+
+    <body>
+        <div class="vblock-82847">
+            <div id="vblock-82847" class="content-82847"></div>
+        </div>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 690, "height": 80}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 86, 72)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 82847, JsAPI.Dom.getElement('vblock-82847'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/           
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

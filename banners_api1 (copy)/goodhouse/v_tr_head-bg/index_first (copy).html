@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>83091</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <style>
+        .vblock-83091 {
+            width: 300px;
+              overflow: hidden;
+              position: relative;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+
+            text-align: left;
+        }
+
+        .vblock-83091 .header-83091 {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+            .vblock-83091 .header-83091 .header-83091_inner{
+                color: #000;
+                font-family: 'PT Sans', arial, sans-serif;
+                font-size: 12px;
+                letter-spacing: 1px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                line-height: 40px;
+                text-align: center;
+                text-transform: uppercase;
+
+                background: #f1f1f1;
+                height: 40px;                      
+            }
+
+        .vblock-83091 .content-83091 {
+            height: 366px;
+            overflow: hidden;
+        }
+
+            .vblock-83091 .content-83091 .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83091 .item-83091 {
+            overflow: hidden;
+            display: block;
+            padding: 0px 15px;
+        }
+        .vblock-83091 .image-83091 {
+            float: left;
+            display: block;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            border-radius: 5px;
+        }        
+        .vblock-83091 .title-83091 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0px;
+            margin-left: 115px;
+            height: 100px;
+            padding-top: 15px;
+
+            vertical-align: middle;
+            color: rgb(30, 27, 31);
+            font-family: 'PT Sans', arial, sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+            text-decoration: none; 
+        }
+        .vblock-83091 .title-83091 a:hover {
+            text-decoration: none !important;
+            color: rgb(30, 27, 31);
+        }
+
+            .buttons-83091{
+                padding: 15px 15px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-83091 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 26px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-83091{
+                    /*background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;*/
+                    background: url('//static.smi2.net/srcimg/2505584.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83091{
+                    /*background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    */
+                    background: url('//static.smi2.net/srcimg/2505587.png') left top no-repeat;                    
+                }
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+</head>
+
+<body>
+    <div class="vblock-83091">
+        <div class="header-83091">
+            <div class="header-83091_inner">Новости партёров</div>
+        </div>
+        <div id="vblock-83091" class="content-83091"></div>
+        <div class="buttons-83091">
+            <div id="vbutton-back-83091" class="vbutton vbutton-back-83091"></div>
+            <div id="vbutton-forward-83091" class="vbutton vbutton-forward-83091"></div>        
+        </div>
+    </div>
+
+    <script>
+        /*JsAPI.Config.setDomain('news.fark.com');*/
+ 
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 300, "height": 100}
+            },
+            "hs": {
+                "size": 1,
+                "style": "dashed",
+                "color": "#ccc",
+                "padding": {"top": 15, "bottom": 15, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83091', [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }), JsAPI.Dom.createDom('img', {
+                            'class': 'image-83091',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 100, 100)
+                    }),
+                    JsAPI.Dom.createDom('div', 'title-83091', JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title']))                      
+                ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83091, JsAPI.Dom.getElement('vblock-83091'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83091'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83091'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

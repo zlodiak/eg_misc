@@ -1,0 +1,299 @@
+/* sk_prices */
+.sk_prices{
+	color: #efefef;
+	font-size: 20px;
+	font-family: 'PT Sans', sans-serif;
+
+	padding: 0 20px;
+	overflow: hidden;
+}
+
+	.sk_prices .price{
+		font-size: 20px;
+		float: left;
+		width: 45%;
+		height: 28px;
+	}
+
+	.sk_prices .delta{
+		font-size: 12px;
+		text-align: right;
+		color: #9b9b9b;
+
+		float: right;
+		width: 45%;
+		padding-top: 8px;
+		padding-left: 25px;
+		height: 28px;
+	}
+
+	.sk_prices .delta.down{
+		background: url("../../images/sk/bg_delta.png") 11px -42px no-repeat;
+	}
+
+	.sk_prices .delta.up{
+		background: url("../../images/sk/bg_delta.png") 11px 9px no-repeat;
+	}	
+
+	.sk_prices .text{
+		clear: both;
+		position: relative;
+		top: -3px;
+
+		color: #9B9B9B;
+		font-family: 'PT Sans', sans-serif;
+		font-size: 13px;
+	}				
+
+/* right-column */
+.right-column{
+	padding: 0;
+}
+
+	.right-column .item:hover .body{
+		color: #428bca;
+	}
+
+	.right-column .item{
+		display: block;
+		border-bottom: 1px solid #efefef;
+		overflow: hidden;
+		padding: 16px 0 16px 0;
+	}
+
+		.right-column .item .img{
+			float: left;
+			width: 56px;
+
+			text-align: center;
+		}
+
+			.right-column .item .img img{
+
+			}
+
+		.right-column .item .body{
+			float: right;
+			width: 212px;
+			padding: 0 32px 0 0px;
+
+			font-family: 'PT Sans', sans-serif;
+			font-size: 16px;
+			line-height: 18px;		
+			color: #252525;	
+		}			
+
+/* sk_list */
+.sk_list{
+	overflow: hidden;
+	padding: 0 14px;
+}
+
+		.sk_list .a_inner:hover,
+		.sk_list .a_inner:hover .h4{
+			color: #2a6496;
+			text-decoration :none;
+		}
+
+	.sk_list .a{
+		text-decoration :none;
+		width: 33.3%;
+		float: left;
+		display: block;
+	}
+
+		.sk_list .a .a_inner{
+			padding: 0 8px 16px;
+			display: block;
+
+			color: #252525;
+			font-weight: bold;
+			font-size: 16px;
+			font-family: 'PT Sans', sans-serif;
+			line-height: 18px;
+		}
+
+			.sk_list .a .article{
+				border: 1px solid #efefef;
+			}
+
+				.sk_list .a .article img{
+					display: block;
+					width: 100%;
+					height: auto;
+				}
+
+				.sk_list .a .article .h4{
+					margin: 18px;
+					font-weight: bold;
+				}			
+
+/* sk_banner */
+.sk_banner{
+	padding: 24px;
+	background: #f9f9f9;
+	border-top: 1px solid #efefef;
+	border-bottom: 1px solid #efefef;
+	margin-bottom: 22px;
+}
+
+	.sk_banner a{
+
+	}
+
+		.sk_banner a img{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+/* sk_info_block */
+.sk_info_block{
+	overflow: hidden;
+	padding: 24px 24px 20px;
+}
+
+	.sk_info_block .img{
+		width: 30%;
+		float: left;
+	}
+
+		.sk_info_block .img img{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+	.sk_info_block .body{
+		width: 68%;
+		float: right;
+		overflow: hidden;
+		padding-bottom: 20px;
+	}	
+
+		.sk_info_block .body .meta{
+			color: #bebebe;
+			min-height: 18px;
+
+			font-size: 13px;
+		}
+
+			.sk_info_block .body .meta .sign{
+				padding-left: 25px;
+				padding-right: 17px;
+				display: inline-block;
+				background: url("../../images/sk/bg_sign.png") left 1px no-repeat;
+			}
+
+			.sk_info_block .body .meta .date{
+				display: inline-block;
+			}
+
+		.sk_info_block .body .h3{
+			margin-top: 10px;
+
+			font-size: 22px;
+			font-weight: bold;
+		}
+
+		.sk_info_block .body .text{
+			padding-bottom: 16px;
+
+			color: #252525;
+			font-size: 14px;
+		}
+
+		.sk_info_block .body .sort-block{
+			border-bottom: 1px solid #efefef;
+			float: left;
+			clear: left;
+			margin-bottom: 20px;
+			width: 100%;
+		}
+
+			.sk_info_block .body .sort-block a.active {
+				text-decoration: none;
+				background: #2792c5;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+			}
+
+			.sk_info_block .body .sort-block a {
+				display: block;
+				float: left;
+				clear: left;
+				font-size: 14px;
+				margin: 0 2px;
+				padding: 5px 10px;
+				color: #FFF;
+				margin-bottom: 20px;
+			}
+
+	.sk_info_block .body .socializm{
+		overflow: hidden;
+		float: left;
+		clear: left;		
+	}	
+
+		.sk_info_block .body .socializm a{
+			margin-right: 10px;
+			border: 1px solid #6083aa;
+
+			display: inline-block;
+			height: 24px;
+			width: 80px;
+			text-align: center;
+			vertical-align: top;
+			padding-left: 35px;
+			padding-right: 5px;
+			font-size: 12px;
+			color: #8b8b8b;
+			line-height: 22px;
+			margin-right: 7px;
+			margin-bottom: 10px;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;			
+		}	
+
+		.sk_info_block .body .socializm a:nth-child(1){
+			background: url("http://static.smi2.net/static/aggregator_v2/img/social-vk.png") no-repeat;
+		}
+
+		.sk_info_block .body .socializm a:nth-child(2){
+			background: url("http://static.smi2.net/static/aggregator_v2/img/social-fb.png") no-repeat;
+		}
+
+		.sk_info_block .body .socializm a:nth-child(3){
+			background: url("http://static.smi2.net/static/aggregator_v2/img/social-tw.png") no-repeat;
+		}
+
+		.sk_info_block .body .socializm a:nth-child(4){
+			background: url("http://static.smi2.net/static/aggregator_v2/img/social-ok.png") no-repeat;
+		}					
+
+
+/* top_panel */
+.overlay-wrap .top-panel .first-line{
+	background: #fff;
+	border-bottom: 1px solid #efefef;
+}
+
+.top-panel .first-line .title {
+	color: #252525;
+}
+
+.left-column ul.main-menu a{
+	text-decoration: none;
+}
+
+	.left-column ul.main-menu a.icon-lock:hover::before {
+
+	}
+
+	.left-column ul.main-menu a.icon-lock::before {
+		background: url("../../images/sk/lock.png") no-repeat;
+		height: 15px;
+	}
+

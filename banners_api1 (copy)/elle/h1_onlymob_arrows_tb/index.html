@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>elle mob1 w 300</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <style>        
+            .hblock-82981 {
+                overflow: hidden;
+                margin: 0 auto;
+                position: relative;
+                padding-bottom: 20px;
+            }
+
+            .hblock-82981 .header-82981 {
+                text-align: center;
+                color: rgb(0, 0, 0);
+                font-family: FuturaPTWebLight, Verdana, Helvetica, sans-serif;
+                font-size: 27px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                text-transform: uppercase;  
+
+                padding-top: 12px;
+                margin-bottom: 10px;
+                padding-bottom: 12px;
+                position: relative;
+                border-top: 1px solid #bebebe;
+                border-bottom: 1px solid #bebebe;
+            }
+            .hblock-82981 .content-82981 {
+                height: 217px;
+            }
+
+            .hblock-82981 .item-82981 {
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82981 img {
+                width: 300px;
+                height: 170px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82981 .wrapper-82981 {
+
+            }
+            .hblock-82981 .wrapper-82981 div {
+                padding-top: 3px;
+            }
+            .hblock-82981 .title a {
+                display: block;
+                margin: 0 auto;
+
+                color: rgb(0, 0, 0);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 14px;
+                font-stretch: normal;
+                font-style: italic;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 17px;
+                text-decoration: none !important;
+            }
+            .hblock-82981 .title a:hover {
+                text-decoration: none !important;
+                /*color: #ec008c !important;*/
+            }
+
+            .hbutton-forward-82981,
+            .hbutton-back-82981{
+                position: absolute;
+                top: 121px;
+                z-index: 200;                
+                display: inline-block;
+                width: 17px;
+                height: 33px;
+                border: none;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+
+            .hbutton-back-82981{
+                background: url('http://static.smi2.net/srcimg/2473282.png') left top no-repeat;
+                left: 0;                
+            }
+
+            .hbutton-forward-82981{
+                background: url('http://static.smi2.net/srcimg/2473282.png') right top no-repeat;
+                right: 5px;                                    
+            }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body style="width: 300px; margin: 0 auto;">
+        <div class="hblock-82981">
+            <div class="header-82981">Новости партнеров</div>
+            <div id="hblock-82981" class="content-82981"></div>
+
+            <div id="hbutton-back-82981" class="hbutton hbutton-back-82981"></div>
+            <div id="hbutton-forward-82981" class="hbutton hbutton-forward-82981"></div>                  
+        </div>
+
+        <script>
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 217}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#349400",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82981', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 170)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-82981', [
+                            JsAPI.Dom.createDom('div', 'topic-82981', model['topic_name']),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ])
+                    ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82981, JsAPI.Dom.getElement('hblock-82981'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82981'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82981'), 'click', function () {
+                    block.scrollForward();
+                });
+            }, function (reason) {
+            });
+
+        </script>
+    </body>
+</html>

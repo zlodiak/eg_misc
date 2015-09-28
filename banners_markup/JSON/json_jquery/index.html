@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>j</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <style>
+        .sk_wrap{
+            overflow: hidden;
+            width: 960px;
+        }
+
+            .sk_item{
+                width: 300px;
+                height: 300px;
+                overflow: hidden;
+                float: left;
+                margin: 10px;
+            }
+
+                .sk_a1{
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 300px;
+                }
+
+                    .sk_a1 img{
+                        display: block;
+                        width: 100%;
+                        min-height: 100%;
+
+                    }
+
+                    .sk_a1 .sk_meta1_outer{
+                        width: 100%;
+                        height: 100px;
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        right: 0px;
+                        overflow: hidden;
+
+
+                    }
+
+                        .sk_a1 .sk_meta1{
+                            width: 106%;
+                            height: 106px;
+                            position: absolute;
+                            bottom: -3px;
+                            left: -6px;
+                            right: -6px;
+                                                   
+                            -webkit-filter: blur(5px);
+                            -moz-filter: blur(5px);
+                            -ms-filter: blur(5px);
+                            -o-filter: blur(5px);
+                            filter: blur(5px);
+                            /*background-image: url(http://static5.smi2.net/img/300x300/2257778.jpeg);*/
+                            background-position:  bottom left;
+                            
+                        }  
+
+                        .sk_meta1:before {
+                            height: 100%;
+                            width: 100%;
+                            opacity: 0.7;
+                            content : ''; 
+                            background-color: #244533;
+                            position: absolute;
+                        }
+ 
+
+                    .sk_a1 .sk_meta2{
+                        width: 260px;
+                        height: 60px;
+                        position: absolute;
+                        bottom: 5px;
+                        left: 0;
+                        right: 0;
+                        padding: 15px 20px 20px;
+                        overflow: hidden;
+
+                        font-family: 'Open Sans Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                        color: #fff;
+                        text-align: center;
+                    }   
+
+                    	.sk_a1 .sk_title1{
+                    		font-size: 25px;
+
+                    		overflow: hidden;
+                    		display: block;
+                    	}   
+
+                    	.sk_a1 .sk_announce{
+                    		font-size: 15px;
+							overflow: hidden;
+
+                    		display: block;
+                    	}                       	                                      	          
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        (function (jQuery){
+            jQuery.getJSON('http://news.net.finam.ru/data/js/80802.js', function (data){
+	            var sk_wrap,
+	                sk_item,
+	                sk_a1,
+	                sk_meta,
+	                sk_announce,
+	                sk_meta2,
+	                result,
+	                obj_title_cropped,
+	                obj_announce_cropped;
+
+	            sk_wrap = jQuery('<div class="sk_wrap" />');
+
+	            jQuery.each(data.news, function(idx, obj) {
+	            	obj_title_cropped = obj.title.slice(0, 15)
+	            	obj_announce_cropped = obj.announce.slice(0, 58);
+	            	//obj_announce_cropped = obj.announce.slice(0, 58).replace(/\s/g,"&nbsp;");
+
+	                sk_meta1 = jQuery('<div class="sk_meta1_outer" style="background: url(' + obj.img + ') center bottom repeat;"></div>').append('<div class="sk_meta1" style="background: url(' + obj.img + ') center bottom repeat;"></div>');
+	                sk_meta2 = jQuery('<div class="sk_meta2"></div>').append('<div class="sk_title1">' + obj_title_cropped + '</div>').append('<div class="sk_announce">' + obj_announce_cropped + '</div>');
+	                sk_a1 = jQuery('<a class="sk_a1" href="' + obj.url + '" id="' + obj.id + '"></a>').append('<img src="' + obj.img + '" alt="' + obj.title + '" />').append(sk_meta1).append(sk_meta2);
+	                sk_item = jQuery('<div class="sk_item" />').append(sk_a1);
+	                sk_wrap.append(sk_item);
+	            });            
+
+	            jQuery('body').append(sk_wrap);
+            });
+        })($);
+    </script>
+</body>
+</html>

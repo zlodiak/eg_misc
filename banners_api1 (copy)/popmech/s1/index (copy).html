@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>popmech - single</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width = 1016,target-densitydpi = device-dpi" name="viewport">
+
+    <style>
+        #container {
+            width: 220px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        #container .list-container-item {
+            margin-bottom: 7px;
+        }
+        #container .list-container-item .image {
+            display: block;
+            border: none;
+        }
+
+            #container .list-container-item .image img{
+                width: 220px;
+                height: 165px;
+                display: block;
+            }
+
+        #container .list-container-item .title {
+            display: block;
+        }
+        #container .list-container-item .title a {
+            display: block;
+            padding-top: 12px;
+
+            text-decoration: none;
+            font-family: 'Ubuntu Condensed', Arial, sans-serif;
+            font-size: 22px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 20px;
+            color: #333;
+        }
+        #container .list-container-item .title a:hover {
+              color: #f32600!important;
+              text-decoration: none;
+
+        }
+        #container .list-container-item .clear {
+            clear: left;
+        }
+
+    </style>
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+</head>
+<body style="background: #ccc">
+
+<div id="container"></div>
+
+<script type="text/javascript">
+    var properties = {};
+
+    // Callback-функция рендера содержимого элемента блока
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image',
+                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 220, 165)
+            })),
+            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    // Маска параметров (полей) новостей
+    var opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TITLE;
+
+    // Создание блока
+    JsAPI.Ui.ListBlockFactory.create(
+            80467 /* Идентификатор блока */,
+            1 /* Размер страницы (количество) загружаемых элементов */,
+            1 /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container") /* Родительский элемент */,
+            properties /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            opt_fields /* Маска требуемых параметров новостей */
+    ).then(function (block) {}, function (reason) {alert('Error: ' + reason);});
+</script>
+</body>
+</html>

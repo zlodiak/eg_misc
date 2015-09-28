@@ -1,0 +1,117 @@
+body {
+  width: 450px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+  /* popup list */
+  .main-header {
+    display: block;
+    background-color: #3fae29;
+    padding: 0px 18px;
+    overflow: hidden;
+    height: 60px;
+    position: fixed;
+    z-index: 100;
+    width: 414px;
+  }
+
+  .main-header > .title {
+    display: inline-block;
+    padding-top: 20px;
+    padding-left: 17px;
+    margin: 0;
+    float: left;
+
+    color: #fff;
+    font: 16px 'PT Sans', arial, sans-serif;
+  }
+
+  .main-header > .logo {
+    display: inline-block;
+    margin-top: 9px;
+    float: left;
+  }
+
+  .articles{
+    padding-top: 60px;
+    height: 590px;
+    overflow: hidden;    
+  }
+
+    .article-wrapper:first-child{
+      border: none;
+    }
+
+    .article-wrapper {
+      padding: 20px;
+      border-top: 1px solid #f1f6fb;
+      overflow: hidden;
+      display: block;
+    }
+
+    .article-wrapper:hover {
+      background: #f1f6fb;
+      
+    }
+
+      .article-wrapper:hover .article-timer {
+        color: #5e5e5e;
+      }
+
+      .article-wrapper:hover .article-link {
+        color: #3090ce;
+      }
+
+      .article-img {
+        display: block;
+        width: 16px;
+        height: 16px;
+        float: left;
+        margin-right: 20px;
+        border: none;
+      }
+
+      .article-link {
+        display: inline-block;
+        width: 320px;
+        overflow: hidden;
+        float: left;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-decoration: none;
+        color: #000;
+        font: 14px 'PT Sans', arial, sans-serif;        
+      }
+
+      .article-timer {
+        display: block;
+        float: right;
+        margin-top: 2px;
+
+        text-decoration: none;
+        color: #bebebe;
+        font: 12px 'PT Sans', arial, sans-serif; 
+      }
+
+  /* scroll plugin custom */
+  .articles .mCSB_inside > .mCSB_container {
+    margin-right: 4px;
+  }     
+
+  .articles .mCSB_scrollTools {
+    width: 4px;
+  }
+
+  .articles .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar:hover,
+  .articles .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #000;
+    opacity: 0.4;
+  }  
+
+  .articles .mCSB_scrollTools .mCSB_draggerRail{
+    background-color: transparent; 
+  }
+

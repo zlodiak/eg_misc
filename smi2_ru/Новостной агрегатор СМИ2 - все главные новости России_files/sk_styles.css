@@ -1,0 +1,22 @@
+/* appstore button and more */
+.download_buttons{
+  text-align: center;
+
+}
+
+  .download_buttons .h3{
+    color: #9b9b9b;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .download_buttons .a_outer{
+    padding: 6px 0;
+  }
+
+    .download_buttons .a_outer a{
+      margin: 0 3px;
+      display: block;
+      margin-bottom: 10px;      
+    }  

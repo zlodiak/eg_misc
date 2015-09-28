@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test_new_api</title>
+
+        <style>
+         
+
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="vblock">
+            <div class="header">
+                Сми2 блаблабла
+            </div>
+            <div id="vblock" class="content" style="height: 300px;"></div>
+        </div>
+        <button id="vbutton-back" class="vbutton">Назад</button>
+        <button id="vbutton-forward" class="vbutton">Вперед</button>
+
+        <script>
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 150, "height": 50}
+                },
+                "hs": {
+                    "size": 5,
+                    "style": "solid",
+                    "color": "red",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+                },                
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }                
+            };
+
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 50, 50),
+                            'width': '50px',
+                            'height': '50px'
+                        })),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))
+                    ]
+                ));
+            };     
+
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 81729, JsAPI.Dom.getElement('vblock'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                console && console.log('Ok', block);
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward'), 'click', function () {
+                    block.scrollForward();
+                });
+
+            }, function (reason) {
+                console && console.error('Error', reason);
+            });                   
+        </script>
+
+    </body>
+</html>

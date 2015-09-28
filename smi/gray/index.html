@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>CSS: Изображение при наведении станет чёрно-белым</title>
+
+<style>
+.grayscale:hover {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: url(https://static.smi2.net/static/blocks/img/grayscale.svg#greyscale);
+  filter: gray;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Изображение при наведении станет чёрно-белым</h2>
+<p>Для справки: На фото красоты Алтайского края</p>
+<div><img src="altay.jpg" class="grayscale"></div>
+
+
+</body>
+</html>

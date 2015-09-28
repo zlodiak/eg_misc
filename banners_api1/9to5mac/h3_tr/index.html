@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>9to5mac - h3</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .hblock-82813 {
+                margin: 0;
+                padding: 0 100px;
+                background-color: #fbe5e4;
+                position: relative;
+
+                text-align: left !important;
+            }
+
+            .hblock-82813 .content-82813 {
+                height: 78px;
+                overflow: hidden;
+            }
+
+                .hblock-82813 .content-82813 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .hblock-82813 .item-82813 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .hblock-82813 .image-82813 {
+                float: left;
+                display: block;
+                width: 78px;
+                height: 78px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .hblock-82813 .title-82813 a:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            .hblock-82813 .title-82813{
+                position: static !important;
+                margin-top: 7px;
+            }
+
+                .hblock-82813 .title-82813 a {
+                    display: block;
+                    overflow: hidden;
+                    height: 57px;
+                    margin-left: 88px;
+                    text-align: left !important;
+
+                    color: rgb(88, 88, 93) !important;
+                    font-family: Lato, sans-serif;
+                    font-size: 0.9em;
+                    font-weight: normal;
+                    text-decoration: none;
+                }
+
+                .hbutton{
+                    position: absolute;
+                    top: 28px;
+                    width: 10px;
+                    height: 20px;
+                    border: none;
+                    cursor: pointer;
+                    z-index: 200;
+                }
+
+                .hbutton-back-82813{
+                    background: url('http://static.smi2.net/srcimg/2437692.png') left top no-repeat;
+                    left: 11px;
+                }
+
+                .hbutton-forward-82813{
+                    background: url('http://static.smi2.net/srcimg/2437693.png') left top no-repeat;             
+                    right: 11px;
+                }                
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.en_IN.js"></script>
+
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-82813">
+            <div id="hblock-82813" class="content-82813"></div>
+
+            <div id="hbutton-back-82813" class="hbutton hbutton-back-82813"></div>
+            <div id="hbutton-forward-82813" class="hbutton hbutton-forward-82813"></div>                   
+        </div>
+
+        <script>    
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 78}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "#fbe5e4",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82813', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-82813',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 78, 78)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-82813', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82813, JsAPI.Dom.getElement('hblock-82813'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                    JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82813'), 'click', function () {
+                        block.scrollBack();
+                    });
+
+                    JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82813'), 'click', function () {
+                        block.scrollForward();
+                    });                              
+            }, function (reason) {});          
+        </script>
+    </body>
+</html>

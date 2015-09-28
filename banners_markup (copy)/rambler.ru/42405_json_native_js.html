@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>rambler.ru v3 block</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+</head>
+
+<body>
+<div>
+    <style>           
+        @font-face {
+            font-family: 'pt_sans_regular';
+            src: url('fonts/pt_sans_regular/pts_r-webfont.eot');
+            src: url('fonts/pt_sans_regular/pts_r-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('fonts/pt_sans_regular/pts_r-webfont.woff2') format('woff2'),
+                 url('fonts/pt_sans_regular/pts_r-webfont.woff') format('woff'),
+                 url('fonts/pt_sans_regular/pts_r-webfont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'pt_sans_bold_italic';
+            src: url('fonts/pt_sans_bold_italic/pts_bi-webfont.eot');
+            src: url('fonts/pt_sans_bold_italic/pts_bi-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('fonts/pt_sans_bold_italic/pts_bi-webfont.woff2') format('woff2'),
+                 url('fonts/pt_sans_bold_italic/pts_bi-webfont.woff') format('woff'),
+                 url('fonts/pt_sans_bold_italic/pts_bi-webfont.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        #sk_wrap0{
+            max-width: 240px; 
+            background-color: #efefef;      
+            overflow: hidden;
+            padding: 10px 10px 0;               
+        } 
+
+            .sk_item:hover{
+                -webkit-box-shadow: 0px 0px 16px 2px #ccc;
+                -moz-box-shadow: 0px 0px 16px 2px #ccc;
+                box-shadow: 0px 0px 16px 2px #ccc;
+            }
+
+            .sk_item{ 
+                background: #fff;
+                padding: 20px;
+                margin-bottom: 10px;
+                display: block;
+
+                color: #000;
+                text-decoration: none;
+                font: 16px 'pt_sans_regular', arial, sans-serif;                   
+            }
+
+                .sk_a1{
+                    display: block;                
+                }
+
+                    .sk_item .sk_announce:after{
+                        content: '»';
+                    }
+
+                    .sk_item .sk_announce:before{
+                        content: '«';
+                        
+                        text-indent: -7px;
+                        display: inline-block;
+                    }
+
+                    .sk_item .sk_announce{
+                        padding-bottom: 10px;
+                    }
+
+                    .sk_item .sk_title{
+                        padding-right: 10px;
+
+                        color: #000;
+                        text-decoration: none;
+                        font: 16px 'pt_sans_bold_italic', arial, sans-serif;                           
+                    }    
+
+                    .sk_item img{
+                        display: block;
+                        border-radius: 50px;
+                    }                                             
+    </style>
+    <div id='sk_wrap0'></div>
+</div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText),
+                    massiveLength = massive.news.length;
+
+                console.log(massive);
+                console.log(massiveLength);
+
+                var _doc = document;   
+                var _sk_wrap0 = _doc.getElementById('sk_wrap0');
+                            
+                for (var i = 0; i < massiveLength; i++) {
+                    var _sk_wrap = _doc.createElement("div"), 
+                        announceQ;   
+
+                    announceQ = massive.news[i].announce.replace(/"/g, '');
+
+
+                    //console.log(massive.news[i].url);
+                    //console.log(massive.news[i].img);
+                    //console.log(massive.news[i].title);
+                    //console.log(massive.news[i].announce);
+                    //console.log(announceQ);
+
+
+                    _sk_wrap.innerHTML = '<a class="sk_item" href="' + massive.news[i].url + '" target="_blank"> \
+                        <div class="sk_announce">' + announceQ + '</div> \
+                            <table width="100%" valign="center"><tbody><tr> \
+                                <td align="right"><div class="sk_title">' + massive.news[i].title + '</div></td> \
+                                <td width="50" height="50"><img src="' + massive.news[i].img +'" width="50" height="50" style="" /></td> \
+                            </tr></tbody></table> \
+                        </a>';      
+
+                    _sk_wrap0.appendChild(_sk_wrap);
+                }                
+            }
+        }
+
+        xmlhttp.open("GET","http://news.smi2.ru/data/js/81608.js",true);
+        xmlhttp.send();
+
+    </script>
+</body>
+</html>

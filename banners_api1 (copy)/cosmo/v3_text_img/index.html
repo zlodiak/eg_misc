@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>cosmo vertical_3_quadro</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <style>
+            .vblock-82877 {
+                max-width: 300px;
+                margin: 15px  auto;
+
+
+                text-align: left !important;
+            }
+
+            .vblock-82877 .header-82877 {
+                padding-bottom: 10px;
+            }
+
+                .vblock-82877 .header-82877 .header-82877_inner{
+                    position: relative;   
+                    overflow: hidden;
+                    padding: 20px 15px 12px;
+
+                    color: rgb(0, 0, 0);
+                    font-family: gretadisplay, serif;
+                    font-size: 27px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    line-height: 27px;
+                      
+                }
+
+                    .vblock-82877 .header-82877 .header-82877_inner img{
+                        
+                    }                    
+
+            .vblock-82877 .content-82877 {
+                height: 310px;
+                overflow: hidden;
+            }
+
+                .vblock-82877 .content-82877 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-82877 .item-82877 {
+                overflow: hidden;
+                display: block;
+                padding: 0 15px;
+                width: auto;
+                margin: 0;
+            }
+            .vblock-82877 .image-82877 {
+                float: left;
+                display: block;
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+            }
+            .vblock-82877 .title-82877 a:hover {
+                text-decoration: none !important;
+                color: #ec008c !important;
+            }
+
+            .vblock-82877 .title-82877{
+                position: static !important;
+            }
+
+                .vblock-82877 .title-82877 a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    height: 76px;
+                    margin-left: 95px;
+                    text-align: left !important;
+
+                    color: rgb(34, 34, 34);
+                    font-family: geometria, sans-serif !important;
+                    font-size: 15px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    line-height: 19.5px;
+                }
+
+                    .buttons-82877{
+                        padding: 5px 15px 10px;
+
+                        text-align: right;
+                    }
+
+                        .buttons-82877 > div{
+                            display: inline-block;
+                            width: 26px;
+                            height: 25px;
+                            border: none;
+                            margin-left: 5px;
+                            cursor: pointer;
+                        }
+
+                        .vbutton-back-82877{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                        }
+
+                        .vbutton-forward-82877{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                        }
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+    </head>
+
+    <body>
+        <div class="vblock-82877">
+            <div class="header-82877">
+                <div class="header-82877_inner">СМИ 2 Lady</div>
+            </div>
+
+            <div id="vblock-82877" class="content-82877"></div>
+
+            <div class="buttons-82877">
+                <div id="vbutton-back-82877" class="vbutton vbutton-back-82877"></div>
+                <div id="vbutton-forward-82877" class="vbutton vbutton-forward-82877"></div>        
+            </div>
+        </div>
+
+        <script>   
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 80}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82877', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-82877',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 80, 80)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-82877', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                  
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 82877, JsAPI.Dom.getElement('vblock-82877'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-82877'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-82877'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

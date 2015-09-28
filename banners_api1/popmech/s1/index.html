@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>popmech - single</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width = 1016,target-densitydpi = device-dpi" name="viewport">
+
+    <style>
+        #unit_82816{
+          width: 240px;
+          float: left;
+          margin-right: 10px;
+        }
+        #container-82816 {
+            width: 220px;
+            min-height: 240px;
+            padding: 10px;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #container-82816 .list-container-item {
+            margin-bottom: 7px;
+        }
+        #container-82816 .list-container-item .image-82816 {
+            display: block;
+            border: none;
+        }
+
+            #container-82816 .list-container-item .image-82816 img{
+                width: 220px;
+                height: 165px;
+                display: block;
+            }
+
+        #container-82816 .list-container-item .title-82816 {
+            display: block;
+        }
+        #container-82816 .list-container-item .title-82816 a {
+            display: block;
+            padding-top: 12px;
+
+            text-decoration: none;
+            font-family: 'Ubuntu Condensed', Arial, sans-serif;
+            font-size: 22px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 20px;
+            color: #333;
+        }
+        #container-82816 .list-container-item .title-82816 a:hover {
+              color: #f32600!important;
+              text-decoration: none;
+
+        }
+        #container-82816 .list-container-item .clear {
+            clear: left;
+        }
+
+    .grid-cell-notice-82816{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+          display: inline-block;
+          padding: 0 5px;
+          height: 21px;
+          line-height: 21px;
+          font-size: 14px;
+          font-family: Roboto,Arial,sans-serif;
+          font-weight: 700;
+          background: #ee1e1e;
+          background-image: initial;
+          background-position-x: initial;
+          background-position-y: initial;
+          background-size: initial;
+          background-repeat-x: initial;
+          background-repeat-y: initial;
+          background-attachment: initial;
+          background-origin: initial;
+          background-clip: initial;
+          background-color: rgb(238, 30, 30);
+          color: #fff;        
+    }
+
+    </style>
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+</head>
+<body style="background: #ccc">
+
+<div id="container-82816"><span class="grid-cell-notice-82816">СМИ2</span></div>
+
+<script type="text/javascript">
+    var properties = {};
+
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-82816',
+                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 220, 165)
+            })),
+            JsAPI.Dom.createDom('div', 'title-82816', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    var opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TITLE;
+
+    JsAPI.Ui.ListBlockFactory.create(
+            80467 /* Идентификатор блока */,
+            1 /* Размер страницы (количество) загружаемых элементов */,
+            1 /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container-82816") /* Родительский элемент */,
+            properties /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            opt_fields /* Маска требуемых параметров новостей */
+    ).then(function (block) {}, function (reason) {alert('Error: ' + reason);});
+</script>
+</body>
+</html>

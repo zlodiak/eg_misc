@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блок 82230</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-82230 {
+            height: 80px;
+            border: 1px solid #000;
+        }
+
+
+        .vblock-82230 .header {
+            background-color: #000;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 8px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .vblock-82230 .header .logo {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+        }
+        .vblock-82230 .content {
+            /*width: 1000px;*/
+            height: 700px;
+            height: 80px;
+            overflow: hidden;
+        }
+
+        .vblock-82230 .item {
+            font-family: Arial, sans-serif;
+            margin: 0 10px 0 0;
+        }
+        .vblock-82230 .image {
+            float: left;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 60px;
+            height: 60px;
+        }
+        .vblock-82230 .title a {
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            color: #000;
+        }
+        .vblock .title a:hover {
+            text-decoration: underline;
+        }
+        .vblock-82230 .topic {
+            font-size: 12px;
+            color: #349400;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .vbutton {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+    </style>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+
+</head>
+<body>
+
+    <div class="vblock-82230">
+        <div id="vblock-82230" class="content"></div>
+        <button id="vbutton-back-82230" class="vbutton">Назад</button>
+        <button id="vbutton-forward-82230" class="vbutton">Вперед</button>                
+    </div>
+
+    <script>
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 200, "height": 80}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#000",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 60, 60)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 82230, JsAPI.Dom.getElement('vblock-82230'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            console && console.log('Ok', block);
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-82230'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-82230'), 'click', function () {
+                block.scrollForward();
+            });
+
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

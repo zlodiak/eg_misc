@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>78864</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-78864 {
+            max-width: 300px;
+        }
+
+        .vblock-78864 .header-78864 {
+            padding-bottom: 10px;
+        }
+
+            .vblock-78864 .header-78864 .header-78864_inner{
+                height: 22px;
+                position: relative;   
+                border-bottom: 2px solid #791001;
+
+                color: #555;
+                font-family: Arial, sans-serif;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: bold;                             
+            }
+
+        .vblock-78864 .content {
+            height: 520px;
+            overflow: hidden;
+        }
+
+            .vblock-78864 .content .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-78864 .item {
+            overflow: hidden;
+            display: block;
+            padding: 0 0px 0px 0px;
+        }
+        .vblock-78864 .image {
+            float: left;
+            display: block;
+            width: 90px;
+            height: 90px;
+            overflow: hidden;
+        }
+        .vblock-78864 .title a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            height: 78px;
+            margin-left: 104px;
+
+            color: #024999;
+            font-family: arial;
+            font-size: 12px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: normal;  
+        }
+        .vblock-78864 .title a:hover {
+            text-decoration: underline !important;
+            color: red;
+        }
+        .vblock-78864 .domain span {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            height: 15px;
+            margin-left: 104px;
+
+            color: #024999;
+            font-family: arial;
+            font-size: 12px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;  
+        }
+
+            .buttons-78864{
+                background: #fff;
+                padding: 15px 14px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-78864 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                }
+
+                .vbutton-back-78864{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-78864{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+</head>
+
+<body>
+    <div class="vblock-78864">
+        <div class="header-78864">
+            <div class="header-78864_inner">
+               AROUND THE WEB
+            </div>
+        </div>
+        <div id="vblock-78864" class="content"></div>
+        <div class="buttons-78864">
+            <div id="vbutton-back-78864" class="vbutton vbutton-back-78864"></div>
+            <div id="vbutton-forward-78864" class="vbutton vbutton-forward-78864"></div>        
+        </div>
+    </div>
+
+    <script>
+        JsAPI.Config.setDomain('news.fark.com');
+ 
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 300, "height": 100}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 90, 90)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'domain', JsAPI.Dom.createDom('span', {
+                        }, model['domain']))                        
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.DOMAIN
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 78864, JsAPI.Dom.getElement('vblock-78864'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-78864'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-78864'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

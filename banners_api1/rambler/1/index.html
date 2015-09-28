@@ -1,0 +1,131 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>rambler horiz</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+
+    <style>
+        #container-81608 .fluidgrid-container {
+        }
+        #container-81608 .fluidgrid-container-item {
+            background-color: white;
+        }
+        #container-81608 .fluidgrid-container-item-hover {
+            /*box-shadow: 0 0 5px 2px #ccc;*/
+        }
+        #container-81608 .fluidgrid-container-item {
+            /*padding: 10px;*/
+            display: block;
+            background-color: #efefef;
+
+        }
+        #container-81608 .fluidgrid-container-item .inner {
+            padding: 5px;
+            background-color: #efefef;
+
+        }
+        #container-81608 .fluidgrid-container-item .item {
+            padding: 20px;
+            text-decoration: none;
+            display: block;
+            background-color: #fff;
+            text-align: right;
+        }
+        #container-81608 .fluidgrid-container-item .title:before {
+            content: "«";
+            text-indent: -7px;
+            display: inline-block;
+        }
+        #container-81608 .fluidgrid-container-item .title:after {
+            content: "»";
+        }
+        #container-81608 .fluidgrid-container-item .title {
+            color: #000;
+            display: block;
+            font-family: 'PT Sans', arial, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+        #container-81608 .fluidgrid-container-item .text {
+            color: black;
+            display: inline-block;
+            font-family: 'PT Sans', arial, sans-serif;
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: italic;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: normal;
+            padding-right: 10px;
+            text-decoration: none;
+            vertical-align: middle;
+            width: 144px;
+            max-height: 91px;
+            overflow: hidden;
+        }
+        #container-81608 .fluidgrid-container-item .item img {
+            display: inline-block;
+            border-radius: 50px;
+            border: none;
+            width: 50px;
+            height: 50px;
+
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="container-81608"></div>
+<script type="text/javascript">
+    var properties = {
+        'item': {
+            'width': 260,
+            'margin': 0
+        }
+    };
+
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent,
+                JsAPI.Dom.createDom('div', 'inner',
+                JsAPI.Dom.createDom('a', {
+                            'class': 'item',
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, [
+                            JsAPI.Dom.createDom('div', 'title', model['title']),
+                            JsAPI.Dom.createDom('div', 'text', model['text']),
+                             JsAPI.Dom.createDom('img', {
+                             'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 50, 50)
+                             })
+                        ]
+                )));
+    };
+
+    var opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.TITLE
+            | JsAPI.Dao.NewsField.TEXT
+            | JsAPI.Dao.NewsField.IMAGE;
+
+    JsAPI.Ui.FluidGridBlockFactory.create(
+            JsAPI.Ui.Align.CENTER /* Выравнивание содержимого блока */,
+            81608 /* Идентификатор блока */,
+            40 /* Размер страницы (количество) загружаемых элементов */,
+            Infinity /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container-81608") /* Родительский элемент */,
+            properties /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            opt_fields /* Маска требуемых параметров новостей */
+    ).then(function (block) {
+                console && console.log('Block', block);
+            });
+</script>
+</body>
+</html>

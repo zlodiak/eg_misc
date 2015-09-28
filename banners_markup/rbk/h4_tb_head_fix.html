@@ -1,0 +1,98 @@
+4
+120
+76
+
+
+
+
+<div class="banners__wrap-article">
+    <div class="banners__smi2">
+        <div class="banners__smi2__header">
+            <span class="banners__smi2__header-text">Новости <br>СМИ 2</span>
+        </div>
+
+        %ITEMS%
+    </div>
+</div>
+<style>
+    @font-face {
+        font-family: 'Lato';
+        src: url('//static.smi2.net/static/blocks/fonts/lato/Lato-Regular.ttf') format('truetype');
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .banners__wrap-article{
+
+    }
+
+        .banners__smi2{
+            overflow: hidden;
+            width: 1000px;
+            padding-left: 100px;
+            position: relative;
+        }
+
+            .banners__smi2__header{
+              position: absolute;
+              left: 20px;
+              top: 20px;
+              right: 20px;
+              overflow: hidden;
+
+              color: #000;
+              font-family: 'Lato', Arial, sans-serif;
+              font-size: 15px;
+              line-height: 1.2;
+              font-weight: bold;
+            }
+
+            .banners__smi2__item{
+                overflow: hidden;
+                width: 25%;
+                float: left;
+
+                vertical-align: top;
+            }
+
+                .banners__smi2__item a{ 
+                  border-left: 1px solid #ccc;
+                  border-bottom: 1px solid #ccc;
+                  height: 200px;
+                  padding: 20px 20px;
+                  display: block;
+
+                  text-decoration: none !important;
+                }
+
+                    .banners__smi2__item a .banners__smi2__img{ 
+                      display: block;
+                      width: 120px;
+                      height: 76px;
+                      margin: 0 0 20px;
+                    }
+
+                    .banners__smi2__item a .banners__smi2__title{ 
+                      display: block;
+                      overflow: hidden;
+
+                      color: #000;
+                      font-family: 'Lato', Arial, sans-serif;
+                      font-size: 15px;
+                      line-height: 1.2;
+                      text-decoration: none !important;
+                      text-align: left;
+                    }                    
+</style>
+
+
+
+
+
+
+<div class="banners__smi2__item">
+    <a href="#" class="banners__smi2__link">
+        <img class="banners__smi2__img" src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" alt="" />
+        <span class="banners__smi2__title">%TITLE%</span>
+    </a>
+</div>

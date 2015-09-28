@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>live journal json-block test page 82652</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        
+        <link rel="apple-touch-icon" href="http://l-stat.livejournal.net/img/apple-touch-icon.png?v=14991">
+        <meta name="msapplication-TileImage" content="http://www.livejournal.com/mstile-144x144.png?v=49565">
+        <meta name="msapplication-TileColor" content="#004359">
+        <link rel="shortcut icon" type="image/x-icon" href="http://l-stat.livejournal.net/img/userinfo.ico">
+        <link rel="icon" type="image/gif" href="http://l-files.livejournal.net/userhead/1124?v=1364300988">
+    </head>
+
+    <body>
+        <div>
+            <style>           
+              .sk_wrap_outer_82630{
+                padding: 15px 0px;
+                overflow: hidden;
+                clear: both;
+                min-width: 320px;
+              }
+
+                .sk_wrap_82630{
+                  overflow: hidden;                  
+                }
+
+                  .sk_items_82630{
+                    overflow: hidden;
+
+                    text-align: center;
+                  }
+
+
+                    .sk_item_82630:last-child{
+                      margin-right: 0;
+                    }
+
+                    .sk_item_82630{
+                      overflow: hidden;
+                      width: 16%;
+                      padding-bottom: 13px;   
+                      display: inline-block;
+                      
+                      vertical-align: top;
+                    }
+
+                      .sk_img_82630{
+                        margin: 0 auto 4px;
+                        display: block;
+                        padding: 0 5px;
+                        width: 150px !important;
+                        height: 120px !important;              
+                      }
+
+                        .sk_img_82630 img{
+                          display: inline-block;
+                          width: 150px !important;
+                          height: 120px !important;
+                        }
+
+                      .sk_text_82630:hover{
+                        text-decoration: none !important;
+                        color: #0086B3 !important;
+                      }
+
+                      .sk_text_82630{
+                        display: block;
+                        color: #25B3E2 !important;
+                        font-family: Tahoma, sans-serif;
+                        font-size: 14px;
+                        text-decoration: none !important;
+                        text-align: center;
+                        clear: left;
+                        padding: 0 5px;
+                        max-width: 250px;
+                        margin: 0 auto;
+                      } 
+
+              @media (max-width: 1500px) {
+
+              }
+
+
+              @media (max-width: 1100px) {
+                    .sk_item_82630{
+                      width: 32%;
+                    }
+              }
+
+              @media (max-width: 567px) {
+                    .sk_item_82630{
+                      width: 49% !important;
+                    } 
+              }
+
+              @media (max-width: 399px) {
+                    .sk_item_82630{
+                      width: 100% !important;
+                    }  
+              }                        
+            </style>
+            <div class="sk_wrap_outer_82630">
+                <div id='sk_wrap_82630'></div>
+            </div>
+        </div>
+
+        <script>
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{
+                // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    var massive = JSON.parse(xmlhttp.responseText),
+                        massiveLength = massive.news.length;
+
+                    //console.log(massive);
+                    //console.log(massiveLength);
+
+                    var _doc = document;   
+                    var _sk_wrap0 = _doc.getElementById('sk_wrap_82630');
+                                
+                    for (var i = 0; i < massiveLength; i++) {
+                        var _sk_wrap = _doc.createElement("div");
+                        _sk_wrap.className = 'sk_item_82630';
+
+                        //console.log(massive.news[i].url);
+                        //console.log(massive.news[i].img);
+                        //console.log(massive.news[i].title);
+
+                        _sk_wrap.innerHTML = '<a href="' + massive.news[i].url + '" class="sk_img_82630" style="width: 150px !important; height: 120px !important;"><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '" style="width: 150px !important; height: 120px !important;" /></a><a href="' + massive.news[i].url + '" class="sk_text_82630">' + massive.news[i].title + '</a>';      
+
+                        _sk_wrap0.appendChild(_sk_wrap);
+                    }                
+                }
+            }
+
+            xmlhttp.open("GET","//news.smi2.ru/data/js/82652.js",true);
+            xmlhttp.send();
+        </script>
+    </body>
+</html>

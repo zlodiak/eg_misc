@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>v therunet</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            /* fs */
+            @font-face {
+                font-family: 'roboto_slabbold';
+                src: url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Bold-webfont.eot');
+                src: url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Bold-webfont.woff2') format('woff2'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Bold-webfont.woff') format('woff'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Bold-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+            @font-face {
+                font-family: 'roboto_slabregular';
+                src: url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.eot');
+                src: url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.woff2') format('woff2'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.woff') format('woff'),
+                     url('http://static.smi2.net/static/blocks/fonts/roboto_slab_bold/RobotoSlab-Regular-webfont.ttf') format('truetype');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+            .sk81562_header{
+                font-size: 26px;
+                font-weight: bold;
+                font-family: 'Roboto Slab', 'roboto_slabbold', Times, serif;
+                line-height: 24px;
+                margin-top: 13px;
+                margin-bottom: 26px;
+            }
+
+            .mycontainer_81562_outer:after{
+                border-right: 1px solid #ccc;
+                position: absolute;
+                right: 6px;
+                top: 22px;
+                bottom: 22px;
+
+                content: '';
+            }
+
+            .mycontainer_81562_outer{
+                border: 1px solid #ccc;
+                max-width: 300px;
+                padding: 22px 0;
+                position: relative;
+            }
+
+                #mycontainer_81562{
+                    height: 450px;
+                    
+                }
+
+                    #mycontainer_81562 a{
+                        text-decoration: none !important;
+                        line-height: 20px;
+                    }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="smi2adblock_81562">
+            <a class="sk81562_logo"><img src="http://static.smi2.net/static/logo/smi2.png" alt="" width="68" height="20" /></a>
+            <div class="sk81562_header">Популярные <br />новости</div>
+            <div class="mycontainer_81562_outer">
+                <div class="" id="mycontainer_81562"></div>             
+            </div>
+        </div>    
+
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v0.ru_RU.js"></script>
+
+        <script>
+            /* Создание горизонтального блока */
+            JsAPI.Ui.VBlock.create(81562, "mycontainer_81562").then(function (block) {
+                /* Документ */
+                var _doc = document;
+
+                /* Родительский элемент */
+                var _parent = _doc.getElementById("mycontainer_81562");
+
+            },function(reason){
+                /* Обработка ошибки */
+            });
+        </script>
+
+    </body>
+</html>
+
+
+
+
+
+
+

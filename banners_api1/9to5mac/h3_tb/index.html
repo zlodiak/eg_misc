@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - 9to5mac</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        .hblock {
+
+        }
+        .hblock .content-82730 {
+            min-height: 240px;
+        }
+
+        .hblock .item {
+            font-family: Arial, sans-serif;
+            margin: 0 3px 0 0;
+        }
+        .hblock .image-82730 {
+            width: 100%;
+        }
+        .hblock .wrapper {
+        }
+        .hblock .wrapper div {
+            padding-top: 5px;
+        }
+        .hblock .title-82730 a:hover {
+            color: #4aa3b3 !important;
+            text-decoration: none !important;
+        }
+
+        .hblock .title-82730 a {
+            font-family: 'Roboto Regular', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            color: #126888 !important;
+            text-decoration: none !important;
+
+            cursor: pointer;
+              height: 69px;
+              display: block;
+              overflow: hidden;            
+        }
+        .hblock .domain {
+            font-family: 'Roboto Regular', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666 !important;
+            text-decoration: none !important;
+
+        }
+     
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+</head>
+
+<body style="max-width: 600px; margin: auto;">
+    <div class="hblock">
+        <div id="hblock" class="content-82730"></div>
+    </div>
+
+    <script>
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 100, "height": 250}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#ccc",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-82730',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 170, 110)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper', [
+                            JsAPI.Dom.createDom('div', 'title-82730', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82730, JsAPI.Dom.getElement('hblock'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

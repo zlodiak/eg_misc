@@ -1,0 +1,249 @@
+v3
+70
+50
+
+
+roll
+0
+0
+0
+
+
+
+<div style="background-color: #FFFFFF; border: 1px solid #000;padding: 9px 10px 9px 15px;">
+<img width="" border="0" src="http://static.smi2.net/static/logo/smi2.png" style="display:block;margin: 0 auto 10px auto;height: 25px;width: 84px;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">%ITEMS%</table>
+</div>
+
+<style type="text/css"> #smi2adblock_78922  {  } #smi2adblock_78922 a { display: block;font-family: Arial,sans-serif; color: #000000; font-size: 11px; text-decoration: underline; } #smi2adblock_78922 a:hover { text-decoration: none; } #smi2adblock_78922 td { border-style: none; } #smi2adblock_78922 tr td:last-child { border-right-style: none; } #smi2adblock_78922 tr:last-child td { border-bottom-style: none; } </style>
+
+
+
+
+<tr><td width="%IMAGE_WIDTH%" style="vertical-align: top; padding: 0 10px 17px 0;border-right-width: 0"><a href="%URL%" target="_blank"><img border="0" src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" /></a></td><td width="*" style="vertical-align: top;text-align: left;"><a href="%URL%" target="_blank">%TITLE%</a></td></tr>
+
+
+
+{
+    "type": "default",
+    "topics": null,
+    "news": {
+        "type": "default",
+        "size": {
+            "width": 238,
+            "height": 60
+        },
+        "background": "white",
+        "image": {
+            "type": "default",
+            "size": {
+                "width": 70,
+                "height": 50
+            },
+            "border": {
+                "size": 0,
+                "rounded": false,
+                "color": "white" 
+            },
+            "padding": {
+                "top": 0,
+                "bottom": 10,
+                "left": 0,
+                "right": 10
+            },
+            "floating": "left",
+            "align": "left" 
+        },
+        "title": {
+            "type": "default",
+            "font": {
+                "size": 11,
+                "family": "Arial,sans-serif",
+                "style": "normal",
+                "weight": "normal",
+                "color": "#000" 
+            },
+            "padding": {
+                "top": 0,
+                "bottom": 0,
+                "left": 10,
+                "right": 10
+            },
+            "align": "left" 
+        }
+    },
+    "hs": {
+        "size": 0,
+        "style": "solid",
+        "color": "transparent",
+        "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+        }
+    },
+    "vs": {
+        "size": 0,
+        "style": "solid",
+        "color": "transparent",
+        "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 5,
+            "right": 5
+        }
+    },
+    "scroll": {
+        "size": 0,
+        "rounded": false,
+        "background": "transparent",
+        "color": "transparent",
+        "padding": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+        }
+    }
+}
+
+
+
+
+
+.wrap0{
+                width: 238px;
+                position: relative;
+                margin: 0 auto; 
+				height: 398px;
+            }
+
+            .my_container_outer{
+                border: 1px solid #000;               
+                background: #fff;
+                padding: 9px 10px 26px 10px;
+            }  
+
+            .img_outer{
+                width: 84px;
+                height: 25px;
+                margin: 0 auto;
+                padding-bottom: 8px;
+            }
+
+                .img_outer img{
+                    display: block;
+                    width: 84px;
+                    height: 25px;                    
+                }
+
+            .my_container{
+                height: 330px;
+            }    
+
+            #back, #forward{
+                position: absolute;
+                z-index: 100;
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                background-image: url('//static.smi2.net/static/jsapi/resources/arrow_sprite.png');
+                background-repeat: no-repeat;
+                outline: none;
+                width: 26px;
+                height: 26px;                 
+            }
+
+            #forward,
+            #back{
+               
+            }
+
+            #back{
+                left: 0;
+                background-position: left;
+                bottom: 5px;
+                top: auto;
+                right: 40px;
+                left: auto;
+                background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+            }
+
+            #forward{
+                right: 7px;
+                background-position: right;
+                bottom: 5px;
+                top: auto;
+                background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;
+            }
+
+            .my_container > div > div > div div:nth-child(2){
+
+            }
+
+            .my_container > div > div > div div:nth-child(2){
+                text-align: left !important;
+                margin-left: 80px !important;
+            }
+
+                .my_container a{
+                    display: block;
+                }
+
+                .my_container a:hover{
+                    text-decoration: none;
+
+                }
+
+
+
+
+
+/* Создание горизонтального блока */
+            JsAPI.Ui.VBlock.create(81021, "mycontainer").then(function (block) {
+                /* Документ */
+                var _doc = document;
+
+                /* Родительский элемент */
+                var _parent = _doc.getElementById("mycontainer");
+                var _wrapper = _doc.getElementById("wrapper");
+
+                /* Кнопка Назад */
+                var back = _doc.createElement("button");
+                back.id = "back";
+                _wrapper.appendChild(back);
+
+                /* Регистрация обработчика click-события для элемента кнопки Назад */
+                JsAPI.Event.listen(back, "click", function () {
+                    /* Выполнить перемещение содержимого блока назад */
+                    block.scrollBack();
+                });
+
+                /* Кнопка Вперед */
+                var forward = _doc.createElement("button");
+                forward.id = "forward";
+                _wrapper.appendChild(forward);
+
+                /* Регистрация обработчика click-события для элемента кнопки Вперед */
+                JsAPI.Event.listen(forward, "click", function () {
+                    /* Выполнить перемещение содержимого блока вперед */
+                    block.scrollForward();
+                });
+
+            },function(reason){
+                /* Обработка ошибки */
+            });                
+
+
+
+
+
+
+
+    (function() {
+        var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+        sc.src = 'http://news.smi2.net/newdata/qq?bl=78922&jsapi_enabled=1'; sc.charset = 'utf-8';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+    }());
+            

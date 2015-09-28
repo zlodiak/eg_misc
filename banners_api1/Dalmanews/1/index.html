@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>v10_infinity </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.4.ru_RU.js"></script>
+
+    <style>
+        #container {
+
+        }
+
+        #container .list-container-item {
+            padding-bottom: 5px;
+        }
+        #container .list-container-item-hover {
+        }
+        #container .list-container-item .image {
+            display: block;
+            float: left;
+            border: none;
+            width: 45px;
+            height: 45px;
+        }
+        #container .list-container-item .title {
+            display: block;
+            margin-left: 50px;
+        }
+        #container .list-container-item .title a {
+            display: block;
+
+            text-decoration: underline;
+            color: rgb(34, 34, 34);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 11px;
+        }
+        #container .list-container-item .title a:hover {
+            color: #5C688E;
+            text-decoration: none;
+        }
+        #container .list-container-item .clear {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image',
+                'src': model['pub_logo']
+            })),
+            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    JsAPI.Ui.AggregatorListBlockFactory.create(
+            10 /* Размер страницы (количество) загружаемых элементов */,
+            Infinity /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container") /* Родительский элемент */,
+            undefined /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            undefined /* Маска требуемых параметров новостей */
+    ).then(function (block) {}, function (reason) {/*alert('Error: ' + reason);*/});
+</script>
+</body>
+</html>

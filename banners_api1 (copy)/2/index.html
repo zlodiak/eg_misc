@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JsAPI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+    <style>
+        body {
+            background: url(//static.smi2.net/static/p/resources/bg.png);
+        }
+
+        #container .fluidgrid-container {
+        }
+        #container .fluidgrid-container-item {
+            background-color: white;
+        }
+        #container .fluidgrid-container-item-hover {
+            box-shadow: 0 0 5px 2px #ccc;
+        }
+        #container .fluidgrid-container-item .item {
+            text-decoration: none;
+        }
+        #container .fluidgrid-container-item .wrapper {
+        }
+        #container .fluidgrid-container-item .topic {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            color: rgb(52, 148, 0);
+            margin: 10px 15px 0px;
+            text-align: left;
+        }
+        #container .fluidgrid-container-item .title {
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            margin: 10px 15px 0px;
+            color: rgb(0, 139, 204);
+        }
+        #container .fluidgrid-container-item .text {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: rgb(69, 68, 65);
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+        #container .fluidgrid-container-item .domain {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: lightgray;
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+    // Установка домена рекламного сервера
+    JsAPI.Config.setDomain('news.outlet.dev.smi2.net');
+
+    var properties = {
+        'item': {
+            'width': 250,
+            'margin': 15
+        }
+    };
+
+    // Callback-функция рендера содержимого элемента блока
+    var renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('a', {
+                    'class': 'item',
+                    'href': model['url'],
+                    'target': '_blank'
+                }, [
+                    JsAPI.Dom.createDom('img', {
+                        'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 250, 150),
+                        'width': '250px',
+                        'height': '150px'
+                    }),
+                    JsAPI.Dom.createDom('div', 'topic', model['topic_name']),
+                    JsAPI.Dom.createDom('div', 'title', model['title']),
+                    JsAPI.Dom.createDom('div', 'text', model['text']),
+                    JsAPI.Dom.createDom('div', 'domain', model['domain'])
+                ]
+        ));
+    };
+
+    // Маска параметров (полей) новостей
+    var opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TOPIC
+            | JsAPI.Dao.NewsField.TITLE
+            | JsAPI.Dao.NewsField.TEXT
+            | JsAPI.Dao.NewsField.DOMAIN;
+
+    // Создание блока
+    JsAPI.Ui.FluidGridBlockFactory.create(
+            JsAPI.Ui.Align.CENTER /* Выравнивание содержимого блока */,
+            4321 /* Идентификатор блока */,
+            20 /* Размер страницы (количество) загружаемых элементов */,
+            Infinity /* Максимальное количество загружаемых страниц элементов */,
+            JsAPI.Dom.getElement("container") /* Родительский элемент */,
+            properties /* Настройки блока */,
+            renderer /* Рендер содержимого новости */,
+            opt_fields /* Маска требуемых параметров новостей */
+    ).then(function (block) {
+        console && console.log('Block', block);
+    });
+</script>
+</body>
+</html>

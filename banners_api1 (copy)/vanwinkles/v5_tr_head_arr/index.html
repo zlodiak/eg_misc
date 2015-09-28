@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>83050</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .vblock-83050 {
+                max-width: 370px;
+                margin: 0 auto;
+                box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.25);
+                background: #fff;                
+
+                text-align: left !important;
+            }
+
+            .vblock-83050 .header-83050 {
+                border-bottom: 8px solid #000;
+                margin: 0 17px 10px;
+            }
+
+                .vblock-83050 .header-83050 .header-83050_inner{
+                    height: 44px;
+                    position: relative;   
+                    overflow: hidden;
+
+                    color: rgb(0, 0, 0);
+                    font-family: 'Bureau Grotesque Extra', sans-serif;
+                    font-size: 30px;
+                    font-weight: bold;   
+                    text-transform: uppercase; 
+                    line-height: 44px;     
+                    text-align: center;                  
+                }
+
+            .vblock-83050 .content-83050 {
+                height: 510px;
+                margin: 0 17px;
+                overflow: hidden;
+            }
+
+                .vblock-83050 .content-83050 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-83050 .item {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+            }
+            .vblock-83050 .image {
+                float: left;
+                display: block;
+                width: 84px;
+                height: 84px;
+                overflow: hidden;
+            }
+            .vblock-83050 .title a:hover {
+                text-decoration: none !important;
+                color: rgb(18, 107, 251) !important;
+            }
+
+            .vblock-83050 .title{
+                position: static !important;
+            }
+
+                .vblock-83050 .title a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    height: 84px;
+                    margin-left: 109px;
+                    text-align: left !important;
+
+                    color: rgb(36, 36, 36);
+                    font-family: minion-pro;
+                    font-size: 15px;
+                    font-weight: 600;
+                    line-height: 19.5px;
+                }
+
+                    .buttons-83050{
+                        background: #fff;
+                        padding: 15px 17px 10px;
+                          border-top: 1px solid #ccc;
+                          margin-top: 10px;
+
+                        text-align: right;
+                    }
+
+                        .buttons-83050 > div{
+                            display: inline-block;
+                            width: 26px;
+                            height: 25px;
+                            border: none;
+                            margin-left: 5px;
+                            cursor: pointer;
+                        }
+
+                        .vbutton-back-83050{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                        }
+
+                        .vbutton-forward-83050{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                        }
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+    </head>
+
+    <body style="background: #ccc;">
+        <div class="vblock-83050">
+            <div class="header-83050">
+                <div class="header-83050_inner">AROUND THE WEB</div>
+            </div>
+
+            <div id="vblock-83050" class="content-83050"></div>
+
+            <div class="buttons-83050">
+                <div id="vbutton-back-83050" class="vbutton vbutton-back-83050"></div>
+                <div id="vbutton-forward-83050" class="vbutton vbutton-forward-83050"></div>        
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+     
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 84}
+                },
+                "hs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#ccc",
+                    "padding": {"top": 10, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 84, 84)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                       
+                    ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83050, JsAPI.Dom.getElement('vblock-83050'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83050'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83050'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

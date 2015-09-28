@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title data-default="News aggregator IdealMedia - all the top stories">
+        News aggregator IdealMedia - all the top stories    </title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+            <link rel="shortcut icon" href="/favicon.egen.ico">
+    
+    
+    <link rel="apple-touch-icon-precomposed" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-76.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-120.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="//static.smi2.net/static/aggregator_v2/images/mobile/icon-touch-smi2-ru-152.png">
+
+    <link href="//static.smi2.net/static/aggregator_v2/css/bootstrap-tn.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/bootstrap-custom.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/jquery.mCustomScrollbar.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/style.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/css/odometer-theme-default.css" rel="stylesheet" type='text/css'>
+    <link href="//static.smi2.net/static/aggregator_v2/js/smartbanner/jquery.smartbanner.css" rel="stylesheet" type='text/css'>
+
+    <link href="//static.smi2.net/static/aggregator_v2/css/resolution.css" rel="stylesheet" type='text/css'>
+
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/jquery.scrollTo.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/odometer.js" type="text/javascript"></script>
+    <script src="//static.smi2.net/static/aggregator_v2/js/smartbanner/jquery.smartbanner.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/script.js"></script>
+    <script type="text/javascript" src="//static.smi2.net/static/aggregator_v2/js/aggregator.js"></script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript" src="//static.smi2.net/static/ie/PIE.js"></script>
+    <![endif]-->
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+    
+    
+    
+</head>
+<body class="right360">
+    <div class="container-all">
+        <div class="left-column">
+            <div class="left-column-inner">
+                <ul class="main-menu">
+                    <li>
+                        <ul>
+                            <li><a href="http://e-generator.net/pages/advertisers" target="_blank">Promote your Brand & Content</a></li>
+                        </ul>
+                    </li>
+                </ul>
+ 
+                <style>
+                    #container {
+                        height: 1200px;
+                        overflow: hidden;
+                    }
+
+                    #container .fluidgrid-container {
+                        overflow: hidden;
+                    }
+
+                        #container .fluidgrid-container-item {
+
+                        }
+
+                        #container .fluidgrid-container-item .item {
+                            text-decoration: none;
+                            display: block;
+                            overflow: hidden;
+                        }
+
+                        #container img {
+                            display: block;
+                            float: left;
+                        }
+
+                        #container .title {
+                            color: #9B9B9B;
+                            font-family: 'PT Sans', sans-serif;
+                            font-size: 13px;
+                            line-height: 20px;          
+                            text-decoration: none;  
+
+                            display: block;
+                            margin-left: 85px;
+                        }                                          
+                </style>
+
+                <div id="container"></div>
+
+                <script src="//static.smi2.net/static/jsapi/jsapi.v1.0.ru_RU.js"></script>
+
+                <script type="text/javascript">
+                    // Установка домена рекламного сервера
+                    JsAPI.Config.setDomain('news.outlet.dev.smi2.net');
+
+                    var properties = {
+                        "item": {
+                            "size": {"width": 184, "height": 60}
+                        },
+                        "hs": {
+                            "size": 0,
+                            "style": "solid",
+                            "color": "#E3E3E3",
+                            "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+                        },
+                        "vs": {
+                            "size": 0,
+                            "style": "solid",
+                            "color": "#E3E3E3",
+                            "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+                        },
+                        "scroll": {
+                            "size": 6,
+                            "rounded": true,
+                            "background": "#282828",
+                            "color": "#2c9dd5",
+                            "padding": {"top": 2, "bottom": 2, "left": 0, "right": 0},
+                            "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                        }                       
+                    };
+
+                    // Callback-функция рендера содержимого элемента блока
+                    var renderer = function (parent, model, index) {
+                        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('a', {
+                                    'class': 'item',
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, [
+                                    JsAPI.Dom.createDom('img', {
+                                        'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 75, 50),
+                                        'width': '75px',
+                                        'height': '50px'
+                                    }),
+                                    //JsAPI.Dom.createDom('div', 'topic', model['topic_name']),
+                                    JsAPI.Dom.createDom('div', 'title', model['title']),
+                                    //JsAPI.Dom.createDom('div', 'text', model['text']),
+                                    //JsAPI.Dom.createDom('div', 'domain', model['domain'])
+                                ]
+                        ));
+                    };
+
+                    // Маска параметров (полей) новостей
+                    var opt_fields = JsAPI.Dao.NewsField.URI
+                            | JsAPI.Dao.NewsField.IMAGE
+                            | JsAPI.Dao.NewsField.TOPIC
+                            | JsAPI.Dao.NewsField.TITLE
+                            | JsAPI.Dao.NewsField.TEXT
+                            | JsAPI.Dao.NewsField.DOMAIN;
+
+
+
+                    JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 81823, JsAPI.Dom.getElement('container'), properties, renderer, opt_fields).then(function (block) {
+                        console && console.log('Ok', block);
+
+                    }, function (reason) {
+                        console && console.error('Error', reason);
+                    });        
+                </script>                
+            </div>           
+        </div>
+
+        <div class="right-column">
+            <div class="right-column-inner">
+                <div class="block info-block">
+                    <div id="time" class="day"></div>
+                                    </div>
+
+                <div class="block block-240-400">
+                                            <div>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- E Generator -->
+                            <ins class="adsbygoogle"
+                            style="display:inline-block;width:300px;height:600px"
+                            data-ad-client="ca-pub-5049673987369626"
+                            data-ad-slot="9068658792"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+                        <div style="margin-top: 15px">
+                            <!-- E Generator2 -->
+                            <ins class="adsbygoogle"
+                            style="display:inline-block;width:300px;height:250px"
+                            data-ad-client="ca-pub-5049673987369626"
+                            data-ad-slot="3022125199"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+                                    </div>
+
+                
+                            </div>
+        </div>
+
+        <div class="mp-overlay"><!----></div>
+
+        <div class="overlay-wrap">
+
+            <div class="top-panel">
+                <div class="first-line">
+                    <a class="menu-btn" href="#"><!----></a>
+                    <div class="logo">
+                        <a href="/">
+                            <img src="//static.smi2.net/static/aggregator_v2/images/logo/e-generator.in.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="sort-block">
+                                            <a href="/?time=24" class="">Day</a>
+                                            <a href="/?time=1" class="active">Hour</a>
+                                        </div>
+                    <div class="title">
+                                                    No.1 Indian News Aggregator
+                                            </div>
+                </div>
+
+                            </div>
+
+            <div class="content-wrap" style="padding-top: 60px;">
+            <div class="content">
+                <div id="articles-list" class="news-block" style="position: relative">
+                    
+                                            <div id="af8989885" class="news-item-big article-full " data-id="8989885" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989885&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjAsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg4NSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8989885.JPG?hash=d3a256b25c06f77a1e31718542e12a2f&amp;url=http://images.indiatvnews.com/maininternational/th/IndiaTv68527d_Hyon-Yong-Chol.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 10:09</span>
+                                    </span>
+                                    <span class="title article-title">North Korea executes defense chief for dozing off: Report</span>
+                                    <span class="desc article-announce">Seoul: North Korean leader Kim Jong Un executed his defense chief for sleeping during a meeting and talking back to the young leader, South Korea&#039;s spy agency told lawmakers Wednesday, citing what it called credible information.National Intelligence Service officials told a...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://images.indiatvnews.com/maininternational/th/IndiaTv68527d_Hyon-Yong-Chol.jpg" data-social-link="http://e-generator.in/?article=8989885">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8989885" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989885&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjAsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg4NSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="news-item article" data-id="8989885">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">North Korea executes defense chief for dozing off: Report</span>
+                        </a>
+                                            <div id="af8995173" class="news-item-big article-full -noimg" data-id="8995173" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8995173&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjEsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5NTE3MywiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">Rbth.com</span>
+                                        <span class="date">13 May, 16:24</span>
+                                    </span>
+                                    <span class="title article-title">First phase of Russian-Chinese naval drills over— Black Sea Fleet command</span>
+                                    <span class="desc article-announce">The first phase of the Russian-Chinese naval exercise Maritime Cooperation-2015 is over and it was a success, the chief of the Black Sea Fleet’s staff, Vice-Admiral Alexander Nosatov, has told the media</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8995173">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8995173" href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8995173&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjEsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5NTE3MywiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8995173">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">First phase of Russian-Chinese naval drills over— Black Sea Fleet command</span>
+                        </a>
+                                            <div id="af8989877" class="news-item-big article-full " data-id="8989877" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989877&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjIsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg3NywiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8989877.JPG?hash=354e41258096fcd5901f2f73029cdcdb&amp;url=http://images.indiatvnews.com/maininternational/th/IndiaTvc6f590_KarachiAttack.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:55</span>
+                                    </span>
+                                    <span class="title article-title">Several killed as gunmen open fire on a bus in Karachi</span>
+                                    <span class="desc article-announce">* Commuters were from the minority Ismaili Shia community: Police* Condition of several wounded critical: Hospital official* Attackers used 9mm pistols in the attack* Hospital official said the victims included 16 women and 25 men* At least 47 people killed ...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://images.indiatvnews.com/maininternational/th/IndiaTvc6f590_KarachiAttack.jpg" data-social-link="http://e-generator.in/?article=8989877">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8989877" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989877&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjIsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg3NywiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="news-item article" data-id="8989877">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Several killed as gunmen open fire on a bus in Karachi</span>
+                        </a>
+                                            <div id="af8993466" class="news-item-big article-full -noimg" data-id="8993466" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8993466&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjMsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MzQ2NiwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">Rbth.com</span>
+                                        <span class="date">13 May, 15:47</span>
+                                    </span>
+                                    <span class="title article-title">McDonald’s mulls Crimea meals, &quot;but nothing definite yet&quot;</span>
+                                    <span class="desc article-announce">US fast-food giant McDonald’s said on Wednesday that while it ruled out imminent operations on Russia’s Black Sea Crimea peninsula, future operations could be expected there</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8993466">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8993466" href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8993466&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjMsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MzQ2NiwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8993466">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">McDonald’s mulls Crimea meals, &quot;but nothing definite yet&quot;</span>
+                        </a>
+                                            <div id="af8989889" class="news-item-big article-full " data-id="8989889" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989889&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjQsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg4OSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8989889.JPG?hash=b54139548f798ad4e2141acfc25b3f6f&amp;url=http://images.indiatvnews.com/maininternational/th/IndiaTv66cfd6_NepalEarthquake.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:53</span>
+                                    </span>
+                                    <span class="title article-title">Earthquake aftermath: 65 dead in Nepal, 16 in India; thousands spend night in open</span>
+                                    <span class="desc article-announce">Kathmandu: Thousands of fear-stricken people spent the night out in the open as a new earthquake killed dozens of people and spread more misery in Nepal, which is still struggling to recover from a devastating quake nearly three weeks ago that left more than 8...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://images.indiatvnews.com/maininternational/th/IndiaTv66cfd6_NepalEarthquake.jpg" data-social-link="http://e-generator.in/?article=8989889">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8989889" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989889&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjQsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg4OSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="news-item article" data-id="8989889">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Earthquake aftermath: 65 dead in Nepal, 16 in India; thousands spend night in open</span>
+                        </a>
+                                            <div id="af8992735" class="news-item-big article-full -noimg" data-id="8992735" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8992735&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjUsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MjczNSwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">Rbth.com</span>
+                                        <span class="date">13 May, 15:31</span>
+                                    </span>
+                                    <span class="title article-title">Russia&#039;s nuclear power corporation delays new NPP construction projects in Russia</span>
+                                    <span class="desc article-announce">Russian civilian nuclear power corporation Rosatom has postponed by an average of four years the timeframe for commissioning seven out of nine new nuclear power units in Russia, the press office of the Smolensk nuclear power plant said on Wednesday</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8992735">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8992735" href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8992735&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjUsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MjczNSwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8992735">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Russia&#039;s nuclear power corporation delays new NPP construction projects in Russia</span>
+                        </a>
+                                            <div id="af8989859" class="news-item-big article-full " data-id="8989859" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989859&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjYsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg1OSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8989859.JPG?hash=6194c4e26cace3a8b9c5a81203fe009e&amp;url=http://images.indiatvnews.com/maininternational/th/IndiaTvd6ac71_kim_jong_un.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:52</span>
+                                    </span>
+                                    <span class="title article-title">South Korea&#039;s spy agency says North Korea executed defense chief</span>
+                                    <span class="desc article-announce">Seoul: North Korean leader Kim Jong Un executed his defence chief for sleeping during a meeting and talking back to the young leader, South Korea’s spy agency today said, citing what it called credible information.National Intelligence Service officials told a closed- doo...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://images.indiatvnews.com/maininternational/th/IndiaTvd6ac71_kim_jong_un.jpg" data-social-link="http://e-generator.in/?article=8989859">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8989859" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8989859&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjYsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk4OTg1OSwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="news-item article" data-id="8989859">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">South Korea&#039;s spy agency says North Korea executed defense chief</span>
+                        </a>
+                                            <div id="af8992660" class="news-item-big article-full " data-id="8992660" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8992660&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjcsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MjY2MCwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8992660.JPG?hash=686215725e6022760fa38f6c147448a3&amp;url=http://nl.media.rbth.ru/web/in-rbth/images/2015-05/big/13/RIAN_00625717.HR_468.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">Rbth.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">Russian combat vehicles to become invisible to enemy thermal scopes</span>
+                                    <span class="desc article-announce">Infantry fighting vehicles with electric transmission will not be easily detected with a thermal imager</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://nl.media.rbth.ru/web/in-rbth/images/2015-05/big/13/RIAN_00625717.HR_468.jpg" data-social-link="http://e-generator.in/?article=8992660">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8992660" href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8992660&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjcsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MjY2MCwiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8992660">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Russian combat vehicles to become invisible to enemy thermal scopes</span>
+                        </a>
+                                            <div id="af8994092" class="news-item-big article-full " data-id="8994092" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994092&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjgsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5NDA5MiwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="http://cdn.target.smi2.net/300x300/8994092.JPG?hash=96b6e46084ecd97d1e522f52d208ec2b&amp;url=http://images.indiatvnews.com/lifestylelifestyle/IndiaTv18bbc3_graphic-eye-makeup.jpg" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:37</span>
+                                    </span>
+                                    <span class="title article-title">Eye makeup trend: Graphic liner for those structured eyes!</span>
+                                    <span class="desc article-announce">Glam up your eyes with graphic linerNew Delhi: Your eyes are the most expressive part of the body, and lining them adds more glamour to it. To make your eyes look more defined, use a concealer to hide discolouration and use...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://images.indiatvnews.com/lifestylelifestyle/IndiaTv18bbc3_graphic-eye-makeup.jpg" data-social-link="http://e-generator.in/?article=8994092">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994092" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994092&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjgsImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5NDA5MiwiYWdlbmN5IjoyMCwiY2FzdWFsIjp0cnVlLCJtb2IiOm51bGwsInV1aWQiOiJVNDFlMGY5MWYwNjFjZWVlN2U2MjM5ZWNjMzhjMzgyOGUwMThmNjExYyJ9" target="_blank" class="news-item article" data-id="8994092">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Eye makeup trend: Graphic liner for those structured eyes!</span>
+                        </a>
+                                            <div id="af8990453" class="news-item-big article-full -noimg" data-id="8990453" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8990453&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjksImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MDQ1MywiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">Rbth.com</span>
+                                        <span class="date">13 May, 14:41</span>
+                                    </span>
+                                    <span class="title article-title">Putin spoke with Modi on the phone</span>
+                                    <span class="desc article-announce">Vladimir Putin had a telephone conversation with Prime Minister of India Narendra Modi, the Kremlin press service informed on Wednesday</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8990453">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8990453" href="http://news.e-generator.com/newdata/news?ad=598783&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8990453&amp;sct=social&amp;gateid=4&amp;gateparams=eyJwb3MiOjksImR0IjoiMjAxNTA1MTMxNjQ4MzMiLCJob3N0IjoiYXBpYWdnci5zbWkyLm5ldCIsInJlcSI6IlwvbmV3c1wvP2NvaG9ydD0wJm9mZnNldD0wJmxpbWl0PTIwJnRpbWU9MSZpbWFnZXNpemUiLCJhcnRpZCI6ODk5MDQ1MywiYWdlbmN5IjoyMCwiY2FzdWFsIjpmYWxzZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8990453">
+                            <span class="icon"><img src="http://static.smi2.net/static/aggr/rbth.com.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Putin spoke with Modi on the phone</span>
+                        </a>
+                                            <div id="af8991518" class="news-item-big article-full -noimg" data-id="8991518" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991518&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEwLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MTgsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">South Korea&#039;s spy agency says North Korea executed defense chief</span>
+                                    <span class="desc article-announce">Seoul: North Korean leader Kim Jong Un executed his defence chief for sleeping during a meeting and talking back to the young leader, South Korea’s spy agency today said, citing what it called credible information.National...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8991518">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8991518" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991518&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEwLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MTgsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8991518">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">South Korea&#039;s spy agency says North Korea executed defense chief</span>
+                        </a>
+                                            <div id="af8994815" class="news-item-big article-full -noimg" data-id="8994815" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994815&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjExLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ4MTUsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indianexpress.com</span>
+                                        <span class="date">13 May, 16:24</span>
+                                    </span>
+                                    <span class="title article-title">Manisha Koirala approached for Kamal Haasan’s next</span>
+                                    <span class="desc article-announce">Manisha Koirala and Kamal Haasan have previously worked in S. Shankar-directed &quot;Indian&quot;.</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8994815">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994815" href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994815&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjExLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ4MTUsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8994815">
+                            <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" class="img-responsive" alt="" /></span>
+                            <span class="title">Manisha Koirala approached for Kamal Haasan’s next</span>
+                        </a>
+                                            <div id="af8991512" class="news-item-big article-full -noimg" data-id="8991512" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991512&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEyLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MTIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">Boundary issue can&#039;t be resolved overnight: China</span>
+                                    <span class="desc article-announce">Beijing: On the eve of Prime Minister Narendra Modi’s visit, China today played down expectations of any breakthrough in resolving the vexed boundary dispute, saying though it will come up during his talks with Chinese President Xi Jinping...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8991512">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8991512" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991512&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEyLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MTIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8991512">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Boundary issue can&#039;t be resolved overnight: China</span>
+                        </a>
+                                            <div id="af8994972" class="news-item-big article-full -noimg" data-id="8994972" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994972&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEzLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ5NzIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indianexpress.com</span>
+                                        <span class="date">13 May, 16:25</span>
+                                    </span>
+                                    <span class="title article-title">Supreme Court allows Centre to appoint CVC, VC</span>
+                                    <span class="desc article-announce">The Supreme Court lifted its embargo and allowed the Centre to go ahead with the appointment of Central Vigilance Commissioner (CVC) and a Vigilance Commissioner from the list of candidates shortlisted by it.</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8994972">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994972" href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994972&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjEzLCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ5NzIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8994972">
+                            <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" class="img-responsive" alt="" /></span>
+                            <span class="title">Supreme Court allows Centre to appoint CVC, VC</span>
+                        </a>
+                                            <div id="af8991502" class="news-item-big article-full -noimg" data-id="8991502" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991502&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE0LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">Several killed as gunmen open fire on a bus in Karachi</span>
+                                    <span class="desc article-announce">* Commuters were from the minority Ismaili Shia community: Police* Condition of several wounded critical: Hospital official* Attackers used 9mm pistols in the attack* Hospital official said the victims included 16 women and 25 men* At least 47 people killed an...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8991502">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8991502" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991502&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE0LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDIsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8991502">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Several killed as gunmen open fire on a bus in Karachi</span>
+                        </a>
+                                            <div id="af8994744" class="news-item-big article-full -noimg" data-id="8994744" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994744&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE1LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ3NDQsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indianexpress.com</span>
+                                        <span class="date">13 May, 16:29</span>
+                                    </span>
+                                    <span class="title article-title">Kevin Pietersen jokes about England coaching job</span>
+                                    <span class="desc article-announce">Strauss revealed that Pietersen will not be selected for England in the immediate future, citing a &quot;massive trust issue.&quot;</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8994744">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994744" href="http://news.e-generator.com/newdata/news?ad=689197&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994744&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE1LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ3NDQsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8994744">
+                            <span class="icon"><img src="http://0.gravatar.com/blavatar/8e7929855c7783319ae1c24e33a8e271?s=16" class="img-responsive" alt="" /></span>
+                            <span class="title">Kevin Pietersen jokes about England coaching job</span>
+                        </a>
+                                            <div id="af8991506" class="news-item-big article-full -noimg" data-id="8991506" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991506&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE2LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDYsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">No photo of politicians except President, PM and CJI in govt advertisements: SC</span>
+                                    <span class="desc article-announce">New Delhi: The Supreme Court on Wednesday prohibited the use of photographs of political leaders, including ministers, in advertisements issued by the government and its agencies, saying that it leads to promotion of...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8991506">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8991506" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991506&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE2LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDYsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8991506">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">No photo of politicians except President, PM and CJI in govt advertisements: SC</span>
+                        </a>
+                                            <div id="af8994733" class="news-item-big article-full -noimg" data-id="8994733" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=689066&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994733&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE3LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ3MzMsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://media2.intoday.in/indiatoday/images/dot-in-fav-icon.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatoday.intoday.in</span>
+                                        <span class="date">13 May, 16:35</span>
+                                    </span>
+                                    <span class="title article-title">After 32 days of standing in Narmada water, farmers call off protest in Madhya Pradesh</span>
+                                    <span class="desc article-announce">The Jal Satyagraha began after the government raised the water level of the Omkareshwar Dam from 189 metres to 191 metres, which multiplied the troubles of the affected people as their places got submerged in water.</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8994733">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994733" href="http://news.e-generator.com/newdata/news?ad=689066&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994733&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE3LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQ3MzMsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8994733">
+                            <span class="icon"><img src="http://media2.intoday.in/indiatoday/images/dot-in-fav-icon.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">After 32 days of standing in Narmada water, farmers call off protest in Madhya Pradesh</span>
+                        </a>
+                                            <div id="af8991508" class="news-item-big article-full -noimg" data-id="8991508" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991508&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE4LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDgsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatvnews.com</span>
+                                        <span class="date">13 May, 15:15</span>
+                                    </span>
+                                    <span class="title article-title">My visit to China will set &#039;new milestone&#039; for Asia: PM Modi</span>
+                                    <span class="desc article-announce">New Delhi: Faced with irritants like the boundary issue and China&#039;s plans for infrastructure projects in Pakistan-occupied Kashmir (PoK), Prime Minister Narendra Modi will have a tough task as he meets the Chinese leadership during his three-day visit to China from tomorrow...</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8991508">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8991508" href="http://news.e-generator.com/newdata/news?ad=674901&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8991508&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE4LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTE1MDgsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8991508">
+                            <span class="icon"><img src="http://static.smi2.net/srcimg/2233193.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">My visit to China will set &#039;new milestone&#039; for Asia: PM Modi</span>
+                        </a>
+                                            <div id="af8994000" class="news-item-big article-full -noimg" data-id="8994000" style="display:none">
+                            <a href="http://news.e-generator.com/newdata/news?ad=689066&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994000&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE5LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQwMDAsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="big-href">
+                                <span class="img-wrap">
+                                    <img src="" alt="" />
+                                </span>
+                                <span class="text-wrap">
+                                    <span class="source-icon-wrap">
+                                        <span class="icon"><img src="http://media2.intoday.in/indiatoday/images/dot-in-fav-icon.ico" alt="" class="img-responsive article-image" /></span>
+                                        <span class="icon-name">indiatoday.intoday.in</span>
+                                        <span class="date">13 May, 16:13</span>
+                                    </span>
+                                    <span class="title article-title">Government approves Indo-Pak bilateral cricket series: Reports</span>
+                                    <span class="desc article-announce">The Government of India has reportedly approved the bilateral cricket series between India and Pakistan which is scheduled to be held in UAE in December this year.</span>
+                                    <span class="read-btn">Read more</span>
+                                </span>
+                            </a>
+
+                            <div class="social-helper">
+                                <span></span>
+                                <span class="social-wrap social-block" data-social-image="http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg" data-social-link="http://e-generator.in/?article=8994000">
+                                                                        <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                                                                    </span>
+                            </div>
+                        </div>
+
+                        <a id="a8994000" href="http://news.e-generator.com/newdata/news?ad=689066&amp;bl=77543&amp;st=16&amp;ct=adpreview_more&amp;out=1&amp;gate=8994000&amp;sct=social&amp;casual=on&amp;gateid=4&amp;gateparams=eyJwb3MiOjE5LCJkdCI6IjIwMTUwNTEzMTY0ODMzIiwiaG9zdCI6ImFwaWFnZ3Iuc21pMi5uZXQiLCJyZXEiOiJcL25ld3NcLz9jb2hvcnQ9MCZvZmZzZXQ9MCZsaW1pdD0yMCZ0aW1lPTEmaW1hZ2VzaXplIiwiYXJ0aWQiOjg5OTQwMDAsImFnZW5jeSI6MjAsImNhc3VhbCI6dHJ1ZSwibW9iIjpudWxsLCJ1dWlkIjoiVTQxZTBmOTFmMDYxY2VlZTdlNjIzOWVjYzM4YzM4MjhlMDE4ZjYxMWMifQ%3D%3D" target="_blank" class="news-item article" data-id="8994000">
+                            <span class="icon"><img src="http://media2.intoday.in/indiatoday/images/dot-in-fav-icon.ico" class="img-responsive" alt="" /></span>
+                            <span class="title">Government approves Indo-Pak bilateral cricket series: Reports</span>
+                        </a>
+                                    </div>
+                <div class="news-block">
+                                        <a id="articles-loading" href="/?offset=20" class="news-item-loading">
+                        <span class="title">Show more</span>
+                        <span class="loader"><img src="//static.smi2.net/static/aggregator_v2/img/loader.gif" alt=""/></span>
+                    </a>
+                                    </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="regionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Select region</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="country">
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">About us</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Ideal media provides a single touchpoint to the most interesting and relevant news from around the web. Our mission is to deliver highly targeted and dynamic content to your readers in more relevant ways. We have a very strict process of evaluating prospective publishers as our mission is to deliver a personalized experience for each reader.<br> We provide you with the top trending news in one single place.</p>
+                    <p>Upon joining our news network, your content will be exposed to an entirely new audience and syndicated to various partner publishers in our network, increasing readership and engagement with your content.</p>
+                    <p>For more information, please visit: <a target="_blank" href="http://e-generator.net">http://e-generator.net</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+    <script id="article-template" type="text/x-handlebars-template">
+        <a href="{{ url }}" target="_blank" class="news-item article">
+            <span class="icon"><img src="{{ pub_logo }}" class="img-responsive" alt="" /></span>
+            <span class="title">{{ title }}</span>
+        </a>
+    </script>
+
+    <script id="article-full-template" type="text/x-handlebars-template">
+        <div class="news-item-big article-full {{#unless img_url}}-noimg{{/unless}}" style="display: none">
+            <a href="{{ url }}" target="_blank" class="big-href">
+                <span class="img-wrap">
+                    <img src="{{ img_url }}" alt="" />
+                </span>
+                <span class="text-wrap">
+                <span class="source-icon-wrap">
+                    <span class="icon"><img src="{{ pub_logo }}" alt="" class="img-responsive article-image" /></span>
+                         <span class="icon-name">{{ pub_domain }}</span>
+                         <span class="date">{{ create_date }}</span>
+                    </span>
+                    <span class="title article-title">{{ title }}</span>
+                    <span class="desc article-announce">{{ announce }}</span>
+                    <span class="read-btn">Read more</span>
+                </span>
+            </a>
+
+            <div class="social-helper">
+                <span></span>
+                <span class="social-wrap social-block" data-social-image="{{#if img_share}}{{ img_share }}{{else}}http://static.smi2.net/static/aggregator_v2/images/smi2share.jpg{{/if}}" data-social-link="{{ link_share }}">
+                    
+                    <a href="#" class="-fb social social-fb" data-social="fb"></a>
+                    <a href="#" class="-tw social social-tw" data-social="tw"></a>
+                    
+                </span>
+            </div>
+        </div>
+    </script>
+    
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Aggregator.snap = 'S_1501__201505131645';
+            Aggregator.articlesParams.offset = 0;
+            Aggregator.messages.weekdayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            Aggregator.init();
+        });
+    </script>
+
+
+    
+
+            <!--LiveInternet counter-->
+        <script type="text/javascript"><!--
+            document.write("<a href='//www.liveinternet.ru/click' "+
+            "target=_blank><img src='//counter.yadro.ru/hit?t44.6;r"+
+            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+            screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+            ";"+Math.random()+
+            "' alt='' title='LiveInternet' "+
+            "border='0' width='31' height='31'><\/a>")
+        //--></script>
+        <!--/LiveInternet-->
+    
+    
+
+    <!-- articles_state : OK -->
+</body>
+</html>

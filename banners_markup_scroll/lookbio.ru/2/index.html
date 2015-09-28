@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>lookbio</title>
+
+        <style>
+            .wrap0{
+                max-width: 620px;
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 20px;
+            }    
+
+                .sk2_header {
+                    border-bottom: 2px solid #393939;
+                    position: relative;
+                    margin-bottom: 20px;
+                    color: #222;
+                    font-family: Helvetica, Arial, serif;
+                    font-size: 18px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    line-height: 45px;
+                }
+
+                .sk2_header:after {
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arrow.png') left 2px no-repeat;
+                    content: '';
+                    position: absolute;
+                    left: 135px;
+                    bottom: 13px;
+                    width: 20px;
+                    height: 20px;                 
+                }
+
+                .sk2_header:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 56px;
+                    height: 3px;
+                    background: #393939;
+                }            
+
+                .my_container{
+                    max-width: 550px;
+                    height: 207px;
+                }    
+
+                #back, #forward{
+                    position: absolute;
+                    z-index: 100;
+                    border: none;
+                    cursor: pointer;
+                    background-color: transparent;
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/navig.png') left top no-repeat;
+                    outline: none;
+                    width: 31px;
+                    height: 31px;  
+                    top: 140px;    
+                    box-shadow: none;           
+                }
+
+                #back:hover{
+                    background-position: 0 -32px;
+                    background-color: transparent;
+                }
+
+                #back{
+                    left: 0;
+                    background-position: 0 0;
+                    
+                }
+
+                #forward:hover{
+                    background-position: -33px -32px;
+                    background-color: transparent;
+                }
+
+                #forward{
+                    right: 0;
+                    background-position: -33px 0;
+                }  
+
+                .my_container_outer {
+                    padding: 0 40px;
+                    height: 207px;
+                }
+                
+                    .my_container a:hover{
+                        text-decoration: none;
+                        background: none;
+                    }
+
+                    .my_container a{
+                        text-decoration: none;
+                        display: block;
+
+                        line-height: 18px;
+                    }              
+
+        </style>
+    </head>
+
+    <body>
+        <div class="wrap0" id="wrapper0">
+            <div class="sk2_header">Новости СМИ2</div>
+
+            <div class="my_container_outer" id="wrapper_80937">
+                <div class="my_container" id="mycontainer"></div>
+            </div>
+        </div>
+        
+        <script src="//static.smi2.net/static/jsapi/jsapi.v0.ru_RU.js"></script>
+
+        <script>
+            /* Создание горизонтального блока */
+            JsAPI.Ui.HBlock.create(81034, "mycontainer").then(function (block) {
+                /* Документ */
+                var _doc = document;
+
+                /* Родительский элемент */
+                var _parent = _doc.getElementById("mycontainer");
+                var _wrapper = _doc.getElementById("wrapper_80937");
+
+                /* Кнопка Назад */
+                var back = _doc.createElement("button");
+                back.id = "back";
+                _wrapper.appendChild(back);
+
+                /* Регистрация обработчика click-события для элемента кнопки Назад */
+                JsAPI.Event.listen(back, "click", function () {
+                    /* Выполнить перемещение содержимого блока назад */
+                    block.scrollBack();
+                });
+
+                /* Кнопка Вперед */
+                var forward = _doc.createElement("button");
+                forward.id = "forward";
+                _wrapper.appendChild(forward);
+
+                /* Регистрация обработчика click-события для элемента кнопки Вперед */
+                JsAPI.Event.listen(forward, "click", function () {
+                    /* Выполнить перемещение содержимого блока вперед */
+                    block.scrollForward();
+                });
+
+            },function(reason){
+                /* Обработка ошибки */
+            });
+        </script>
+
+    </body>
+</html>

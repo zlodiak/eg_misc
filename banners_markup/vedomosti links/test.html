@@ -1,0 +1,155 @@
+10
+70
+70
+
+
+анна, по таску https://redmine.smi2.net/issues/17160 готовы макеты. их несколько потому что у них сайт адаптивный(это лучше заметно если изменять ширину окна браузера. на ширине 1240px происходит скачок и ширина сайта изменяется)
+
+новые блоки для широких экранов:
+http://joxi.ru/eAO5GWNhBdy6mo
+
+новые блоки для узких экранов:
+http://joxi.ru/xAe86BOINLWj2y
+
+как просил партнёр, я добавил количество тизеров, но после этого некоторые слова перестали помещаться в тизер. поэтому я предлагаю попробовать уменьшить размер шрифта. ниже макеты с уменьшенным размером шрифта. если понравится, то оставлю так:
+
+новые блоки с уменьшенным шрифтом для широких экранов:
+http://joxi.ru/LmG7Gn0iad41ml
+
+новые блоки с уменьшенным шрифтом для узких экранов:
+http://joxi.ru/a2X7EnGi6L0pmg
+
+так же возможно следать так: для больших экранов оставить размер шрифта какой сейчас, а для малых экранов шрифт уменьшать
+
+
+
+
+
+
+<div class="sk1111_wrap" style="">
+  <div class="sk1111_head">
+    <div class="sk1111_float">В ДРУГИХ СМИ</div>
+    <div class="sk1111_hr"></div>
+  </div>
+  %ITEMS%
+</div>
+
+<style>
+  .sk1111_wrap{
+    overflow: hidden; 
+    text-align: left; 
+/*    width: 900px; */
+    margin: 0 auto;
+  }
+
+
+
+    .sk1111_head{
+      position: relative; 
+      color: #5B5351;
+      font-family: arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 4px 1px 1px;  
+      overflow: hidden; 
+
+    }
+
+      .sk1111_float:before{
+        position: absolute;
+        top: 48%;
+        width: 40px;
+        left: -40px;
+        background: #e3d1c7;
+        height: 1px;  
+        content: '';      
+      }
+
+      .sk1111_float{
+        padding: 10px;
+        position: relative;
+        left: 10px;
+        z-index: 100;
+        float: left;
+        color: 5B5351;
+      }
+
+      .sk1111_float:after{
+        position: absolute;
+        top: 48%;
+        width: 990px;
+        right: -990px;
+        background: #e3d1c7;
+        height: 1px;  
+        content: '';      
+      }     
+
+      .sk1111_hr{
+        background: #6e6664;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        top: 48%;
+        display: none;
+      }
+
+    .sk1111_item:hover .sk1111_a2{
+      text-decoration: underline;
+    }
+
+    .sk1111_item{
+      width: 19.5%; 
+      overflow: hidden; 
+      display: inline-block; 
+      vertical-align: top; 
+      padding-bottom: 20px;
+    }
+
+    .sk1111_a1{
+      display: block; 
+      width: 80px; 
+      height: 70px;
+      float: left;
+    }
+
+      .sk1111_a1 img{
+        height: 70px;
+        width: 70px;
+        display: block;
+      }
+
+    .sk1111_a2{
+      display: block; 
+      margin-left: 80px; 
+      margin-right: 10px; 
+      text-align: left; 
+      text-decoration: none; 
+      color: #5B5351 !important;
+      height: 70px;
+      overflow: hidden;
+
+      font-family: arial, sans-serif;
+      font-size: 14px;
+      font-stretch: normal;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: normal;
+      line-height: 18px;  
+    }
+</style>
+
+
+
+
+
+
+
+
+<div class="sk1111_item" style="">
+  <a class="sk1111_a1" href="%URL%" target="_blank" style=" ">
+    <img src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" style="border: solid 1px #ccc" />
+  </a>
+
+  <a class="sk1111_a2" href="%URL%" target="_blank" style=" ">%TITLE%</a>
+</div>

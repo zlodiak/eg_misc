@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>v1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>        
+            .hblock-82878 {
+                height: 365px;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .hblock-82878 .header-82878 {
+                text-align: center;
+                color: rgb(171, 154, 142);
+                font-family: geometria, sans-serif;
+                font-size: 11px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                letter-spacing: 0.15em;   
+                text-transform: uppercase;  
+
+                padding-top: 30px;
+                padding-bottom: 18px;
+                position: relative;
+            }
+            .hblock-82878 .content-82878 {
+                height: 365px;
+            }
+
+            .hblock-82878 .item-82878 {
+                width: 300px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82878 img {
+                width: 300px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-82878 .wrapper-82878 {
+
+            }
+            .hblock-82878 .wrapper-82878 div {
+                padding-top: 5px;
+            }
+            .hblock-82878 .title a {
+                width: 300px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+
+                color: rgb(34, 34, 34);
+                font-family: geometria, sans-serif !important;
+                font-size: 15px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 19.5px;
+                text-decoration: none !important;
+            }
+            .hblock-82878 .title a:hover {
+                text-decoration: none !important;
+                color: #ec008c !important;
+            }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body>
+        <div class="hblock-82878">
+            <div class="header-82878">Интересное в сети</div>
+            <div id="hblock-82878" class="content-82878"></div>
+        </div>
+
+        <script>
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 250, "height": 250}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#349400",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82878', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 190)
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-82878', [
+                                JsAPI.Dom.createDom('div', 'topic-82878', model['topic_name']),
+                                JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82878, JsAPI.Dom.getElement('hblock-82878'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-82878'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-82878'), 'click', function () {
+                    block.scrollForward();
+                });
+
+            }, function (reason) {
+            });
+
+        </script>
+    </body>
+</html>

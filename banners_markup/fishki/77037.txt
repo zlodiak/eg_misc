@@ -1,0 +1,35 @@
+<div class="related-posts">
+<ul class="related-posts-wrap">
+%ITEMS%
+</ul>
+</div>
+
+<style type="text/css">
+
+ html, body {margin: 0; padding: 0}
+#smi2adblock_77037 .related-posts .related-posts-wrap {padding: 0;margin: 0 auto;text-align: center;}
+#smi2adblock_77037 .related-posts .related-posts-wrap li {display: inline-block;height: auto;margin: 0;padding: 0 0.5%;vertical-align: top;width: 18%;}
+#smi2adblock_77037 .related-posts .related-posts-wrap li a {position: relative;color: #454545;text-decoration: none; font-size: 14px; font-family: Arial,sans-serif; }
+#smi2adblock_77037 .related-posts .related-posts-wrap li .title {display: block;line-height: 24px;}
+#smi2adblock_77037 img {max-width: 100%;height: auto;vertical-align: middle;border: 0;-ms-interpolation-mode: bicubic;}
+</style>
+
+
+
+<li>
+<a href="%URL%" target="_blank">
+		<img src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" alt="%TITLE%">
+		<span class="title">%TITLE%</span>
+</a>
+</li>
+
+
+5
+153
+142
+
+
+=====
+=====
+=====
+=====
