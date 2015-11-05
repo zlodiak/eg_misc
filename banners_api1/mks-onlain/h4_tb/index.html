@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - mks-onlain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <style>
+        .hblock-83425 {
+            position: relative;
+            /*max-width: 1242px; */           
+            margin: 0 auto;
+
+        }
+
+            .head-83425{
+                color: #3388FE;
+                font-family: 'Open Sans Condensed', sans-serif;
+                font-size: 32px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+
+        .hblock-83425 .content-83425 {
+            height: 333px;
+        }
+
+            .hblock-83425 .content-83425 .scroll-container{
+                /*left: 0 !important;*/
+            }
+
+        .hblock-83425 .item-83425 {
+            padding: 20px;
+            background-color: #FFF;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);   
+            border-radius: 10px;         
+
+        }
+        .hblock-83425 a{
+
+        }
+
+        .hblock-83425 .image-83425 {
+            max-width: 252px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+        .hblock-83425 .wrapper-83425 {
+        }
+        .hblock-83425 .wrapper-83425 div {
+
+        }
+        .hblock-83425 .title-83425 a:hover {
+            text-decoration: underline !important;
+            color: rgb(40, 40, 40);
+        }
+
+        .hblock-83425 .title-83425 a {
+            text-decoration: none !important;
+            display: block;
+            overflow: hidden;
+            margin-top: 5px;
+            text-align: left !important;
+            height: 136px;
+
+
+            color: rgb(40, 40, 40);
+            font-family: 'Open Sans Condensed', sans-serif;
+            font-size: 24px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 34px;         
+        }
+     
+/*            .hbutton-83425{
+                position: absolute;
+                top: 60px;
+                width: 10px;
+                height: 20px;
+                border: none;
+                cursor: pointer;
+                z-index: 200;
+                display: none;
+            }
+
+            .hbutton-back-83425{
+                background: url('http://static.smi2.net/srcimg/2437692.png') left top no-repeat;
+                left: 35px;
+            }
+
+            .hbutton-forward-83425{
+                background: url('http://static.smi2.net/srcimg/2437693.png') left top no-repeat;             
+                right: 35px;
+            }  */                 
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body style="background: #f7f7f7;">
+    <div class="hblock-83425">
+        <div class="head-83425">Новости партнеров</div>
+        <div id="hblock-83425" class="content-83425"></div>
+<!-- 
+        <div id="hbutton-back-83425" class="hbutton-83425 hbutton-back-83425"></div>
+        <div id="hbutton-forward-83425" class="hbutton-83425 hbutton-forward-83425"></div>   -->         
+    </div>
+
+    <script>
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 250, "height": 250}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 24,
+                "style": "solid",
+                "color": "#f7f7f7",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 5,
+                "rounded": true,
+                "background": "f7f7f7",
+                "color": "#ccc",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83425', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83425',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 252, 126)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-83425', [
+                            JsAPI.Dom.createDom('div', 'title-83425', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83425, JsAPI.Dom.getElement('hblock-83425'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-83425'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-83425'), 'click', function () {
+                    block.scrollForward();
+                }); */            
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

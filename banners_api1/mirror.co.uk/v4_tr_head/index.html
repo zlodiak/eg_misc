@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mirror.co.uk - v4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+    <style>
+        .vblock-83379 {
+            max-width: 310px;
+        }
+
+        .vblock-83379 .header-83379 {
+            padding-bottom: 10px;
+        }
+
+            .vblock-83379 .header-83379 .header-83379_inner{
+                position: relative;  
+                background: url('http://static.smi2.net/srcimg/2585401.jpeg') left top no-repeat;
+                padding-left: 26px;
+                margin-bottom: 10px;
+
+                font-family: MirrorExtraCondSemiBold, Arial, sans-serif;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: normal;   
+                color: rgb(17, 17, 17);                          
+            }
+
+                
+        .vblock-83379 .content-83379 {
+            height: 468px;
+            overflow: hidden;
+        }
+
+            .vblock-83379 .content .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83379 .item-83379 {
+            overflow: hidden;
+            display: block;
+            padding: 0 0px 0px 0px;
+            height: 98px;
+        }
+        .vblock-83379 .image-83379 {
+            float: left;
+            display: block;
+            width: 148px;
+            height: 99px;
+            overflow: hidden;
+        }
+        .vblock-83379 .title-83379 a:hover {
+            text-decoration: underline !important;
+            color: rgb(20, 20, 20);
+        }
+
+        .vblock-83379 .title-83379 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            margin-left: 158px;
+            height: 91px;
+
+            color: rgb(20, 20, 20);
+            font-family: 'PT Sans', sans-serif;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 100;
+            line-height: 20px;       
+            text-shadow: none !important;
+        }
+        .vblock .title-83379 a:hover {
+            text-decoration: underline !important;
+            color: black;
+            text-shadow: none !important;
+        }
+        .vblock-83379 .domain-83379 span {
+            text-decoration: none;
+            display: none;
+            overflow: hidden;
+            height: 73px;
+            margin-left: 110px;
+
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 17px;      
+            text-shadow: none !important;      
+        }
+
+            .buttons-83379{
+                padding: 15px 0px 10px;
+                position: relative;
+                z-index: 10000;                
+
+                text-align: right;
+            }
+
+                .buttons-83379 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 10000;
+                }
+
+                .vbutton-back-83379{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83379{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+
+</head>
+
+<body style="background: #fff; width: 310px;">
+    <div class="vblock-83379">
+        <div class="header-83379">
+            <div class="header-83379_inner">
+                Around the world
+            </div>
+        </div>
+        <div id="vblock-83379" class="content-83379"></div>
+        <div class="buttons-83379">
+            <div id="vbutton-back-83379" class="vbutton vbutton-back-83379"></div>
+            <div id="vbutton-forward-83379" class="vbutton vbutton-forward-83379"></div>        
+        </div>
+    </div>
+
+    <script>
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 310, "height": 99}
+            },
+            "hs": {
+                "size": 1,
+                "style": "solid",
+                "color": "#e0e0e0",
+                "padding": {"top": 10, "bottom": 10, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83379', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83379',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 148, 99)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83379', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'domain-83379', JsAPI.Dom.createDom('span', {
+                        }, model['domain']))                        
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.DOMAIN
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83379, JsAPI.Dom.getElement('vblock-83379'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83379'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83379'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

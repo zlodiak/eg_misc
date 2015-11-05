@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>83256 for </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-83256 {
+            max-width: 300px;
+            background: #caffed;
+            padding: 10px;
+            margin: 20px 0;
+
+            text-align: left;
+        }
+
+        .vblock-83256 .header-83256 {
+            padding: 10px 0px 15px;
+        }
+
+            .vblock-83256 .header-83256 .header-83256_inner{
+                color: rgb(0, 0, 0);
+                font-family: Arial;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                text-transform: uppercase;                        
+            }
+
+        .vblock-83256 .content-83256 {
+            height: 284px;
+            overflow: hidden;
+        }
+
+            .vblock-83256 .content-83256 .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83256 .item-83256 {
+            overflow: hidden;
+            display: block;
+            padding: 0px;
+        }
+        .vblock-83256 .image-83256 {
+            float: left;
+            display: block;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+        }        
+        .vblock-83256 .title-83256 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0px;
+            margin-left: 90px;
+            max-height:80px;
+
+            color: #606166;
+            font-family: Arial, sans-serif;
+            font-size: 14px; 
+            text-align: left !important;
+            text-decoration: none !important;
+        }
+        .vblock-83256 .title-83256 a:hover {
+            text-decoration: none !important;
+            color: #606166;
+        }
+
+            .buttons-83256{
+                padding: 3px 0px 0px;
+                overflow: hidden;
+
+                text-align: right;
+            }
+
+
+                .buttons-83256 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 26px;
+                    border: none;
+                    margin-left: 5px;                    
+                    cursor: pointer;
+                    float: right;  
+                    clear: right;                  
+                }
+
+                .vbutton-back-83256{
+                    background: url('//static.smi2.net/srcimg/2505584.png') left top no-repeat;  
+                    margin-bottom: 5px;
+                    
+                }
+
+                .vbutton-forward-83256{
+                    background: url('//static.smi2.net/srcimg/2505587.png') left top no-repeat;                   
+                }
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body style="">
+    <div class="vblock-83256">
+        <div class="header-83256">
+            <div class="header-83256_inner">Интересное в сети</div>
+        </div>
+        <div id="vblock-83256" class="content-83256"></div>
+        <div class="buttons-83256">
+            <div id="vbutton-back-83256" class="vbutton vbutton-back-83256"></div>
+            <div id="vbutton-forward-83256" class="vbutton vbutton-forward-83256"></div>        
+        </div>
+    </div>
+
+    <script>
+        /*JsAPI.Config.setDomain('news.fark.com');*/
+ 
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 250, "height": 80}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#efefef",
+                "padding": {"top": 0, "bottom": 20, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83256', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83256',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 80, 80)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83256', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                      
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83256, JsAPI.Dom.getElement('vblock-83256'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83256'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83256'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

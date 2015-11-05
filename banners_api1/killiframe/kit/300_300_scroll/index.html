@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>killiframe - 300_300 - horiz with scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .hblock-82816 {
+                height: 300px;
+                width: 300px;
+                overflow: hidden;
+            }
+
+            .hblock-82816 .content-82816 {
+                height: 300px;
+            }
+
+            .hblock-82816 .item-82816 {
+                width: 300px;
+                height: 240px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hblock-82816 img {
+                width: 300px;
+                height: 240px;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hblock-82816 .wrapper-82816 {
+
+            }
+
+            .hblock-82816 .wrapper-82816 div {
+                padding-top: 5px;
+            }
+
+            .hblock-82816 .title-82816 a {
+                display: block;
+                margin: 0 auto;
+                overflow: hidden;
+                height: 33px;                
+
+                color: #000 !important;
+                font-family: Arial, sans-serif !important;
+                font-size: 14px !important;
+                font-weight: normal !important;
+                text-decoration: none !important;
+            }
+            .hblock-82816 .title-82816 a:hover {
+                text-decoration: none;
+                color: #000 !important;
+            }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-82816">
+            <div id="hblock-82816" class="content-82816"></div>
+        </div>
+
+        <script>
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 240}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#ccc",
+                    "padding": {"top": 3, "bottom": 3, "left": 3, "right": 3},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82816', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 240)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-82816', [
+                            JsAPI.Dom.createDom('div', 'topic-82816', model['topic_name']),
+                            JsAPI.Dom.createDom('div', 'title-82816', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ])
+                    ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 82816, JsAPI.Dom.getElement('hblock-82816'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) { }, function (reason) { });
+        </script>
+    </body>
+</html>

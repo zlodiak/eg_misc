@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блок 83228</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-83228 {
+            height: 90px;
+            border: 1px solid #000;
+            margin: 20px 0;
+        }
+
+        .vblock-83228 .content-83228 {
+            /*width: 1000px;*/
+            height: 700px;
+            height: 83px;
+            overflow: hidden;
+        }
+
+        .vblock-83228 .item-83228 {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+        .vblock-83228 .image-83228 {
+            float: left;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin-right: 10px;
+        }
+        .vblock-83228 .title-83228 a {
+            color: rgb(51, 51, 51) !important;
+            display: block;
+            font-family: Roboto, Arial, sans-serif !important;
+            font-size: 13px !important;
+            text-decoration: none !important;
+
+            height: 54px;
+            overflow: hidden;
+            display: block;            
+        }
+        .vblock .title-83228 a:hover {
+            text-decoration: none !important;
+            color: rgb(51, 51, 51) !important;
+        }
+/*         
+        .vblock-83228 .topic {
+            font-size: 12px;
+            color: #349400;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+       .vbutton {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 10px 5px;
+        }*/
+    </style>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+<body>
+
+    <div class="vblock-83228">
+        <div id="vblock-83228" class="content-83228"></div>
+        <!--<button id="vbutton-back-83228" class="vbutton">Назад</button>
+        <button id="vbutton-forward-83228" class="vbutton">Вперед</button>  -->              
+    </div>
+
+    <script>
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 250, "height": 60}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 3,
+                "rounded": true,
+                "background": "white",
+                "color": "#f0162f",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 10, "right": 10}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83228', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83228',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 60, 60)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83228', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83228, JsAPI.Dom.getElement('vblock-83228'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            console && console.log('Ok', block);
+/*
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83228'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83228'), 'click', function () {
+                block.scrollForward();
+            });*/
+
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

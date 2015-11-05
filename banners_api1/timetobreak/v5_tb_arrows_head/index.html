@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>timetobreak</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .vblock-83265 {
+                /* width: 300px;*/
+                background: #fff;
+                padding: 20px 0px 15px;
+                margin-bottom: 20px;
+                text-align: left;
+            }
+
+            .vblock-83265 .header-83265 {
+                margin-bottom: 20px;
+                background: #030303;
+                padding: 0 7px;
+                display: inline-block;
+            }
+
+                .vblock-83265 .header-83265 .header-83265_inner{
+                    height: 30px;
+                    position: relative;   
+
+                    color: rgb(255, 255, 255);
+                    font-family: Montserrat, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: bold;
+                    line-height: 30px;    
+                    text-align: left !important;
+                    text-transform: uppercase;                        
+                }
+
+            .vblock-83265 .content-83265 {
+                height: 580px;
+                overflow: hidden;
+            }
+
+                .vblock-83265 .content-83265 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-83265 .item-83265 {
+                overflow: hidden;
+                display: block;
+                padding: 0px;
+            }
+            .vblock-83265 .image-83265 {
+                display: block;
+                width: 300px;
+                height: 200px;
+                overflow: hidden;
+                margin: 0 auto 10px;
+            }        
+            .vblock-83265 .title-83265 a {
+                text-decoration: none;
+                display: block;
+                overflow: hidden;
+                padding-bottom: 0px;
+                max-height: 62px;
+                max-width: 300px;
+                margin: 0 auto;
+
+                color: #000;
+                font-family:  Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: normal;
+                text-align: left !important;
+            }
+            .vblock-83265 .title-83265 a:hover {
+                text-decoration: none !important;
+                color: #000;
+            }
+
+                .buttons-83265{
+                    padding: 3px 0px 0px;
+
+                    text-align: right;
+                }
+
+                    .buttons-83265 > div{
+                        display: inline-block;
+                        width: 26px;
+                        height: 25px;
+                        border: none;
+                        margin-left: 5px;
+                        cursor: pointer;
+                    }
+
+                    .vbutton-back-83265{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                    }
+
+                    .vbutton-forward-83265{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                    }         
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+    </head>
+
+    <body style="margin: 0;">
+        <div class="vblock-83265">
+            <div class="header-83265">
+                <div class="header-83265_inner">Partners</div>
+            </div>
+            <div id="vblock-83265" class="content-83265"></div>
+            <div class="buttons-83265">
+                <div id="vbutton-back-83265" class="vbutton vbutton-back-83265"></div>
+                <div id="vbutton-forward-83265" class="vbutton vbutton-forward-83265"></div>        
+            </div>
+        </div>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 250}
+                },
+                "hs": {
+                    "size": 2,
+                    "style": "solid",
+                    "color": "#fff",
+                    "padding": {"top": 2, "bottom": 15, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83265', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                    'class': 'image-83265',
+                                    'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 200)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83265', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                      
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83265, JsAPI.Dom.getElement('vblock-83265'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83265'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83265'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

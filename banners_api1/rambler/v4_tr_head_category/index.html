@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>83060 for rambler family</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-83060 {
+            max-width: 300px;
+            text-align: left;
+        }
+
+        .vblock-83060 .header-83060 {
+        }
+
+            .vblock-83060 .header-83060 .header-83060_inner{
+                color: rgb(0, 0, 0);
+                font-family: 'roboto_regular', Arial;
+                font-size: 20px;
+                font-weight: bold;
+
+                padding-bottom: 10px;                     
+            }
+
+        .vblock-83060 .content-83060 {
+            height: 270px;
+            overflow: hidden;
+        }
+
+            .vblock-83060 .content-83060 .scroll-container{
+                top: 0 !important;
+            }
+
+        .vblock-83060 .item-83060 {
+            overflow: hidden;
+            display: block;
+            padding: 0px;
+        }
+        .vblock-83060 .image-83060 {
+            float: left;
+            display: block;
+            width: 80px;
+            height: 72px;
+            overflow: hidden;
+        }        
+        .vblock-83060 .topic_name-83060 a:hover {
+            color: #868686 !important;
+            text-decoration: none !important;
+        }
+
+        .vblock-83060 .topic_name-83060 a {
+            color: #868686 !important;
+            text-decoration: none !important;
+            font-family: 'roboto_regular', Arial;
+            font-size: 13px;
+            line-height: 19.5px;   
+            text-decoration: none;     
+            text-transform: uppercase; 
+
+            margin-left: 102px;
+            display: block;
+            margin-bottom: 7px; 
+            overflow: hidden;
+            height: 19.5px;
+        }
+
+        .vblock-83060 .title-83060 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0px;
+            margin-left: 102px;
+            max-height: 39px;
+
+            color: rgb(0, 0, 0) !important;
+            font-family: 'roboto_regular', Arial;
+            font-size: 13px;
+            line-height: 19.5px;   
+            text-decoration: none; 
+        }
+        .vblock-83060 .title-83060 a:hover {
+            text-decoration: none !important;
+            color: rgb(0, 0, 0) !important;
+        }
+
+
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body>
+    <div class="vblock-83060">
+        <div class="header-83060">
+            <div class="header-83060_inner">Новости партнеров</div>
+        </div>
+        <div id="vblock-83060" class="content-83060"></div>
+    </div>
+
+    <script>
+        /*JsAPI.Config.setDomain('news.fark.com');*/
+ 
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 300, "height": 72}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#efefef",
+                "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83060', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }), JsAPI.Dom.createDom('img', {
+                                'class': 'image-83060',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 80, 72)
+                        }),
+                        JsAPI.Dom.createDom('div', 'topic_name-83060', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['topic_name'])),
+                        JsAPI.Dom.createDom('div', 'title-83060', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                      
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.TOPIC
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83060, JsAPI.Dom.getElement('vblock-83060'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

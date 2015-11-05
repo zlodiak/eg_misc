@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>boingboing</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <style>
+            .vblock-83380 {
+                max-width: 300px;
+                margin: 15px  auto 15px;
+
+                text-align: left !important;
+            }
+
+                .vblock_inner-83380{
+                    border: 4px solid #0000ff;
+                }
+
+                    .vblock-83380 .header-83380 {
+                        padding: 0 20px;
+                        background: #0000ff;
+                        margin-bottom: 20px;
+                    }
+
+                        .vblock-83380 .header-83380 .header-83380_inner{
+                            position: relative;   
+                            overflow: hidden;
+
+                            color: rgb(255, 255, 255);
+                            font-family: Raleway;
+                            font-size: 16px;
+                            font-weight: 800;
+                            height: 56px;
+                            line-height: 56px;  
+                            text-transform: uppercase;                        
+                        }
+
+                            .vblock-83380 .header-83380 .header-83380_inner img{
+                                
+                            }                    
+
+                    .vblock-83380 .content-83380 {
+                        height: 340px;
+                        overflow: hidden;
+                    }
+
+                        .vblock-83380 .content-83380 .scroll-container{
+                            /*top: 0 !important;*/
+                        }
+
+                    .vblock-83380 .item-83380 {
+                        overflow: hidden;
+                        display: block;
+                        padding: 0 15px;
+                        width: auto;
+                        margin: 0;
+                    }
+                    .vblock-83380 .image-83380 {
+                        float: left;
+                        display: none;
+                        width: 0px;
+                        height: 0px;
+                        overflow: hidden;
+                    }
+                    .vblock-83380 .title-83380 a:hover {
+                        text-decoration: none !important;
+                        color: #0000ff !important;
+                    }
+
+                    .vblock-83380 .title-83380{
+                        position: static !important;
+                    }
+
+                        .vblock-83380 .title-83380 a {
+                            text-decoration: none !important;
+                            display: block;
+                            overflow: hidden;
+                            height: 70px;
+                            text-align: left !important;
+
+                            color: #0000ff;
+                            font-family: Raleway, sans-serif;
+                            font-size: 18px;
+                            font-weight: bold;
+                            text-decoration: none;
+                        }
+
+                            .buttons-83380{
+                                padding: 5px 15px 10px;
+                                display: block;
+
+                                text-align: right;
+                            }
+
+                                .buttons-83380 > div{
+                                    display: inline-block;
+                                    width: 26px;
+                                    height: 25px;
+                                    border: none;
+                                    margin-left: 5px;
+                                    cursor: pointer;
+                                }
+
+                                .vbutton-back-83380{
+                                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                                }
+
+                                .vbutton-forward-83380{
+                                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                                }
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+    </head>
+
+    <body>
+        <div class="vblock-83380">
+            <div class="vblock_inner-83380">
+                <div class="header-83380">
+                    <div class="header-83380_inner">Around the web</div>
+                </div>
+
+                <div id="vblock-83380" class="content-83380"></div>
+
+                <div class="buttons-83380">
+                    <div id="vbutton-back-83380" class="vbutton vbutton-back-83380"></div>
+                    <div id="vbutton-forward-83380" class="vbutton vbutton-forward-83380"></div>        
+                </div>
+            </div>
+        </div>
+
+        <script>   
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 70}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#319e98",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83380', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83380',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 0, 0)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83380', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                  
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83380, JsAPI.Dom.getElement('vblock-83380'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83380'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83380'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

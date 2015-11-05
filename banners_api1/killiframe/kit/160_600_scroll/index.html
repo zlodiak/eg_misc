@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>killiframe - 160_600 - horiz with scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .vblock-82816 {
+                width: 160px;
+                margin: 0;
+
+                text-align: left !important;
+            }
+
+            .vblock-82816 .content-82816 {
+                height: 600px;
+                overflow: hidden;
+            }
+
+                .vblock-82816 .content-82816 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-82816 .item-82816 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+
+            .vblock-82816 .image-82816 {
+                display: block;
+                width: 160px;
+                height: 90px;
+                overflow: hidden; 
+            }
+
+            .vblock-82816 .title-82816 a:hover {
+                text-decoration: none !important;
+                color: #000 !important;              
+            }
+
+            .vblock-82816 .title-82816{
+                position: static !important;                
+            }
+
+                .vblock-82816 .title-82816 a {
+                    display: block;
+                    overflow: hidden;
+                    padding-top: 5px;
+                    height: 48px;
+                    width: 145px;
+                    overflow: hidden;
+
+                    text-align: center !important;
+                    color: #000 !important;
+                    font-family: Arial, sans-serif !important;
+                    font-size: 14px !important;
+                    font-weight: normal !important;
+                    text-decoration: none !important;
+                }           
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body style="margin: 0;">
+        <div class="vblock-82816">
+            <div id="vblock-82816" class="content-82816"></div>
+        </div>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 160, "height": 120}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#ccc",
+                    "padding": {"top": 5, "bottom": 5, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 7, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-82816', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-82816',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 160, 90)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-82816', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                     
+                    ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 82816, JsAPI.Dom.getElement('vblock-82816'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {   }, function (reason) { });
+        </script>
+    </body>
+</html>

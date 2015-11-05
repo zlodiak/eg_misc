@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+
+        .hblock {
+            padding: 0 30px;
+            position: relative;
+            background: #caffed;
+
+        }
+            .header-83257 {
+                padding: 15px 0px 15px;
+            }
+
+                .header-83257 .header-83257_inner{
+                    color: rgb(0, 0, 0);
+                    font-family: Arial;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-align: center;
+                    text-transform: uppercase;                        
+                }
+
+        .hblock .content-83257 {
+            min-height: 218px;
+
+        }
+
+        .hblock .item-83257 {
+            font-family: Arial, sans-serif;
+            margin: 0 3px 0 0;
+
+            text-align: center;
+        }
+        .hblock .image-83257 {
+            width: 130px;
+            height: 130px;
+            display: inline;
+        }
+        .hblock .wrapper-83257 {
+        }
+        .hblock .wrapper-83257 div {
+            padding-top: 5px;
+        }
+        .hblock .title-83257 a:hover {
+            color: #606166 !important;
+            text-decoration: none !important;
+        }
+
+        .hblock .title-83257 a {
+            color: #606166;
+            font-family: Arial, sans-serif;
+            font-size: 14px; 
+            text-align: left !important;
+            text-decoration: none !important;
+
+            cursor: pointer;
+              height: 66px;
+              width: 130px;
+              display: block;
+              overflow: hidden;            
+        }
+
+    .vbutton{
+        display: inline-block;
+        width: 18px;
+        height: 43px;
+        border: none;                 
+        cursor: pointer;    
+        position: absolute;              
+        top: 93px;
+
+    }
+
+    .vbutton-back-83257{
+        background: url('http://static.smi2.net/srcimg/2548405.png') left top no-repeat;
+        left: 7px;
+    }
+
+    .vbutton-forward-83257{
+        background: url('http://static.smi2.net/srcimg/2548406.png') left top no-repeat;  
+        right: 10px;                  
+    }    
+
+    @media (max-width: 1280px) {
+        .hblock .title-83257 a {
+            padding-left: 12px;
+        }
+    }    
+     
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body style="max-width: 660px; margin: auto;">
+    <div class="hblock">
+        <div class="header-83257">
+            <div class="header-83257_inner">Интересное в сети</div>
+        </div>    
+        <div id="hblock" class="content-83257"></div>
+        <div id="vbutton-back-83257" class="vbutton vbutton-back-83257"></div>
+        <div id="vbutton-forward-83257" class="vbutton vbutton-forward-83257"></div>          
+    </div>
+
+    <script>
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 130, "height": 130}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 5, "right": 5}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#ccc",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83257', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83257',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 130, 130)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-83257', [
+                            JsAPI.Dom.createDom('div', 'title-83257', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83257, JsAPI.Dom.getElement('hblock'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83257'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83257'), 'click', function () {
+                    block.scrollForward();
+                });             
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>
