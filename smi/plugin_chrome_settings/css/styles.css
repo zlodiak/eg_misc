@@ -1,0 +1,120 @@
+body {
+  width: 450px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+  /* settings list */
+  .main-header {
+    display: block;
+    background-color: #3fae29;
+    padding: 0px 40px 0 18px;
+    overflow: hidden;
+    height: 60px;
+    position: fixed;
+    z-index: 100;
+    width: 392px;
+  }
+
+  .main-header > .title {
+    display: inline-block;
+    padding-top: 20px;
+    padding-left: 17px;
+    margin: 0;
+    float: left;
+
+    color: #fff;
+    font: 16px 'PT Sans', arial, sans-serif;
+  }
+
+  .main-header > .logo {
+    display: inline-block;
+    margin-top: 9px;
+    float: left;
+  }
+
+  .main-header > .gear:hover {
+    background-position: left bottom;
+  }
+
+  .main-header > .gear {
+    position: absolute;
+    top: 24px;
+    right: 17px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background: url('../images/icon_gear.png') left top no-repeat;
+  }
+
+  .settings-container{
+    padding-top: 60px;
+    background: #fff;
+
+    font: 16px/50px 'PT Sans', arial, sans-serif;
+    color: #505050;    
+  }
+
+    .settings-title{
+      height: 50px;
+      padding: 0 20px;
+      border-top: 1px solid #f1f6fb;      
+    }
+
+    .settings-options-container{
+      
+    }
+
+      .option:hover{
+        background-color: #f1f6fb;
+        
+      }
+
+      .option.active{
+        background-position: 20px -35px;
+      }
+
+      .option{
+        border-top: 1px solid #f1f6fb;
+        height: 50px;
+        overflow: hidden;
+        padding: 0 20px 0 45px;
+        cursor: pointer;
+
+        background: url('../images/blt_option.png') 20px 16px no-repeat;
+      }
+
+      .option-often{
+
+      }
+
+      .option-main{
+
+      }
+
+      .option-disabled{
+
+      }            
+
+    .settings-submit-container{
+      background: #f1f6fb;
+      padding: 20px;
+    }  
+
+      .settings-submit:hover{
+        background: #bcccdc;
+      }
+
+      .settings-submit{
+        background: #cedbe8;
+        border-radius: 5px;
+        overflow: hidden;
+        height: 40px;
+        padding: 0 20px;
+        cursor: pointer;
+
+        font: 14px/40px 'PT Sans', arial, sans-serif;
+        color: #394e64;
+        text-align: center;
+      }

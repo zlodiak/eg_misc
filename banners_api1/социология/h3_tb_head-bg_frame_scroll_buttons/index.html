@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блоки с прокруткой</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /** Горизонтальный блок */
+        .hblock {
+            width: 560px;
+            height: 320px;
+            border: 1px solid #349400;
+        }
+
+        .hblock .header {
+            background-color: #349400;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 8px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .hblock .header .logo {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+        }
+        .hblock .content {
+            width: 560px;
+            height: 280px;
+        }
+
+        .hblock .item {
+            font-family: Arial, sans-serif;
+            margin: 0 10px 0 0;
+        }
+        .hblock .image {
+            width: 180px;
+            height: 100px;
+        }
+        .hblock .wrapper {
+            padding: 0 12px 12px 12px;
+        }
+        .hblock .wrapper div {
+            padding-top: 5px;
+        }
+        .hblock .topic {
+            font-size: 12px;
+            color: #349400;
+            font-weight: bold;
+        }
+        .hblock .title a {
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            color: #2c9dd5;
+        }
+        .hblock .title a:hover {
+            text-decoration: underline;
+        }
+        .hblock .domain {
+            font-size: 13px;
+            color: lightgray;
+        }
+
+        .hbutton {
+            background-color: #349400;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+</head>
+<body>
+
+            <div class="hblock">
+                <div class="header">
+                    Новости СМИ2
+                    <div class="logo"><img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" height="20px"/></div>
+                </div>
+                <div id="hblock" class="content"></div>
+            </div>
+            <button id="hbutton-back" class="hbutton">Назад</button>
+            <button id="hbutton-forward" class="hbutton">Вперед</button>
+
+<script>
+    // Установка домена рекламного сервера
+    /*JsAPI.Config.setDomain('news.outlet.dev.smi2.net');*/
+
+
+    // Настройки блока
+    var hblock_properties = {
+        "item": {
+            "size": {"width": 150, "height": 250}
+        },
+        "hs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+        },
+        "vs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+        },
+        "scroll": {
+            "size": 6,
+            "rounded": true,
+            "background": "white",
+            "color": "#349400",
+            "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+            "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+        }
+    };
+
+    // Callback-функция рендера содержимого элемента блока
+    var hblock_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image',
+                        'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 180, 100),
+                        'width': '260px',
+                        'height': '150px'
+                    })),
+                    JsAPI.Dom.createDom('div', 'wrapper', [
+                        JsAPI.Dom.createDom('div', 'topic', model['topic_name']),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'domain', model['domain'])
+                    ])
+                ]
+        ));
+    };
+
+    // Маска параметров (полей) новостей
+    var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TOPIC
+            | JsAPI.Dao.NewsField.TITLE
+            | JsAPI.Dao.NewsField.DOMAIN;
+
+    JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83864, JsAPI.Dom.getElement('hblock'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+        console && console.log('Ok', block);
+
+        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back'), 'click', function () {
+            block.scrollBack();
+        });
+
+        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward'), 'click', function () {
+            block.scrollForward();
+        });
+
+    }, function (reason) {
+        console && console.error('Error', reason);
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>v4</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+            .vblock-83458 {
+                margin: 0;
+                margin-bottom: 20px;
+                padding-right: 7px;
+
+                text-align: left !important;
+            }
+
+            .head-83458{
+                color: rgb(64, 64, 64);
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: 800;
+
+                padding-bottom: 20px;
+            }
+
+            .vblock-83458 .content-83458 {
+                height: 593px;
+                overflow: hidden;
+            }
+
+                .vblock-83458 .content-83458 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-83458 .item-83458 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+
+            .vblock-83458 .image-83458 {
+                display: block;
+                width: 160px;
+                height: 80px;
+                overflow: hidden; 
+            }
+
+            .vblock-83458 .title-83458 a:hover {
+                text-decoration: none !important;
+                color: rgb(24, 173, 181) !important;              
+            }
+
+            .vblock-83458 .title-83458{
+                position: static !important;                
+            }
+
+                .vblock-83458 .title-83458 a {
+                    display: block;
+                    overflow: hidden;
+                    padding-top: 5px;
+                    height: 60px;
+                    overflow: hidden;
+                    padding-right: 30px;
+
+                    color: rgb(24, 173, 181);
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 13px;
+                    line-height: 20px;
+                    text-decoration: none !important;
+                }           
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body style="margin: 0; width: 300px; background: #efefef;">
+        <div class="vblock-83458">
+            <div class="head-83458">Новости СМИ2</div>
+            <div id="vblock-83458" class="content-83458"></div>
+        </div>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 260, "height": 130}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#ccc",
+                    "padding": {"top": 5, "bottom": 5, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 7, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83458', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83458',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 160, 80)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83458', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                     
+                    ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83458, JsAPI.Dom.getElement('vblock-83458'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {   }, function (reason) { });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>ora</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+
+        <style>
+            .vblock-83649 {
+                max-width: 300px;
+                margin: 20px 0;
+            }
+
+            .vblock-83649 .header-83649 {
+                margin-bottom: 20px;
+                text-align: center;
+                overflow: hidden;
+            }
+
+                .vblock-83649 .header-83649 .header-83649_inner:before{
+                    position: absolute;
+                    left: 120%;
+                    width: 100px;
+                    border-top: 2px solid #fff;
+                    top: 6px;
+
+                    content: '';
+                }
+
+                .vblock-83649 .header-83649 .header-83649_inner:after{
+                    position: absolute;
+                    right: 120%;
+                    width: 100px;
+                    border-top: 2px solid #fff;
+                    top: 6px;
+
+                    content: '';
+                }                
+
+                .vblock-83649 .header-83649 .header-83649_inner{
+                    height: 30px;
+                    position: relative;   
+                    display: inline-block;
+
+                    color: rgb(255, 255, 255);
+                    font-family: 'Balto Web', sans-serif;
+                    font-size: 14px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    letter-spacing: -0.4px;  
+                    text-align: center !important;
+                    text-transform: uppercase;                        
+                }
+
+            .vblock-83649 .content-83649 {
+                height: 370px;
+                overflow: hidden;
+            }
+
+                .vblock-83649 .content-83649 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-83649 .item-83649 {
+                overflow: hidden;
+                display: block;
+                padding: 0px;
+            }
+            .vblock-83649 .title-83649 a {
+                text-decoration: none;
+                display: block;
+                overflow: hidden;
+                padding-bottom: 0px;
+                padding-right: 10px;
+
+                color: #fff;
+                font-family: Museo_Sans_300, sans-serif;
+                font-size: 14px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                letter-spacing: -0.3px;
+                line-height: 20px; 
+                text-align: left !important;
+            }
+            .vblock-83649 .title-83649 a:hover {
+                text-decoration: underline !important;
+                color: #fff;
+            }
+
+/*                .buttons-83649{
+                    padding: 3px 0px 0px;
+
+                    text-align: right;
+                }
+
+                    .buttons-83649 > div{
+                        display: inline-block;
+                        width: 26px;
+                        height: 25px;
+                        border: none;
+                        margin-left: 5px;
+                        cursor: pointer;
+                    }
+
+                    .vbutton-back-83649{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                    }
+
+                    .vbutton-forward-83649{
+                        background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                    }*/
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+    </head>
+
+    <body style="background-color: rgb(35, 37, 37); max-width: 270px; margin: 0 auto;">
+        <div class="vblock-83649">
+            <div class="header-83649">
+                <div class="header-83649_inner">Partners</div>
+            </div>
+            <div id="vblock-83649" class="content-83649"></div>
+<!--             <div class="buttons-83649">
+                <div id="vbutton-back-83649" class="vbutton vbutton-back-83649"></div>
+                <div id="vbutton-forward-83649" class="vbutton vbutton-forward-83649"></div>        
+            </div> -->
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+     
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 60}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#efefef",
+                    "padding": {"top": 0, "bottom": 15, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 4,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#000",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 8, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83649', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }),
+                            JsAPI.Dom.createDom('div', 'title-83649', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                      
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83649, JsAPI.Dom.getElement('vblock-83649'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83649'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83649'), 'click', function () {
+                    block.scrollForward();
+                });  */          
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

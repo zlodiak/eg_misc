@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>livelib - 240_400 - horiz with scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui"> -->
+
+        <style>
+            .hblock-83675 {
+                margin: 0 0 20px;
+                position: relative;
+                width: 240px;
+                overflow: hidden;
+                background-color: #e0e7f2;
+                border-radius: 11px;
+                padding: 11px;
+                margin-left: -11px;
+
+                text-align: left !important;
+            }
+
+            .hblock-83675 .head-83675 {
+                color: rgb(0, 0, 0);
+                display: block;
+                font-family: 'Pt Sans', Tahoma, Helvetica, sans-serif;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: bold;
+
+                padding-bottom: 10px;
+            }
+
+            .hblock-83675 .content-83675 {
+                height: 400px;
+                overflow: hidden;
+            }
+
+                .hblock-83675 .content-83675 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .hblock-83675 .item-83675 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .hblock-83675 .image-83675 {
+                float: left;
+                display: block;
+                width: 90px;
+                height: 90px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .hblock-83675 .title-83675 a:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            .hblock-83675 .title-83675{
+                position: static !important;
+            }
+
+                .hblock-83675 .title-83675 a {
+                    display: block;
+                    overflow: hidden;
+                    margin-left: 100px;
+                    margin-right: 7px;
+                    width: 129px;
+                    text-align: left !important;
+
+                    color: #000 !important;
+                    font-family: 'Pt Sans', Tahoma, Helvetica, sans-serif;
+                    font-size: 14px;
+                    height: 90px;
+                    line-height: 18px;
+                    text-decoration: none !important;
+                }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-83675">
+            <div id="head-83675" class="head-83675">Новости партнеров</div>
+            <div id="hblock-83675" class="content-83675"></div>
+        </div>
+
+        <script>    
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 240, "height": 90}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 5, "bottom": 5, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 7, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83675', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83675',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 90, 90)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83675', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83675, JsAPI.Dom.getElement('hblock-83675'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {          
+            }, function (reason) {});          
+        </script>
+    </body>
+</html>

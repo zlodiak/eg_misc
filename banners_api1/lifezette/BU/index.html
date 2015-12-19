@@ -1,0 +1,214 @@
+8
+70
+70
+
+
+
+<div class="vblock-83894">
+        <div class="header-83894">
+            <div class="header-83894_inner">
+                 <div class="header-83894_inner" style="    
+    font-family: museo-slab;
+    font-size: 22px;
+    font-weight: 800;
+    font-style: normal;
+    padding-right: 10px;
+    text-transform: uppercase;
+    border-left: 4px solid;
+    bottom: 0px;
+    margin: 0px;
+    vertical-align: middle;
+    line-height: 46px !important;
+    padding-left: 10px;
+    background: inherit;
+    box-shadow: 0px 2px #FDFDFD;">Trending Now</div>
+            </div>
+        </div>
+        <div id="vblock-83894" class="content"></div>
+        <div class="buttons-83894">
+            <div id="vbutton-back-83894" class="vbutton vbutton-back-83894"></div>
+            <div id="vbutton-forward-83894" class="vbutton vbutton-forward-83894"></div>        
+        </div>
+    </div>
+
+
+
+
+
+
+.vblock-83894 {
+            max-width: 336px;
+        }
+
+        .vblock-83894 .header-83894 {
+            background-color: #fff;
+            padding-bottom: 10px;
+        }
+
+            .vblock-83894 .header-83894 .header-83894_inner{
+                background-color: #ede8f7;
+                height: 56px;
+                position: relative;                
+            }
+
+                .vblock-83894 .header-83894 img {
+                    position: absolute;
+                    top: 8px;
+                    left: 10px;
+                }
+                
+        .vblock-83894 .content {
+            height: 640px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+            .vblock-83894 .content .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83894 .item {
+            overflow: hidden;
+            display: block;
+            padding: 0 5px 0px 10px;
+            height: 80px;
+        }
+        .vblock-83894 .image {
+            float: left;
+            display: block;
+            width: 70px;
+            height: 70px;
+            overflow: hidden;
+        }
+        .vblock-83894 .title a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            height: 53px;
+            margin-left: 80px;
+
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 17px;            
+            text-shadow: none !important;
+        }
+        .vblock .title a:hover {
+            text-decoration: none !important;
+            color: black;
+            text-shadow: none !important;
+        }
+        .vblock-83894 .domain span {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            height: 53px;
+            margin-left: 80px;
+
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 17px;      
+            text-shadow: none !important;      
+        }
+
+            .buttons-83894{
+                background: #fff;
+                padding: 15px 14px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-83894 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                }
+
+                .vbutton-back-83894{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83894{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+
+
+
+
+
+
+
+var vblock_properties = {
+            "item": {
+                "size": {"width": 336, "height": 80}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 70, 70)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'domain', JsAPI.Dom.createDom('span', {
+                        }, model['domain']))                        
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.DOMAIN
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83894, JsAPI.Dom.getElement('vblock-83894'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83894'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83894'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });                    

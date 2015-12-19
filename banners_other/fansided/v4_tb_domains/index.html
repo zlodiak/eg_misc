@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>fansided.com - v4 </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <style>
+            #unit_83633_1{
+              margin: 15px auto;
+              max-width: 279px;
+              position: relative;
+            }
+
+                .item-83633:hover{
+                    background: #efefef;
+                    opacity: 0.9;
+                }
+
+                .item-83633:hover a{
+                    color: #444;
+                }
+
+                .item-83633{
+                  box-shadow: 0 0 3px #aaa;
+                  margin-bottom: 20px;
+                  background: #fff;
+                }
+
+                    .a1-83633{
+                        display: block; 
+                    }
+
+                        .image-83633{
+                          display: block !important;
+                          background: none !important;
+                          padding: 0 !important;
+                          border: none !important;
+                          border-radius: 0 !important;
+                          margin: 0 auto;
+
+                        }
+
+                    .title-83633{
+                        display: block; 
+                        text-align: left; 
+                        padding: 0px 12px 3px 12px;                        
+                        text-shadow: 1px 1px 0 white;
+
+                        color: rgb(37, 37, 37) !important; 
+                        font-family: Oswald, sans-serif;
+                        font-size: 19px;
+                        font-stretch: normal;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: normal;
+                        line-height: 22px;  
+                        text-decoration: none !important; 
+                    }
+
+                    .domain-83633{
+                        color: rgb(37, 37, 37) !important; 
+                        font-family: Oswald, sans-serif;
+                        font-size: 16px;
+                        font-stretch: normal;
+                        font-style: italic;
+                        font-variant: normal;
+                        font-weight: 300;
+                        height: 19px;
+                        line-height: 19px; 
+                        text-decoration: none !important; 
+
+                        padding: 0 12px 10px; 
+                        display: block;
+                    }
+
+                    .domain-83633:before {
+                        content: 'From ';
+                    }                    
+        </style>
+    </head>
+
+    <body style="background: #ccc;">
+        <div id="unit_83633_1"></div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+
+        <script>
+            var blockId = 83633;
+
+            var count = 4;
+
+            var fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.DOMAIN
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Config.setDomain('news.fark.com');
+
+            JsAPI.Dao.getNews(blockId, count, fields).then(function (payload) {
+                for (var i = 0, len = payload.length; i < len; i++) {
+                    var item = payload[i];
+
+                    var el = JsAPI.Dom.createDom('div', 'item-83633',
+                            [
+                                JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'a1-83633', 'target': '_blank'},
+                                        JsAPI.Dom.createDom('img', {
+                                            'alt': item['title'], 
+                                            'class': 'image-83633',
+                                            'src': JsAPI.Ui.Util.getNewsImageUrl(item['image'], 279, 100)
+                                        })
+                                ),
+                                JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'title-83633', 'target': '_blank'}, item['title']),
+                                JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'domain-83633', 'target': '_blank'}, item['domain'])                            
+                            ]
+                    );
+
+                    JsAPI.Dom.appendChild(JsAPI.Dom.getElement('unit_83633_1'), el);
+                }
+            }, function (reason) {});
+        </script>
+    </body>
+</html>

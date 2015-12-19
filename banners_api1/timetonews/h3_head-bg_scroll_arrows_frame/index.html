@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>h3</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui">
+
+        <style>
+          .vblock-83460 * {
+              box-sizing: content-box !important;
+          }
+          
+          .vblock-83460 img {
+              vertical-align: baseline !important;
+
+          }
+          
+          #vblock-83460 > div {
+              bottom: 2px !important;
+          }
+          
+          #vblock-83460 > div.scroll-container {
+              bottom: 0px !important;
+          }
+          
+          .vblock-83460 {
+              height: 320px;
+              border: 1px solid #18adb5;
+              overflow: hidden;
+          }
+          
+          .vblock-83460 .header-83460 {
+              background-color: #18adb5;
+              color: white;
+              height: 40px;
+              line-height: 40px;
+              padding-left: 8px;
+              font-size: 15px;
+              font-family: Arial, sans-serif;
+              position: relative;
+          }
+          
+          .vblock-83460 .header-83460 .logo-83460 {
+              position: absolute;
+              top: 6px;
+              right: 8px;
+              width: auto !important;
+              height: 22px !important;              
+          }
+          
+          .vblock-83460 .content-83460 {
+              height: 280px;
+          }
+          
+          .vblock-83460 .item-83460 {
+              font-family: Arial, sans-serif;
+              margin: 0 0px 0 0;
+          }
+          
+          .vblock-83460 .image-83460 {
+              width: 260px;
+              height: 150px;
+          }
+          
+          .vblock-83460 .wrapper-83460 {
+              padding: 0 12px 12px 12px;
+          }
+          
+          .vblock-83460 .wrapper-83460 div {
+              padding-top: 5px;
+          }
+          
+          .vblock-83460 .topic-83460 {
+              font-size: 12px;
+              color: #000;
+              font-weight: bold;
+          }
+          
+          .vblock-83460 .title-83460 a {
+              text-decoration: none;
+              display: block;
+
+              font-family: 'Open Sans', sans-serif;
+              font-size: 13px;
+              line-height: 20px;
+              color: #000;
+          }
+          
+          .vblock-83460 .title-83460 a:hover {
+              text-decoration: underline;
+          }
+          
+          .vblock-83460 .domain {
+              font-size: 13px;
+              color: lightgray;
+          }
+          
+          .hbutton-83460 {
+              background-color: #18adb5;
+              color: white;
+              border: none;
+              padding: 10px 15px;
+              font-size: 13px;
+              font-family: Arial, sans-serif;
+              outline: none;
+              cursor: pointer;
+              margin: 5px;
+          }           
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+    </head>
+
+    <body style="margin: 0; max-width: 795px; background: #efefef;">
+        <div class="vblock-83460">
+            <div class="header-83460"> Новости СМИ2
+                <div class="logo-83460"><img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" width="66"></div>
+            </div>
+            <div id="vblock-83460" class="content-83460"></div>
+        </div>
+        <button id="hbutton-back" class="hbutton-83460">Назад</button>
+        <button id="hbutton-forward" class="hbutton-83460">Вперед</button>
+
+        <script>    
+            var vblock_properties = {
+                "item": {
+                    "size": {
+                        "width": 250,
+                        "height": 250
+                    }
+                },
+                "hs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {
+                        "top": 8,
+                        "bottom": 8,
+                        "left": 8,
+                        "right": 8
+                    }
+                },
+                "vs": {
+                    "size": 1,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {
+                        "top": 8,
+                        "bottom": 8,
+                        "left": 8,
+                        "right": 8
+                    }
+                },
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#18adb5",
+                    "padding": {
+                        "top": 2,
+                        "bottom": 2,
+                        "left": 2,
+                        "right": 2
+                    },
+                    "margin": {
+                        "top": 0,
+                        "bottom": 0,
+                        "left": 0,
+                        "right": 0
+                    }
+                }
+            };            
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83460', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83460',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 260, 150)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83460', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                     
+                    ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83460, JsAPI.Dom.getElement('vblock-83460'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back'), 'click', function() {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward'), 'click', function() {
+                    block.scrollForward();
+                });            
+               }, function (reason) { });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

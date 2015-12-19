@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>info-baklan endless footer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->        
+
+        <style>
+            .sk_title_area-83587{
+                display: block;
+                margin: 10px 0px 10px;
+
+                color: rgb(17, 22, 28);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 22px;
+                font-style: normal;
+                font-weight: bold;          
+            }            
+
+                #container-83587{
+                    padding: 0 !important;
+                }
+
+                #container-83587 .fluidgrid-container {
+                }
+
+                #container-83587 .fluidgrid-container-item {
+                    
+                }
+
+                #container-83587 .fluidgrid-container-item-hover {
+                    
+                }
+
+                #container-83587 .fluidgrid-container-item .item-83587 {
+                    text-decoration: none;
+                }
+
+                    #container-83587 .fluidgrid-container-item .item-83587 img{
+                        width: 180px;
+                        height: 120px;
+                        display: block;
+                    }
+
+                #container-83587 .fluidgrid-container-item .wrapper {
+                }
+
+                #container-83587 .fluidgrid-container-item .title-83587:hover {
+                    color: rgb(58, 54, 54) !important; 
+                    text-decoration: none !important; 
+                }
+
+                #container-83587 .fluidgrid-container-item .title-83587 {
+                    display: block;
+                    /*height: 79px;*/
+                    overflow: hidden;
+
+                    color: rgb(58, 54, 54) !important; 
+                    font-family: Arial, Verdana;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: normal;
+                    line-height: 20px;
+                    text-decoration: none !important; 
+                }
+        </style>
+    </head>
+
+    <body style="max-width: 590px; margin: auto;">
+        <div class="sk_title_area-83587">СМИ2</div>
+        <div id="container-83587"></div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js "></script>
+
+        <script type="text/javascript">
+            var properties = {
+                    'item': {
+                        'width': 170,
+                        'margin': 35
+                    }
+                };
+
+                var renderer = function (parent, model, index) {
+                    JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('a', {
+                                'class': 'item-83587',
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, [
+                                JsAPI.Dom.createDom('img', {
+                                    'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 180, 120)
+                                }),
+                                JsAPI.Dom.createDom('div', 'title-83587', model['title'])
+                            ]
+                    ));
+                };
+
+                var opt_fields = JsAPI.Dao.NewsField.URI
+                        | JsAPI.Dao.NewsField.IMAGE
+                        | JsAPI.Dao.NewsField.TITLE;
+
+
+                JsAPI.Ui.FluidGridBlockFactory.create(
+                        JsAPI.Ui.Align.CENTER /* Выравнивание содержимого блока */,
+                        83587 /* Идентификатор блока */,
+                        30 /* Размер страницы (количество) загружаемых элементов */,
+                        Infinity /* Максимальное количество загружаемых страниц элементов */,
+                        JsAPI.Dom.getElement("container-83587") /* Родительский элемент */,
+                        properties /* Настройки блока */,
+                        renderer /* Рендер содержимого новости */,
+                        opt_fields /* Маска требуемых параметров новостей */
+                ).then(function (block) {   });
+        </script>
+    </body>
+</html>

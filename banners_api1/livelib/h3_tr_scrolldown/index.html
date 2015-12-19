@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>livelib - 728_90 - horiz with scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui"> -->
+
+        <style>
+            .hblock-83677 {
+                margin: 20px auto 0;
+                position: relative;
+                width: 728px;
+                /*width: 632px;*/
+                overflow: hidden;
+
+                text-align: left !important;
+            }
+
+            .hblock-83677 .head-83677 {
+                color: rgb(0, 0, 0);
+                display: block;
+                font-family: 'Pt Sans', Tahoma, Helvetica, sans-serif;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: bold;
+
+                padding-bottom: 10px;
+            }            
+
+            .hblock-83677 .content-83677 {
+                height: 90px;
+                overflow: hidden;
+            }
+
+                .hblock-83677 .content-83677 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .hblock-83677 .item-83677 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .hblock-83677 .image-83677 {
+                float: left;
+                display: block;
+                width: 82px;
+                height: 82px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .hblock-83677 .title-83677 a:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            .hblock-83677 .title-83677{
+                position: static !important;
+            }
+
+                .hblock-83677 .title-83677 a {
+                    display: block;
+                    overflow: hidden;
+                    height: 72px;
+                    margin-left: 88px;
+                    text-align: left !important;
+
+                    color: #000 !important;
+                    font-family: 'Pt Sans', Tahoma, Helvetica, sans-serif;
+                    font-size: 14px;
+                    line-height: 18px;
+                    text-decoration: none !important;
+                }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-83677">
+            <div id="head-83677" class="head-83677">СМИ2 Lady</div>
+            <div id="hblock-83677" class="content-83677"></div>
+        </div>
+
+        <script>    
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 200, "height": 90}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "#fff",
+                    "color": "#ccc",
+                    "padding": {"top": 3, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83677', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83677',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 82, 82)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83677', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83677, JsAPI.Dom.getElement('hblock-83677'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {          
+            }, function (reason) {});          
+        </script>
+    </body>
+</html>

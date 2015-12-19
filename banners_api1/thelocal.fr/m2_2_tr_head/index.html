@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>thelocal.fr - m2_2 </title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+
+    <style>
+        .vblock-83604 {
+            clear: both;      
+        }
+
+        .vblock-83604 .header-83604 {
+
+        }
+
+            .vblock-83604 .header-83604 .header-83604_inner{
+                color: rgb(0, 0, 0);
+                font-family: arial, helvetica, clean, sans-serif;
+                font-size: 18px;
+                font-weight: bold;       
+
+                padding-top: 5px;            
+                padding-bottom: 5px;            
+            }
+                
+        .vblock-83604 .content-83604 {
+            /*height: 256px;*/
+            height: 174px;
+            overflow: hidden; 
+            padding-bottom: 10px;  
+        }
+
+            .vblock-83604 .content-83604 .scroll-container{
+                /*top: 0 !important;*/
+
+            }
+
+        .vblock-83604 .scroll-container-item{
+            position: relative;
+            overflow: visible !important;
+        }      
+
+        .vblock-83604 .item-83604  {
+            overflow: hidden;
+            display: block;
+            padding: 0;
+            position: relative;
+        }
+
+        .vblock-83604 .image-83604  {
+            float: left;
+            display: block;
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            border: none;
+        }
+        .vblock-83604 .title-83604 a {
+            display: block; 
+            margin-left:90px; 
+            margin-right: 4px; 
+            overflow: hidden;
+            height: 80px;            
+
+            color: rgb(51, 51, 51);
+            display: block;
+            font-family: arial, helvetica, clean, sans-serif;
+            font-size: 14px;
+            text-decoration: none !important;        
+        }
+        .vblock .title-83604 a:hover {
+            text-decoration: none !important;
+            color: rgb(51, 51, 51);
+        }
+
+            .buttons-83604{
+                padding: 0;
+
+                text-align: right;
+            }
+
+                .buttons-83604 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-83604{
+                    background: url('//static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83604{
+                    background: url('//static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }       
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+
+</head>
+
+<body style="max-width: 468px; margin: auto;">
+    <div class="vblock-83604">
+        <div class="header-83604">
+            <div class="header-83604_inner">More from the Local</div>
+        </div>
+        <div id="vblock-83604" class="content-83604"></div>
+        <div class="buttons-83604">
+            <div id="vbutton-back-83604" class="vbutton vbutton-back-83604"></div>
+            <div id="vbutton-forward-83604" class="vbutton vbutton-forward-83604"></div>        
+        </div>
+    </div>
+
+    <script>
+        JsAPI.Config.setDomain('news.fark.com');
+
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 200, "height": 80}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#ccc",
+                "padding": {"top": 5, "bottom": 5, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#ccc",
+                "padding": {"top": 0, "bottom": 0, "left": 5, "right": 5}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83604 ', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83604 ',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 80, 80)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83604', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])),
+                        JsAPI.Dom.createDom('div', 'text-83604', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['text']))                         
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83604, JsAPI.Dom.getElement('vblock-83604'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83604'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83604'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>социология гор</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /** Горизонтальный блок */
+        .hblock {
+            width: 560px;
+            height: 320px;
+            border: 1px solid #349400;
+        }
+
+        .hblock .header-83864 {
+            background-color: #349400;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 8px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .hblock .header-83864 .logo-83864 {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+        }
+        .hblock .content-83864 {
+            width: 560px;
+            height: 280px;
+        }
+
+        .hblock .item-83864 {
+            font-family: Arial, sans-serif;
+            margin: 0 10px 0 0;
+        }
+        .hblock .image-83864 {
+            width: 180px;
+            height: 100px;
+        }
+        .hblock .wrapper-83864 {
+            padding: 0 12px 12px 12px;
+        }
+        .hblock .wrapper-83864 div {
+            padding-top: 5px;
+        }
+        .hblock .topic-83864 {
+            font-size: 12px;
+            color: #349400;
+            font-weight: bold;
+        }
+        .hblock .title-83864 a {
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            color: #2c9dd5;
+            line-height: 16px;
+        }
+        .hblock .title-83864 a:hover {
+            text-decoration: underline;
+        }
+        .hblock .domain-83864 {
+            font-size: 13px;
+            color: lightgray;
+        }
+
+        .hbutton-83864 {
+            background-color: #349400;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+</head>
+<body>
+    <div class="hblock">
+        <div class="header-83864">
+            Новости СМИ2
+            <div class="logo-83864"><img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" height="20px"/></div>
+        </div>
+        <div id="hblock-83864" class="content-83864"></div>
+    </div>
+    <button id="hbutton-back" class="hbutton-83864">Назад</button>
+    <button id="hbutton-forward" class="hbutton-83864">Вперед</button>
+
+<script>
+    // Установка домена рекламного сервера
+    JsAPI.Config.setDomain('news.smi2.net');
+
+
+    var hblock_properties = {
+        "item": {
+            "size": {
+                "width": 150,
+                "height": 250
+            }
+        },
+        "hs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {
+                "top": 8,
+                "bottom": 8,
+                "left": 8,
+                "right": 8
+            }
+        },
+        "vs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {
+                "top": 8,
+                "bottom": 8,
+                "left": 8,
+                "right": 8
+            }
+        },
+        "scroll": {
+            "size": 6,
+            "rounded": true,
+            "background": "white",
+            "color": "#349400",
+            "padding": {
+                "top": 2,
+                "bottom": 2,
+                "left": 2,
+                "right": 2
+            },
+            "margin": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+            }
+        }
+    };
+    var hblock_renderer = function(parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83864', [JsAPI.Dom.createDom('a', {
+            'href': model['url'],
+            'target': '_blank'
+        }, JsAPI.Dom.createDom('img', {
+            'class': 'image-83864',
+            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 180, 100)
+        })), JsAPI.Dom.createDom('div', 'wrapper-83864', [JsAPI.Dom.createDom('div', 'topic-83864', model['topic_name']), JsAPI.Dom.createDom('div', 'title-83864', JsAPI.Dom.createDom('a', {
+            'href': model['url'],
+            'target': '_blank'
+        }, model['title'])), JsAPI.Dom.createDom('div', 'domain-83864', model['domain'])])]));
+    };
+
+    var hblock_opt_fields =     JsAPI.Dao.NewsField.URI | 
+                                JsAPI.Dao.NewsField.IMAGE | 
+                                JsAPI.Dao.NewsField.TOPIC | 
+                                JsAPI.Dao.NewsField.TITLE | 
+                                JsAPI.Dao.NewsField.DOMAIN;
+
+    JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83864, JsAPI.Dom.getElement('hblock-83864'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function(block) { /*console && console.log('Ok', block);*/
+        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back'), 'click', function() {
+            block.scrollBack();
+        });
+        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward'), 'click', function() {
+            block.scrollForward();
+        });
+    }, function(reason) { /*console && console.error('Error', reason);*/ });
+
+
+</script>
+</body>
+</html>

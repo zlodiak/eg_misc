@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>winter is comming</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .vblock-83851 {
+            max-width: 340px;
+            padding: 0px 0px 4px;
+            margin: 15px auto 15px;
+            text-align: left;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1);  
+            background: #f9f9f9;         
+        }
+
+        .vblock-83851 .header-83851 {
+            color: rgb(35, 35, 35);
+            display: block;
+            font-family: Cinzel;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: normal;
+            height: 52px;
+            line-height: 52px;
+            text-align: center;
+            margin: 0 0px;
+            background: #fff;       
+            margin-bottom: 11px;
+            border-bottom: 1px solid #ccc;
+        }
+
+
+        .vblock-83851 .content-83851 {
+            height: 490px;
+            overflow: hidden;
+
+
+        }
+
+            .vblock-83851 .content-83851 .scroll-container{
+                /*top: 0 !important;*/
+            }
+
+        .vblock-83851 .item-83851 {
+            overflow: hidden;
+            display: block;
+            padding: 0px;
+            padding: 0 14px;
+        }
+        .vblock-83851 .image-83851 {
+            float: left;
+            display: block;
+            width: 110px;
+            height: 80px;
+            overflow: hidden;
+        }        
+        .vblock-83851 .title-83851 a {
+            text-decoration: none;
+            display: block;
+            overflow: hidden;
+            padding-bottom: 0px;
+            margin-left: 120px;
+            max-height: 80px;
+
+
+            color: rgba(68, 68, 68, 0.701961);
+            font-family: 'Open Sans', arial;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 20px; 
+            text-decoration: none;
+        }
+        .vblock-83851 .title-83851 a:hover {
+            text-decoration: none !important;
+        }
+
+            .buttons-83851{
+                padding: 3px 14px 4px;
+
+                text-align: right;
+            }
+
+                .buttons-83851 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-83851{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83851{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+        
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+
+</head>
+
+<body style="background: #ccc;">
+    <div class="vblock-83851">
+        <div class="header-83851">Partners</div>
+        <div id="vblock-83851" class="content-83851"></div>
+        <div class="buttons-83851">
+            <div id="vbutton-back-83851" class="vbutton vbutton-back-83851"></div>
+            <div id="vbutton-forward-83851" class="vbutton vbutton-forward-83851"></div>        
+        </div>
+    </div>
+
+    <script>
+        JsAPI.Config.setDomain('news.fark.com');
+ 
+        var vblock_properties = {
+            "item": {
+                "size": {"width": 300, "height": 84}
+            },
+            "hs": {
+                "size": 1,
+                "style": "solid",
+                "color": "#f2eded",
+                "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "scroll": {
+                "size": 0,
+                "rounded": true,
+                "background": "white",
+                "color": "#2c9dd5",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+        var vblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83851', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83851',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 110, 80)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83851', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                      
+                    ]
+            ));
+        };
+
+        var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.IMAGE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83851, JsAPI.Dom.getElement('vblock-83851'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+            /*console && console.log('Ok', block);*/
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83851'), 'click', function () {
+                block.scrollBack();
+            });
+
+            JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83851'), 'click', function () {
+                block.scrollForward();
+            });            
+        }, function (reason) {
+            /* console && console.error('Error', reason);*/
+        });
+    </script>
+</body>
+</html>

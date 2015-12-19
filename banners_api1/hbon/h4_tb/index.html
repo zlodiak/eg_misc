@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - 4</title>
+    <meta name="viewport" content="width=device-width" />
+
+    <style>
+        .hblock {
+            width: 958px;
+            margin-left: 5px;
+        }
+        .hblock .content-83543 {
+            min-height: 264px;
+        }
+
+        .hblock .item {
+
+        }
+        .hblock .image-83543 {
+            width: 220px;
+            height: 200px;
+        }
+        .hblock .wrapper {
+        }
+        .hblock .wrapper div {
+            padding-top: 5px;
+        }
+        .hblock .title-83543 a:hover {
+            color: #0f3647 !important;
+            text-decoration: none !important;
+        }
+
+        .hblock .title-83543 a {
+            color: #21759b !important;
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            font-size: 11px;
+            line-height: 11px;
+            text-decoration: none !important;
+
+            cursor: pointer;
+            height: 34px;
+            display: block;
+            overflow: hidden;            
+        }
+     
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body style="max-width: 958px; margin: auto;">
+    <div class="hblock">
+        <div id="hblock" class="content-83543"></div>
+    </div>
+
+    <script>
+    
+
+        JsAPI.Config.setDomain('news.net.finam.ru');
+
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 220, "height": 150}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 0, "bottom": 0, "left": 10, "right": 10}
+            },
+            "scroll": {
+                "size": 5,
+                "rounded": true,
+                "background": "white",
+                "color": "#ccc",
+                "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                "margin": {"top": 10, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83543',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 220, 200)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper', [
+                            JsAPI.Dom.createDom('div', 'title-83543', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83543, JsAPI.Dom.getElement('hblock'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

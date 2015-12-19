@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>социология верт</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        /** Вертикальный блок */
+        .vblock-83865 {
+            max-width: 300px;
+            height: 440px;
+            border: 1px solid #2c9dd5;
+        }
+
+        .vblock-83865 .header-83865 {
+            background-color: #2c9dd5;
+            color: white;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 8px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .vblock-83865 .header-83865 .logo-83865 {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+        }
+        .vblock-83865 .content-83865 {
+            max-width: 300px;
+            height: 400px;
+        }
+
+        .vblock-83865 .item-83865 {
+            font-family: Arial, sans-serif;
+            margin: 0 10px 0 0;
+        }
+        .vblock-83865 .image-83865 {
+            float: left;
+            margin: 5px;
+            border: 2px solid lightblue;
+            border-radius: 2px;
+            width: 60px;
+            height: 60px;
+        }
+        .vblock-83865 .title-83865 a {
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+            color: #2c9dd5;
+            line-height: 16px;
+        }
+        .vblock-83865 .title-83865 a:hover {
+            text-decoration: underline;
+        }
+        .vblock-83865 .topic-83865 {
+            font-size: 12px;
+            color: #349400;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .vbutton-83865 {
+            background-color: #2c9dd5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+</head>
+<body>
+    <div class="vblock-83865">
+        <div class="header-83865">
+            Популярные новости
+            <div class="logo-83865"><img src="//static.smi2.net/static/aggregator_v2/images/logo/smi2.ru.png" height="20px"/></div>
+        </div>
+        <div id="vblock-83865" class="content-83865"></div>
+    </div>
+    <button id="vbutton-back" class="vbutton-83865">Назад</button>
+    <button id="vbutton-forward" class="vbutton-83865">Вперед</button>
+
+<script>
+    // Установка домена рекламного сервера
+    JsAPI.Config.setDomain('news.smi2.net');
+
+
+    var vblock_properties = {
+        "item": {
+            "size": {"width": 250, "height": 60}
+        },
+        "hs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+        },
+        "vs": {
+            "size": 1,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 5, "bottom": 5, "left": 5, "right": 5}
+        },
+        "scroll": {
+            "size": 6,
+            "rounded": true,
+            "background": "white",
+            "color": "#2c9dd5",
+            "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+            "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+        }
+    };
+
+    var vblock_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83865', [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-83865',
+                        'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 60, 60),
+                        'width': '60px',
+                        'height': '60px'
+                    })),
+                    JsAPI.Dom.createDom('div', 'topic-83865', model['topic_name']),
+                    JsAPI.Dom.createDom('div', 'title-83865', JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title']))
+                ]
+        ));
+    };
+
+    var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+            | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TOPIC
+            | JsAPI.Dao.NewsField.TITLE;
+
+    JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83865, JsAPI.Dom.getElement('vblock-83865'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) { /*console && console.log('Ok', block);*/
+        JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back'), 'click', function () {
+            block.scrollBack();
+        });
+
+        JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward'), 'click', function () {
+            block.scrollForward();
+        });
+
+    }, function (reason) { /*console && console.error('Error', reason);*/  });
+</script>
+</body>
+</html>

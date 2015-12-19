@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>belarushockey - 240_400 - vert with scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimal-ui"> -->
+
+        <style>
+            .hblock-83690 {
+                margin: 0 0 0px;
+                position: relative;
+                max-width: 240px;
+                overflow: hidden;
+
+                text-align: left !important;
+            }
+
+            .hblock-83690 .head-83690 {
+                color: rgb(255, 255, 255);
+                font-family: Tahoma, serif;
+                font-size: 12px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                line-height: 30px;
+                text-transform: uppercase;
+
+                height: 30px;
+                padding: 0 8px;
+                margin-bottom: 10px;
+                background: url('//static.smi2.net/srcimg/2656775.gif') left top repeat-x;
+            }
+
+            .hblock-83690 .content-83690 {
+                height: 360px;
+                overflow: hidden;
+            }
+
+                .hblock-83690 .content-83690 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .hblock-83690 .item-83690 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+                width: auto;
+                margin: 0;
+            }
+            .hblock-83690 .image-83690 {
+                float: left;
+                display: block;
+                width: 80px;
+                height: 80px;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .hblock-83690 .title-83690 a:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            .hblock-83690 .title-83690{
+                position: static !important;
+            }
+
+                .hblock-83690 .title-83690 a {
+                    display: block;
+                    overflow: hidden;
+                    margin-left: 90px;
+                    margin-right: 7px;
+                    width: 129px;
+                    text-align: left !important;
+
+                    color: rgb(0, 0, 0);
+                    font-family: Tahoma;
+                    font-size: 12px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: bold;
+                    line-height: 14px;
+                    text-decoration: none !important;
+                }
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+
+    </head>
+
+    <body style="margin: 0;">
+        <div class="hblock-83690">
+            <div id="head-83690" class="head-83690">Новости СМИ2</div>
+            <div id="hblock-83690" class="content-83690"></div>
+        </div>
+
+        <script>    
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 240, "height": 80}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 7, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "#fff",
+                    "color": "#00567d",
+                    "padding": {"top": 0, "bottom": 0, "left": 7, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83690', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83690',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 80, 80)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83690', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83690, JsAPI.Dom.getElement('hblock-83690'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {          
+            }, function (reason) {});          
+        </script>
+    </body>
+</html>

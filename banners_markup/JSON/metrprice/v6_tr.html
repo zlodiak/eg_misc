@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>metrprice vertical 6</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div>
+            <style>           
+                #sk_wrap_83789{
+                    overflow: hidden;
+                    margin: 0px auto;
+                    background: #f5f3ef;     
+                    padding: 0px 15px 0;
+                    max-width: 300px;
+                } 
+
+                    .sk_item_83789{ 
+                      overflow: hidden; 
+                      text-align: center; 
+                      padding: 15px 0px 35px; 
+                      border-bottom: 1px solid #efefef;     
+                    }
+
+                        .sk_item_83789 .sk_a1_83789{
+                            display: block; 
+                            float: left;
+                        }   
+
+                            .sk_item_83789 .sk_a1_83789 img{
+                              display: block !important;
+                              background: none !important;
+                              padding: 0 !important;
+                              border: none !important;
+                              border-radius: 0 !important;
+                              width: 110px;
+                              height: 68px;
+                            }
+
+                        .sk_item_83789 .sk_a2_83789:hover{
+                            text-decoration: underline !important;
+                            color: rgb(51, 51, 51) !important;
+                        }
+
+                        .sk_item_83789 .sk_a2_83789{
+                            display: block; 
+                            margin: 3px 5px 3px 125px;
+                            text-align: left; 
+                            overflow: hidden;
+                            height: 68px;
+
+                            color: rgb(51, 51, 51) !important;
+                            font-family: Arial, 'Nimbus Sans L', Helvetica, sans-serif;
+                            font-size: 14px;
+                            font-stretch: normal;
+                            font-style: normal;
+                            font-variant: normal;
+                            font-weight: normal;
+                            line-height: 17px;   
+                            text-decoration: none;  
+                        }    
+
+                                              
+            </style>
+            <div id='sk_wrap_83789'></div>
+        </div>
+
+        <script>
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{
+                // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    var massive = JSON.parse(xmlhttp.responseText),
+                        massiveLength = massive.news.length;
+
+                    //console.log(massive);
+                    //console.log(massiveLength);
+
+                    var _doc = document;   
+                    var _sk_wrap0 = _doc.getElementById('sk_wrap_83789');
+                                
+                    for (var i = 0; i < massiveLength; i++) {
+                        var _sk_wrap = _doc.createElement("div");
+
+                        _sk_wrap.className = 'sk_item_83789';
+
+
+                        //console.log(massive.news[i].url);
+                        //console.log(massive.news[i].img);
+                        //console.log(massive.news[i].title);
+
+
+                        _sk_wrap.innerHTML = '<a href="' + massive.news[i].url + '" class="sk_a1_83789"><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '"></a><a href="' + massive.news[i].url + '" class="sk_a2_83789">' + massive.news[i].title + '</a>';      
+
+                        _sk_wrap0.appendChild(_sk_wrap);
+                    }                
+                }
+            }
+
+            xmlhttp.open("GET","//news.smi2.ru/data/js/83789.js",true);
+            xmlhttp.send();
+
+        </script>
+    </body>
+</html>

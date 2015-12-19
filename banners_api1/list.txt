@@ -1,0 +1,534 @@
+.
+├── 1
+│   └── index.html
+├── 2
+│   └── index.html
+├── 9to5mac
+│   ├── h3_tb
+│   │   ├── index.html
+│   │   └── init.html
+│   └── h3_tr
+│       ├── index (copy).html
+│       ├── index.html
+│       └── init.html
+├── alternet
+│   └── index.html
+├── arrows
+│   ├── 1_classic_left_right
+│   │   ├── arr_left_crop.png
+│   │   └── arr_right_crop.png
+│   ├── 2_thin_left_right
+│   │   ├── arrow-left.png
+│   │   └── arrow-right.png
+│   └── 3_classic_up_down
+│       ├── arr_bottom_crop.png
+│       ├── arr_up_crop.png
+│       └── index.html
+├── aru.tv
+│   └── h_tr_frame_scroll
+│       ├── index.html
+│       └── init.html
+├── belarushockey
+│   └── v4_tr_head_scroll
+│       ├── index.html
+│       └── init.html
+├── boingboing
+│   └── v5_text-only_head_frame
+│       ├── index.html
+│       └── init.html
+├── cosmo
+│   ├── v1
+│   │   ├── index.html
+│   │   ├── index (копия).html
+│   │   └── init.html
+│   ├── v2_text
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── v3_q
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── v3_q_заголовок текстом. стрелочки
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── v3_r
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v3_text_img
+│       ├── index.html
+│       └── init.html
+├── Dalmanews
+│   ├── 1
+│   │   └── index.html
+│   ├── 2
+│   │   └── index.html
+│   ├── 3
+│   │   └── index.html
+│   └── init.html
+├── dayonline
+│   └── h3
+│       ├── fonts
+│       ├── index.html
+│       └── init.html
+├── elle
+│   └── h1_onlymob_arrows_tb
+│       ├── index.html
+│       └── init.html
+├── endless_footer
+│   └── h3
+│       ├── index.html
+│       └── init.html
+├── fansided
+│   └── v4_tb_domain
+│       ├── index.html
+│       └── init.html
+├── fark.com
+│   └── 1
+│       ├── BU
+│       │   └── BU.html
+│       ├── index.html
+│       ├── index.html.zip
+│       ├── index_without_arrows.html
+│       └── init.html
+├── finmarket
+│   ├── h3_tr_hscroll
+│   │   ├── index.html
+│   │   └── init.html
+│   └── matrix3_2_tr
+│       ├── index.html
+│       └── init.html
+├── goodhouse
+│   └── v_tr_head-bg
+│       ├── index_first (copy).html
+│       ├── index_first.html
+│       ├── index.html
+│       └── init.html
+├── hbon
+│   └── h4_tb
+│       ├── index.html
+│       └── init.html
+├── historynewsnetwork
+│   └── 1
+│       ├── index.html
+│       └── init.html
+├── hitrostigizni.mirtesen
+│   └── 1
+│       └── index.html
+├── html.html
+├── index.html
+├── indiatvnews
+│   ├── 1
+│   │   └── index.html
+│   ├── 2
+│   │   ├── index.html
+│   │   └── init.html
+│   └── 2.tar
+├── info-balkan
+│   └── endless_fix_template
+│       ├── index.html
+│       └── init.html
+├── inquisitr
+│   ├── fix
+│   │   └── v_tr_head.html
+│   │       ├── BU_82843.html
+│   │       └── index.html
+│   ├── v_text_only_BU.html
+│   ├── v_text-only_head-bg
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── v_text-only_head-bg_resp
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v_tr_head-bg
+│       ├── index.html
+│       └── init.html
+├── investing.com
+│   ├── v1
+│   │   ├── index.html
+│   │   └── index (копия).html
+│   ├── v2
+│   │   ├── index.html
+│   │   └── index (копия).html
+│   └── v3
+│       ├── indexBU.html
+│       ├── index.html
+│       └── init.html
+├── jourdom
+│   └── h2_tr
+│       ├── index.html
+│       └── init.html
+├── killiframe
+│   ├── 2_without_scroll
+│   │   └── index.html
+│   ├── 2_with_scroll
+│   │   └── index.html
+│   ├── kit
+│   │   ├── 160_600
+│   │   │   └── index.html
+│   │   ├── 160_600_scroll
+│   │   │   └── index.html
+│   │   ├── 240_400
+│   │   │   └── index.html
+│   │   ├── 240_400_scroll
+│   │   │   └── index.html
+│   │   ├── 300_250
+│   │   │   └── index.html
+│   │   ├── 300_250_scroll
+│   │   │   └── index.html
+│   │   ├── 300_300
+│   │   │   └── index.html
+│   │   ├── 300_300_scroll
+│   │   │   └── index.html
+│   │   ├── 600_90
+│   │   │   └── index.html
+│   │   ├── 600_90_scroll
+│   │   │   └── index.html
+│   │   ├── 728_90
+│   │   │   └── index.html
+│   │   ├── 728_90_scroll
+│   │   │   └── index.html
+│   │   └── kit.tar
+│   ├── kit2
+│   │   ├── 160_600
+│   │   │   └── index.html
+│   │   ├── 160_600_scroll
+│   │   │   └── index.html
+│   │   ├── 240_400
+│   │   │   └── index.html
+│   │   ├── 240_400_scroll
+│   │   │   └── index.html
+│   │   ├── 300_250
+│   │   │   └── index.html
+│   │   ├── 300_250_scroll
+│   │   │   └── index.html
+│   │   ├── 300_300
+│   │   │   └── index.html
+│   │   ├── 300_300_scroll
+│   │   │   └── index.html
+│   │   ├── 600_90
+│   │   │   └── index.html
+│   │   ├── 600_90_scroll
+│   │   │   └── index.html
+│   │   ├── 728_90
+│   │   │   └── index.html
+│   │   ├── 728_90_scroll
+│   │   │   └── index.html
+│   │   └── kit2.tar
+│   ├── tr_without_scroll
+│   │   └── index.html
+│   └── tr_with_scroll
+│       └── index.html
+├── ktovkurse
+│   ├── v2_tr
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v3_tr
+│       ├── index.html
+│       └── init.html
+├── lady_pravda
+│   ├── m3_2_tr_head
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v_tr_head
+│       ├── index.html
+│       └── init.html
+├── list.txt
+├── littlegreenfootballs.com
+│   └── v3_tb
+│       ├── index.html
+│       └── init.html
+├── littlethings
+│   └── v4_tb_scroll
+│       ├── index.html
+│       └── init.html
+├── livejournal
+│   └── v4_tb_head-bg
+├── livelib
+│   ├── h3_tr_scrolldown
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v4_tr_head_scrollright
+│       ├── index (copy).html
+│       ├── index.html
+│       └── init.html
+├── medpulse
+│   └── m3_2_tr_head
+│       ├── index.html
+│       └── init.html
+├── mirror.co.uk
+│   └── v4_tr_head
+│       ├── index.html
+│       └── init.html
+├── _misc
+│   └── h3_tb_scroll-down_sources_roboto
+│       ├── index.html
+│       └── init.html
+├── mks-onlain
+│   ├── h4_tb
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v3_tb
+│       ├── index.html
+│       └── init.html
+├── msn
+│   ├── 1v
+│   │   ├── fonts
+│   │   │   ├── SegoeUIBold
+│   │   │   │   ├── SegoeUIBold.eot
+│   │   │   │   ├── SegoeUIBold.ttf
+│   │   │   │   └── SegoeUIBold.woff
+│   │   │   ├── SegoeUIItalic
+│   │   │   │   ├── SegoeUIItalic.eot
+│   │   │   │   ├── SegoeUIItalic.ttf
+│   │   │   │   └── SegoeUIItalic.woff
+│   │   │   ├── SegoeUILight
+│   │   │   │   ├── SegoeUILight.eot
+│   │   │   │   ├── SegoeUILight.ttf
+│   │   │   │   └── SegoeUILight.woff
+│   │   │   ├── SegoeUI.png
+│   │   │   ├── SegoeUIRegular
+│   │   │   │   ├── SegoeUIRegular.eot
+│   │   │   │   ├── SegoeUIRegular.ttf
+│   │   │   │   └── SegoeUIRegular.woff
+│   │   │   └── SegoeUISemiBold
+│   │   │       ├── SegoeUISemiBold.eot
+│   │   │       ├── SegoeUISemiBold.ttf
+│   │   │       └── SegoeUISemiBold.woff
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── 1v (copy)
+│   │   ├── fonts
+│   │   │   ├── SegoeUIBold
+│   │   │   │   ├── SegoeUIBold.eot
+│   │   │   │   ├── SegoeUIBold.ttf
+│   │   │   │   └── SegoeUIBold.woff
+│   │   │   ├── SegoeUIItalic
+│   │   │   │   ├── SegoeUIItalic.eot
+│   │   │   │   ├── SegoeUIItalic.ttf
+│   │   │   │   └── SegoeUIItalic.woff
+│   │   │   ├── SegoeUILight
+│   │   │   │   ├── SegoeUILight.eot
+│   │   │   │   ├── SegoeUILight.ttf
+│   │   │   │   └── SegoeUILight.woff
+│   │   │   ├── SegoeUI.png
+│   │   │   ├── SegoeUIRegular
+│   │   │   │   ├── SegoeUIRegular.eot
+│   │   │   │   ├── SegoeUIRegular.ttf
+│   │   │   │   └── SegoeUIRegular.woff
+│   │   │   └── SegoeUISemiBold
+│   │   │       ├── SegoeUISemiBold.eot
+│   │   │       ├── SegoeUISemiBold.ttf
+│   │   │       └── SegoeUISemiBold.woff
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── 2h
+│   │   ├── fonts
+│   │   │   ├── SegoeUIBold
+│   │   │   │   ├── SegoeUIBold.eot
+│   │   │   │   ├── SegoeUIBold.ttf
+│   │   │   │   └── SegoeUIBold.woff
+│   │   │   ├── SegoeUIItalic
+│   │   │   │   ├── SegoeUIItalic.eot
+│   │   │   │   ├── SegoeUIItalic.ttf
+│   │   │   │   └── SegoeUIItalic.woff
+│   │   │   ├── SegoeUILight
+│   │   │   │   ├── SegoeUILight.eot
+│   │   │   │   ├── SegoeUILight.ttf
+│   │   │   │   └── SegoeUILight.woff
+│   │   │   ├── SegoeUI.png
+│   │   │   ├── SegoeUIRegular
+│   │   │   │   ├── SegoeUIRegular.eot
+│   │   │   │   ├── SegoeUIRegular.ttf
+│   │   │   │   └── SegoeUIRegular.woff
+│   │   │   └── SegoeUISemiBold
+│   │   │       ├── SegoeUISemiBold.eot
+│   │   │       ├── SegoeUISemiBold.ttf
+│   │   │       └── SegoeUISemiBold.woff
+│   │   ├── index.html
+│   │   └── init.html
+│   └── 2h (copy)
+│       ├── fonts
+│       │   ├── SegoeUIBold
+│       │   │   ├── SegoeUIBold.eot
+│       │   │   ├── SegoeUIBold.ttf
+│       │   │   └── SegoeUIBold.woff
+│       │   ├── SegoeUIItalic
+│       │   │   ├── SegoeUIItalic.eot
+│       │   │   ├── SegoeUIItalic.ttf
+│       │   │   └── SegoeUIItalic.woff
+│       │   ├── SegoeUILight
+│       │   │   ├── SegoeUILight.eot
+│       │   │   ├── SegoeUILight.ttf
+│       │   │   └── SegoeUILight.woff
+│       │   ├── SegoeUI.png
+│       │   ├── SegoeUIRegular
+│       │   │   ├── SegoeUIRegular.eot
+│       │   │   ├── SegoeUIRegular.ttf
+│       │   │   └── SegoeUIRegular.woff
+│       │   └── SegoeUISemiBold
+│       │       ├── SegoeUISemiBold.eot
+│       │       ├── SegoeUISemiBold.ttf
+│       │       └── SegoeUISemiBold.woff
+│       ├── index.html
+│       └── init.html
+├── newsy
+│   └── v9_ti_head
+│       ├── index.html
+│       └── init.html
+├── ora.tv
+│   ├── index.html
+│   └── init.html
+├── planetoday
+│   └── h2_tb_top
+│       ├── index.html
+│       └── init.html
+├── popmech
+│   └── s1
+│       ├── index (copy).html
+│       ├── index.html
+│       └── init.html
+├── rambler
+│   ├── 1
+│   │   └── index.html
+│   ├── 2
+│   │   └── index.html
+│   ├── 2 (копия)
+│   │   └── index.html
+│   ├── 3
+│   │   └── index.html
+│   ├── 3 (копия)
+│   │   └── index.html
+│   └── v4_tr_head_category
+│       └── index.html
+├── rawstory
+│   └── BU_83064.html
+├── retire
+│   └── 1
+│       ├── BU.html
+│       ├── index.html
+│       └── init.html
+├── rg
+│   ├── h4_tb
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── h4_tb (copy)
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v4_tb_head_scroll
+│       ├── index.html
+│       └── init.html
+├── ritmeurasia
+│   └── v4_tb_scrollleft_head-line
+│       ├── index.html
+│       └── init.html
+├── secretmag.ru
+│   ├── 1
+│   │   ├── index.html
+│   │   └── index (копия).html
+│   ├── 2_without_scroll
+│   │   └── index.html
+│   └── 2_with_scroll
+│       └── index.html
+├── seekingalpha.com
+│   ├── 1
+│   │   ├── index.html
+│   │   └── init.html
+│   └── 2
+│       ├── index.html
+│       └── init.html
+├── smi2
+│   ├── 1_vert
+│   │   ├── BU.html
+│   │   └── index.html
+│   └── 2_horiz
+│       ├── bu.html
+│       ├── index.html
+│       └── init.html
+├── smi2 (копия)
+│   ├── 1_vert
+│   │   ├── BU.html
+│   │   └── index.html
+│   └── 2_horiz
+│       ├── bu.html
+│       ├── index.html
+│       └── init.html
+├── talkmarkets
+│   ├── 1
+│   │   ├── index.html
+│   │   └── init.html
+│   └── BU.html
+├── thelocal.fr
+│   └── m2_2_tr_head
+│       ├── index.html
+│       └── init.html
+├── timetobreak
+│   └── v5_tb_arrows_head
+│       ├── BU.html
+│       └── index.html
+├── timetonews
+│   ├── h3_head-bg_scroll_arrows_frame
+│   │   ├── index.html
+│   │   └── init.html
+│   └── v4_tb
+│       ├── index.html
+│       └── init.html
+├── upi
+│   ├── 81659
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── 81660
+│   │   ├── index.html
+│   │   └── init.html
+│   └── 81731
+│       ├── index.html
+│       └── init.html
+├── urbanrooms
+│   ├── 1
+│   │   ├── index.html
+│   │   └── init.html
+│   └── 2
+│       ├── index.html
+│       └── init.html
+├── vanwinkles
+│   └── v5_tr_head_arr
+│       ├── index.html
+│       └── init.html
+├── vokrugtv
+│   ├── h1
+│   │   ├── index (copy).html
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── h2
+│   │   ├── index.html
+│   │   └── init.html
+│   ├── h3
+│   │   └── index.html
+│   └── h3_only3
+│       ├── BU_предыдущий вариант2плюс1.html
+│       └── index.html
+├── warontherocks
+│   └── h3_tb
+│       ├── index (copy).html
+│       ├── index.html
+│       └── init.html
+├── wday
+│   └── v5_tr_head
+│       ├── index.html
+│       └── init.html
+├── winteriscoming
+│   └── v5_tr_head
+│       └── index.html
+└── yes.com
+    ├── h4_tb_head
+    │   ├── index (copy).html
+    │   └── index.html
+    ├── h4_tb_head_without_scroll
+    │   └── index.html
+    ├── v3_tr_head
+    │   ├── index_arrows_classic.html
+    │   ├── index.html
+    │   └── init.html
+    └── v3_tr_head_without_scroll
+        ├── index (copy).html
+        └── index.html
+
+221 directories, 310 files
