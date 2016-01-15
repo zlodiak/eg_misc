@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>83938</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .vblock-83938 {
+                max-width: 310px;
+                margin: 0 auto;            
+
+                text-align: left !important;
+            }
+
+            .vblock-83938 .header-83938 {
+                border-top: 1px solid #ccc;
+                margin-bottom: 8px;
+            }
+
+                .vblock-83938 .header-83938 .header-83938_inner{
+                    height: 30px;
+                    position: relative;   
+                    overflow: hidden;
+                    padding: 0 15px;
+                    display: inline-block;
+                    background: #006b3a;
+
+                    color: rgb(255, 255, 255);
+                    font-family: gandhi_serifregular, Georgia, 'Times New Roman', serif;
+                    font-size: 17px;
+                    font-weight: normal;  
+                    text-transform: uppercase; 
+                    line-height: 30px;     
+                    text-align: left;                  
+                }
+
+            .vblock-83938 .content-83938 {
+                height: 432px;
+                margin: 0 0px;
+                overflow: hidden;
+            }
+
+                .vblock-83938 .content-83938 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-83938 .item-83938 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+            }
+            .vblock-83938 .image-83938 {
+                float: left;
+                display: block;
+                width: 75px;
+                height: 75px;
+                overflow: hidden;
+            }
+            .vblock-83938 .title-83938 a:hover {
+                text-decoration: none !important;
+                color: #222 !important;
+            }
+
+            .vblock-83938 .title-83938{
+                position: static !important;
+            }
+
+                .vblock-83938 .title-83938 a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    height: 64px;
+                    margin-left: 85px;
+                    text-align: left !important;
+
+                    color: #222;
+                    font-family: gandhi_serifregular, Georgia, 'Times New Roman', serif;
+                    font-size: 14px;
+                    line-height: 21px;
+                }
+
+                    .buttons-83938{
+                        padding: 0px 0px 10px;
+
+                        text-align: right;
+                    }
+
+                        .buttons-83938 > div{
+                            display: inline-block;
+                            width: 26px;
+                            height: 25px;
+                            border: none;
+                            margin-left: 5px;
+                            cursor: pointer;
+                        }
+
+                        .vbutton-back-83938{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                        }
+
+                        .vbutton-forward-83938{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                        }
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+
+    </head>
+
+    <body style="background: #fff;">
+        <div class="vblock-83938">
+            <div class="header-83938">
+                <div class="header-83938_inner">Partners</div>
+            </div>
+
+            <div id="vblock-83938" class="content-83938"></div>
+
+            <div class="buttons-83938">
+                <div id="vbutton-back-83938" class="vbutton vbutton-back-83938"></div>
+                <div id="vbutton-forward-83938" class="vbutton vbutton-forward-83938"></div>        
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+     
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 75}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#ccc",
+                    "padding": {"top": 10, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83938', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83938',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 75, 75)
+                        })),
+                        JsAPI.Dom.createDom('div', 'title-83938', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))                       
+                    ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 83938, JsAPI.Dom.getElement('vblock-83938'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83938'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83938'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

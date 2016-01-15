@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>h4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.6.0.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.2.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.en_IN.js"></script>-->
+
+    <style>
+        .hblock-84068 {
+            max-width: 880px;
+            overflow: hidden;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-top: 20px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .hblock-84068 .header-84068 {
+            color: rgb(0, 0, 0);
+            display: block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-align: left;
+
+            position: relative;
+            padding: 10px 10px;
+        }
+        .hblock-84068 .content-84068 {
+            height: 188px;
+        }
+
+        .hblock-84068 .item-84068 {
+            font-family: Arial, sans-serif;
+            margin: 0 10px 0 0;
+        }
+        .hblock-84068 .image-84068 {
+            border: none;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            display: block;
+        }
+        .hblock-84068 .wrapper-84068 {
+            padding: 0 12px 12px 12px;
+        }
+        .hblock-84068 .wrapper-84068 div {
+            padding-top: 5px;
+        }
+        .hblock-84068 .title-84068 a {
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            display: block;
+            color: #2c9dd5;
+            overflow: hidden;
+            height: 63px;
+            text-align: center;
+        }
+        .hblock-84068 .title-84068 a:hover {
+            text-decoration: underline;
+            color: rgb(86, 160, 204);
+        }
+
+/*        .hbutton-84068 {
+            background-color: #349400;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            outline: none;
+            cursor: pointer;
+            margin: 5px;
+        }*/
+    </style>
+
+</head>
+<body>
+<div class="hblock-84068">
+    <div class="header-84068">Новости СМИ2</div>
+    <div id="container-84068" class="content-84068"></div>
+</div>
+<!-- <button id="hbutton-back-84068" class="hbutton-84068">Назад</button>
+<button id="hbutton-forward-84068" class="hbutton-84068">Вперед</button> -->
+<script>
+    /* Установка домена */
+    //    JsAPI.Config.setDomain('127.0.0.1:8080');
+
+    /**
+     * Ориентация блока
+     *
+     * @type {JsAPI.Ui.Orientation}
+     */
+    var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+    /**
+     * Родительский элемент контейнера
+     *
+     * @type {HTMLElement}
+     */
+    var parent_element = JsAPI.Dom.getElement("container-84068");
+
+    /**
+     * Настройки блока
+     *
+     * @type {*}
+     */
+    var properties = {
+        "item": {
+            "size": {"width": 200, "height": 188}
+        },
+        "hs": {
+            "size": 0,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+        },
+        "vs": {
+            "size": 0,
+            "style": "solid",
+            "color": "#E3E3E3",
+            "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+        },
+        "scroll": {
+            "size": 6,
+            "rounded": true,
+            "background": "transparent",
+            "color": "#ccc",
+            "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+            "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+        }
+    };
+
+    /**
+     * Callback-функция рендера содержимого элемента
+     *
+     * @type {function(HTMLElement, *, number)}
+     */
+    var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84068', [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-84068',
+                        'src': model['image'],
+                        'width': '100px',
+                        'height': '100px'
+                    })),
+                    JsAPI.Dom.createDom('div', 'wrapper-84068', [
+                        JsAPI.Dom.createDom('div', 'title-84068', JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']))
+                    ])
+                ]
+        ));
+    };
+
+    /**
+     * Идентификатор блока
+     *
+     * @type {number}
+     */
+    var block_id = 84068;
+
+    /**
+     * Маска требуемых параметров (полей) статей
+     *
+     * @type {number|undefined}
+     */
+    var opt_fields = JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TITLE
+            ;
+
+    JsAPI.Ui.ScrollBlockFactory.create(
+            orientation,
+            parent_element,
+            properties,
+            item_content_renderer,
+            block_id,
+            opt_fields
+    ).then(function (block) {
+/*        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-84068'), 'click', function () {
+            block.scrollBack();
+        });
+        JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-84068'), 'click', function () {
+            block.scrollForward();
+        });*/
+    }, function (reason) {    });
+
+</script>
+</body>
+</html>

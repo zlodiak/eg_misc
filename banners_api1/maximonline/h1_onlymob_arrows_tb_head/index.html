@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>maximonline mob1 w 400</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <style>        
+            .hblock-83935 {
+                overflow: hidden;
+                margin: 20px 0px 0;
+                position: relative;
+                padding-bottom: 0px;
+            }
+
+            .hblock-83935 .header-83935 {
+                text-align: center;
+                color: rgb(0, 0, 0);
+                font-family: FuturaPTWebLight, Verdana, Helvetica, sans-serif;
+                font-size: 24px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                text-transform: uppercase;  
+
+                margin-bottom: 10px;
+                padding: 9px 0 7px 0;
+                position: relative;
+                border-top: 1px solid #bebebe;
+                border-bottom: 1px solid #bebebe;
+            }
+
+                .hblock-83935 .header-83935 img{
+
+
+                }
+
+            .hblock-83935 .content-83935 {
+                height: 270px;
+            }
+
+            .hblock-83935 .item-83935 {
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-83935 .image-83935 {
+                width: 400px;
+                height: 210px;
+                display: block;
+                margin: 0 auto;
+            }
+            .hblock-83935 .wrapper-83935 {
+
+            }
+            .hblock-83935 .wrapper-83935 div {
+                padding-top: 3px;
+            }
+            .hblock-83935 .title a {
+                display: block;
+                margin: 0 auto;
+                border: none;
+                overflow: hidden;
+                height: 58px;                
+
+                color: rgb(0, 0, 0);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size: 14px;
+                font-stretch: normal;
+                font-style: italic;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 17px;
+                text-decoration: none !important;
+            }
+            .hblock-83935 .title a:hover {
+                text-decoration: none !important;
+                    border: none;
+                /*color: #ec008c !important;*/
+            }
+
+            .hbutton-forward-83935,
+            .hbutton-back-83935{
+                position: absolute;
+                top: 135px;
+                z-index: 200;                
+                display: inline-block;
+                width: 17px;
+                height: 33px;
+                border: none;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+
+            .hbutton-back-83935{
+                background: url('http://static.smi2.net/srcimg/2473282.png') left top no-repeat;
+                left: 0;                
+            }
+
+            .hbutton-forward-83935{
+                background: url('http://static.smi2.net/srcimg/2473282.png') right top no-repeat;
+                right: 5px;                                    
+            }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script>
+    </head>
+
+    <body style="max-width: 400px; margin: 0 auto;">
+        <div class="hblock-83935">
+            <div class="header-83935"><img src="//static.smi2.net/srcimg/2717543.png" alt="" /></div>
+            <div id="hblock-83935" class="content-83935"></div>
+
+            <div id="hbutton-back-83935" class="hbutton hbutton-back-83935"></div>
+            <div id="hbutton-forward-83935" class="hbutton hbutton-forward-83935"></div>                  
+        </div>
+
+        <script>
+            var hblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 217}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#349400",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var hblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83935', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-83935',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 400, 210)
+                        })),
+                        JsAPI.Dom.createDom('div', 'wrapper-83935', [
+                            JsAPI.Dom.createDom('div', 'topic-83935', model['topic_name']),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ])
+                    ]
+                ));
+            };
+
+            var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 83935, JsAPI.Dom.getElement('hblock-83935'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-83935'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-83935'), 'click', function () {
+                    block.scrollForward();
+                });
+            }, function (reason) {
+            });
+
+        </script>
+    </body>
+</html>

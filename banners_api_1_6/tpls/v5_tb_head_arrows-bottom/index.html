@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>v tb</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.6.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.en_IN.js"></script>-->
+
+        <style>
+            .vblock {
+                max-width: 252px;
+                margin: 0 auto;
+            }
+
+            .vblock .header {
+                text-align: center;
+                text-transform: uppercase;
+                color: rgb(102, 102, 102);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: bold;  
+
+                padding: 27px 0;          
+            }
+            .vblock .content {
+                height: 734px;
+            }
+
+            .vblock .item {
+                font-family: Arial, sans-serif;
+                margin: 0 10px 0 0;
+            }
+            .vblock .image {
+                width: 150px;
+                height: 100px;
+                display: block;
+                margin: 0 auto;
+            }
+            .vblock .title a {
+                display: block;
+                overflow: hidden;
+                height: 32px;
+                padding-top: 4px;
+
+                color: rgb(28, 28, 28);
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: normal;
+                line-height: 16px;
+                text-align: center;
+                text-decoration: none !important;
+            }
+            .vblock .title a:hover {
+                text-decoration: underline !important;
+            }
+
+            .buttons-84092{
+                background: #fff;
+                padding: 15px 14px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-84092 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-84092{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-84092{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }
+        </style>
+
+    </head>
+    <body>
+        <div class="vblock">
+            <div class="header">Новости партнеров</div>
+            <div id="container" class="content"></div>
+        </div>
+        <div class="buttons-84092">
+            <div id="vbutton-back-84092" class="vbutton vbutton-back-84092"></div>
+            <div id="vbutton-forward-84092" class="vbutton vbutton-forward-84092"></div>        
+        </div>
+
+        <script>
+            var orientation = JsAPI.Ui.Orientation.VERTICAL;
+
+            var parent_element = JsAPI.Dom.getElement("container");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 300, "height": 138}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': model['image'],
+                                'width': '150px',
+                                'height': '100px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ]
+                ));
+            };
+
+            var block_id = 84092;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlockFactory.create(
+                    orientation,
+                    parent_element,
+                    properties,
+                    item_content_renderer,
+                    block_id,
+                    opt_fields
+            ).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-84092'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-84092'), 'click', function () {
+                    block.scrollForward();
+                });
+            }, function (reason) {    });
+        </script>
+    </body>
+</html>

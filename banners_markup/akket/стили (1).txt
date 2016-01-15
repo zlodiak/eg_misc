@@ -1,0 +1,103 @@
+.widget-week-item2 {
+	min-height: 95px;
+	width: 314px;
+	float: left;
+background: #fff;
+position: relative;
+margin-right: 14px;
+overflow: hidden;
+margin-bottom: 2px;
+font-size: 1.1em;
+margin-bottom: 6px;
+}
+.widget-week-item2 img {
+	position: absolute;
+z-index: 1;
+width: 314px;
+height: 200px;
+-moz-opacity: 0.6;
+opacity: 0.6;
+-moz-transition: all .5s ease-in-out;
+-ms-transition: all .5s ease-in-out;
+-o-transition: all .5s ease-in-out;
+-webkit-transition: all .5s ease;
+transition: all .5s ease-in-out;
+}
+.widget-week-content2 {
+	position: relative;
+    z-index: 2;
+}
+.widget-week-item2 .title {
+color: #FFF;
+display: block;
+	font-family: Sans-serif, helvetica, arial;
+font-size: 22px;
+line-height: 1.2;
+font-weight: normal;
+text-shadow: 0 1px rgba(0,0,0,.75);
+padding: 0 10px 8px;
+text-transform: none;
+}
+dl {
+	  line-height: 1.5;
+  font-size: 17px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.widget-week-item2:hover img {
+filter: blur(5px);
+ -webkit-filter: blur(3px);
+ opacity: 0.4;
+}
+.item-comments2 {
+	font-size: 14px;
+background: none;
+line-height: 1.2;
+padding-bottom: 5px;
+color: #fff;
+}
+.item-comments2 a {
+color: #FFF;
+display: block;
+	font-family: Sans-serif, helvetica, arial;
+font-size: 20px;
+line-height: 1;
+padding: 0 10px 8px;
+text-transform: none;
+}
+.item-views2 {
+	padding-bottom: 5px;
+padding-top: 6px;
+padding-left: 10px;
+padding-right: 10px;
+float: right;
+	}
+.categorys2 {
+	background-color: #f13737;
+color: #ffffff;
+	font-family: Sans-serif, helvetica, arial;
+font-size: 14px;
+font-weight: bold;
+line-height: 1.2;
+margin: 0 10px 0 0;
+padding-bottom: 4px;
+padding-top: 5px;
+padding-left: 10px;
+padding-right: 10px;
+display: inline-block;
+vertical-align: top;
+}
+@media screen and (max-width: 800px)  {
+	.widget-week-item2 {
+	  width: 100%;
+	  text-shadow: 0 1px rgba(0,0,0,.75);
+	  padding-bottom: 5px;
+	  padding-top: 5px;
+	  padding: 0px;
+	  border: none;
+	  margin-bottom: 10px;
+	    background: #fff;
+	    border-top: 1px solid #eaeaea;
+	    border-bottom: 1px solid #eaeaea;
+	    }
+	}

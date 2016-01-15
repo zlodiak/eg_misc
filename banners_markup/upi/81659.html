@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>83938</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+
+
+.vblock-81659 {
+                width: 300px;
+                margin: 0 auto;
+                height: 200px;
+                overflow: hidden;
+
+                text-align: left !important;
+                position: relative;
+            }
+
+            div#right-column .vblock-81659 div,
+            .vblock-81659 div{
+                margin-bottom: 0;
+            }
+
+            .vblock-81659 .header-81659 {
+                padding-bottom: 10px;
+            }
+
+                .vblock-81659 .header-81659 .header-81659_inner{
+                    height: 30px;
+                    position: relative;   
+                    border-bottom: 2px solid #47aaeb;
+                    overflow: hidden;
+
+                    color: #555;
+                    font-family: Arial, sans-serif;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: bold; 
+                    line-height: 30px;                            
+                }
+
+            .vblock-81659 .content-81659 {
+                height: 170px;
+                overflow: hidden;
+            }
+
+                .vblock-81659 .content-81659 .scroll-container{
+                    /*top: 0 !important;*/
+                }
+
+            .vblock-81659 .item-81659 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+            }
+            .vblock-81659 .image-81659 {
+                float: left;
+                display: block;
+                width: 100px;
+                height: 75px;
+                overflow: hidden;
+            }
+            .vblock-81659 .title-81659 a:hover {
+                text-decoration: none !important;
+                color: #000 !important;
+            }
+
+            .vblock-81659 .title-81659{
+                position: static !important;
+            }
+
+                .vblock-81659 .title-81659 a {
+                    text-decoration: none !important;
+                    display: block;
+                    overflow: hidden;
+                    height: 70px;
+                    margin-left: 109px;
+                    text-align: left !important;
+
+                    color: #000 !important;
+                    line-height: 17px;
+                    font-family: Calibri,"Helvetica Neue",Arial,sans-serif;
+                    font-size: 14px;
+                    text-transform: capitalize; 
+                }
+
+                .vblock-81659 .domain-81659 span {
+                    text-decoration: none;
+                    display: none;
+                    overflow: hidden;
+                    height: 15px;
+                    margin-left: 109px;
+
+                    color: #024999;
+                    font-family: arial;
+                    font-size: 12px;
+                    font-stretch: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    font-weight: normal;
+                    line-height: normal;  
+                }
+
+                    .buttons-81659{
+                        background: #fff;
+                        padding: 0px 0px 0px;
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+
+                        text-align: right;
+                    }
+
+                        .buttons-81659 > div{
+                            display: inline-block;
+                            width: 26px;
+                            height: 25px;
+                            border: none;
+                            margin-left: 5px;
+                            cursor: pointer;
+                        }
+
+                        .vbutton-back-81659{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                        }
+
+                        .vbutton-forward-81659{
+                            background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                        }
+            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.en_IN.js"></script>
+
+    </head>
+
+    <body style="background: #fff;">
+<div class="vblock-81659">
+            <div class="header-81659">
+                <div class="header-81659_inner">AROUND THE WEB</div>
+            </div>
+
+            <div id="vblock-81659" class="content-81659"></div>
+
+            <div class="buttons-81659">
+                <div id="vbutton-back-81659" class="vbutton vbutton-back-81659"></div>
+                <div id="vbutton-forward-81659" class="vbutton vbutton-forward-81659"></div>        
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+     
+var vblock_properties = {
+                "item": {
+                    "size": {"width": 300, "height": 80}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-81659', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-81659',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 100, 75)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-81659', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                        
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 81659, JsAPI.Dom.getElement('vblock-81659'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-81659'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-81659'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>v1 fansided</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.2.en_IN.js"></script>
+
+        <style>
+            .vblock-84087 {
+                width: 279px;
+                box-shadow: 0 0 3px #aaa;
+            }
+
+            .vblock-84087 .content-84087 {
+                height: 185px;
+                overflow: hidden;
+            }
+
+                .vblock-84087 .content-84087 .scroll-container{
+                    top: 0 !important;
+                }        
+            .item-84087:hover{
+                background: #efefef;
+                opacity: 0.9;
+            }
+
+            .item-84087:hover a{
+                color: #444;
+            }
+
+            .vblock-84087 .item-84087 {
+                overflow: hidden;
+                display: block;
+                  box-shadow: 0 0 3px #aaa;
+                  margin-bottom: 20px;
+                  background: #fff;
+            }
+            .vblock-84087 .image-84087 {
+                display: block;
+                width: 279px;
+                height: 100px;
+                overflow: hidden;
+            }
+            .vblock-84087 .title-84087 a {
+                display: block; 
+                text-align: left; 
+                padding: 8px 12px 4px 12px;                
+                text-shadow: 1px 1px 0 white;
+                overflow:hidden;
+                height: 44px;
+
+
+                color: rgb(37, 37, 37);
+                font-family: Oswald, sans-serif;
+                font-size: 19px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 22px;  
+                text-decoration: none !important;  
+            }
+
+            .domain-84087 a:before {
+                content: 'From ';
+            }
+
+            .vblock-84087 .domain-84087 a {
+                color: rgb(37, 37, 37);
+                font-family: Oswald, sans-serif;
+                font-size: 16px;
+                font-stretch: normal;
+                font-style: italic;
+                font-variant: normal;
+                font-weight: 300;
+                height: 19px;
+                line-height: 19px; 
+                text-decoration: none !important;  
+
+                padding: 0 12px 10px; 
+            }                  
+        </style>
+    </head>
+
+    <body style="background: #ccc;">
+        <div class="vblock-84087">
+            <div id="container-84087" class="content-84087"></div>      
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+
+            var orientation = JsAPI.Ui.Orientation.VERTICAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-84087");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 300, "height": 185}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84087', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-84087',
+                                'src': model['image'],
+                                'width': '279px',
+                                'height': '100px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-84087', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title'])),
+                            JsAPI.Dom.createDom('div', 'domain-84087', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'                                
+                            }, model['domain']))                             
+                        ]
+                ));
+            };
+
+            var block_id = 84087;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    | JsAPI.Dao.NewsField.DOMAIN
+                    ;
+
+            JsAPI.Ui.ScrollBlockFactory.create(
+                    orientation,
+                    parent_element,
+                    properties,
+                    item_content_renderer,
+                    block_id,
+                    opt_fields
+            ).then(function (block) {            }, function (reason) {            });
+        </script>
+    </body>
+</html>

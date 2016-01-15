@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>v tr head buttons-bottom</title>
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.ru_RU.js"></script>
+
+        <style>
+            /** Вертикальный блок */
+            .vblock-83762 {
+                max-width: 300px;
+            }
+
+            .vblock-83762 .header-83762 {
+                padding-bottom: 10px;
+            }
+
+                .vblock-83762 .header-83762 .header_inner-83762{
+                    height: 22px;
+                    position: relative;   
+                    border-bottom: 2px solid #791001;
+
+                    color: #555;
+                    font-family: Arial, sans-serif;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: bold;                             
+                }
+            .vblock-83762 .content-83762 {
+                height: 520px;
+                overflow: hidden;
+            }
+
+                .vblock-83762 .content-83762 .scroll-container{
+                    /*top: 0 !important;*/
+                }        
+
+            .vblock-83762 .item-83762 {
+                overflow: hidden;
+                display: block;
+                padding: 0 0px 0px 0px;
+            }
+            .vblock-83762 .image-83762 {
+                float: left;
+                display: block;
+                width: 90px;
+                height: 90px;
+                overflow: hidden;
+            }
+            .vblock-83762 .title-83762 a {
+                text-decoration: none;
+                display: block;
+                overflow: hidden;
+                height: 78px;
+                margin-left: 104px;
+
+                color: #024999;
+                font-family: arial;
+                font-size: 12px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                line-height: normal;
+            }
+            .vblock-83762 .title-83762 a:hover {
+                text-decoration: none;
+            } 
+
+            .buttons-83762{
+                background: #fff;
+                padding: 10px 0px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-83762 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    border: none;
+                    cursor: pointer;
+
+                }
+
+                .vbutton-back-83762{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-83762{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }        
+        </style>
+    </head>
+
+    <body style="">
+        <div class="vblock-83762">
+            <div class="header-83762">
+                <div class="header_inner-83762">
+                   AROUND THE WEB
+                </div>
+            </div>
+
+            <div id="container-83762" class="content-83762"></div>
+
+            <div class="buttons-83762">
+                <div id="vbutton-back-83762" class="vbutton-83762 vbutton-back-83762"></div>
+                <div id="vbutton-forward-83762" class="vbutton-83762 vbutton-forward-83762"></div>
+            </div>        
+        </div>
+
+        <script>
+            /*JsAPI.Config.setDomain('news.fark.com');*/
+
+            /**
+             * Ориентация блока
+             *
+             * @type {JsAPI.Ui.Orientation}
+             */
+            var orientation = JsAPI.Ui.Orientation.VERTICAL;
+
+            /**
+             * Родительский элемент контейнера
+             *
+             * @type {HTMLElement}
+             */
+            var parent_element = JsAPI.Dom.getElement("container-83762");
+
+            /**
+             * Настройки блока
+             *
+             * @type {*}
+             */
+            var properties = {
+                "item": {
+                    "size": {"width": 300, "height": 100}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#2c9dd5",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            /**
+             * Callback-функция рендера содержимого элемента
+             *
+             * @type {function(HTMLElement, *, number)}
+             */
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-83762', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-83762',
+                                'src': model['image'],
+                                'width': '90px',
+                                'height': '90px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-83762', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ]
+                ));
+            };
+
+            /**
+             * Идентификатор блока
+             *
+             * @type {number}
+             */
+            var block_id = 83762;
+
+            /**
+             * Маска требуемых параметров (полей) статей
+             *
+             * @type {number|undefined}
+             */
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlockFactory.create(
+                    orientation,
+                    parent_element,
+                    properties,
+                    item_content_renderer,
+                    block_id,
+                    opt_fields
+            ).then(function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-83762'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-83762'), 'click', function () {
+                    block.scrollForward();
+                });
+            }, function (reason) {
+                /*console.log('Error: ' + reason);*/
+            });
+        </script>
+    </body>
+</html>

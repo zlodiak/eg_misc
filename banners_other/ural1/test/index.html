@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>svpressa 2x2 new</title>
+    <title>ural1</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 
     <style></style>
@@ -22,6 +22,7 @@
 
         var fields = JsAPI.Dao.NewsField.URI
                 | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.DATE
                 | JsAPI.Dao.NewsField.TITLE;
 
         JsAPI.Dao.getNews(blockId, count, fields).then(function (payload) {
@@ -42,7 +43,8 @@
                             JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__img b-article__img_small', 'target': '_blank'},
                                     JsAPI.Dom.createDom('img', {'alt': item['title'], 'src': JsAPI.Ui.Util.getNewsImageUrl(item['image'], 96, 56)})
                             ),
-                            JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__title b-article__title_small', 'target': '_blank'}, item['title'])
+                            JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__title b-article__title_small', 'target': '_blank'}, item['title']),
+                            JsAPI.Dom.createDom('div', {'href': item['url'], 'class': 'b-article__date b-article__date_small', 'target': '_blank'}, item['date'])                            
                         ]
                 );
 

@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.ru_RU.js"></script>-->
+        <script src="http://static.smi2.net/static/jsapi/jsapi.v1.6.0.ru_RU.js"></script>
+
+        <style>
+            #container-84003 {
+                max-width: 300px;
+                border: 1px solid #f5f5f5;
+            }
+
+            #container-84003 #header-84003:before {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                background: #222;
+                height: 1px;
+                width: 30px;
+
+                content: '';
+            }
+
+            #container-84003 #header-84003 {
+                color: rgb(68, 68, 68);
+                font-family: 'Roboto Condensed', sans-serif;
+                font-size: 17px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                text-transform: uppercase;
+                text-align: left !important;
+
+                border-bottom: 1px solid #f5f5f5;
+                padding: 10px 5px;
+                margin-bottom: 10px;
+                position: relative;
+            }
+
+            #container-84003 .list-container-item {
+                border-bottom: 1px solid #eee;
+                padding: 6px;
+            }
+            #container-84003 .list-container-item-hover {
+
+            }
+            #container-84003 .list-container-item .image-84003 {
+                display: block;
+                float: left;
+                margin-top: 2px;
+                border: none;
+                width: 16px;
+                height: 16px;
+            }
+            #container-84003 .list-container-item .title-84003 {
+                display: block;
+                margin-left: 25px;
+            }
+            #container-84003 .list-container-item .title-84003 a {
+                display: block;
+
+                text-decoration: none;
+                color: rgb(34, 34, 34);
+                font-family: 'Roboto Condensed', sans-serif;
+                font-size: 15px;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 18px;
+            }
+            #container-84003 .list-container-item .title-84003 a:hover {
+
+            }
+            #container-84003 .list-container-item .clear-84003 {
+                clear: left;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container-84003">
+            <div id="header-84003">Новости в Сети</div>
+        </div>
+
+        <script type="text/javascript">
+            /* Установка домена */
+            /*JsAPI.Config.setDomain('127.0.0.1:8080');*/
+
+            /**
+             * Размер страницы (количество) загружаемых элементов
+             *
+             * @type {number}
+             */
+            var page_size = 10;
+
+            /**
+             * Максимальное количество загружаемых страниц элементов
+             *
+             * @type {number}
+             */
+            var max_page_count = 1;
+
+            /**
+             * Родительский элемент контейнера
+             *
+             * @type {HTMLElement}
+             */
+            var parent_element = JsAPI.Dom.getElement("container-84003");
+
+            /**
+             * Настройки блока
+             *
+             * @type {*}
+             */
+            var properties = undefined;
+
+            /**
+             * Callback-функция рендера содержимого элемента
+             *
+             * @type {function(HTMLElement, *, number)}
+             */
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-84003',
+                        'src': model['publisher_logo_url']
+                    })),
+                    JsAPI.Dom.createDom('div', 'title-84003', JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title'])),
+                    JsAPI.Dom.createDom('div', 'clear-84003')
+                ]));
+            };
+
+            /**
+             * Идентификатор блока
+             *
+             * @type {number}
+             */
+            /*var block_id = 83762;*/
+            var block_id = 84003;
+
+            /**
+             * Тип сортировки
+             *
+             * @type {JsAPI.Dao.SortType}
+             */
+            var sort_type = JsAPI.Dao.SortType.RANK;
+
+            /**
+             * Маска требуемых параметров (полей) статей
+             *
+             * @type {number|undefined}
+             */
+            var opt_fields = JsAPI.Dao.ArticleField.TITLE | JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL;
+
+            /**
+             * Признак обязательного наличия изображений в статьях
+             *
+             * @type {boolean}
+             */
+            var opt_has_images = false;
+
+            /**
+             * Фильтр идентификаторов рубрик (топиков)
+             *
+             * @type {Array<number>|undefined}
+             */
+            var opt_filter_topics = undefined;
+
+            /**
+             * Фильтр идентификаторов площадок (источников)
+             *
+             * @type {Array<number>|undefined}
+             */
+            var opt_filter_publishers = undefined;
+
+            /**
+             * Идентификатор гео-локации (null|undefined - основные новости, 0 - региональные новости с автоматическим определением гео-локации, > 0 - региональные новости с заданной гео-локацией)
+             *
+             * @type {number|undefined}
+             */
+            var opt_loc_id = undefined;
+
+            /**
+             * Создание list-блока
+             */
+            JsAPI.Ui.AggregatorListBlockFactory.create(
+                    page_size,
+                    max_page_count,
+                    parent_element,
+                    properties,
+                    item_content_renderer,
+                    block_id,
+                    sort_type,
+                    opt_fields,
+                    opt_has_images,
+                    opt_filter_topics,
+                    opt_filter_publishers,
+                    opt_loc_id
+            ).then(function (block) {}, function (reason) {});
+
+        </script>
+    </body>
+</html>
