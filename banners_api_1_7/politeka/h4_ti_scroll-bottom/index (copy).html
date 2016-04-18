@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            @font-face {
+              font-family: 'Open Sans';
+              src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+            }
+
+
+            .hblock-85259 {
+
+            }
+
+            .hblock-85259 .header-85259 {
+
+            }
+
+            .hblock-85259 .content-85259 {
+                min-height: 222px;
+                padding-bottom: 10px;
+            }
+
+            .hblock-85259 .item-85259 {
+                font-family: Arial, sans-serif;
+
+                position: relative;
+            }
+
+                .hblock-85259 .item-85259 a{
+                    display: block;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    min-height: 242px;
+                    border: 2px solid #ebebeb;
+                }
+
+                .hblock-85259 .image-85259 {
+                    border: none;
+                    width: 100%;
+                    height: auto;
+                    max-width: 250px;
+                    max-height: 250px;                
+                    display: block;
+
+                 
+                }
+
+                .hblock-85259 .domain-85259 {
+                    color: #fff;
+                    font: bold 10px/14px'Open Sans', arial, sans-serif;
+                    text-decoration: none;
+
+                    top: 15px;
+                    left: 18px;
+                    position: absolute;
+                    height: 14px;
+                    background: rgba(0, 0, 0, 0.15);
+                    padding: 0 3px;
+                }
+                .hblock-85259 .title-85259 {
+                    background: rgba(0, 0, 0, 0.45);
+                    padding: 18px 10px;
+                    height: 70px;
+                    position: absolute;
+                    top: 144px;
+                    left: 2px;
+                    right: 2px;
+
+                    text-decoration: none;
+                    text-align: center;
+                    display: block;
+                    font: 600 11px 'Open Sans', arial, sans-serif;
+                    color: #fff;
+                }
+                .hblock-85259 .title-85259:hover {
+
+                }
+
+                .title-inner-85259{
+                    height: 46px;
+                    overflow: hidden;
+                }
+/*            .hblock-85259 .domain-85259 {
+                font-size: 13px;
+                color: lightgray;
+            }
+*/
+/*            .hbutton-85259 {
+                background-color: #2f71b3;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                font-size: 13px;
+                font-family: Arial, sans-serif;
+                outline: none;
+                cursor: pointer;
+                margin: 5px;
+            }*/
+        </style>
+
+    </head>
+
+    <body style="max-width: 845px; margin: auto;">
+        <div class="hblock-85259">
+            <div id="container-85259" class="content-85259"></div>
+        </div>
+<!--         <button id="hbutton-back-85259" class="hbutton-85259">Назад</button>
+        <button id="hbutton-forward-85259" class="hbutton-85259">Вперед</button> -->
+        <script>
+            /*JsAPI.Config.setDomain('127.0.0.1:8080');*/
+
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-85259");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 200, "height": 200}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 2, "right": 2}
+                },
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "white",
+                    "color": "#6c6c6c",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-85259', [
+                            JsAPI.Dom.createDom('a', { 'href': model['url'], 'target': '_blank', 'style': 'background-image: url(' + model["image"] + ')'}, 
+                                JsAPI.Dom.createDom('div', 'domain-85259', model['domain']),
+                                JsAPI.Dom.createDom('div', 'title-85259', 
+                                    JsAPI.Dom.createDom('div', 'title-inner-85259', model['title'])
+                                )
+                            )
+                        ]
+                ));
+            };
+
+            var block_id = 85259;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    | JsAPI.Dao.NewsField.DOMAIN
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-85259'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-85259'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title></title>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+      <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+      <style>
+        .wrap-85067{
+          background: #fff;
+          padding: 20px 20px 12px;
+        }
+
+          .head-85067{
+            display: inline-block;
+            background: #ed1c24;  
+            height: 26px;
+            padding: 0 10px;  
+            margin: 0 8px 34px; 
+
+            color: #fff;
+            font: bold 20px/26px Montserrat, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+            text-transform: uppercase;
+
+          }
+
+          .articles-outer-85067{
+
+          }
+
+            .articles-85067{
+              overflow: hidden;
+            }
+
+            .item-85067:first-child{
+              width: 50%;
+              height: 296px;
+            }
+
+            .item-85067{
+              width: 25%;
+              height: auto;
+              float: left;          
+            }
+
+              .item-inner-85067{
+                margin: 0 8px 16px;
+              }
+
+              .item-85067:first-child a{
+                width: 100%;
+                height: 296px;
+              }        
+
+              .item-85067 a{
+                width: 100%;
+                height: 140px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                display: block;
+                position: relative;
+                
+
+                text-decoration: none;
+              }
+
+                .item-85067:first-child .title-85067{
+                  font-size: 30px;
+                  text-transform: uppercase;
+                  bottom: 6px;
+                  max-height: 288px;
+
+                  line-height: 42px;
+                }
+
+                .title-85067{
+                  font-family: Montserrat, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                  font-weight: bold;
+                  color: #fff;
+                  font-size: 12px;
+                  font-weight: 700;
+                  overflow-wrap: break-word;
+                  word-wrap: break-word;   
+                  line-height: 18px;       
+                  text-decoration: none;  
+
+                  padding: 0 10px;
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  bottom: 10px;
+                  overflow: hidden;
+                  max-height: 68px;
+                }
+
+
+    @media (max-width: 1040px) {
+      .item-85067:first-child{
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .item-85067{
+        width: 50%;       
+      }
+    }
+
+    @media (max-width: 480px) {
+      .item-85067:first-child{
+        width: 100%;
+      }
+
+      .item-85067{
+        width: 100%;       
+      }
+
+    }                 
+      </style>
+  </head>
+
+  <body style="background: #ddd; padding: 0; margin: 0; max-width: 940px;">
+    <div class="wrap-85067">
+      <div class="head-85067">Partners</div>
+      <div class="articles-outer-85067">
+        <div class="articles-85067" id="unit_85067_1"></div>
+        <div class="articles-85067" id="unit_85067_2"></div>
+      </div>
+    </div>
+
+      <script>
+          var blockId = 85067;
+          var count = 10;
+          var fields =  JsAPI.Dao.NewsField.URI
+                      | JsAPI.Dao.NewsField.IMAGE
+                      | JsAPI.Dao.NewsField.TITLE;
+
+            JsAPI.Dao.getNews({
+                'block_id': blockId,
+                'count': count,
+                'fields': fields
+            }, function (payload) {
+              for (var i = 0, len = payload.length; i < len; i++) {
+                  var item = payload[i];
+                  var id_parent_block;  
+                  var bg = 'background-image: url(' + item["image"] + ')';     
+
+                  var el = JsAPI.Dom.createDom('div', 'item-85067', 
+                    JsAPI.Dom.createDom('div', 'item-inner-85067', 
+                      JsAPI.Dom.createDom('a', {
+                          'href': item['url'], 
+                          'class': 'img-85067 ', 
+                          'target': '_blank', 
+                          'style': bg 
+                        }, 
+                        JsAPI.Dom.createDom('span', {'class': 'title-85067'}, item['title'])
+                      ) 
+                    ) 
+                  );          
+
+                  if(i < 5){
+                      id_parent_block = 'unit_85067_1';
+                  }else{
+                      id_parent_block = 'unit_85067_2';
+                  }
+
+                  JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+              }              
+            }, function (reason) {   });
+      </script>
+  </body>
+</html>

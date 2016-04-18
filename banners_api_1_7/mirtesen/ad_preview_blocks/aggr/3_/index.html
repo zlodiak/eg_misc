@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>aggr2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+
+        <style>
+            @font-face {
+                font-family: 'pt_sans_regular';
+                src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf);
+            }
+            @font-face {
+                font-family: 'pt_sans_bold';
+                src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Bold.ttf);
+            }
+
+            .container-mt-adp {
+                background: #fff;
+                border-radius: 5px;
+                font-family: 'pt_sans_regular', arial, sans-serif;
+                color: #000;
+                text-decoration: none;
+            }
+            .container-mt-adp .header-adp {
+                padding: 24px 29px 15px;
+                border-bottom: 1px solid #eee;
+                font-size: 18px;
+                font-family: 'pt_sans_regular', arial, sans-serif;
+            }
+            .container-mt-adp .list-container-item:hover .title-mt-adp {
+                color: #1280c0;
+            }
+            .container-mt-adp .list-container-item {
+                border-bottom: 1px solid #eee;
+                transition: 0.6s;
+            }
+            .container-mt-adp .item-wrapper-mt-adp {
+                padding: 14px 28px 16px;
+                overflow: hidden;
+                display: block;
+                font-family: 'pt_sans_regular', arial, sans-serif;
+                color: #000;
+                text-decoration: none;
+            }
+            .container-mt-adp .item-inner-wrapper-mt-adp {
+                overflow: hidden;
+            }
+            .container-mt-adp .title-mt-adp {
+                display: block;
+                margin-bottom: 7px;
+                text-decoration: none;
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: normal;
+                font-family: 'pt_sans_bold', arial, sans-serif;
+            }
+            .container-mt-adp .domain-wrapper-mt-adp {
+                float: left;
+                width: 49%;
+            }
+            .container-mt-adp .image-mt-adp {
+                display: block;
+                float: left;
+                margin-top: 5px;
+                margin-right: 7px;
+                border: none;
+                width: 16px;
+                height: 16px;
+            }
+            .container-mt-adp .domain-mt-adp {
+                display: inline-block;
+                margin-right: 0px;
+                margin-top: 3px;
+                text-decoration: none;
+                font-size: 14px;
+                color: #c5bdbd;
+            }
+            .container-mt-adp .social-mt-adp {
+                float: right;
+                width: 51%;
+                overflow: hidden;
+                padding-top: 3px;
+            }
+            .container-mt-adp .social-mt-adp > div {
+                cursor: pointer;
+                display: inline-block;
+                padding-left: 21px;
+                float: right;
+                font-size: 14px;
+                color: #a1a1a1;
+                line-height: 16px;
+                font-family: 'pt_sans_regular', sans-serif;
+            }
+            .container-mt-adp .votes-mt-adp {
+                background: url('//static.smi2.net/srcimg/2856449.png') left 2px no-repeat;
+                padding-left: 22px;
+                margin-left: 20px;
+            }
+            .container-mt-adp .comments-mt-adp {
+                background: url('//static.smi2.net/srcimg/2856554.png') left 2px no-repeat;
+                padding-left: 19px;
+                margin-left: 20px;
+            }
+            .container-mt-adp .shares-mt-adp {
+                background: url('//static.smi2.net/srcimg/2856555.png') left 3px no-repeat;
+                padding-left: 22px;
+                margin-left: 0;
+            }
+
+        .votesMinusClass{
+            background: url('//static.smi2.net/srcimg/2935220.png') left 2px no-repeat !important;
+        }                                 
+    
+        </style>
+    </head>
+    <body style="max-width: 400px; background: #eee; margin: 10px auto;">
+        <div id="container-84777" class="container-mt-adp">
+            <div class="header-adp">Картина дня</div>
+        </div>
+
+        <script type="text/javascript">
+        /** ID блока */
+        var blockId = 84777;
+
+        JsAPI.Ui.AggregatorListBlock({
+            'page_size': 30,
+            'max_page_count': Infinity,
+            'parent_element': JsAPI.Dom.getElement("container-" + blockId),
+            'block_id': blockId,
+            'sort_type': JsAPI.Dao.SortType.RANK,
+            'fields': JsAPI.Dao.ArticleField.TITLE |
+                JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL |
+                JsAPI.Dao.ArticleField.PUBLISHER_DOMAIN |
+                JsAPI.Dao.ArticleField.SHARES |
+                JsAPI.Dao.ArticleField.VOTES |
+                JsAPI.Dao.ArticleField.COMMENTS,
+            'item_content_renderer': function(parent, model, index) {
+                var sharesCnt = model['shares'],
+                    commentsCnt = model['comments'],
+                    votesCnt = model['votes'],
+                    url = model['url']; /*.replace(/&bl=(\d+)&/, '&bl=' + sm_main_block_id + '&ac_bl=$1&ac_ad=' + sm_main_news_id + '&');*/
+                var votesMinusClass = '';
+                
+                if(votesCnt < 0) {
+                    votesMinusClass = 'votesMinusClass';
+                };                 
+
+                JsAPI.Dom.appendChild(
+                    parent,
+                    JsAPI.Dom.createDom(
+                        'a', {
+                            'class': 'item-wrapper-mt-adp',
+                            'href': url,
+                            'target': '_blank'
+                        }, [
+                            JsAPI.Dom.createDom(
+                                'div', {
+                                    'class': 'item-inner-wrapper-mt-adp'
+                                },
+                                JsAPI.Dom.createDom(
+                                    'div',
+                                    undefined, [
+                                        JsAPI.Dom.createDom(
+                                            'div',
+                                            'title-mt-adp',
+                                            model['title']
+                                        ),
+                                        JsAPI.Dom.createDom(
+                                            'div',
+                                            'domain-wrapper-mt-adp',
+                                            JsAPI.Dom.createDom(
+                                                'img', {
+                                                    'class': 'image-mt-adp',
+                                                    'src': model['publisher_logo_url']
+                                                }
+                                            ),
+                                            JsAPI.Dom.createDom(
+                                                'div', {
+                                                    'class': 'domain-mt-adp'
+                                                },
+                                                model['publisher_domain']
+                                            )
+                                        ),
+                                        JsAPI.Dom.createDom('div', 'social-mt-adp', [
+                                            (votesCnt != 0) ? JsAPI.Dom.createDom('div', 'votes-mt-adp ' + votesMinusClass, '' + model['votes']) : '',
+                                            (commentsCnt > 0) ? JsAPI.Dom.createDom('div', 'comments-mt-adp', '' + model['comments']) : '',
+                                            (sharesCnt > 0) ? JsAPI.Dom.createDom('div', 'shares-mt-adp', '' + model['shares']) : ''
+                                        ])
+                                    ]
+                                )
+                            ),
+                            JsAPI.Dom.createDom('div', 'clear')
+                        ]
+                    )
+                );
+            }
+        }, function(block) {
+
+        }, function(reason) {
+
+        });
+        </script>
+    </body>
+</html>

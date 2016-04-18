@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Topnews</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <div class="logo_area">
+                    <a class="link" href="#"><img class="logo" src="images/logo.png" alt="" /></a>
+                </div>
+
+                <div class="banner_area">
+                    <div class="banner_dummy" style="background: orange; width: 728px; height: 90px;">google banner</div>
+                </div>                
+            </div>
+
+            <div class="menu_area">
+                <div class="menu" id="menu">
+                    <a class="punkt" href="#">Business</a>
+                    <a class="punkt" href="#">Tech</a>
+                    <a class="punkt" href="#">Entertainment</a>
+                    <a class="punkt" href="#">Health</a>
+                    <a class="punkt" href="#">Science</a>
+                    <a class="punkt" href="#">Sports</a>
+                    <a class="punkt" href="#">Politics</a>
+                    <a class="punkt" href="#">World</a>
+                    <a class="punkt" href="#">Serve weather</a>
+                </div>
+
+                <form class="search_form" id="searchForm">
+                    <input class="fld_search" type="text" name="fld_search" id="fldSearch" value="" />
+                    <label class="lbl_search" for="fldSearch" id="lblSearch"></label>                     
+                </form>
+            </div> 
+
+            <div class="content_area">           
+                <div class="content_area_left">
+                    <div class="main_news">
+                        <div id="unit_84655"></div>
+                        <script type="text/javascript" charset="utf-8">
+                          (function() {
+                            var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+                            sc.src = '//news.fark.com/data/js/84655.js'; sc.charset = 'utf-8';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+                          }());
+                        </script>
+                    </div>
+
+                    <div class="all_news">
+                        <div id="unit_84654"></div>
+                        <script type="text/javascript" charset="utf-8">
+                          (function() {
+                            var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+                            sc.src = '//news.fark.com/data/js/84654.js'; sc.charset = 'utf-8';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+                          }());
+                        </script>
+                    </div>                    
+                </div>
+
+                <div class="content_area_right">
+                    <div id="unit_84653"></div>
+                    <script type="text/javascript" charset="utf-8">
+                      (function() {
+                        var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+                        sc.src = '//news.fark.com/aggr/js/84653.js'; sc.charset = 'utf-8';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+                      }());
+                    </script>
+                </div>
+            </div>
+        </div>
+
+        <!-- jquery -->
+        <script src='js/jquery/jquery.2.min.js'></script>    
+
+        <!-- search -->
+        <script src="js/scripts/search.js"></script>        
+    </body>
+</html>

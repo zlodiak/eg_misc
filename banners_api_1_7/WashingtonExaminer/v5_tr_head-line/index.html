@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.4.en_IN.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+.container_82919 .header {
+    border-bottom: 2px solid #47aaeb;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #555;
+    padding: 5px 0;
+}
+
+.container_82919 .list-container-item {
+    padding: 6px;
+}
+.container_82919 .list-container-item .image {
+    display: block;
+    float: left;
+    margin-top: 2px;
+    margin-right: 5px;
+    border: none;
+    width: 100px;
+    height: 75px;
+}
+.container_82919 .list-container-item .title {
+    display: block;
+    margin-left: 25px;
+    font-family: Calibri,"Helvetica Neue",Arial,sans-serif;
+    font-size: 14px;
+}
+.container_82919 .list-container-item .title a {
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+.container_82919 .list-container-item .clear {
+    clear: left;
+}
+        </style>
+
+    </head>
+
+    <body style="max-width: 300px; margin: auto;">
+        <div></div>
+        
+        <script>
+var parent, container;
+
+JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_82919'),
+        container = JsAPI.Dom.createDom('div', 'container_82919', JsAPI.Dom.createDom('div', 'header', 'Recent Headlines')));
+
+parent.setAttribute('id', 'unit_82919_' + ((Math.random() * 10e6) >> 0));
+
+JsAPI.Ui.ListBlockFactory.create(
+        5,
+        1,
+        container,
+        undefined,
+        function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image',
+                    'src': model['image']
+                })),
+                JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, model['title'])),
+                JsAPI.Dom.createDom('div', 'clear')
+            ]));
+        },
+        82919,
+        JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+).then(function (block) {}, function (reason) {});
+
+        </script>
+    </body>
+</html>

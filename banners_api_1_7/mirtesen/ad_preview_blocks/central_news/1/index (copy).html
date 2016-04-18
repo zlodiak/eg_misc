@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            @font-face {
+                font-family: 'pt_sans_regular';
+                src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+            }
+
+            @font-face {
+                font-family: 'pt_sans_bold';
+                src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Bold.ttf); 
+            }
+
+            #container-84814 .fluidgrid-container {
+            }
+
+            #container-84814 .fluidgrid-container-item {
+                background: #fff;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+
+            #container-84814 .fluidgrid-container-item-hover {
+                box-shadow: 0 0 5px 2px #ccc;
+            }
+
+                #container-84814 .item-84814 {
+                    text-decoration: none;
+                }
+
+                    #container-84814 .img_outer{
+                        display: block;
+                        width: 230px;
+                        margin: 0px auto;
+                        padding: 15px 15px 11px;
+                        overflow: hidden;
+                    }                    
+
+                    #container-84814 .image-84814 {
+                        width: 230px;
+                        border-radius: 5px;
+                        overflow: hidden;   
+                        display: block;                     
+                    }
+
+                    #container-84814 .wrapper-teaser-84814{
+                        text-decoration: none;
+                        color: #000;
+
+                        padding: 0 15px 9px;
+                        display: block;
+                    }
+
+                        #container-84814 .domain-84814 {
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #c5bdbd;
+                            font-family:'pt_sans_regular', arial, sans-serif;
+
+                            padding-bottom: 7px;
+                        }                         
+
+                        #container-84814 .title-84814{
+                            text-decoration: none;
+                            font-size: 18px;
+                            line-height: 22px;
+                            font-weight: normal;
+                            font-family:'pt_sans_bold', arial, sans-serif;
+                            color: #000;
+
+                            display: block;
+                            height: 66px;
+                            overflow: hidden;
+                        }
+
+                    #container-84814 .wrapper-social-84814{
+                        padding: 0 15px 15px;
+                        overflow: hidden;
+                        height: 30px;
+                    }     
+
+                        #container-84814 .social-left-84814{
+                            float: left;
+                            width: 120px;
+                        }  
+
+                            #container-84814 .social-left-84814 > div{
+                              display: block;
+                              height: 28px;
+                              border: 1px solid #ddd;
+                              padding: 0;
+                              padding-right: 8px;
+                              padding-left: 28px;
+                              border-radius: 13px;
+                              cursor: pointer;
+                              overflow: hidden;
+
+                              line-height: 28px;
+                              font-size: 14px;    
+                              font-weight: normal;
+                              color: #8f8f8f;         
+                              font-family: 'pt_sans_regular', arial, sans-serif;   
+                              vertical-align: top;           
+                            }                        
+
+                            #container-84814 .comments-84814{
+                              background: url('//static.smi2.net/srcimg/2856554.png') 7px 7px no-repeat;
+                              float: left;    
+                            }
+
+                            #container-84814 .shares-84814{
+                              background: url('//static.smi2.net/srcimg/2856555.png') 10px 9px no-repeat;
+                              float: right;
+                            }                            
+
+                        #container-84814 .social-right-84814{
+                            float: right;
+                            width: 106px;
+                        }    
+
+                        #container-84814 .social-right-84814 > div{
+                            height: 30px;
+                            display: block;
+                            overflow: hidden;
+                            float: right;
+                        }
+
+                        #container-84814 .vote-up-84814{
+                            background: url('//static.smi2.net/srcimg/2883220.png') center center no-repeat;
+                            cursor: pointer;
+                            width: 30px;   
+                        } 
+
+                        #container-84814 .vote-value-84814{
+                            font-size: 14px;    
+                            color: #8f8f8f;         
+                            font-family: 'pt_sans_regular', arial, sans-serif;  
+                            line-height: 30px;
+                            text-align: center;
+
+                            padding: 0 11px;
+                            min-width: 10px;
+                        } 
+
+                        #container-84814 .vote-down-84814{
+                            background: url('//static.smi2.net/srcimg/2883216.png') center center no-repeat;
+                            cursor: pointer;
+                            width: 30px;                
+                        }                                                                 
+        </style>
+
+    </head>
+
+    <body style="max-width: 830px; background: #eee; margin: 0 auto;">
+        <div id="container-84814"></div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script>
+
+        <script type="text/javascript">
+            /*JsAPI.Config.setDomain('news.fark.com');*/
+
+            /**
+             * Выравнивание содержимого блока
+             *
+             * @type {JsAPI.Ui.Align}
+             */
+            var align = JsAPI.Ui.Align.CENTER;
+
+            /**
+             * Размер страницы (количество) загружаемых элементов
+             *
+             * @type {number}
+             */
+            var page_size = 50;
+
+            /**
+             * Максимальное количество загружаемых страниц элементов
+             *
+             * @type {number}
+             */
+            var max_page_count = Infinity;
+
+            /**
+             * Родительский элемент контейнера
+             *
+             * @type {HTMLElement}
+             */
+            var parent_element = JsAPI.Dom.getElement("container-84814");
+
+            /**
+             * Настройки блока
+             *
+             * @type {*}
+             */
+            var properties = {
+                'item': {
+                    'width': 260,
+                    'margin': 20
+                }
+            };;
+
+            /**
+             * Callback-функция рендера содержимого элемента
+             *
+             * @type {function(HTMLElement, *, number)}
+             */
+            var item_content_renderer = function (parent, model, index) {
+                var items = [];
+
+                var sharesCnt = parseInt(model['shares'], 10),
+                    commentsCnt = parseInt(model['comments'], 10),
+                    votesCnt = parseInt(model['votes'], 10);   
+
+/*                    sharesCnt = 2,
+                    commentsCnt = 1,
+                    votesCnt = 7;   */
+
+                /* Изображение */
+                if (model['image']) {
+                    items.push(JsAPI.Dom.createDom('a', {
+                        'class': 'img_outer',
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-84814',
+                        'src': model['image'],
+                        'width': '230px',
+                        'height': '163px'
+                    })));
+                }
+
+                /* Заголовок */
+                items.push(
+                    JsAPI.Dom.createDom('a', {'class': 'wrapper-teaser-84814', 'href': model['url'], 'target': '_blank'}, 
+                        JsAPI.Dom.createDom('div', {'class': 'domain-84814'}, model['domain']),
+                        JsAPI.Dom.createDom('div', 'title-84814', model['title'])
+                    ),
+                    JsAPI.Dom.createDom('div', {'class': 'wrapper-social-84814'}, 
+                        JsAPI.Dom.createDom('div', 'social-left-84814', 
+                            (commentsCnt > 0) ? JsAPI.Dom.createDom('div', {'class': 'comments-84814'} , '' + commentsCnt) : '',
+                            (sharesCnt > 0) ? JsAPI.Dom.createDom('div', {'class': 'shares-84814'} , '' + sharesCnt) : ''
+                        ),
+                        JsAPI.Dom.createDom('div', 'social-right-84814', 
+                            JsAPI.Dom.createDom('div', {'class': 'vote-down-84814'} , ''),
+                            JsAPI.Dom.createDom('div', {'class': 'vote-value-84814'} , '' + votesCnt),
+                            JsAPI.Dom.createDom('div', {'class': 'vote-up-84814'} , '')
+                        )
+                    )                    
+                );
+
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84814', items));
+            };
+
+            /**
+             * Идентификатор блока
+             *
+             * @type {number}
+             */
+            var block_id = 84814;
+
+            /**
+             * Маска требуемых параметров (полей) статей
+             *
+             * @type {number|undefined}
+             */
+            var opt_fields =  JsAPI.Dao.NewsField.IMAGE
+                            | JsAPI.Dao.NewsField.DOMAIN
+                            | JsAPI.Dao.NewsField.TITLE
+                            | JsAPI.Dao.NewsField.SHARES
+                            | JsAPI.Dao.NewsField.VOTES
+                            | JsAPI.Dao.NewsField.COMMENTS                            
+                            ;
+
+            JsAPI.Ui.GridBlock({
+                'align': align,
+                'page_size': page_size,
+                'max_page_count': max_page_count,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {}, function (reason) {  });
+
+        </script>
+    </body>
+</html>

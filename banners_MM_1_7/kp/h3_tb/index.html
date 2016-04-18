@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.2.ru_RU.js"></script>
+
+        <style>
+   @font-face {
+    font-family: 'Open Sans';
+    src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+  }
+
+            #mediametrics {
+              padding: 15px 0px;
+              overflow: hidden;
+              clear: both;
+              width: 390px;
+              margin: auto;   
+            }
+
+            #mediametrics .wrap {
+                overflow: hidden;
+            }
+
+
+
+              #mediametrics .item:first-child{
+                margin-left: 0;
+              }
+
+            #mediametrics .item {
+                overflow: hidden;
+                width: 190px;
+                padding-bottom: 13px;   
+                float: left;
+                margin-left: 10px;
+
+                vertical-align: top;
+            }
+
+            #mediametrics .image {
+                width: 190px;
+                height: 130px;
+                display: block;
+                margin: 0 auto 0px;
+
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: #2c2c2c !important;
+            }
+
+            #mediametrics .title {
+                display: block;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                margin: 0px 2px 2px;
+                padding: 2px 2px 15px;
+                overflow: hidden;
+
+                color: #2c2c2c !important;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 12px;
+                text-decoration: none !important; 
+                clear: left;
+            }
+
+
+              #mediametrics .sk_text_inner_84581{
+                    overflow:hidden;
+                    height: 48px;
+              }            
+        </style>
+
+    </head>
+
+    <body style="background: #fff; width: 644px; padding: 0; margin: 0;">
+        <div id="mediametrics">
+            <div class="wrap">
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 2
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 2; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'class': 'title',                            
+                            'target': '_blank'
+                        }, dom.createDom('div', 'sk_text_inner_84581', model['title'].replace(new RegExp('&quot;', 'g'), '"')) )
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

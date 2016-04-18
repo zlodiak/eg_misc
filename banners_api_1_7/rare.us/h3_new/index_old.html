@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.2.en_IN.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+                .hblock-84616 {
+                margin: 20px auto !important;  
+                padding: 10px 0 30px;
+                border-top: 2px solid #f3f3f3;
+                border-bottom: 5px solid #f3f3f3;
+                /*overflow: hidden;*/
+            }
+
+            .hblock-84616 .header-84616 {
+                position: relative;     
+                overflow: hidden;   
+                top: -32px;    
+                background: #fff;   
+                display: inline-block;         
+              
+                font-family: 'Montserrat', Arial, sans-serif;
+            }
+
+                .hblock-84616 .header_left-84616 {
+                    color: #be1e2d;
+/*                    font-size: 24px;*/
+                    font-size: 18pt;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
+                    padding-right: 10px;
+
+
+                    float: left;
+                }
+
+                .hblock-84616 .header_right-84616 {
+                    float: left;
+                    padding-right: 20px;
+                    margin-top: 6px;
+
+                    color: #494949;
+/*                    font-size: 18px;*/
+                    font-size: 12pt;
+                    font-weight: normal; 
+                    font-style: italic;                   
+                }                
+
+
+
+            .hblock-84616 .content-84616 {
+                margin: 0 -10px;
+            }          
+
+            .hblock-84616 .item-84616 {
+                margin: 0 0px;
+                width: 33.3%;
+                float: left;
+            }
+
+              .hblock-84616 .item-inner-84616 {
+                margin: 0 10px;
+              }
+
+            .hblock-84616 .image-84616 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+             
+            }
+            .hblock-84616 .wrapper-84616 {
+                padding: 0 12px 12px 12px;
+            }
+            .hblock-84616 .wrapper-84616 div {
+                padding-top: 5px;
+            }
+            .hblock-84616 .topic-84616 {
+                font-size: 12px;
+                color: #2f71b3;
+                font-weight: bold;
+            }
+            .hblock-84616 .title-84616 a {
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: normal;
+                color: #494949;
+                line-height: 22px;
+                font-family: 'Montserrat', Arial, sans-serif;
+
+                overflow: hidden;
+                display: block;     
+                height: 64px;  
+                margin: 0px 0px 10px;
+            }
+            .hblock-84616 .topic-84616 a{
+                overflow: hidden;
+                display: block;              
+                max-height: 20px;
+                margin: 18px 0px 4px;
+
+                color: #be1e2d;
+                font-family: 'Montserrat', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 18px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+/*
+            .hblock-84616 .domain-84616 a:before{
+                content: 'From: ';
+            }
+*/
+
+            .hblock-84616 .domain-84616 a{
+                overflow: hidden;
+                display: block;              
+                margin: 0px 0px 4px;
+
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: bold;
+                color: #494949;
+                font-family: 'Montserrat', Arial, sans-serif;
+            }            
+
+            .hblock-84616 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+      .hblock-84616 .item-84616 {
+          margin: 0 0px 20px;
+          width: 100%;
+      }
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }
+        </style>
+
+    </head>
+
+    <body style="max-width: 775px; margin: auto;">
+    <div class="hblock-84616 clearfix">
+        <div class="header-84616">
+            <div class="header_left-84616">Trending News</div>
+            <div class="header_right-84616">From Our Partners</div>
+        </div>
+        <div id="content-84616" class="content-84616"></div>
+    </div>
+
+        <script>
+    JsAPI.Config.setDomain('news.fark.com');
+      
+      var blockId = 84616;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-84616';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-84616', [
+            JsAPI.Dom.createDom('div','item-inner-84616', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-84616',
+                  'src': model['image'],
+                  'width': '230px',
+                  'height': '160px'
+              })),
+              JsAPI.Dom.createDom('div', 'topic-84616', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['topic_name'])),
+              JsAPI.Dom.createDom('div', 'title-84616', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'domain-84616', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['domain'])) 
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+        </script>
+    </body>
+</html>

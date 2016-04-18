@@ -1,0 +1,48 @@
+<div class="b-articles" id="unit_83921_1"></div>
+        <div class="b-articles" id="unit_83921_2"></div>
+
+
+
+
+
+
+        var blockId = 83921;
+
+        var count = 4;
+
+        var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Dao.getNews(blockId, count, fields).then(function (payload) {
+
+            for (var i = 0, len = payload.length; i < len; i++) {
+                var item = payload[i];
+                var classSuffix,
+                    id_parent_block;
+
+                if((i == 0) || (i == 2)){
+                    classSuffix = '_first';
+                }else{
+                    classSuffix = '';
+                }
+
+                var el = JsAPI.Dom.createDom('article', ['b-article', 'b-article_small', 'b-col_1-2_content', 'b-col_1-2_content' + classSuffix],
+                        [
+                            JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__img b-article__img_small', 'target': '_blank'},
+                                    JsAPI.Dom.createDom('img', {'alt': item['title'], 'src': JsAPI.Ui.Util.getNewsImageUrl(item['image'], 96, 56)})
+                            ),
+                            JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__title b-article__title_small', 'target': '_blank'}, item['title'])
+                        ]
+                );
+
+                if((i == 0) || (i == 1)){
+                    id_parent_block = 'unit_83921_1';
+                }else{
+                    id_parent_block = 'unit_83921_2';
+                }
+
+                JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+            }
+
+        }, function (reason) {});

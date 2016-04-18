@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.2.ru_RU.js"></script>
+
+        <style>
+            #mediametrics {
+              clear: both;
+              margin: 20px auto;
+              overflow: hidden;
+            }
+
+            #mediametrics .wrap {
+
+            }
+
+            #mediametrics .header {
+              display: block;
+
+              color: rgb(207, 89, 74);
+              font-family: 'Open Sans Condensed', Arial, 'Arial Unicode MS', Helvetica, sans-serif;
+              font-size: 22px;
+              font-style: normal;
+              font-weight: normal;
+              
+              padding: 0 0px 8px;
+              margin-bottom: 10px;
+              border-bottom: 3px solid #CF594A;
+            }
+
+            #mediametrics .item:first-child {
+                border: none;
+            }
+
+            #mediametrics .item {
+                overflow: hidden;
+                position: relative;
+                padding: 10px 0;
+                border-top: 1px solid #e1e1e1;
+
+                vertical-align: top;
+            }
+
+            #mediametrics .image {
+                width: 100px;
+                height: 65px;
+                display: block;
+                float: left;
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: rgb(18, 57, 128) !important;
+            }
+
+            #mediametrics a {
+                text-decoration: none !important;
+                color: rgb(18, 57, 128) !important;
+            }
+
+            #mediametrics .title {
+                overflow: hidden;
+                height: 62px;                
+                display: block;
+                margin-left: 110px !important;
+
+
+              color: rgb(18, 57, 128) !important;
+              font-family: Arial, 'Arial Unicode MS', Helvetica, sans-serif;
+              font-size: 13px;
+              font-style: normal;
+              font-weight: bold;
+              line-height: 15px;
+              text-decoration: none !important;
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 457px; ">
+        <div id="mediametrics">
+            <div class="wrap">
+                <!-- <img class="logo" src="//static.smi2.net/srcimg/2780020.png" alt="" /> -->
+                <div class="header">Новости партнеров</div>
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 30
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [
+                    'акунин',
+                    'белоруссия',
+                    'бородай',
+                    'гиркин',
+                    'гиркина',
+                    'губарев',
+                    'гудков',
+                    'кабаева',
+                    'каспаров',
+                    'касьянов',
+                    'лимонов',
+                    'лукашенко',
+                    'медведев',
+                    'минобороны белоруссии',
+                    'митрохин',
+                    'навальный',
+                    'немцов',
+                    'парфенов',
+                    'пахоменко',
+                    'пономарев',
+                    'порошенко',
+                    'псковские',
+                    'пургин',
+                    'путин',
+                    'пушилин',
+                    'ранеными контрактниками',
+                    'ройзман',
+                    'романова',
+                    'рыжков',
+                    'стрелков',
+                    'удальцов',
+                    'чалый',
+                    'шендерович',
+                    'шойгу',
+                    'яшин'
+                ];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 6; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }), 
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

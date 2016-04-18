@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+            .hblock-83633 {
+                margin: 20px auto !important;  
+                /*overflow: hidden;*/
+                width: 279px;
+            }
+
+            .hblock-83633 .header-83633 {
+                position: relative;     
+                overflow: hidden;   
+                padding-bottom: 20px;       
+              
+                font: 20px 'Open Sans', sans-serif;
+                color: #333;
+                text-transform: uppercase;
+            }
+
+              
+
+
+
+            .hblock-83633 .content-83633 {
+
+            }          
+
+            .hblock-83633 .item-83633 a:hover {
+              color: #444;
+            }
+
+            .hblock-83633 .item-83633:hover {
+              background: #efefef;
+              opacity: 0.9;
+            }
+
+            .hblock-83633 .item-83633 {
+                box-shadow: 0 0 3px #aaa;
+                margin-bottom: 20px;
+                background: #fff;
+            }
+
+              .hblock-83633 .item-inner-83633 {
+                overflow: hidden;
+              }
+
+            .hblock-83633 .a1-83633 {
+              display: block;
+            }
+
+            .hblock-83633 .image-83633 {
+                width: 300px;
+                height: 160px;
+                display: block !important;
+                background: none !important;
+                padding: 0 !important;
+                border: none !important;
+                border-radius: 0 !important;
+                margin: 0 auto;
+                
+             
+            }
+            .hblock-83633 .wrapper-83633 {
+                padding: 0 12px 12px 12px;
+            }
+            .hblock-83633 .wrapper-83633 div {
+
+            }
+
+            .hblock-83633 .title-83633 a {
+              display: block; 
+              text-align: left; 
+              padding: 0px 12px 3px 12px;                        
+              text-shadow: 1px 1px 0 white;
+
+              color: rgb(37, 37, 37) !important; 
+              font-family: Oswald, sans-serif;
+              font-size: 19px;
+              font-stretch: normal;
+              font-style: normal;
+              font-variant: normal;
+              font-weight: normal;
+              line-height: 22px;  
+              text-decoration: none !important; 
+            }
+
+
+
+
+
+            .hblock-83633 .domain-83633 a{
+              color: rgb(37, 37, 37) !important; 
+              font-family: Oswald, sans-serif;
+              font-size: 16px;
+              font-stretch: normal;
+              font-style: italic;
+              font-variant: normal;
+              font-weight: 300;
+              height: 19px;
+              line-height: 19px; 
+              text-decoration: none !important; 
+
+              padding: 0 12px 10px; 
+              display: block;
+            }            
+
+            .hblock-83633 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #ddd; max-width: 300px; margin: 0 auto;">
+    <div class="hblock-83633 clearfix">
+        <div id="content-83633" class="content-83633"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.7.en_IN.js"></script> 
+
+    <script>
+      JsAPI.Config.setDomain('news.fark.com');
+      
+      var blockId = 83633;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-83633';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-83633', [
+            JsAPI.Dom.createDom('div','item-inner-83633', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-83633',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-83633',
+                  'src': model['image'],
+                  'width': '300px',
+                  'height': '160px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-83633', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'domain-83633', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['domain'])) 
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

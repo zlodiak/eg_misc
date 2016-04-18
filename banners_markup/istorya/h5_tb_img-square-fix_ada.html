@@ -1,0 +1,105 @@
+5
+100
+90
+
+square center
+
+
+
+
+
+
+
+<div class="sk74528_table">
+  <!-- <div class="sk74528_head">Новости партнеров</div> -->
+  <div class="sk74528_frame">%ITEMS%</div>
+</div>
+<style>
+  .sk74528_table {
+      overflow: hidden;
+      clear: both;
+      margin: 20px 0; 
+  }
+
+  .sk74528_frame{
+    overflow: hidden;
+
+    text-align: center;
+  }
+  
+    .sk74528_item_outer {
+        display: inline-block;
+        width: 20% !important;
+        float: left;
+        
+    }
+    
+      .sk74528_item {
+          margin: 0 0px 15px;
+          overflow: hidden;
+      }
+      
+      .sk74528_a1 {
+          display: block;
+          overflow: hidden;
+          margin-bottom: 5px;
+      }
+      
+      .sk74528_a1 img {
+          width: 100px !important;
+          height: 90px !important;
+          margin: 0 auto;
+          border-radius: 4px !important;
+          padding: 2px;
+          border: 1px solid #AAAAAA;
+      }
+      
+      .sk74528_a2:hover{
+          text-decoration: none !important;
+          color: #005C9A !important;
+      }
+
+      .sk74528_a2 {
+          display: block;
+          overflow: hidden;
+          margin: 0 5px;
+
+          color: #003C7A!important;
+          font-size: 12px;
+          line-height: 16px;
+          height: 48px;
+          overflow: hidden;
+          font-weight: bold;
+          font-family: 'Open Sans Condensed';
+          /*border-bottom: 1px solid #D1DCE7;*/
+          text-decoration: none !important;
+      }
+
+  @media (max-width: 800px) {
+    .sk74528_item_outer {
+        width: 33.3% !important; 
+    }
+  }   
+
+  @media (max-width: 500px) {
+    .sk74528_item_outer {
+        width: 100% !important;
+    }
+  }    
+
+</style>
+
+
+
+
+<div class="sk74528_item_outer" style="vertical-align: top">
+  <div class="sk74528_item" style="vertical-align: top">
+    <a class="sk74528_a1" href="%URL%" target="_blank" style="display: block">
+      <img src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" style="" />
+    </a>
+
+    <a class="sk74528_a2" href="%URL%" target="_blank" style="display: block">%TITLE%</a>
+  </div>
+</div>
+
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>central</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.3.ru_RU.js"></script>-->        
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script>-->
+
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+        <style>
+            #container-84654 .fluidgrid-container {
+            }
+
+            #container-84654 .fluidgrid-container-item {
+                background-color: white;
+            }
+
+            #container-84654 .fluidgrid-container-item-hover {
+                box-shadow: 0 0 5px 2px #ccc;
+            }
+
+                #container-84654 .item-84654 {
+                    text-decoration: none;
+                }
+
+                    #container-84654 .image-84654 {
+
+                    }
+
+                    #container-84654 .title-84654 {
+                        margin: 10px 15px 20px;
+                    }
+
+                    #container-84654 .title-84654 a {
+                        font-size: 16px;
+                        font-family: Arial, sans-serif;
+                        /*font-family:'PT Sans', arial, sans-serif;*/
+                        font-style: normal;
+                        font-weight: bold;
+                        color: #717171;
+                        text-decoration: none;
+                        display: block;
+                    }
+
+                    #container-84654 .title-84654 a:hover {
+                        text-decoration: none;
+                    }
+        </style>
+
+    </head>
+
+    <body style="max-width: 700px; background: #eee; margin: 0 auto;">
+        <div id="container-84654"></div>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script>
+
+        <script type="text/javascript">
+            JsAPI.Config.setDomain('news.fark.com');
+
+            /**
+             * Выравнивание содержимого блока
+             *
+             * @type {JsAPI.Ui.Align}
+             */
+            var align = JsAPI.Ui.Align.CENTER;
+
+            /**
+             * Размер страницы (количество) загружаемых элементов
+             *
+             * @type {number}
+             */
+            var page_size = 50;
+
+            /**
+             * Максимальное количество загружаемых страниц элементов
+             *
+             * @type {number}
+             */
+            var max_page_count = Infinity;
+
+            /**
+             * Родительский элемент контейнера
+             *
+             * @type {HTMLElement}
+             */
+            var parent_element = JsAPI.Dom.getElement("container-84654");
+
+            /**
+             * Настройки блока
+             *
+             * @type {*}
+             */
+            var properties = {
+                'item': {
+                    'width': 226,
+                    'margin': 10
+                }
+            };;
+
+            /**
+             * Callback-функция рендера содержимого элемента
+             *
+             * @type {function(HTMLElement, *, number)}
+             */
+            var item_content_renderer = function (parent, model, index) {
+                var items = [];
+
+                /* Изображение */
+                if (model['image']) {
+                    items.push(JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-84654',
+                        'src': model['image'],
+                        'width': '226px',
+                        'height': '130px'
+                    })));
+                }
+
+                /* Заголовок */
+                items.push(JsAPI.Dom.createDom('div', 'title-84654',
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title'])));
+
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84654', items));
+            };
+
+            /**
+             * Идентификатор блока
+             *
+             * @type {number}
+             */
+            var block_id = 84654;
+
+            /**
+             * Маска требуемых параметров (полей) статей
+             *
+             * @type {number|undefined}
+             */
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.GridBlock({
+                'align': align,
+                'page_size': page_size,
+                'max_page_count': max_page_count,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {}, function (reason) {  });
+
+        </script>
+    </body>
+</html>

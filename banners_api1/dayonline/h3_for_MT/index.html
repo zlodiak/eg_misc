@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>horizontal - dayonline</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+          @font-face {
+              font-family: "Roboto Regular";
+              src: url("//static.smi2.net/static/blocks/fonts/roboto/regular/roboto-regular-webfont.ttf") format("truetype");
+              font-style: normal;
+              font-weight: normal;
+          }
+
+        .hblock-84295 {
+
+        }
+        .hblock-84295 .content-84295 {
+            min-height: 215px;
+        }
+
+        .hblock-84295 .item-84295 {
+            font-family: Arial, sans-serif;
+            margin: 0 3px 0 0;
+
+            text-align: center;
+        }
+        .hblock-84295 .image-84295 {
+            width: 100%;
+            display: inline;
+        }
+        .hblock-84295 .wrapper-84295 {
+        }
+        .hblock-84295 .wrapper-84295 div {
+            padding-top: 5px;
+        }
+        .hblock-84295 .title-84295 a:hover {
+            color: #4aa3b3 !important;
+            text-decoration: none !important;
+        }
+
+        .hblock-84295 .title-84295 a {
+            font-family: 'Roboto Regular', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            color: #126888 !important;
+            text-decoration: none !important;
+            text-align: left;
+
+            cursor: pointer;
+              height: 69px;
+              display: block;
+              overflow: hidden;            
+        }
+        .hblock-84295 .domain-84295 {
+            font-family: 'Roboto Regular', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666 !important;
+            text-decoration: none !important;
+            text-align: left;
+        }
+
+    @media (max-width: 420px) {
+        .hblock-84295 .image-84295 {
+            width: auto;
+        }
+
+        .hblock-84295 .content-84295 {
+            min-height: 193px;
+        }
+
+    }
+     
+    </style>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.ru_RU.js"></script>
+
+</head>
+
+<body style="max-width: 550px; margin: auto;">
+    <div class="hblock-84295">
+        <div id="hblock-84295" class="content-84295"></div>
+    </div>
+
+    <script>
+        var hblock_properties = {
+            "item": {
+                "size": {"width": 150, "height": 250}
+            },
+            "hs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "vs": {
+                "size": 0,
+                "style": "solid",
+                "color": "#E3E3E3",
+                "padding": {"top": 8, "bottom": 8, "left": 8, "right": 8}
+            },
+            "scroll": {
+                "size": 6,
+                "rounded": true,
+                "background": "white",
+                "color": "#ccc",
+                "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+            }
+        };
+
+
+        var hblock_renderer = function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84295', [
+                        JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, JsAPI.Dom.createDom('img', {
+                            'class': 'image-84295',
+                            'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 170, 110)
+                        })),
+                        JsAPI.Dom.createDom('div', 'domain-84295', model['domain']),
+                        JsAPI.Dom.createDom('div', 'wrapper-84295', [
+                            JsAPI.Dom.createDom('div', 'title-84295', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                            
+                        ])
+                    ]
+            ));
+        };
+
+        var hblock_opt_fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE
+                | JsAPI.Dao.NewsField.DOMAIN;
+
+        JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.HORIZONTAL, 84295, JsAPI.Dom.getElement('hblock-84295'), hblock_properties, hblock_renderer, hblock_opt_fields).then(function (block) {
+        }, function (reason) {
+        });
+    </script>
+</body>
+</html>

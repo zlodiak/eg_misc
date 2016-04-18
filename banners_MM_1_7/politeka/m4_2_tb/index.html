@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+
+        <style>
+            @font-face {
+            font-family: 'Open Sans';
+            src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+            }
+
+            #mediametrics-85091 {
+              padding: 15px 0px 0;
+              overflow: hidden;
+              clear: both;
+            }
+
+            #mediametrics-85091 .wrap-85091 {
+                overflow: hidden;
+                margin: 0 -5px;
+            }
+
+            #mediametrics-85091 .header-85091 {
+                font-family: "Open Sans";
+                font-weight: 800;
+                font-size: 20px;
+                color: #6c6c6c;
+                line-height: 24px;
+                padding: 5px;
+                margin-top: 20px;
+                border-bottom: 1px solid #ebebeb;
+                margin-bottom: 6px;
+            }
+
+            #mediametrics-85091 .logo-85091 {
+                margin-bottom: 7px;
+                width: 130px;
+
+            }
+
+            #mediametrics-85091 .item-85091 {
+                overflow: hidden;
+                float: left;
+                width: 25%;
+                position: relative;           
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+                #mediametrics-85091 .item-inner-85091 {
+                    border: 2px solid #e9e9e9;
+                    padding: 3px; 
+                    margin: 0 5px;
+                    height: 280px;
+                }
+
+
+            #mediametrics-85091 .image-85091 {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 10px;
+            }
+
+            #mediametrics-85091 .title-85091:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            #mediametrics-85091 .title-85091 {
+                display: block;
+                max-height: 43px;
+                overflow: hidden;
+                padding-bottom: 5px;
+
+                font-weight: normal; 
+                font-size: 12px;
+                line-height: 14px;
+                font-style: normal;
+                text-decoration: none;
+                color: #000000 !important; 
+                font-family: 'PFDinDisplayProRegular',Tahoma,Geneva;
+                text-decoration: none !important; 
+                text-align: center !important;
+            }
+
+            #mediametrics-85091 .source-85091{
+                font-weight: normal;
+                font-size: 11px;
+                line-height: 12px;
+                font-style: italic;
+                text-decoration: none;
+                color: #444;
+                font-family: 'PFDinDisplayProRegular',Tahoma,Geneva;
+                padding: 4px;
+                display: block;
+                overflow: hidden;   
+                text-align: center;         
+                padding-bottom: 5px;    
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 855px; ">
+        <div id="mediametrics-85091">
+            <div class="wrap-85091">
+                <!-- <div class="header-85091">Новости партнеров</div> -->
+                <div id="mediametrics-content-85091"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 4
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-85091');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 4; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item-85091', 
+                        dom.createDom('div', 'item-inner-85091', [
+                            dom.createDom('a', {
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, 
+                            dom.createDom('img', {
+                                'class': 'image-85091',
+                                'src': model['image']
+                            })),
+                            dom.createDom('a', {
+                                'class': 'title-85091',
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, model['title'].replace(new RegExp('&quot;', 'g'), '"')),
+                            dom.createDom('a', {
+                                'class': 'source-85091',
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, model['source'])
+                        ]
+                    ))
+                    );
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

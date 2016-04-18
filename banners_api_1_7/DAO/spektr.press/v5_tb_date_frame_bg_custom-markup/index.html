@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+                             
+    </style>
+
+  </head>
+
+  <body style="background: #ddd; max-width: 268px; margin: 0 auto;">
+  <div class="special special-dw special-dw-aside">
+    <div class="panel panel-default">
+      <div class="panel-header">
+        <div class="row">
+            <div class="col-xs-8">
+                <span class="caption">Новости СМИ2</span>
+            </div>
+            <div class="col-xs-4 text-right"></div>
+        </div>
+      </div>
+
+      <div class="panel-content" id="content-85234"></div>
+    </div>
+  </div>
+
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+
+      var checkNeedZero = function(num) { 
+          if(num < 10) { num = '0' + num; };
+          return num;
+      };             
+
+      /**
+       * decorate month num to month name
+       *
+       * 
+       */
+      var getMonthName = function(monthNum) { 
+          var monthsArr = [
+              'January', 
+              'February', 
+              'March', 
+              'April', 
+              'May', 
+              'June',
+              'July', 
+              'August', 
+              'September', 
+              'October', 
+              'November', 
+              'December'
+          ];
+
+          return monthsArr[monthNum];
+      };  
+
+      
+      var blockId = 85234;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.DATE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85234';
+
+          var dateCorrect = model['date'].replace(/\s/ig, 'T');
+
+/*          console.log('-----');              
+          console.log(dateCorrect);*/              
+
+          var date = new Date(dateCorrect),
+              monthNum = checkNeedZero(date.getMonth()),
+              monthName = getMonthName(monthNum),
+              day = checkNeedZero(date.getDate()),
+              year = date.getFullYear(),
+              hours = checkNeedZero(date.getHours()),
+              minutes = checkNeedZero(date.getMinutes()),
+              fullDateString = hours + ':' + minutes + ', ' + day + '.' + monthNum + '.' + year;               
+          
+          var el =  JsAPI.Dom.createDom('div','entry preview', 
+                        JsAPI.Dom.createDom('div','picture', 
+                          JsAPI.Dom.createDom('a', {
+                              'href': model['url'],
+                              'target': '_blank'
+                          }, JsAPI.Dom.createDom('img', {
+                              'src': model['image'],
+                              'width': '235px',
+                              'height': '132px'
+                          }))
+                        ), 
+                        JsAPI.Dom.createDom('div','category', 
+                          JsAPI.Dom.createDom('span','caption date small', model['topic_name'])
+                        ), 
+                        JsAPI.Dom.createDom('div','title', 
+                          JsAPI.Dom.createDom('a', {
+                            'href': model['url'],
+                            'target': '_blank'
+                          }, model['title'])
+                        ), 
+                        JsAPI.Dom.createDom('div','caption date small', 
+                          JsAPI.Dom.createDom('span','glyphicon glyphicon-time', fullDateString)
+                        )                                                                   
+                    );
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

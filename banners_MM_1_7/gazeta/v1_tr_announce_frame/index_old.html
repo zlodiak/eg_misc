@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script>
+
+        <style>
+            #mediametrics-84816 {
+                overflow: hidden;
+                margin: 15px auto 15px;
+                background: #fff;
+            }
+
+            #mediametrics-84816 .wrap {
+
+            }
+
+            #mediametrics-84816 .header {
+              padding: 10px 15px 10px;
+            }
+
+            #mediametrics-84816 .item {
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 15px 10px; 
+            }
+
+            #mediametrics-84816 .image {
+                width: 90px;
+                height: 90px;
+                float: left;
+
+                  display: block !important;
+                  background: none !important;
+                  padding: 0 !important;
+                  border: none !important;
+                  border-radius: 0 !important;                
+            }
+
+            #mediametrics-84816 .title:hover {
+                text-decoration: none;
+                color: #3C3C3C !important;
+            }
+
+            #mediametrics-84816 a {
+                text-decoration: none !important;
+                color: #000!important;
+            }
+
+            #mediametrics-84816 .title {
+            display: block; 
+            margin-left: 99px; 
+            text-align: left; 
+            overflow: hidden;
+            padding-bottom: 6px;
+
+            color: #000!important;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14.8px;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: bold;
+            line-height: 15px;    
+            text-decoration: none;  
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #ddd; max-width: 400px; ">
+        <div id="mediametrics-84816">
+            <div class="wrap">
+                <div class="header"><img src="//static.smi2.net/srcimg/2780020.png" width="130px" alt="" /></div>
+                <div id="mediametrics-content-84816"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 1
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-84816');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 1; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }), 
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

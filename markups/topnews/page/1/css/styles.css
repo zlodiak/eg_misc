@@ -1,0 +1,210 @@
+/*
+INFO: 
+  project: adPreviewTopNews
+  browsers: 5 basic browsers
+  width: 1100px
+  columns: 2: main + aggr;
+  markup: 
+  use: 
+  desc: design approximate. PSD no
+  version 1
+*/  
+
+/********************************************************************************************** COMMON_STYLES */
+html, body, div, h1, h2, h3, h4, h5, h6, a, a img, p, ul, ol, li, span, fieldset , form, dl, dd, dt, table, tr, td, img{ 
+  border: none;
+  margin: 0; 
+  outline: none;  
+  padding: 0;
+  /*overflow: hidden;*/
+}
+
+html{
+  height:100%;  
+}
+
+body{ 
+  height:100%;  
+  margin: 0 auto;
+  background: #fff;
+} 
+
+ul{
+  list-style-type: none;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus { outline: none; }
+
+textarea{
+  resize: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+  zoom:1;
+}
+
+.clear{
+  clear: both;
+} 
+  
+.hide{
+  display: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #0096ef;
+}
+
+input:-moz-placeholder {
+  color: #0096ef;
+}
+
+/********************************************************************************************* GLOBAL_layout */
+.wrap{
+  width: 1100px;
+  margin: 0 auto;
+  background: #ddd;
+}
+
+  .header{
+    background: #fff;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+
+    .logo_area{
+      float: left;
+      width: 372px;
+    }
+
+    .banner_area{
+      float: right;
+      width: 728px;
+    }
+
+  .menu_area{
+    background: #222;
+    border-top: 5px solid #50aee4;
+    overflow: hidden;
+    padding: 15px;
+  }  
+
+    .menu{
+      overflow: hidden;      
+      float: left;
+      width: 96%;
+      transition: 1s;
+
+      text-align: center;
+    }
+
+    .search_form{
+      float: right;
+      width: 4%;
+      transition: 1s;
+      position: relative;
+
+      text-align: right;
+    }
+
+  .content_area{
+    overflow: hidden;
+    padding: 10px;
+  }    
+
+    .content_area_left{
+      float: left;
+      width: 700px;
+    }
+
+    .content_area_right{
+      float: right;
+      width: 371px;
+    }    
+
+      .main_news{
+        padding-bottom: 10px;
+      }
+
+      .all_news{
+
+      }
+
+/********************************************************************************************* logo_area */
+.logo_area .link{
+  display: inline-block;
+  margin-top: 15px;
+}
+
+  .logo_area .logo{
+    display: block;
+    width: 330px;
+  }
+
+/********************************************************************************************* menu */  
+.menu .punkt:hover{
+  color: #50aee4;
+}
+
+.menu .punkt{
+  display: inline-block;
+  margin: 0 9px;
+  transition: 1s;
+
+  color: #fff;
+  text-transform: uppercase;
+  font: bolder 20px 'PT Sans', arial, sans-serif;
+  text-decoration: none;
+}
+
+.menu.reduce{
+  width: 85%;
+}
+
+.menu.reduce .punkt{
+  margin: 0 2px;
+  transition: 1s;  
+}
+
+/********************************************************************************************* search_form */ 
+.search_form .lbl_search{
+  display: block;
+  background: url('../images/search.png') left top no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 6px;
+  position: absolute;
+  top: 2px;
+  right: 0;
+} 
+
+.search_form .fld_search{
+  overflow: hidden;  
+  width: 0;
+  display: block;
+  border: none;
+  position: absolute;
+  top: 2px;
+  right: 30px;
+  width: 0px;  
+  transition: 1s;
+  height: 22px; 
+  padding: 0; 
+} 
+
+.search_form.active{
+  width: 15%;
+}
+
+  .search_form.active .fld_search{
+    width: 120px;
+    transition: 1s;
+    padding: 0 2px; 
+  }

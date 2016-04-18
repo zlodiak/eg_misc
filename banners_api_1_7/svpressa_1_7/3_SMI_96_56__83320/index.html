@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+    <style>
+
+                           
+    </style>
+
+  </head>
+
+  <body>
+    <div id="unit_83320_1"></div>
+
+    <script>     
+try {
+      var blockId = 83320;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+
+          for (var i = 0, len = payload.length; i < len; i++) {
+              var item = payload[i];
+
+              var classSuffix = ((i + 3) % 3 == 0) ? 'first' : ((i + 2) % 3 == 0) ? 'second' : 'third';
+
+              var el = JsAPI.Dom.createDom('article', ['b-article', 'b-col_1-3', 'b-col_1-3_' + classSuffix],
+                      [
+                          JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__img b-article__img_aside', 'target': '_blank'},
+                                  JsAPI.Dom.createDom('picture', undefined, [
+                                      document.createComment('[if IE 9]><video style="display: none;"><![endif]'),
+                                      JsAPI.Dom.createDom('source', {'media': '(min-width: 600px)', 'alt': item['title'], 'srcset': item['image'], 'width': '243px', 'height': '141px' }),
+                                      document.createComment('[if IE 9]></video><![endif]'),
+                                      JsAPI.Dom.createDom('img', {'alt': item['title'], 'src': item['image'], 'width': '96px', 'height': '56px' })
+                                  ])
+                          ),
+                          JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__title b-article__title_aside', 'target': '_blank'}, item['title'])
+                      ]
+              );
+
+              JsAPI.Dom.appendChild(JsAPI.Dom.getElement('unit_83320_1'), el);
+          }
+
+      }, function (reason) {});
+} catch ( e ) { console.log( e ); }    
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<script src="//static.smi2.net/static/mediametrics/mediametrics.1.1.js"></script>
+<div id="mediametrics"></div>
+<script>
+    (function () {
+        document.getElementById("mediametrics").innerHTML = " <div class=\"wrap\"> <div class=\"head\">Медиаметрикс</div><div id=\"mediametrics-content\"></div></div><style>#mediametrics .head,#mediametrics .title{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;font-weight:700}#mediametrics{margin:20px 0;clear:both;overflow:hidden}#mediametrics .wrap{padding:0}#mediametrics .head{color:#ce131a;font-size:17px;text-transform:uppercase;padding-bottom:16px}#mediametrics .item{overflow:hidden;position:relative;padding-bottom:15px;vertical-align:top}#mediametrics .image{width:96px;height:56px;display:block;float:left;margin-left:4px;margin-right:12px}#mediametrics .title:hover{text-decoration:none!important;color:#ce131a!important}#mediametrics .title{display:block;color:#000;font-size:16px;line-height:21px;text-decoration:none}</style>";
+        mediametrics.Dao.getArticles(3, function (payload){try{var dom=mediametrics.Dom; var parent=dom.getElement('mediametrics-content'); for (var i=0, len=payload.length; i < len; i++){var model=payload[i]; dom.appendChild(parent, dom.createDom('div', 'item', [ dom.createDom('a',{'href': model['link'], 'target': '_blank'}, dom.createDom('img',{'class': 'image', 'src': model['image']})), dom.createDom('a',{'href': model['link'], 'class': 'title', 'target': '_blank'}, model['title'].replace(new RegExp('&quot;', 'g'), '"'))]));}}catch ( e ){}});
+    }());
+</script>

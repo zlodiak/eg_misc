@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>h3_tr_logo_fluid_MM</title>
+
+        <style>
+            #mediametrics {
+                margin: 10px 0px;
+                clear: both;
+                overflow: hidden;
+            }
+
+            #mediametrics .wrap {
+                padding: 0px 0px 0;
+            }
+
+            #mediametrics .item {
+                overflow: hidden;
+                float: left;
+                width: 33%;
+                position: relative;
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+            #mediametrics .image {
+                width: 60px;
+                height: 60px;
+                display: block;
+                float: left;
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            #mediametrics .title {
+                margin-left: 70px;
+                margin-right: 5px;
+                display: block;
+
+                color: rgb(0, 0, 0);
+                font-family: 'Times New Roman';
+                font-size: 12px;
+                font-variant: normal;
+                font-weight: normal;
+                letter-spacing: normal;
+                line-height: 16px;
+                text-decoration: none !important; 
+            }
+        </style>
+
+    </head>
+
+    <body style=" max-width: 645px; ">
+        <script src="//static.smi2.net/static/mediametrics/mediametrics.1.1.js"></script>
+
+        <div id="mediametrics">
+            <div class="wrap">
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+
+            mediametrics.Dao.getArticles(3, function (payload) {
+                var dom = mediametrics.Dom;
+
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, len = payload.length; i < len; i++) {
+                    var model = payload[i];
+
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'class': 'title',
+                            'target': '_blank'
+                        }, model['title'].replace(new RegExp('&quot;', 'g'), '"'))
+                    ]));
+                }
+            });
+        </script>
+    </body>
+</html>

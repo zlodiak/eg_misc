@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блок с социальными данными новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.7.4.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.en_IN.js"></script>-->
+
+    <style>
+        body {
+        }
+
+        #container {
+            width: 400px;
+            border: 1px solid #eee;
+            border-bottom: none;
+        }
+
+        #container #header {
+            background-color: lightslategray;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+
+        #container .list-container-item {
+            border-bottom: 1px solid #eee;
+            padding: 6px;
+        }
+        #container .list-container-item-hover {
+            background-color: #f3fafd;
+        }
+        #container .list-container-item .image {
+            display: block;
+            float: left;
+            margin-top: 2px;
+            margin-right: 10px;
+            border: none;
+            width: 70px;
+            height: 70px;
+        }
+        #container .list-container-item .title {
+            display: block;
+            margin-left: 25px;
+        }
+        #container .list-container-item .title a {
+            display: block;
+            text-decoration: none;
+            font-size: 16px;
+            color: #252525;
+        }
+        #container .list-container-item .title a:hover {
+            color: #2c9ed5;
+        }
+        #container .list-container-item .social div {
+            cursor: pointer;
+            display: inline-block;
+            padding-right: 18px;
+            margin-top: 10px;
+            margin-right: 20px;
+
+            font-size: 11px;
+            color: #838383;
+            line-height: 16px;
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        #container .list-container-item .social .votes {
+            background: url('//static.smi2.net/srcimg/2856449.png') right 2px no-repeat;
+        }
+
+        #container .list-container-item .social .comments {
+            background: url('//static.smi2.net/srcimg/2856554.png') right 2px no-repeat;
+        }          
+
+        #container .list-container-item .social .shares {
+            background: url('//static.smi2.net/srcimg/2856555.png') right 3px no-repeat;
+        }              
+
+        #container .list-container-item .clear {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="header">Новости с социальными данными</div>
+</div>
+<script type="text/javascript">
+    /* Установка домена */
+//    JsAPI.Config.setDomain('127.0.0.1:8080');
+//    JsAPI.Config.setDomain('outlet.dev.smi2.net');
+
+    /**
+     * Создание list-блока
+     */
+    JsAPI.Ui.ListBlock({
+        'page_size': 30,
+        'max_page_count': Infinity,
+        'parent_element': JsAPI.Dom.getElement("container"),
+        'item_content_renderer': function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image',
+                    'src': model['image']
+                })),
+                JsAPI.Dom.createDom('div', undefined, [
+                    JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title'])),
+                    JsAPI.Dom.createDom('div', 'social', [
+                        JsAPI.Dom.createDom('div', 'votes', '' + model['votes']),                        
+                        JsAPI.Dom.createDom('div', 'comments', '' + model['comments']),
+                        JsAPI.Dom.createDom('div', 'shares', '' + model['shares'])
+                    ])
+                ]),
+                JsAPI.Dom.createDom('div', 'clear')
+            ]));
+        },
+        'block_id': 83762,
+        'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.SHARES
+            | JsAPI.Dao.NewsField.VOTES
+            | JsAPI.Dao.NewsField.COMMENTS
+    }, function (block) {
+    }, function (reason) {
+        alert('Error: ' + reason);
+    });
+
+</script>
+</body>
+</html>

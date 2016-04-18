@@ -1,0 +1,189 @@
+january
+http://chekmoney.ru/index.html 
+
+160x110
+
+http://i.imgur.com/r7TElpF.png
+
+
+1545493
+Самый практичный внедорожник Nissan Terrano дешевле на 100 000 рублей
+//static.smi2.net/img/160x110/2358588.jpeg
+
+1573841
+Термоокна со скидкой 60%. Без предоплаты. Теплый монтаж. Звоните
+//static.smi2.net/img/160x110/2675994.jpeg
+
+1539915
+Земельные участки у Можайского водохранилища — идеальное место
+//static.smi2.net/img/160x110/2881757.jpeg
+
+1356261
+Стоит ли ставить на участке дом на сваях? Ответ эксперта
+//static.smi2.net/img/160x110/2634040.jpeg
+
+
+================
+february
+http://chekmoney.ru/index.html 
+
+160x110
+
+http://i.imgur.com/qZYnpcM.png
+
+
+1439187
+Новый жилой комплекс бизнес-класса «Москва»
+//static.smi2.net/img/160x110/2886324.jpeg
+
+1640517
+Как зарабатывать на разнице валют? Научим бесплатно
+//static.smi2.net/img/160x110/1867436.jpeg
+
+1649666
+Спешите! Такого больше не будет! Скидка 25% на все виды МРТ
+//static.smi2.net/img/160x110/2717629.jpeg
+
+1514854
+Современное автоматическое оружие нашей страны
+//static.smi2.net/img/160x110/2741212.jpeg
+
+================
+february
+http://chekmoney.ru/index.html 
+
+160x110
+
+http://i.imgur.com/Zq7f3ho.png
+
+
+1696423
+Почему выпадают волосы и как активизировать рост? Alerana поможет
+//static.smi2.net/img/160x110/2864866.jpeg
+
+1771471
+Сколько длится самый короткий перелет в мире
+//static.smi2.net/img/160x110/2913127.jpeg
+
+1822116
+Падение цен на черное золото - кто остался в большом плюсе?
+//static.smi2.net/img/160x110/2945757.jpeg
+
+1785183
+Леонид Кравчук рассказал, почему СССР не было суждено существовать
+//static.smi2.net/img/160x110/2319602.jpeg
+
+================
+
+4
+160
+110
+
+
+
+
+
+
+
+
+<div class="sk_wrap_outer_83847" >
+  <div class="sk_wrap_83847" style="">
+    <div class="sk_items_83847">%ITEMS%</div>
+  </div>
+</div>
+
+<style>
+    .sk_wrap_outer_83847{
+      padding: 20px 0px;
+      overflow: hidden;
+      clear: both;
+    }
+
+      .sk_wrap_83847{
+        overflow: hidden;
+        
+
+      }
+
+        .sk_items_83847{
+          overflow: hidden;
+          margin: 0 -8px;
+
+        }
+
+
+
+          .sk_item_83847{
+            overflow: hidden;
+            width: 25%; 
+            float: left;
+
+            vertical-align: top;
+          }
+
+            .sk_item_inner_83847{
+              margin: 0 8px;
+            }
+
+              .sk_img_83847{
+                margin: 0 auto 10px;
+                display: block;
+              }
+
+                .sk_img_83847 img{
+                  display: block;
+                  width: 100%;
+                  height: auto;
+                }
+
+              .sk_text_83847:hover{
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+              }
+
+              .sk_text_83847{
+                display: block;
+                overflow: hidden;
+                margin-bottom: 10px;
+
+                color: rgb(0, 0, 0) !important;
+                font-family: 'open-sans', Arial, Verdana, Tahoma;
+                font-size: 12px;
+                text-decoration: none !important; 
+                text-align: left !important; 
+              } 
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<div class="sk_item_83847">
+  <div class="sk_item_inner_83847">
+    <a class="sk_img_83847" href="%URL%" target="_blank"><img border="0" src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" style="" /></a>
+
+    <a class="sk_text_83847" href="%URL%" target="_blank" style="">%TITLE%</a>
+  </div>
+</div>
+
+
+
+
+================
+================
+================
+================
+================
+================
+================
+================
+================
+================
+================
+================

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>upi 300 200</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+
+        <style>
+            .vblock-84828 {
+                max-width: 300px;
+                margin: 0 0 0px;
+                position: relative;
+
+                text-align: left !important;
+            }
+
+                .vblock-84828 .header-84828 {
+                    padding: 0px 0px 10px;
+                    
+                }
+
+                    .vblock-84828 .header-84828 .header-84828_inner{
+                        position: relative;   
+                        overflow: hidden;
+                        padding-bottom: 2px;
+                        top: 0px;
+                        position: relative;
+                        border-bottom: 2px solid #80b2cb;
+                        
+                        color: rgb(0, 0, 0);
+                        display: block;
+                        font-family: Roboto, arial;
+                        font-size: 26px;
+                        text-transform: uppercase;                   
+                    }
+
+                .vblock-84828 .content-84828 {
+                    height: 252px;
+                    overflow: hidden;
+                    padding: 0 0px;
+                }
+
+                    .vblock-84828 .content-84828 .scroll-container{
+                        /*top: 0 !important;*/
+                    }
+
+                .vblock-84828 .item-84828 {
+                    overflow: hidden;
+                    display: block;
+                    padding: 0 0px 0px;
+                    width: auto;
+                    margin: 0;
+                    
+                }
+                .vblock-84828 .image-84828 {
+                    display: block;
+                    width: 300px;
+                    height: 200px;
+                    overflow: hidden;
+                    
+                }
+                .vblock-84828 .title-84828 a:hover {
+                    text-decoration: none !important;
+                    color: rgb(51, 51, 51) !important; 
+
+
+                              
+                }
+
+                .vblock-84828 a{
+                    padding: 0 !important;
+                }
+
+                .vblock-84828 .title-84828{
+       
+                                 
+                }
+
+                    .vblock-84828 .title-84828 a:visited,
+                    .vblock-84828 .title-84828 a {
+                        text-decoration: none !important;
+                        display: block;
+                        overflow: hidden;
+                        text-align: left !important;
+                        padding: 3px 0px 10px 0 !important;
+                        height: 58px;
+
+                        color: rgb(51, 51, 51);
+                        font-family: Roboto, arial;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 20px;
+                        
+                    }
+
+                        .buttons-84828{
+                            /*padding: 5px 10px 10px;*/
+                            position: absolute;
+                            top: 0px;
+                            right: 0px;
+
+                            text-align: right;
+                        }
+
+                            .buttons-84828 > div{
+                                display: inline-block;
+                                width: 26px;
+                                height: 25px;
+                                border: none;
+                                margin-left: 5px;
+                                cursor: pointer;
+                            }
+
+                            .vbutton-back-84828{
+                                background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                            }
+
+                            .vbutton-forward-84828{
+                                background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                            }            
+        </style>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.1.en_IN.js"></script>
+    </head>
+
+    <body style="">
+        <div class="vblock-84828">
+            <div class="header-84828">
+                <div class="header-84828_inner">Partners</div>
+            </div>
+
+            <div id="vblock-84828" class="content-84828"></div>
+
+            <div class="buttons-84828">
+                <div id="vbutton-back-84828" class="vbutton vbutton-back-84828"></div>
+                <div id="vbutton-forward-84828" class="vbutton vbutton-forward-84828"></div>        
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Config.setDomain('news.fark.com');
+     
+            var vblock_properties = {
+                "item": {
+                    "size": {"width": 290, "height": 226}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var vblock_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84828', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-84828',
+                                'src': JsAPI.Ui.Util.getNewsImageUrl(model['image'], 300, 200)
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-84828', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))                     
+                        ]
+                ));
+            };
+
+            var vblock_opt_fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE 
+                    | JsAPI.Dao.NewsField.IMAGE;
+
+            JsAPI.Ui.ScrollBlockFactory.create(JsAPI.Ui.Orientation.VERTICAL, 84828, JsAPI.Dom.getElement('vblock-84828'), vblock_properties, vblock_renderer, vblock_opt_fields).then(function (block) {
+                /*console && console.log('Ok', block);*/
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-84828'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-84828'), 'click', function () {
+                    block.scrollForward();
+                });            
+            }, function (reason) {
+                /* console && console.error('Error', reason);*/
+            });
+        </script>
+    </body>
+</html>

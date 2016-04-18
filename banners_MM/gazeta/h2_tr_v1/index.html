@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>h3_tr_logo_fluid_MM</title>
+
+        <style>
+            #mediametrics {
+                margin: 20px 0px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+                outline: 1px solid #EAEAEA;
+                background: #fff;
+                clear: both;
+                overflow: hidden;
+            }
+
+            #mediametrics .wrap {
+                padding: 10px 10px 0;
+            }
+
+            #mediametrics .logo {
+                margin-bottom: 7px;
+                width: 130px;
+
+            }
+
+            #mediametrics .item {
+                overflow: hidden;
+                float: left;
+                width: 50%;
+                position: relative;
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+            #mediametrics .image {
+                width: 110px;
+                height: 90px;
+                display: block;
+                float: left;
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: rgb(51, 51, 51) !important;
+            }
+
+            #mediametrics .title {
+                display: block;
+                margin-left: 120px !important;
+                margin-right: 10px !important;
+                text-decoration: none !important;
+                color: rgb(51, 51, 51) !important;
+                font-family: 'PT Serif', serif;
+                font-size: 16px;
+                font-weight: normal;
+                line-height: 20px;
+                text-decoration: none;
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fafafa; max-width: 905px; min-width: 700px;">
+        <script src="//static.smi2.net/static/mediametrics/mediametrics.1.1.js"></script>
+
+        <div id="mediametrics">
+            <div class="wrap">
+                <img class="logo" src="//static.smi2.net/srcimg/2780020.png" alt="" />
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+
+            mediametrics.Dao.getArticles(2, function (payload) {
+                var dom = mediametrics.Dom;
+
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, len = payload.length; i < len; i++) {
+                    var model = payload[i];
+
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'class': 'title',
+                            'target': '_blank'
+                        }, model['title'].replace(new RegExp('&quot;', 'g'), '"'))
+                    ]));
+                }
+            });
+        </script>
+    </body>
+</html>

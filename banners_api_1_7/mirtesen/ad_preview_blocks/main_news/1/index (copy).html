@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script> 
+    <style>
+      @font-face {
+          font-family: 'pt_sans_regular';
+          src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+      }
+
+      @font-face {
+          font-family: 'pt_sans_bold';
+          src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Bold.ttf); 
+      }      
+
+      #unit-84786{
+        max-width: 1000px;
+      }
+
+        #unit-84786 .item-84786{
+          display: block;
+          background: #fff;
+          padding: 11px 15px 15px;
+          overflow: hidden;
+          position: relative;  
+          border-radius: 5px;   
+          position: relative;   
+          min-height: 214px;  
+
+          font-family: 'pt_sans_regular', arial, sans-serif;
+          color: #717171;          
+        }
+
+          #unit-84786 .left_col-84786{
+            display: block;
+            float: left;
+            width: 244px;
+            overflow: hidden;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            max-height: 210px;            
+          }
+
+            #unit-84786 .image-84786{
+              width: 100%;
+              height: auto;
+              border-radius: 5px;
+            }
+
+          #unit-84786 .right_col-84786{
+            display: block;
+            float: right;
+            padding-left: 264px;         
+          }
+
+            #unit-84786 .domain-84786{
+              display: block;
+              padding-bottom: 6px;
+
+              font-size: 14px;    
+              color: #a1a1a1;         
+              font-family: 'pt_sans_regular', arial, sans-serif;
+            }
+
+            #unit-84786 .title-84786{
+              display: block;
+              padding-bottom: 2px;
+              padding-bottom: 9px;
+
+              font-size: 18px;    
+              font-weight: normal;
+              color: #000;         
+              font-family: 'pt_sans_bold', arial, sans-serif;
+            }
+
+            #unit-84786 .text-84786{
+              display: block;
+              padding-bottom: 8px;
+
+              font-size: 16px;    
+              color: #010101;         
+              font-family: 'pt_sans_regular', arial, sans-serif;
+              line-height: 22px;
+            }            
+
+            #unit-84786 .read_more-84786:hover{
+              color: #1280c0;
+              text-decoration: none;
+            }
+
+            #unit-84786 .read_more-84786{
+              display: inline-block;
+              margin-bottom: 13px;
+
+              color: #1280c0;
+              font-size: 16px;          
+              font-family: 'pt_sans_regular', arial, sans-serif;              
+              text-decoration: none;
+            }            
+
+          #unit-84786 .social-84786{
+
+          }       
+
+            #unit-84786 .social-84786 > div{
+              display: inline-block;
+              height: 28px;
+              border: 1px solid #ddd;
+              padding: 0;
+              padding-right: 8px;
+              padding-left: 28px;
+              border-radius: 13px;
+              margin-left: 2px;
+              cursor: pointer;
+
+              line-height: 28px;
+              font-size: 12px;    
+              font-weight: normal;
+              color: #8f8f8f;         
+              font-family: 'pt_sans_bold', arial, sans-serif;   
+              vertical-align: top;           
+            }
+
+            #unit-84786 .comments-84786{
+              background: url('//static.smi2.net/srcimg/2856554.png') 7px 7px no-repeat;
+              margin-right: 18px;              
+            }  
+
+            #unit-84786 .shares-84786{
+              background: url('//static.smi2.net/srcimg/2856555.png') 10px 9px no-repeat;
+              margin-right: 21px;
+            }           
+
+            #unit-84786 .vote_area-84786{
+              display: inline-block;
+              height: 30px;
+              overflow: hidden;
+
+              vertical-align: top;
+            }
+
+              #unit-84786 .vote_area-84786 > div{
+                height: 30px;
+                display: block;
+                overflow: hidden;
+                float: left;
+              }
+
+              #unit-84786 .vote_up-84786{
+                background: url('//static.smi2.net/srcimg/2880720.png') center center no-repeat;
+                cursor: pointer;
+                width: 30px;                
+              } 
+
+              #unit-84786 .vote_value-84786{
+                font-size: 14px;    
+                color: #35a105;         
+                font-family: 'pt_sans_regular', arial, sans-serif;  
+                line-height: 30px;
+                text-align: center;
+
+                padding: 0 11px;
+                min-width: 10px;
+              } 
+
+              #unit-84786 .vote_down-84786{
+                background: url('//static.smi2.net/srcimg/2880721.png') center center no-repeat;
+                cursor: pointer;
+                width: 30px;                
+              }                                              
+    </style>
+
+  </head>
+
+  <body style="background: #ccc; width: 832px;">
+    <div class="" id="unit-84786"></div>
+
+    <script>    
+      var blockId = 84786;
+
+      var count = 1;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TEXT
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE
+              | JsAPI.Dao.NewsField.SHARES
+              | JsAPI.Dao.NewsField.VOTES
+              | JsAPI.Dao.NewsField.COMMENTS                
+              ;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) { 
+        for (var i = 0, len = payload.length; i < len; i++) { 
+          var item = payload[i],
+              id_parent_block = 'unit-84786';
+
+          var sharesCnt = parseInt(item['shares'], 10),
+              commentsCnt = parseInt(item['comments'], 10),
+              votesCnt = parseInt(item['votes'], 10);
+
+              sharesCnt = 2,
+              commentsCnt = 1,
+              votesCnt = 7;              
+          
+          var el = JsAPI.Dom.createDom('div', {
+                'class': 'item-84786'
+              },
+                JsAPI.Dom.createDom('div', {'class': 'left_col-84786'}, 
+                  JsAPI.Dom.createDom('img', {'class': 'image-84786', 'src': item['image'], 'width': '244px', 'height': '210px'}, item['image'])                
+                ),  
+                JsAPI.Dom.createDom('div', {'class': 'right_col-84786'}, 
+                  JsAPI.Dom.createDom('div', {'class': 'domain-84786'}, item['domain']),
+                  JsAPI.Dom.createDom('div', {'class': 'title-84786'}, item['title']),
+                  JsAPI.Dom.createDom('div', {'class': 'text-84786'}, item['text']),
+                  JsAPI.Dom.createDom('a', {'class': 'read_more-84786', 'target': '_blank', 'href': item['url']}, 'Читать далее'),
+                  JsAPI.Dom.createDom('div', {'class': 'social-84786'} , 
+                    (commentsCnt > 0) ? JsAPI.Dom.createDom('div', {'class': 'comments-84786'} , '' + commentsCnt) : '',
+                    (sharesCnt > 0) ? JsAPI.Dom.createDom('div', {'class': 'shares-84786'} , '' + sharesCnt) : '',
+                    JsAPI.Dom.createDom('span', {'class': 'vote_area-84786'}, 
+                      JsAPI.Dom.createDom('div', {'class': 'vote_up-84786'} , ''),
+                      JsAPI.Dom.createDom('div', {'class': 'vote_value-84786'} , '' + votesCnt),
+                      JsAPI.Dom.createDom('div', {'class': 'vote_down-84786'} , '')
+                    )                     
+                  )                   
+                )                                                          
+              );
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

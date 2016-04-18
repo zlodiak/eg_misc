@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+    <style>
+
+                           
+    </style>
+
+  </head>
+
+  <body>
+        <div class="b-articles" id="unit_83545_1"></div>
+        <div class="b-articles" id="unit_83545_2"></div>
+
+    <script>     
+      var blockId = 83545;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+
+          for (var i = 0, len = payload.length; i < 4; i++) { 
+              var model = payload[i];
+              var classSuffix,
+                  id_parent_block;
+
+              if((i == 0) || (i == 2)){
+                  classSuffix = '_first';
+              }else{
+                  classSuffix = '';
+              }
+
+              var el = JsAPI.Dom.createDom('article', ['b-article', 'b-article_small', 'b-col_1-2_aside' + classSuffix],
+                      [
+                          JsAPI.Dom.createDom('a', {'href': model['url'], 'class': 'b-article__img b-article__img_small', 'target': '_blank'},
+                                  JsAPI.Dom.createDom('img', {
+                                    'alt': model['title'], 
+                                    'src': model['image'],
+                                    'width': '96px',
+                                    'height': '56px'
+                                  })
+                          ),
+                          JsAPI.Dom.createDom('a', {'href': model['url'], 'class': 'b-article__title b-article__title_small', 'target': '_blank'}, model['title'])
+                      ]
+              );
+
+              if((i == 0) || (i == 1)){
+                  id_parent_block = 'unit_83545_1';
+              }else{
+                  id_parent_block = 'unit_83545_2';
+              }
+
+              JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+          }
+
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

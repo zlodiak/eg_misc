@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <style>
+      #unit-84655{
+        width: 700px;
+      }
+
+        #unit-84655 .item{
+          display: block;
+          background: #fff;
+          padding: 10px 10px 50px;
+          overflow: hidden;
+          position: relative;          
+
+          font-family: 'PT Sans', arial, sans-serif;
+          color: #717171;          
+        }
+
+          #unit-84655 .left_col{
+            display: block;
+            float: left;
+            width: 40%;
+            overflow: hidden;
+          }
+
+            #unit-84655 .image{
+              width: 100%;
+              height: auto;
+            }
+
+            #unit-84655 .domain{
+              display: block;
+
+              font-size: 14px;             
+            }
+
+          #unit-84655 .right_col{
+            display: block;
+            float: right;
+            width: 60%;            
+          }
+
+            #unit-84655 .title{
+              display: block;
+              padding-bottom: 2px;
+              padding-left: 10px;
+              padding-bottom: 5px;
+
+              font-size: 20px;
+              color: #000;
+            }
+
+            #unit-84655 .text{
+              display: block;
+              padding-bottom: 20px;
+              padding-left: 10px;
+
+              font-size: 14px;
+            }            
+
+            #unit-84655 .read_more{
+              padding-left: 10px;
+              display: inline-block;
+
+              color: #50aee4;
+            }            
+
+          #unit-84655 .share{
+            position: absolute;
+            left: 42%;
+            bottom: 20px;
+            display: block;
+          }                    
+    </style>
+
+  </head>
+
+  <body style="background: #ccc;">
+    <div class="" id="unit-84655"></div>
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script> 
+
+    <script>
+      JsAPI.Config.setDomain('news.fark.com');
+      
+      var blockId = 84655;
+
+      var count = 1;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TEXT
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        /*if (console && console.log) console.log('News', payload);*/
+
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var item = payload[i],
+              id_parent_block = 'unit-84655';
+          
+          var el = JsAPI.Dom.createDom('a', {
+                'href': item['url'], 
+                'class': 'item', 
+                'target': '_blank'
+              },
+                JsAPI.Dom.createDom('span', {'class': 'left_col'}, 
+                  JsAPI.Dom.createDom('img', {'class': 'image', 'src': item['image'], 'width': '272px', 'height': '175px'}, item['image']),                            
+                  JsAPI.Dom.createDom('span', {'class': 'domain', 'target': '_blank'}, item['domain'])
+                ),  
+                JsAPI.Dom.createDom('span', {'class': 'right_col'}, 
+                  JsAPI.Dom.createDom('span', {'class': 'title', 'target': '_blank'}, item['title']),
+                  JsAPI.Dom.createDom('span', {'class': 'text', 'target': '_blank'}, item['text']),
+                  JsAPI.Dom.createDom('span', {'class': 'read_more', 'target': '_blank'}, 'Read more →')
+                ),
+                JsAPI.Dom.createDom('span', {'class': 'share'} , 'Share: ' + 'пщ пщ')                                           
+              );
+
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

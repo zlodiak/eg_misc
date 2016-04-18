@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>aggr2</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+
+        <style>
+        .domainWrapperClass_large{
+            width: 234px !important;
+        }
+
+        .domainWrapperClass_middle{
+            width: 180px !important;
+        }
+
+        .domainWrapperClass_small{
+            width: 140px !important;
+        } 
+
+        .domainClass_large{
+            width: 210px !important;
+        }
+
+        .domainClass_middle{
+            width: 154px !important;
+        }
+
+        .domainClass_small{
+            width: 116px !important;
+        }   
+
+        .socialClass_large{
+            width: 97px !important;
+        }
+
+        .socialClass_middle{
+            width: 46px !important;
+        }
+
+        .socialClass_small{
+            width: 0px !important;
+        }   
+
+        .votesMinusClass{
+            background: url('//static.smi2.net/srcimg/2935220.png') left 2px no-repeat !important;
+        }                                 
+
+        @font-face {
+            font-family: 'pt_sans_regular';
+            src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+        }
+
+        @font-face {
+            font-family: 'pt_sans_bold';
+            src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Bold.ttf); 
+        }
+
+        #container-85008 {
+            background: #fff;
+            border-radius: 5px;
+            max-width: 300px;
+
+            font-family:'pt_sans_regular', arial, sans-serif;
+            color: #000;       
+            text-decoration: none;  
+        }
+
+        #container-85008 #header-85008 {
+            padding: 24px 30px 15px;
+            border-bottom: 1px solid #eee;
+
+            font-size: 18px;  
+            font-family:'pt_sans_regular', arial, sans-serif;         
+        }
+
+        #container-85008 .list-container-item:hover .title-85008{
+            color: #1280c0;
+        }
+        
+        #container-85008 .list-container-item:hover {
+            /*background: #f2f2f2;
+            transition: 0.6s;*/
+        }
+
+        #container-85008 .list-container-item {
+            border-bottom: 1px solid #eee;                
+            transition: 0.6s;
+        }
+
+            #container-85008 .item-wrapper-85008{
+                padding: 14px 30px 16px;
+                overflow:hidden;
+                display: block;
+
+                font-family:'pt_sans_regular', arial, sans-serif;
+                color: #000;       
+                text-decoration: none;             
+            }
+
+                #container-85008 .item-inner-wrapper-85008{
+                    overflow: hidden;
+                }                       
+
+                    #container-85008 .title-85008 {
+                        display: block;
+                        margin-bottom: 7px;
+
+                        text-decoration: none;
+                        font-size: 16px;
+                        line-height: 22px;
+                        font-weight: normal;
+                        font-family:'pt_sans_bold', arial, sans-serif;
+                    }
+
+                    #container-85008 .domain-wrapper-85008{
+                        float: left;
+                        width: 140px;
+                    }
+
+                        #container-85008 .image-85008 {
+                            display: block;
+                            float: left;
+                            margin-top: 5px;
+                            margin-right: 7px;
+                            border: none;
+                            width: 16px;
+                            height: 16px;
+                        }                     
+
+                        #container-85008 .domain-85008 {
+                            display: inline-block;
+                            margin-right: 0px;
+                            margin-top: 3px;
+
+                            white-space: nowrap; /* Запрещаем перенос строк */
+                            overflow: hidden; /* Обрезаем все, что не помещается в область */
+                            text-overflow: ellipsis; /* Добавляем многоточие */   
+                            width: 116px;                         
+
+                            text-decoration: none;
+                            font-size: 14px;
+                            color: #c5bdbd;
+                        }                   
+
+                    #container-85008 .social-85008{
+                        float: right;
+                        width: 90px;
+                        overflow: hidden;
+                        padding-top: 3px;
+                    }
+
+                        #container-85008 .social-85008 > div{
+                            cursor: pointer;
+                            display: inline-block;
+                            padding-left: 21px;
+                            float: right;                                
+
+                            font-size: 14px;
+                            color: #a1a1a1;
+                            line-height: 16px;
+                            font-family: 'pt_sans_regular', sans-serif;                            
+                        }
+
+                        #container-85008 .votes-85008{
+                            background: url('//static.smi2.net/srcimg/2856449.png') left 2px no-repeat;
+                            padding-left: 22px;
+                            margin-left: 10px;
+                        }
+
+                        #container-85008 .comments-85008{
+                            background: url('//static.smi2.net/srcimg/2856554.png') left 2px no-repeat;
+                            padding-left: 19px;
+                            /*margin-left: 20px;*/
+                        }
+
+                        #container-85008 .shares-85008{
+                            background: url('//static.smi2.net/srcimg/2856555.png') left 3px no-repeat;
+                            padding-left: 22px;
+                            margin-left: 0;
+                        }                                                       
+        </style>
+    </head>
+    <body style="max-width: 300px; background: #eee; margin: 10px auto;">
+        <div id="container-85008">
+            <div id="header-85008">Картина дня</div>
+        </div>
+
+        <script type="text/javascript">
+            JsAPI.Ui.AggregatorListBlock({
+                'page_size': 30,
+                'max_page_count': Infinity,
+                'parent_element': JsAPI.Dom.getElement("container-85008"),
+                'block_id': 85008,
+                'sort_type': JsAPI.Dao.SortType.RANK,
+                'fields': JsAPI.Dao.ArticleField.TITLE |
+                    JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL |
+                    JsAPI.Dao.ArticleField.PUBLISHER_DOMAIN |
+                    JsAPI.Dao.ArticleField.SHARES | 
+                    JsAPI.Dao.ArticleField.VOTES | 
+                    JsAPI.Dao.ArticleField.COMMENTS,
+                'item_content_renderer': function(parent, model, index) {
+                    var sharesCnt = model['shares'],
+                        commentsCnt = model['comments'],
+                        votesCnt = model['votes'],
+                        domainWrapperClass = '',
+                        domainClass = '',
+                        socialClass = '',
+                        votesMinusClass = '';
+
+                    if(votesCnt == 0 && commentsCnt == 0) {
+                       domainWrapperClass = 'domainWrapperClass_large';
+                       domainClass = 'domainClass_large';
+                       socialClass = 'socialClass_small';
+                    } else if(votesCnt != 0 && commentsCnt != 0) {
+                        domainWrapperClass = 'domainWrapperClass_small';
+                        domainClass = 'domainClass_small';
+                        socialClass = 'socialClass_large';
+                    } else {
+                        domainWrapperClass = 'domainWrapperClass_middle';
+                        domainClass = 'domainClass_middle';
+                        socialClass = 'socialClass_middle';
+                    };   
+
+                    if(votesCnt < 0) {
+                        votesMinusClass = 'votesMinusClass';
+                    }; 
+
+                    JsAPI.Dom.appendChild(
+                        parent, 
+                        JsAPI.Dom.createDom(
+                            'a', {
+                                'class': 'item-wrapper-85008',
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, [
+                                JsAPI.Dom.createDom(
+                                    'div', {
+                                        'class': 'item-inner-wrapper-85008'
+                                    },
+                                    JsAPI.Dom.createDom(
+                                        'div', 
+                                        undefined, [
+                                            JsAPI.Dom.createDom(
+                                                'div',
+                                                'title-85008',
+                                                model['title']
+                                            ),
+                                            JsAPI.Dom.createDom(
+                                                'div',
+                                                'domain-wrapper-85008 ' + domainWrapperClass,
+                                                JsAPI.Dom.createDom(
+                                                    'img', {
+                                                        'class': 'image-85008',
+                                                        'src': model['publisher_logo_url']
+                                                    }
+                                                ),
+                                                JsAPI.Dom.createDom(
+                                                    'div', {
+                                                        'class': 'domain-85008 ' + domainClass
+                                                    }, 
+                                                    model['publisher_domain']
+                                                )
+                                            ),
+                                            JsAPI.Dom.createDom('div', 'social-85008 ' + socialClass, [
+                                                (votesCnt != 0) ? JsAPI.Dom.createDom('div', 'votes-85008 ' + votesMinusClass, '' + model['votes']) : '',
+                                                (commentsCnt != 0) ? JsAPI.Dom.createDom('div', 'comments-85008', '' + model['comments']) : ''
+                                            ])
+                                        ]
+                                    )
+                                ),
+                                JsAPI.Dom.createDom('div', 'clear')
+                            ]
+                        )
+                    );
+                }
+            }, function(block) {
+
+            }, function(reason) {
+
+            });
+        </script>
+    </body>
+</html>

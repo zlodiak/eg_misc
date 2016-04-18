@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.2.ru_RU.js"></script>
+
+        <style>
+            #mediametrics {
+      padding: 15px 0px 0;
+      overflow: hidden;
+      clear: both;
+            }
+
+            #mediametrics .wrap {
+                
+            }
+
+            #mediametrics .header_ {
+        display: block;
+        padding-bottom: 10px;
+        overflow: hidden;
+
+        color: rgb(26, 26, 26);
+        font-family: arial, tahoma, verdana;
+        font-size: 18px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: bold; 
+            }
+
+            #mediametrics .logo {
+                margin-bottom: 7px;
+                width: 130px;
+
+            }
+
+            #mediametrics .item {
+            overflow: hidden;
+            float: left;
+            width: 50%;
+            position: relative;
+            padding-bottom: 10px;
+
+            vertical-align: top;
+            }
+
+            #mediametrics .source,
+            #mediametrics .favicon {
+                display: none !important;
+            }
+
+            #mediametrics .image {
+                width: 80px;
+                height: 80px;
+                display: block;
+                float: left;
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            #mediametrics a {
+                text-decoration: none !important;
+            }
+
+            #mediametrics .title {
+                display: block;
+                margin-left: 90px;
+                margin-right: 10px;
+                height: 76px;
+                overflow: hidden;
+
+                color: #000 !important;
+                font: 13px Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+                font-size: 13px !important;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                text-decoration: none !important; 
+                text-align: left !important;
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 457px; ">
+        <div id="mediametrics">
+            <div class="wrap">
+                <!-- <img class="logo" src="//static.smi2.net/srcimg/2780020.png" alt="" /> -->
+                <div class="header_">Новости партнеров</div>
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 4
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 4; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'favicon',
+                            'src': model['favicon']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title', model['title'].replace(new RegExp('&quot;', 'g'), '"'))),
+                        dom.createDom('div', 'source', model['source'])
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

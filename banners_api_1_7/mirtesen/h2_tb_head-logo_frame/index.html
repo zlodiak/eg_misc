@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+        @font-face {
+            font-family: 'pt_sans_regular';
+            src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+        }  
+
+            .hblock-outer-84751 {
+                width: 602px;
+                margin: 0px auto !important;  
+                background: #fff;
+                overflow: hidden;
+            }
+
+            .hblock-84751 {
+                border: 1px solid #e2e2e2;
+                overflow: hidden;
+            }
+
+            .hblock-84751 .header-84751 {
+                padding: 12px 20px 10px;
+                border-bottom: 2px solid #ef1b06;
+            }
+
+            .hblock-84751 .content-84751 {
+                padding: 14px 10px 0px;
+                overflow: hidden;
+            }          
+
+            .hblock-84751 .item-84751 {
+                margin: 0 0px;
+                width: 50%;
+                float: left;
+            }
+
+              .hblock-84751 .item-inner-84751 {
+                padding: 3px 10px 16px;             
+              }
+
+            .hblock-84751 .image-84751 {
+                display: block;
+                margin-right: 10px;
+                border: none;
+                width: 270px;
+                height: 150px;
+                margin-top: 5px;
+                margin-bottom: 13px;
+             
+            }
+            .hblock-84751 .wrapper-84751 {
+
+            }
+            .hblock-84751 .wrapper-84751 div {
+
+            }
+
+            .hblock-84751 .title-84751 a:hover {
+                color: #ef1b06;
+                text-decoration: none;
+            }
+
+            .hblock-84751 .title-84751 a {
+                display: block;
+                margin-bottom: 2px;
+
+                text-decoration: none !important;
+                font-size: 16px;
+                color: #000;
+                font-family: 'pt_sans_regular', sans-serif;
+                line-height: 22px;
+            }     
+
+                .hblock-84751 .title-inner-84751 {
+                    display: block;
+                    overflow: hidden;
+                }   
+
+        .hblock-84751 .social-84751 {
+
+        }
+
+            .hblock-84751 .social-84751 div {
+                cursor: pointer;
+                display: inline-block;
+                padding-left: 15px;
+                margin-top: 10px;
+                margin-right: 16px;
+
+                font-size: 14px;
+                color: #a1a1a1;
+                line-height: 16px;
+                font-family: 'pt_sans_regular', sans-serif;
+            }
+
+            .hblock-84751 .social-84751 .votes-84751 {
+                background: url('//static.smi2.net/srcimg/2856449.png') left 2px no-repeat;
+                padding-left: 22px;
+            }
+
+            .hblock-84751 .social-84751 .comments-84751 {
+                background: url('//static.smi2.net/srcimg/2856554.png') left 2px no-repeat;
+                padding-left: 19px;
+                    margin-right: 20px;
+            }          
+
+            .hblock-84751 .social-84751 .shares-84751 {
+                background: url('//static.smi2.net/srcimg/2856555.png') left 3px no-repeat;
+            }                                                                            
+    </style>
+
+  </head>
+
+  <body style="">
+    <div class="hblock-outer-84751">
+        <div class="hblock-84751">
+            <div id="header-84751" class="header-84751"><img src="//static.smi2.net/srcimg/2868539.png" alt="" /></div>
+            <div id="content-84751" class="content-84751"></div>
+        </div>
+    </div>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('outlet.dev.smi2.net');*/
+      
+      var blockId = 84751;
+
+      var count = 2;
+
+      var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.SHARES
+                | JsAPI.Dao.NewsField.VOTES
+                | JsAPI.Dao.NewsField.COMMENTS;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        var sharesCnt,
+            commentsCnt,
+            votesCnt;
+
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-84751';
+
+              sharesCnt = parseInt(model['shares'], 10);
+              commentsCnt = parseInt(model['comments'], 10);
+              votesCnt = parseInt(model['votes'], 10);
+
+              sharesCnt = 5;
+              commentsCnt = 3;
+              votesCnt = 6;               
+          
+          var el = JsAPI.Dom.createDom('div', 'item-84751', [
+            JsAPI.Dom.createDom('div','item-inner-84751', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-84751',
+                  'src': model['image'],
+                  'width': '270px',
+                  'height': '150px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-84751', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('span', 'title-inner-84751', model['title']))), 
+                JsAPI.Dom.createDom('div', 'social-84751', [
+                  (sharesCnt > 0) ? JsAPI.Dom.createDom('div', 'shares-84751', '' + sharesCnt) : '', 
+                  (commentsCnt > 0) ? JsAPI.Dom.createDom('div', 'comments-84751', '' + commentsCnt) : '',                     
+                  (votesCnt > 0) ? JsAPI.Dom.createDom('div', 'votes-84751', '' + votesCnt) : ''                                                                        
+                ])              
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

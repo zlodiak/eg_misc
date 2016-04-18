@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+
+        <style>
+            @font-face {
+            font-family: 'Open Sans';
+            src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+            }
+
+            #politeka-85091 {
+              padding: 15px 0px 0;
+              overflow: hidden;
+              clear: both;
+            }
+
+            #politeka-85091 .wrap-85091 {
+                overflow: hidden;
+                margin: 0 -5px;
+            }
+
+            #politeka-85091 .header-85091 {
+                font-family: "Open Sans";
+                font-weight: 800;
+                font-size: 20px;
+                color: #6c6c6c;
+                line-height: 24px;
+                padding: 5px;
+                margin-top: 20px;
+                border-bottom: 1px solid #ebebeb;
+                margin-bottom: 6px;
+            }
+
+            #politeka-85091 .logo-85091 {
+                margin-bottom: 7px;
+                width: 130px;
+
+            }
+
+            #politeka-85091 .item-85091 {
+                overflow: hidden;
+                float: left;
+                width: 25%;
+                position: relative;           
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+                #politeka-85091 .item-inner-85091 {
+                    border: 2px solid #e9e9e9;
+                    padding: 3px; 
+                    margin: 0 5px;
+                    height: 220px;
+                }
+
+
+            #politeka-85091 .image-85091 {
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 10px;
+            }
+
+            #politeka-85091 .title-85091:hover {
+                text-decoration: none !important;
+                color: rgb(0, 0, 0) !important;
+            }
+
+            #politeka-85091 .title-85091 {
+                display: block;
+                max-height: 43px;
+                overflow: hidden;
+                padding-bottom: 5px;
+
+                font-weight: normal; 
+                font-size: 12px;
+                line-height: 14px;
+                font-style: normal;
+                text-decoration: none;
+                color: #000000 !important; 
+                font-family: 'PFDinDisplayProRegular',Tahoma,Geneva;
+                text-decoration: none !important; 
+                text-align: center !important;
+            }
+
+            #politeka-85091 .source-85091{
+                font-weight: normal;
+                font-size: 11px;
+                line-height: 12px;
+                font-style: italic;
+                text-decoration: none;
+                color: #444;
+                font-family: 'PFDinDisplayProRegular',Tahoma,Geneva;
+                padding: 4px;
+                display: block;
+                overflow: hidden;   
+                text-align: center;         
+                padding-bottom: 5px;    
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 855px; ">
+        <div id="politeka-content-85091"></div>
+
+
+        <script>
+          var blockId = 85212;
+
+          var count = 12;
+
+          var fields = JsAPI.Dao.NewsField.URI
+                  | JsAPI.Dao.NewsField.IMAGE
+                  | JsAPI.Dao.NewsField.TOPIC
+                  | JsAPI.Dao.NewsField.DOMAIN
+                  | JsAPI.Dao.NewsField.TITLE;
+
+
+            JsAPI.Dao.getNews({
+              'block_id': blockId,
+              'count': count,
+              'fields': fields
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+
+                var parent = dom.getElement('politeka-content-85091');
+
+                for (var i = 0; i < count; i++) {
+                    var model = payload[i];
+
+                    dom.appendChild(parent, 
+                        dom.createDom('div', 'swiper-slide', 
+                            dom.createDom('div', 'content-post', 
+                                dom.createDom('a', { 'href': model['url'], 'target': '_blank' }, 
+                                    dom.createDom('div', 'entry-title__box', 
+                                        dom.createDom('h3', 'entry-title', model['title'])
+                                    ), 
+                                    dom.createDom('div', 'post-cat', 
+                                        dom.createDom('p', '', model['domain'])
+                                    ), 
+                                    dom.createDom('figure', 'thumbnail', 
+                                        dom.createDom('img', { 
+                                            'src': model['image'],                                              
+                                              'width': '200px',
+                                              'height': '200px'                                           
+                                        })
+                                    )                                                                        
+                                )                               
+                            )
+                        )
+                    );
+
+                    if(i != 11) { dom.appendChild(parent, dom.createDom('br', '', '')); };
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+        @font-face {
+            font-family: 'pt_sans_regular';
+            src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+        }    
+            .hblock-outer-84744 {
+                width: 601px;
+                margin: 0px auto !important;  
+                background: #fff;
+                overflow: hidden;
+            }
+
+            .hblock-84744 {
+                border: 1px solid #e2e2e2;
+                overflow: hidden;
+            }
+
+            .hblock-84744 .header-84744 {
+                padding: 12px 22px 10px;
+                border-bottom: 2px solid #ef1b06;
+            }
+
+            .hblock-84744 .content-84744 {
+                padding: 14px 0 0;
+
+                text-align: center;
+            }          
+
+            .hblock-84744 .item-84744 {
+                margin: 0 0px;
+                width: 48.5%;
+                display: inline-block;
+
+                vertical-align: top;                
+            }
+
+              .hblock-84744 .item-inner-84744 {
+                padding: 3px 11px 18px;                
+              }
+
+            .hblock-84744 .image-84744 {
+                display: block;
+                float: left;
+                margin-right: 10px;
+                border: none;
+                width: 70px;
+                height: 70px;
+                margin-top: 5px;
+                margin-bottom: 3px;
+                margin-bottom: 21px;
+             
+            }
+            .hblock-84744 .wrapper-84744 {
+
+            }
+            .hblock-84744 .wrapper-84744 div {
+
+            }
+
+            .hblock-84744 .title-84744 a:hover {
+                color: #ef1b06;
+                text-decoration: none;
+            }
+
+            .hblock-84744 .title-84744 a {
+                display: block;
+                padding-left: 89px;
+                margin-bottom: 2px;
+
+                text-decoration: none !important;
+                font-size: 16px;
+                color: #000;
+                font-family: 'pt_sans_regular', sans-serif;
+                line-height: 22px;
+                text-align: left;
+            }     
+
+                .hblock-84744 .title-inner-84744 {
+                    display: block;
+                    overflow: hidden;
+                    margin-top: -2px;
+                }   
+
+        .hblock-84744 .social-84744 {
+            margin-left: 91px;
+
+            text-align: left;
+        }
+
+            .hblock-84744 .social-84744 div {
+                cursor: pointer;
+                display: inline-block;
+                padding-left: 15px;
+                margin-top: 10px;
+                margin-right: 16px;
+
+                font-size: 14px;
+                color: #a1a1a1;
+                line-height: 16px;
+                font-family: 'pt_sans_regular', sans-serif;
+                text-align: left;
+            }
+
+            .hblock-84744 .social-84744 .votes-84744 {
+                background: url('//static.smi2.net/srcimg/2856449.png') left 2px no-repeat;
+                padding-left: 22px;
+            }
+
+            .hblock-84744 .social-84744 .comments-84744 {
+                background: url('//static.smi2.net/srcimg/2856554.png') left 2px no-repeat;
+                padding-left: 19px;
+                    margin-right: 20px;
+            }          
+
+            .hblock-84744 .social-84744 .shares-84744 {
+                background: url('//static.smi2.net/srcimg/2856555.png') left 3px no-repeat;
+            }                                                                            
+    </style>
+
+  </head>
+
+  <body style="">
+    <div class="hblock-outer-84744">
+        <div class="hblock-84744">
+            <div id="header-84744" class="header-84744"><img src="//static.smi2.net/srcimg/2868539.png" alt="" /></div>
+            <div id="content-84744" class="content-84744"></div>
+        </div>
+    </div>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('outlet.dev.smi2.net');*/
+      
+      var blockId = 84744;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.SHARES
+                | JsAPI.Dao.NewsField.VOTES
+                | JsAPI.Dao.NewsField.COMMENTS;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        var sharesCnt,
+            commentsCnt,
+            votesCnt;
+
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-84744';
+
+              sharesCnt = parseInt(model['shares'], 10);
+              commentsCnt = parseInt(model['comments'], 10);
+              votesCnt = parseInt(model['votes'], 10);
+
+              sharesCnt = 5;
+              commentsCnt = 3;
+              votesCnt = 6;                 
+          
+          var el = JsAPI.Dom.createDom('div', 'item-84744', [
+            JsAPI.Dom.createDom('div','item-inner-84744', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-84744',
+                  'src': model['image'],
+                  'width': '70px',
+                  'height': '70px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-84744', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('span', 'title-inner-84744', model['title']))), 
+                JsAPI.Dom.createDom('div', 'social-84744', [
+                    (sharesCnt > 0) ? JsAPI.Dom.createDom('div', 'shares-84744', '' + sharesCnt) : '', 
+                    (commentsCnt > 0) ? JsAPI.Dom.createDom('div', 'comments-84744', '' + commentsCnt) : '',                     
+                    (votesCnt > 0) ? JsAPI.Dom.createDom('div', 'votes-84744', '' + votesCnt) : ''                                                                        
+                ])              
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

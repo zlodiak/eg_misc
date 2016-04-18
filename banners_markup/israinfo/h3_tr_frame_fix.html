@@ -102,4 +102,125 @@ http://joxi.ru/eAO535kf4kgXQm
 </div>
 
 
+=================
+3
+70
+70
 
+В дизайне блока 84094 ничего не меняем, просто нужно сделать его адаптивным.
+
+
+
+<div class="sk84094_out">
+  <div class="sk84094_wrap_outer">
+    <div class="sk84094_wrap" style="">%ITEMS%</div>
+  </div>
+</div>
+<style>
+   @font-face {
+    font-family: 'roboto_regular';
+    src: url(//static.smi2.net/static/blocks/fonts/roboto/regular/roboto-regular-webfont.ttf); 
+  }
+
+  .sk84094_out{
+    margin: 20px 0px;
+  }
+
+
+    .sk84094_wrap_outer{
+      border: 1px solid #000;
+      padding: 10px 10px 0;
+    }
+
+      .sk84094_wrap{
+        overflow: hidden; 
+        text-align: left; 
+        margin: 0 auto;
+        margin-right: -10px;
+      }
+
+        .sk84094_item:last-child{
+
+        }
+
+        .sk84094_item{
+          width: 33.3%;
+          padding-bottom: 10px;
+          overflow: hidden; 
+          display: block; 
+          float: left;
+          vertical-align: top; 
+        }      
+
+          .sk84094_a1{
+            display: block; 
+            float: left;       
+          }
+
+            .sk84094_a1 img{
+              display: block;
+              width: 70px;
+              height: 70px;
+              margin: 0 !important;
+            }
+
+          .sk84094_a2:hover{
+            text-decoration: underline; 
+            color: rgb(35, 35, 35);
+          }
+
+          .sk84094_a2{
+            display: block; 
+            margin-left: 77px; 
+            margin-right: 5px; 
+            height: 60px;
+            overflow: hidden;
+
+            font-family: Roboto, 'roboto_regular', arial;
+            font-size: 13px;
+            font-stretch: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: 300;
+            text-decoration: none;  
+            color: rgb(35, 35, 35);
+            line-height: 15px;
+          }
+
+    @media (max-width: 720px) {
+      .sk84094_item{
+        width: 50%;
+      }  
+
+    }
+
+
+    @media (max-width: 560px) {
+
+
+    }
+
+    @media (max-width: 467px) {
+
+
+ 
+    }
+
+    @media (max-width: 500px) {
+      .sk84094_item{
+        width: 100%;
+      }  
+
+    }           
+</style>
+
+
+
+
+<div class="sk84094_item" style="">
+  <a class="sk84094_a1" href="%URL%" target="_blank" style=" ">
+    <img src="%IMG%" width="%IMAGE_WIDTH%" height="%IMAGE_HEIGHT%" style="border: solid 1px #ccc" />
+  </a>
+
+  <a class="sk84094_a2" href="%URL%" target="_blank" style=" ">%TITLE%</a>
+</div>

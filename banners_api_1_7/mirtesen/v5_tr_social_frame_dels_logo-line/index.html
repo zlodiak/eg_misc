@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.7.4.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.4.en_IN.js"></script>-->
+
+    <style>
+        @font-face {
+            font-family: 'pt_sans_regular';
+            src: url(//static.smi2.net/static/blocks/fonts/pt_sans/from_google/PT_Sans-Web-Regular.ttf); 
+        }
+
+        .container-outer-84730{
+            width: 303px;            
+            overflow: hidden;   
+            background: #fff;                 
+        }
+
+        #container-84730 {
+            border: 1px solid #e2e2e2;
+        }
+
+        #container-84730 #header-84730 {
+            padding: 12px 21px 9px;
+            border-bottom: 2px solid #ef1b06;
+        }
+
+        #container-84730 .list-container-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 21px 16px;
+        }
+        #container-84730 .list-container-item-hover {
+        }
+        #container-84730 .list-container-item .image-84730 {
+            display: block;
+            float: left;
+            margin-right: 10px;
+            border: none;
+            width: 70px;
+            height: 70px;
+            margin-top: 5px;
+            margin-bottom: 3px;
+        }
+        #container-84730 .list-container-item .title-84730 {
+            display: block;
+            padding-left: 89px;
+            margin-bottom: 2px;
+            margin-top: -5px;
+
+            text-decoration: none;
+            font-size: 16px;
+            color: #000;
+            font-family: 'pt_sans_regular', sans-serif;
+            line-height: 22px;
+        }
+
+        #container-84730 .list-container-item .title-84730:hover {
+            color: #ef1b06;
+            text-decoration: none;
+        }
+        #container-84730 .list-container-item .social-84730 {
+            margin-left: 91px;
+        }
+
+            #container-84730 .list-container-item .social-84730 div {
+                cursor: pointer;
+                display: inline-block;
+                padding-left: 15px;
+                margin-top: 10px;
+                margin-right: 16px;
+
+                font-size: 14px;
+                color: #a1a1a1;
+                line-height: 16px;
+                font-family: 'pt_sans_regular', sans-serif;
+            }
+
+            #container-84730 .list-container-item .social-84730 .votes-84730 {
+                background: url('//static.smi2.net/srcimg/2856449.png') left 2px no-repeat;
+                padding-left: 22px;
+            }
+
+            #container-84730 .list-container-item .social-84730 .comments-84730 {
+                background: url('//static.smi2.net/srcimg/2856554.png') left 2px no-repeat;
+                padding-left: 19px;
+                    margin-right: 20px;
+            }          
+
+            #container-84730 .list-container-item .social-84730 .shares-84730 {
+                background: url('//static.smi2.net/srcimg/2856555.png') left 3px no-repeat;
+            }              
+
+            #container-84730 .list-container-item .clear-84730 {
+                clear: left;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container-outer-84730">
+        <div id="container-84730">    
+            <div id="header-84730"><img src="//static.smi2.net/srcimg/2868539.png" alt="" /></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        /* Установка домена */
+        /*JsAPI.Config.setDomain('outlet.dev.smi2.net');*/
+
+        /**
+         * Создание list-блока
+         */
+        JsAPI.Ui.ListBlock({
+            'page_size': 5,
+            'max_page_count': 1,
+            'parent_element': JsAPI.Dom.getElement("container-84730"),
+            'item_content_renderer': function (parent, model, index) {
+                var sharesCnt = parseInt(model['shares'], 10),
+                    commentsCnt = parseInt(model['comments'], 10),
+                    votesCnt = parseInt(model['votes'], 10);
+
+                sharesCnt = 5;
+                commentsCnt = 3;
+                votesCnt = 6;                    
+
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-84730',
+                        'src': model['image']
+                    })),
+                    JsAPI.Dom.createDom('div', undefined, [
+                        JsAPI.Dom.createDom('a', {
+                            'class': 'title-84730',
+                            'href': model['url'],
+                            'target': '_blank'
+                        }, model['title']),
+                        JsAPI.Dom.createDom('div', 'social-84730', [
+                            (sharesCnt > 0) ? JsAPI.Dom.createDom('div', 'shares-84730', '' + sharesCnt) : '', 
+                            (commentsCnt > 0) ? JsAPI.Dom.createDom('div', 'comments-84730', '' + commentsCnt) : '',                     
+                            (votesCnt > 0) ? JsAPI.Dom.createDom('div', 'votes-84730', '' + votesCnt) : ''                                                                      
+                        ])
+                    ]),
+                    JsAPI.Dom.createDom('div', 'clear-84730')
+                ]));
+            },
+            'block_id': 84730,
+            'fields': JsAPI.Dao.NewsField.TITLE 
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.SHARES
+                | JsAPI.Dao.NewsField.VOTES
+                | JsAPI.Dao.NewsField.COMMENTS
+        }, function (block) {
+        }, function (reason) {
+            /*alert('Error: ' + reason);*/
+        });
+
+    </script>
+</body>
+</html>

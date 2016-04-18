@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.2.ru_RU.js"></script>
+
+        <style>
+            #mediametrics * {
+                box-sizing: content-box !important;
+            }
+
+            #mediametrics {
+                clear: both;
+                margin: 20px 0;
+            }
+
+            #mediametrics .wrap {
+                overflow: hidden;
+                text-align: left;
+            }
+
+
+
+            #mediametrics .logo {
+                margin-bottom: 7px;
+                width: 130px;
+
+            }
+
+            #mediametrics .item {
+              width: 32%;
+              overflow: hidden;
+              display: inline-block;
+              vertical-align: top;
+              margin-bottom: 10px;
+            }
+
+
+
+            #mediametrics .image {
+                display: block;
+                float: left;
+                width: 80px;
+                height: 80px;
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: #000 !important;
+            }
+
+            #mediametrics a {
+                text-decoration: none !important;
+            }
+
+            #mediametrics .title {
+                margin-left: 90px;
+                margin-right: 5px;
+                display: block;
+                height: 67px;
+
+                color: rgb(0, 0, 0);
+                font-family: 'Roboto Regular', sans-serif;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 17px;
+                text-decoration: none !important;
+            }
+
+@media (max-width: 700px) {
+#mediametrics .item {
+    width: 49%;
+  }
+}
+
+@media (max-width: 500px) {
+#mediametrics .item {
+    width: 99%;
+  }
+}            
+        </style>
+
+    </head>
+
+    <body style=" ">
+        <div id="mediametrics">
+            <div class="wrap">
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 3
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 3; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image',
+                            'src': model['image']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

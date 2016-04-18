@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.5.ru_RU.js"></script>
+
+    <style>
+        #unit_84726 .content-84726 {
+            height: 250px;
+        }
+
+        #unit_84726 .content-84726 .item-84726 {
+
+        }
+
+            #unit_84726 .content-84726 .item-84726 > a{
+                display: block;
+            }
+
+            #unit_84726 .content-84726 .image-84726 {
+                border: none;
+                width: 200px;
+                height: 160px;
+/*                min-width:100%;
+                min-height:auto;*/
+            }
+
+            #unit_84726 .content-84726 .title-84726 a {
+                width: 190px;
+                display: block;
+                border-left: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                margin: 0px 2px 2px;
+                padding: 2px 2px 5px;
+                height: 50px;
+                overflow: hidden;
+                color: #2c2c2c !important;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 12px;
+                text-decoration: none !important;
+                clear: left;
+            }
+
+            #unit_84726 .content-84726 .title-84726 a:hover {
+                text-decoration: underline;
+            }
+    </style>
+
+</head>
+<body style="padding: 0; margin: 0;">
+
+<!-- Основной контейнер -->
+<div id="unit_84726"></div>
+
+<script type="text/javascript">
+    /* Ротация - 50/50 (МедиаМетрикс/СМИ2) */
+    var percent = 0.5;
+
+    var dom = JsAPI.Dom;
+
+    var content = dom.createDom('div', 'content-84726');
+
+    dom.appendChild(dom.getElement('unit_84726'), content);
+
+    var properties = {
+        "item": {
+            "size": {"width": 200, "height": 250}
+        },
+        "hs": {
+            "size": 0,
+            "style": "solid",
+            "color": "transparent",
+            "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+        },
+        "vs": {
+            "size": 0,
+            "style": "solid",
+            "color": "#transparent",
+            "padding": {"top": 0, "bottom": 0, "left": 2, "right": 2}
+        },
+        "scroll": {
+            "size": 0,
+            "rounded": false,
+            "background": "transparent",
+            "color": "transparent",
+            "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+            "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+        }
+    };
+
+    if (Math.random() <= percent) {
+        /* Блок МедиаМетрикс */
+
+        JsAPI.Ui.MediaMetricsScrollBlock({
+            'orientation': JsAPI.Ui.Orientation.HORIZONTAL,
+            'parent_element': content,
+            'properties': properties,
+            'item_content_renderer': function (parent, model, index) {
+                dom.appendChild(parent, dom.createDom('div', 'item-84726', [
+                            dom.createDom('a', {
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, dom.createDom('img', {
+                                'class': 'image-84726',
+                                'src': model['image']
+                            })),
+                            dom.createDom('div', 'title-84726', dom.createDom('a', {
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ]
+                ));
+            }
+        }, function (block) {}, function (reason) {});
+
+    } else {
+        /* Блок СМИ2 */
+
+        JsAPI.Ui.ScrollBlock({
+            'orientation': JsAPI.Ui.Orientation.HORIZONTAL,
+            'parent_element': content,
+            'properties': properties,
+            'item_content_renderer': function (parent, model, index) {
+                dom.appendChild(parent, dom.createDom('div', 'item-84726', [
+                            dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, dom.createDom('img', {
+                                'class': 'image-84726',
+                                'src': model['image']
+                            })),
+                            dom.createDom('div', 'title-84726', dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ]
+                ));
+            },
+            'block_id': 84726,
+            'fields': JsAPI.Dao.NewsField.IMAGE | JsAPI.Dao.NewsField.TITLE
+        }, function (block) {}, function (reason) {});
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<div class="b-articles" id="unit_83545_1"></div>
+    <div class="b-articles" id="unit_83545_2"></div>
+
+
+
+
+
+    #unit_83545{
+
+}
+
+    #unit_83545 .b-articles{
+
+    }
+
+        #unit_83545 .b-article{
+          overflow: hidden; 
+          text-align: center; 
+          padding: 0 0px 0px; 
+        }
+
+            #unit_83545 .b-article .b-article__img{
+                display: block; 
+                float: left;
+                margin-right: 15px;
+            }
+
+                #unit_83545 .b-article .b-article__img img{
+                  display: block !important;
+                  background: none !important;
+                  padding: 0 !important;
+                  border: none !important;
+                  border-radius: 0 !important;
+                  width: 96px;
+                  height: 56px;
+                }
+
+            #unit_83545 .b-article .b-article__title:hover{
+                text-decoration: none;
+                color: rgb(206, 19, 26);
+            }
+
+            #unit_83545 .b-article .b-article__title{
+                display: block;             
+                text-align: left; 
+
+                color: rgb(0, 0, 0);
+                font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 20px;   
+                text-decoration: none; 
+            }
+
+
+
+
+
+            var blockId = 83545;
+
+var count = 4;
+
+var fields = JsAPI.Dao.NewsField.URI
+        | JsAPI.Dao.NewsField.IMAGE
+        | JsAPI.Dao.NewsField.TITLE;
+
+JsAPI.Dao.getNews(blockId, count, fields).then(function (payload) {
+
+    for (var i = 0, len = payload.length; i < len; i++) {
+        var item = payload[i];
+        var classSuffix,
+            id_parent_block;
+
+        if((i == 0) || (i == 2)){
+            classSuffix = '_first';
+        }else{
+            classSuffix = '';
+        }
+
+        var el = JsAPI.Dom.createDom('article', ['b-article', 'b-article_small', 'b-col_1-2_aside' + classSuffix],
+                [
+                    JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__img b-article__img_small', 'target': '_blank'},
+                            JsAPI.Dom.createDom('img', {'alt': item['title'], 'src': JsAPI.Ui.Util.getNewsImageUrl(item['image'], 96, 56)})
+                    ),
+                    JsAPI.Dom.createDom('a', {'href': item['url'], 'class': 'b-article__title b-article__title_small', 'target': '_blank'}, item['title'])
+                ]
+        );
+
+        if((i == 0) || (i == 1)){
+            id_parent_block = 'unit_83545_1';
+        }else{
+            id_parent_block = 'unit_83545_2';
+        }
+
+        JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+    }
+
+}, function (reason) {});

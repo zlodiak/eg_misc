@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>v tr scroll</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.6.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.4.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.6.0.en_IN.js"></script>-->
+
+        <style>
+            .vblock-84165 {
+                max-width: 240px;
+                margin: 0 auto;
+                padding: 15px 0 10px;
+                background: #f7f7f7 url('//static.smi2.net/srcimg/2783119.gif') left top repeat-x;
+            }
+
+            .vblock-84165 .content-84165 {
+                height: 354px;
+            }
+
+            .vblock-84165 .item-84165 {
+                font-family: Arial, sans-serif;
+                margin: 0 10px;
+                padding-right: 10px;
+
+            }
+            .vblock-84165 .image-84165 {
+                width: 80px;
+                height: 80px;
+                display: block;
+                margin: 0 auto;
+                float: left;
+            }
+            .vblock-84165 .title-84165 a {
+                display: block;
+                overflow: hidden;
+                height: 80px;
+                margin-left: 90px;
+
+                color: rgb(112, 112, 112) !important;
+                font-family: Tahoma;
+                font-size: 11px;
+                text-align: left;
+                text-decoration: none !important;
+            }
+            .vblock-84165 .title-84165 a:hover {
+                text-decoration: none !important;
+                color: rgb(112, 112, 112) !important;
+            }
+
+/*            .buttons-84165{
+                background: #fff;
+                padding: 15px 14px 10px;
+
+                text-align: right;
+            }
+
+                .buttons-84165 > div{
+                    display: inline-block;
+                    width: 26px;
+                    height: 25px;
+                    border: none;
+                    margin-left: 5px;
+                    cursor: pointer;
+                }
+
+                .vbutton-back-84165{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_left_crop.png') left top no-repeat;
+                }
+
+                .vbutton-forward-84165{
+                    background: url('http://static.smi2.net/static/blocks/img/arrows/arr_right_crop.png') left top no-repeat;                    
+                }*/
+        </style>
+
+    </head>
+    <body>
+        <div class="vblock-84165">
+            <div id="container-84165" class="content-84165"></div>
+        </div>
+<!--         <div class="buttons-84165">
+            <div id="vbutton-back-84165" class="vbutton vbutton-back-84165"></div>
+            <div id="vbutton-forward-84165" class="vbutton vbutton-forward-84165"></div>        
+        </div> -->
+
+        <script>
+            var orientation = JsAPI.Ui.Orientation.VERTICAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-84165");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 240, "height": 80}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 10, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 5,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#f14999",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 5}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-84165', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-84165',
+                                'src': model['image'],
+                                'width': '80px',
+                                'height': '80px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title-84165', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title']))
+                        ]
+                ));
+            };
+
+            var block_id = 84165;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlockFactory.create(
+                    orientation,
+                    parent_element,
+                    properties,
+                    item_content_renderer,
+                    block_id,
+                    opt_fields
+            ).then(function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-back-84165'), 'click', function () {
+                    block.scrollBack();
+                });
+
+                JsAPI.Event.listen(JsAPI.Dom.getElement('vbutton-forward-84165'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {    });
+        </script>
+    </body>
+</html>

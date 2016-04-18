@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.5.ru_RU.js"></script>
+
+        <style>
+@font-face {
+    font-family: 'Open Sans';
+    src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+  }
+
+            #mediametrics {
+                padding: 15px 0px;
+                overflow: hidden;
+                clear: both;
+                margin: auto;
+                padding-left: 13px;
+            }
+
+            #mediametrics .wrap {
+                overflow: hidden;
+                height: 260px;
+                text-align: center;
+            }
+
+            #mediametrics .item {
+                overflow: hidden;
+                width: 175px;
+                padding-bottom: 13px;
+                display: inline-block;
+                margin: 0 5px 15px;
+                vertical-align: top;
+
+                border: 1px solid #ccc; 
+            }
+
+                #mediametrics .item-inner{
+                }
+
+            #mediametrics .image {
+                margin: 0 auto 0px;
+                display: block;
+                position: relative;
+              display: block;
+              width: 175px;
+              height: 170px;                
+            }
+
+            #mediametrics .title:hover {
+                text-decoration: none !important;
+                color: #2c2c2c !important;
+            }
+
+            #mediametrics .title {
+                display: block;
+                margin: 0px 0px 2px;
+                padding: 10px 5px 5px;
+                height: 46px;
+                overflow: hidden;
+                color: #2c2c2c !important;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 12px;
+                text-decoration: none !important;
+            }
+
+        @media (max-width: 440px) {
+            #mediametrics .item {
+                overflow: hidden;
+                width: 150px;
+                padding-bottom: 13px;
+                display: inline-block;
+                margin: 0 5px 15px;
+            }
+
+            #mediametrics .image {
+                width: 150px;
+              height: 100px;                
+            }    
+
+            #mediametrics .item:first-child {
+                display: none;
+            }                    
+        }            
+        </style>
+
+    </head>
+
+    <body style="background: #fff; padding: 0; margin: 0;">
+        <div id="mediametrics">
+            <div class="wrap">
+                <div id="mediametrics-content"></div>
+            </div>
+        </div>
+
+        <script>
+JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 3
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 3; i++) {
+                    var model = payload[i];
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, 
+                        dom.createDom('div', 'item', 
+                            dom.createDom('div', 'item-inner', 
+                                [
+                                    dom.createDom('a', {
+                                        'href': model['link'],
+                                        'target': '_blank'
+                                    }, dom.createDom('img', {
+                                        'class': 'image',
+                                        'src': model['image']
+                                    })),
+                                    dom.createDom('a', {
+                                        'href': model['link'],
+                                        'class': 'title',                            
+                                        'target': '_blank'
+                                    }, model['title'].replace(new RegExp('&quot;', 'g'), '"'))
+                                ]
+                            )
+                        )
+                    );
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>
