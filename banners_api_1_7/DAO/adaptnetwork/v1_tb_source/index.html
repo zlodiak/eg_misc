@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+          @font-face {
+            font-family: 'Open Sans';
+            src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+          }
+
+            .hblock-86315 {
+                margin: 20px 0 !important;  
+                /*overflow: hidden;*/
+            }
+
+            .hblock-86315 .header-86315 {
+              color: #333;
+              font-size: 20px;
+              font-family: 'Open Sans', sans-serif;
+              text-transform: uppercase;
+
+              margin-bottom: 15px;
+            }
+
+              
+
+
+
+            .hblock-86315 .content-86315 {
+
+            }          
+
+            .hblock-86315 .item-86315 {
+                padding: 0 0px 10px;
+            }
+
+              .hblock-86315 .item-inner-86315 {
+                overflow: hidden;
+              }
+
+            .hblock-86315 .a1-86315 {
+              float: left;
+              display: block;
+              padding-bottom: 15px;
+            }
+
+            .hblock-86315 .image-86315 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                
+             
+            }
+            .hblock-86315 .wrapper-86315 {
+                padding: 0 12px 12px 12px;
+            }
+            .hblock-86315 .wrapper-86315 div {
+
+            }
+
+            .hblock-86315 .title-86315 a {
+              display: block;
+              margin: 15px 10px 0;
+
+              color: #333 !important;
+              font-family: 'Open Sans', sans-serif;
+              font-size: 20px;
+              line-height: 24px;
+              font-style: normal;
+              font-weight: normal;
+              text-align: left;
+              text-decoration: none !important; 
+            }
+
+
+
+            .hblock-86315 .domain-86315 a{
+              display: block;
+              margin: 5px 10px 0;
+
+              text-decoration: none;
+              font-size: 14px;
+              color: #858585;
+              font-family: 'Open Sans', Arial, sans-serif;
+              text-align: left;
+              text-decoration: none !important; 
+            }            
+
+            .hblock-86315 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 300px; margin: 0 auto;">
+    <div class="hblock-86315 clearfix">
+        <div class="header-86315">From around the web</div>
+        <div id="content-86315" class="content-86315"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.en_IN.js"></script> 
+
+    <script>
+     
+      var blockId = 86315;
+
+      var count = 1;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86315';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86315', [
+            JsAPI.Dom.createDom('div','item-inner-86315', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86315',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86315',
+                  'src': model['image'],
+                  'width': '300px',
+                  'height': '169px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86315', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'domain-86315', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['domain'])) 
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

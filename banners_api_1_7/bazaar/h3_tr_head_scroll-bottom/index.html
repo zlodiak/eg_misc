@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+            .hblock-85685 {
+                margin: 20px 0;
+                position: relative;
+                border-top: 1px solid #b2b2b2;;
+            }
+
+
+            .hblock-85685 .head-85685 {
+                display: inline-block;
+                letter-spacing: 1px;
+                background: #fff;
+                font-size: 12px;
+                color: #333333;
+                text-transform: uppercase;
+                position: relative;
+                padding-right: 12px;
+                padding-left: 12px;
+                font-family: 'mhrgrotesqueregular', Tahoma, Geneva, sans-serif;
+                z-index: 100;
+
+                padding-bottom: 9px;
+                position: relative;
+                top: -8px;
+                
+            }
+/*            .hblock-85685 .header-85685 .logo-85685 {
+                position: absolute;
+                top: 6px;
+                right: 8px;
+                width: 58px !important;
+                height: 20px !important;
+                vertical-align: baseline !important;                   
+            }*/
+            .hblock-85685 .content-85685 {
+
+                height: 220px;
+                overflow: hidden;
+            }
+
+            .hblock-85685 .item-85685:hover {
+
+            }
+
+            .hblock-85685 .item-85685 {
+                font-family: Arial, sans-serif;         
+            }
+            .hblock-85685 .image-85685 {
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin-bottom: 3px;       
+            }
+            .hblock-85685 .wrapper-85685 {
+            }
+            .hblock-85685 .wrapper-85685 div {
+                padding-top: 5px;
+            }
+            .hblock-85685 .title-85685 a {
+                font: normal 16px "PT Sans", sans-serif;
+                color: #1e1b1f;
+                text-decoration: none;
+                font-weight: 400;
+                color: #333333;
+                line-height: normal;
+                text-align: left;
+                padding-right: 5px;
+                    height: 54px;
+
+                overflow: hidden;
+                display: block;            
+            }
+            .hblock-85685 .title-85685 a:hover {
+                text-decoration: none !important;
+                color: #333 !important;   
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body style="width: 710px; ">
+        <div class="hblock-85685">
+            <div class="head-85685">СМИ2 Lady</div>
+            <div id="container-85685" class="content-85685"></div>
+        </div>
+        <script>
+            /*JsAPI.Config.setDomain('news.fark.com');*/
+
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-85685");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 200, "height": 160}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 5, "right": 5}
+                },
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#b2b2b2",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 10, "right": 10}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-85685', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-85685',
+                                'src': model['image'],
+                                'width': '220px',
+                                'height': '140px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-85685', [
+                                JsAPI.Dom.createDom('div', 'title-85685', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 85685;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-85685'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-85685'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

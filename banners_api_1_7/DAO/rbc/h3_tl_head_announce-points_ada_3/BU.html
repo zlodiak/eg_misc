@@ -1,0 +1,264 @@
+3
+90
+90
+
+1.7.9
+
+
+<div class="hblock-86441 clearfix">
+        <div class="header-86441">Новости партнеров</div>
+        <div id="content-86441" class="content-86441"></div>
+    </div>
+
+
+
+
+.hblock-86441 {
+              clear: both;
+              margin: 10px 0px;
+              padding-left: 6px;
+              padding-right: 20px;
+
+            }
+
+            .hblock-86441 .header-86441 {
+              margin-bottom: 15px;
+
+              color: #000;
+              font: bold 11px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none;
+            }
+
+
+
+
+            .hblock-86441 .content-86441 {
+              padding: 0;
+              overflow: hidden; 
+              text-align: left;       
+            }          
+
+            .hblock-86441 .item-86441:nth-child(1) {
+              width: 31%;
+            }
+
+            .hblock-86441 .item-86441:nth-child(2) {
+              width: 34.5%;
+            }
+
+            .hblock-86441 .item-86441:nth-child(3) {
+              width: 34%;
+            }                        
+
+            .hblock-86441 .item-86441 {
+              width: 33.3%; 
+              overflow: hidden; 
+              display: block; 
+              float: left;
+              vertical-align: top; 
+              margin-bottom: 10px;
+    overflow: hidden;
+    height: 92px;              
+            }
+
+              .hblock-86441 .item-86441:first-child .item-inner-86441 {
+                margin-left: 0;
+              }
+
+              .hblock-86441 .item-inner-86441 {
+                margin-left: 34px;
+              }
+
+            .hblock-86441 .image-86441 {
+                border: none;
+                width: 90px;
+                height: 90px;
+                display: block;
+                float: right; 
+             
+            }
+            .hblock-86441 .wrapper-86441 {
+
+            }
+            .hblock-86441 .wrapper-86441 div {
+
+            }
+            .hblock-86441 .text-86441 {
+
+            }
+            .hblock-86441 .title-86441 a {
+              margin-right: 110px;
+              margin-bottom: 5px;
+              display: block;
+              overflow: hidden;
+              height: 54px;
+                    
+
+              color: #000 !important;
+              font: 16px/18px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none !important; 
+            }
+            .hblock-86441 .text-86441 a{
+              margin-right: 110px;
+              display: block;
+              overflow: hidden;
+              height: 30px;
+
+              color: #000 !important;
+              font: 13px/14px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none !important; 
+            }          
+
+            .hblock-86441 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 400px) {
+      .hblock-86441 .item-86441 {
+        width: 100%; 
+      }
+
+      .hblock-86441 .item-inner-86441 {
+        margin-left: 0px;
+      }      
+    }
+
+
+              
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }
+
+
+
+
+
+
+var cutAnnounce = function(announceText) {
+        /*console.log('announceText', announceText);*/
+
+        var   announceLength = announceText.length,
+              shortAnnounce = '',
+              announceArr = [],
+              lettersCount = 0,
+              maxLength = 30;
+
+        /*console.log('announceLength', announceLength);*/
+
+        if(announceLength <=maxLength) {
+          shortAnnounce = announceText;
+          /*console.log('<=maxLength shortAnnounce:', shortAnnounce);*/
+        } else {
+          /*console.log('>maxLength');*/
+          announceArr = announceText.split(' ');
+          /*console.log('announceArr', announceArr);*/
+
+          var j = 0;
+
+          while (lettersCount <= maxLength) {        
+            if(!announceArr[j]) { 
+              /*console.log('break');  */
+              break; 
+            }; 
+
+            lettersCount += announceArr[j].length;
+            shortAnnounce = shortAnnounce + announceArr[j] + ' ';
+            /*console.log('shortAnnounce part', shortAnnounce);              
+            console.log('lettersCount', lettersCount);              
+            console.log('announceArr[j] after', announceArr[j]);       
+            console.log('-------------'); */      
+
+            j++;
+          }
+
+          /*console.log('while exit ', shortAnnounce);  */
+
+          shortAnnounce = shortAnnounce.trim();
+
+          var shortAnnounceComma = shortAnnounce.substring(shortAnnounce.length - 1, shortAnnounce.length);
+
+          /*console.log(shortAnnounce, 'shortAnnounceComma', shortAnnounceComma);*/
+
+          if(
+            shortAnnounceComma == ',' || 
+            shortAnnounceComma == '-' ||
+            shortAnnounceComma == '—'
+            ) 
+          {
+            shortAnnounce = shortAnnounce.slice(0, -1);
+          };
+
+          /*console.log('shortAnnounce after comma check', shortAnnounce);*/
+
+          var shortAnnounceTail = shortAnnounce.substring(shortAnnounce.length - 3, shortAnnounce.length);
+          /*console.log('shortAnnounceTail', shortAnnounceTail); 
+          console.log('shortAnnounceTail.length', shortAnnounceTail.length); */
+
+          shortAnnounceTail.trim();
+
+          if( shortAnnounceTail != '...' ) {
+            /*console.log('shortAnnounceTail is not ...'); */ 
+            shortAnnounce = shortAnnounce.trim() + '...';    
+            /*console.log('shortAnnounce full', shortAnnounce); */ 
+          } else {
+            /*console.log('shortAnnounceTail is ...');  */
+          };
+
+        };
+
+        /*console.log('========================='); */
+
+        return shortAnnounce;
+      };
+
+      var blockId = 86441;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TEXT
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86441',
+              shortAnnounce = cutAnnounce(model['text']);
+
+          var el = JsAPI.Dom.createDom('div', 'item-86441', [
+            JsAPI.Dom.createDom('div','item-inner-86441', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86441',
+                  'src': model['image'],
+                  'width': '90px',
+                  'height': '90px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86441', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'text-86441', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, shortAnnounce))              
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });

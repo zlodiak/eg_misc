@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+.hblock-86441 {
+              clear: both;
+              margin: 10px 0px;
+              padding-left: 6px;
+              padding-right: 20px;
+
+            }
+
+            .hblock-86441 .header-86441 {
+              margin-bottom: 15px;
+
+              color: #000;
+              font: bold 11px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none;
+            }
+
+
+
+
+            .hblock-86441 .content-86441 {
+              padding: 0;
+              overflow: hidden; 
+              text-align: left;       
+            }          
+
+            .hblock-86441 .item-86441:nth-child(1) {
+              width: 31%;
+            }
+
+            .hblock-86441 .item-86441:nth-child(2) {
+              width: 34.5%;
+            }
+
+            .hblock-86441 .item-86441:nth-child(3) {
+              width: 34%;
+            }                        
+
+            .hblock-86441 .item-86441 {
+              width: 33.3%; 
+              overflow: hidden; 
+              display: block; 
+              float: left;
+              vertical-align: top; 
+              margin-bottom: 10px;
+    overflow: hidden;
+    height: 92px;              
+            }
+
+              .hblock-86441 .item-86441:first-child .item-inner-86441 {
+                margin-left: 0;
+              }
+
+              .hblock-86441 .item-inner-86441 {
+                margin-left: 34px;
+              }
+
+            .hblock-86441 .image-86441 {
+                border: none;
+                width: 90px;
+                height: 90px;
+                display: block;
+                float: right; 
+             
+            }
+            .hblock-86441 .wrapper-86441 {
+
+            }
+            .hblock-86441 .wrapper-86441 div {
+
+            }
+            .hblock-86441 .text-86441 {
+
+            }
+            .hblock-86441 .title-86441 a {
+              margin-right: 110px;
+              margin-bottom: 5px;
+              display: block;
+              overflow: hidden;
+              height: 54px;
+                    
+
+              color: #000 !important;
+              font: 16px/18px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none !important; 
+            }
+            .hblock-86441 .text-86441 a{
+              margin-right: 110px;
+              display: block;
+              overflow: hidden;
+              height: 44px;
+
+              color: #000 !important;
+              font: 13px/14px ALSStory, 'Helvetica CY', Arial, sans-serif;
+              text-decoration: none !important; 
+            }          
+
+            .hblock-86441 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 400px) {
+      .hblock-86441 .item-86441 {
+        width: 100%; 
+      }
+
+      .hblock-86441 .item-inner-86441 {
+        margin-left: 0px;
+      }      
+    }
+
+
+              
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                             
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 1280px; margin: 0 auto;">
+<div class="hblock-86441 clearfix">
+        <div class="header-86441">Новости партнеров</div>
+        <div id="content-86441" class="content-86441"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+var blockId = 86441;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TEXT
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86441';
+
+          var announceArr = model['text'].split(' '),
+              shortAnnounce = '', 
+              lettersCount = 0,
+              wordsCount = announceArr.length;   
+
+          console.log(announceArr, model['text'], wordsCount);
+ 
+
+          for (var j = 0; j < wordsCount; j++) {
+            lettersCount += announceArr[j].length;
+            shortAnnounce = shortAnnounce + announceArr[j] + ' ';
+            console.log(j, lettersCount);
+          }
+
+          shortAnnounce = shortAnnounce.trim() + '...';
+
+          console.log('shortAnnounce', shortAnnounce, '-------');
+
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86441', [
+            JsAPI.Dom.createDom('div','item-inner-86441', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86441',
+                  'src': model['image'],
+                  'width': '90px',
+                  'height': '90px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86441', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'text-86441', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, shortAnnounce))              
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

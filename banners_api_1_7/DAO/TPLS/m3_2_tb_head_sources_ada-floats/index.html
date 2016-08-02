@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+            .hblock-86403 {
+                min-height: 215px;
+            }
+
+            .header-86403{
+                position: relative;     
+                overflow: hidden;   
+                padding-bottom: 10px;       
+              
+                font: 24px lev_serifhandcut, sans-serif;
+                color: #444b51;              
+            }
+
+
+            .hblock-86403 .content-86403 {
+                margin: 0 -11px;
+                overflow: hidden;
+            }          
+
+            .hblock-86403 .item-86403 {
+                width: 33.3%;
+                float: left;
+                overflow: hidden;
+
+                font-family: Arial, sans-serif;               
+            }
+
+              .hblock-86403 .item-inner-86403 {
+                margin: 0 11px;
+              }
+
+            .hblock-86403 .image-86403 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+             
+            }
+
+            .hblock-86403 .title-86403 {
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: normal;
+                color: #444b51 !important;
+                line-height: 18px;
+                font-family: 'Museo Sans 500', sans-serif;
+
+                overflow: hidden;
+                display: block;     
+                padding-top: 10px;
+                cursor: pointer;
+                height: 50px;
+                line-height: 16px;
+                display: block;
+                overflow: hidden;
+
+            }
+
+            .hblock-86403 .domain-86403{
+                text-decoration: none;
+                font-size: 11px;
+                color: #999 !important;
+                line-height: 18px;
+                font-family: 'Museo Sans 500', sans-serif;
+
+                display: block;
+                padding-bottom: 15px;
+            }            
+
+            .hblock-86403 a{
+                text-decoration: none !important;
+                color: #444b51 ;
+            }   
+
+    @media (max-width: 600px) {
+      .hblock-86403 .item-86403 {
+          width: 50%;
+        }
+
+    }
+
+
+    @media (max-width: 365px) {
+  
+    }
+
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                            
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 775px; margin: 0 auto;">
+    <div class="hblock-86403 clearfix">
+        <div class="header-86403">From Around the Web</div>
+        <div id="content-86403" class="content-86403"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+
+    <script>
+var blockId = 86403;
+
+      var count = 6;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86403';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86403', [
+            JsAPI.Dom.createDom('div','item-inner-86403', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86403',
+                  'src': model['image'],
+                  'width': '200px',
+                  'height': '133px'
+              })),
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-86403',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']),              
+              JsAPI.Dom.createDom('a', {
+                  'class': 'domain-86403',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['domain'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

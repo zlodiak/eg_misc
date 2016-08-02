@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-86246 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-86246 {
+              overflow: hidden;
+              position: relative;
+              /*border-top: 2px solid #1D1E33;
+*/            }
+
+/*            .hblock-86246 .header-86246 {
+              background: #ebebeb;
+              margin-bottom: 10px;
+              padding: 0px 10px;
+              margin: 0 0px 10px;
+              height: 33px;
+              display: block;
+
+              color: #4b4d4e;
+              font: 14px/33px BanderaProBold, arial;
+              color: #1D1E33;
+              text-transform: uppercase;
+            }*/
+
+              
+
+
+
+            .hblock-86246 .content-86246 {
+
+            }          
+
+            .hblock-86246 .item-86246:last-child {
+              border-bottom: none;
+            }
+
+            .hblock-86246 .item-86246 {
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 0px 10px; 
+              border-bottom: 1px solid #000;
+              margin-bottom: 10px;
+              height: 90px;
+            }
+
+              .hblock-86246 .item-inner-86246 {
+                overflow: hidden;
+
+              }
+
+            .hblock-86246 .a1-86246 {
+              display: block; 
+              float: left;
+            }
+
+            .hblock-86246 .image-86246 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0px !important;
+              width: 135px;
+              height: 90px;
+                
+             
+            }
+            .hblock-86246 .wrapper-86246 {
+
+            }
+            .hblock-86246 .wrapper-86246 div {
+
+            }
+
+            .hblock-86246 .title-86246 a:hover {
+              text-decoration: none !important;
+              color: #161616 !important;
+            }
+
+            .hblock-86246 .title-86246 a {
+              display: block; 
+              margin-left: 152px; 
+              text-align: left; 
+              overflow: hidden;          
+
+              font-weight: bold;
+              font-size: 18px;
+              line-height: 20px;
+              font-style: normal;
+              text-decoration: none;
+              color: #161616;
+              font-family: ProximaNova-Bold;
+              text-decoration: none !important;
+            }
+
+
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 300px; margin: 0 auto;">
+    <div style="height: 700px; overflow: hidden;">
+      <div id="unit_86246" class="hblock-86246 clearfix">
+          <!-- <div class="header-86246">Новости Миртесен</div> -->
+          <div id="content-86246" class="content-86246"></div>
+      </div>
+    </div>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>     
+      var mtBlockEl = document.getElementById("unit_86246"),
+          wrapBlockEl = document.getElementById("LentaInformScriptRootN12109").parentElement,
+          wrapBlockElHeight = wrapBlockEl.offsetHeight,
+          lentaBlockEl = document.getElementById("LentaInform12109"),
+          lentaBlockElHeight = lentaBlockEl.offsetHeight,          
+
+          
+
+          newsCnt = Math.floor((wrapBlockElHeight - lentaBlockElHeight) / 90);
+
+          
+          /*console.log(mtBlockEl, wrapBlockElHeight, lentaBlockElHeight);*/
+
+      var blockId = 86246;
+
+      var count = newsCnt;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86246';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86246', [
+            JsAPI.Dom.createDom('div','item-inner-86246', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86246',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86246',
+                  'src': model['image'],
+                  'width': '135px',
+                  'height': '90px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86246', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

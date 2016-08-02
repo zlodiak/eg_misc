@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+      <style>
+        .header-82919 {
+          position: relative;
+          border-bottom: 2px solid #000;
+          overflow: hidden;
+          color: #000;
+          font-family: Georgia, Constantia, 'Lucida Bright', 'DejaVu Serif', serif;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: bold;
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+        }
+
+        .list-container-item {
+          overflow: hidden;
+          text-align: center;
+          padding: 0 0px 10px;
+          border-bottom: 1px solid #000;
+          margin-bottom: 10px;
+        }
+
+        .list-container-item .image-82919 {
+          display: block !important;
+          background: none !important;
+          padding: 0 !important;
+          border: none !important;
+          border-radius: 0 !important;
+          width: 100px;
+          height: 90px;
+          float: left;
+        }
+
+        .list-container-item .title-82919 {
+            display: block;
+            /*margin-left: 25px;*/
+            font-family: Calibri,"Helvetica Neue",Arial,sans-serif;
+            font-size: 14px;
+        }
+
+        .list-container-item .title-82919 a {
+          display: block;
+          overflow: hidden;
+          height: 90px;
+          margin-left: 110px;
+          text-align: left !important;
+          color: #000 !important;
+          line-height: 22px;
+          font-family: Curator, sans-serif;
+          font-size: 18px;
+          font-weight: bold;
+          text-decoration: none !important;
+        }
+
+        .list-container-item .clear-82919 {
+            clear: left;
+        }
+      </style>
+
+  </head>
+
+  <body style="background: #fff">
+    <div id="unit_82919"></div>
+
+    <script>
+      JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_82919'),
+        container = JsAPI.Dom.createDom('div', 'container-82919', JsAPI.Dom.createDom('div', 'header-82919', 'Trending News'))
+      );
+
+      parent.setAttribute('id', 'unit_82919_' + ((Math.random() * 10e6) >> 0));
+
+      var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-82919',
+                'src': model['image']
+            })),
+            JsAPI.Dom.createDom('div', 'title-82919', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear-82919')
+        ]));
+      };  
+
+      JsAPI.Ui.ListBlock({
+          'page_size': 5,
+          'max_page_count': 1,
+          'parent_element': parent,
+          'properties': undefined,
+          'item_content_renderer': item_content_renderer,
+          'block_id': 82919,
+          'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+      }, function (block) {}, function (reason) {});  
+
+
+    </script>
+  </body>
+</html>

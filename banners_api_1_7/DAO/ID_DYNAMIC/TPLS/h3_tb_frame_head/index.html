@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+      <style>
+      @font-face {
+        font-family: 'Open Sans';
+        src: url(//static.smi2.net/static/blocks/fonts/open_sans/regular/opensans-regular-webfont.ttf); 
+      }
+
+
+
+        .header-86498 {
+          display: block;
+          height: 30px;
+          background: #f1f1f1;
+          margin-right: 5px;   
+
+          font-family: 'Open Sans', sans-serif;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: bold;
+          font-size: 12px;
+          color: #999;
+          line-height: 30px;
+        }
+
+      
+
+        .container-86498{
+          overflow: hidden;
+          padding: 0px 10px 0px;  
+          background: #f1f1f1;  
+          margin-right: 5px;   
+          margin-bottom: 20px;       
+        }
+
+        .list-container {
+          overflow: hidden;
+          margin: 0 -5px;
+        }
+
+        .list-container-item {
+          overflow: hidden;
+          width: 33.3%; 
+          float: left;
+          padding-bottom: 20px;
+
+          vertical-align: top;
+        }
+
+          .item-inner-86498{
+            margin: 0 5px;
+          }
+
+            .list-container-item .image-86498 {
+              display: block;
+              width: 100%;
+              height: auto;
+            }
+
+            .list-container-item .title-86498 {
+                display: block;
+
+            }
+
+            .list-container-item:hover .title-86498 a {
+              text-decoration: none !important;
+              color: #0967d6 !important;
+            }
+
+            .list-container-item .title-86498 a {
+              display: block;
+              overflow: hidden;
+              margin-top: 10px;
+
+              color: #070c1b;
+              font-family: 'Open Sans', sans-serif;
+              font-size: 15px;
+              font-style: normal;
+              font-variant: normal;
+              font-weight: 600;
+              text-decoration: none !important; 
+              text-align: left;
+            }
+
+        .list-container-item .clear-86498 {
+            clear: left;
+        }
+
+
+    @media (max-width: 560px) {
+      .sk_item_86498{
+        width: 100%;
+      }  
+
+      .sk_wrap_86498{
+        margin-right: 0;
+      }
+
+      .item-inner-86498 > a{
+        float: left;
+        width: 40%;
+        height: auto;
+        margin-right: 10px;
+      }
+
+      .list-container-item{
+        width: 100%;
+        padding-bottom: 10px;
+      }      
+
+      .list-container-item .title-86498 a {
+        margin-top: 0px;
+        margin-left: 10px;
+
+        display: flex !important;
+        align-items: center !important;
+        height: 90px !important;        
+      }
+
+      .container-86498{
+        overflow: hidden;
+        padding: 0px;    
+      }      
+    }         
+      </style>
+
+  </head>
+
+  <body style="max-width: 740px;">
+
+  <div class="unit_86498_wrap" id="unit_86498"></div>
+
+    <script>
+      JsAPI.Dom.appendChild(JsAPI.Dom.getElement('unit_86498'), JsAPI.Dom.createDom('div', 'header-86498', 'У партнеров'));
+
+      JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_86498'),
+        container = JsAPI.Dom.createDom('div', 'container-86498', undefined)
+      );
+
+      
+
+      var idRandom = 'unit_86498_' + ((Math.random() * 10e6) >> 0);
+
+      parent.setAttribute('id', idRandom);
+
+      var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-inner-86498', [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-86498',
+                'src': model['image'], 
+                'width': '173px',
+                'height': '90px'                
+            })),
+            JsAPI.Dom.createDom('div', 'title-86498', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear-86498')
+        ]));
+      };  
+
+      JsAPI.Ui.ListBlock({
+          'page_size': 3,
+          'max_page_count': 1,
+          'parent_element': parent.getElementsByClassName('container-86498')[0],
+          'properties': undefined,
+          'item_content_renderer': item_content_renderer,
+          'block_id': 86498,
+          'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+      }, function (block) {}, function (reason) {});  
+
+
+    </script>
+  </body>
+</html>

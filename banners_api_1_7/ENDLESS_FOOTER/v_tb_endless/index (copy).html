@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.7.3.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script>-->
+
+    <style>
+
+
+        #container {
+            overflow: hidden;
+            margin: 0;
+            padding: 15px 0;
+
+        }
+
+
+        #container .list-container-item {
+            overflow: hidden;
+            width: 100%;
+            padding-bottom: 20px;
+
+            vertical-align: top;
+        }
+        #container .list-container-item-hover {
+
+        }
+        #container .sk_img {
+          display: block;
+          position: relative;
+        },
+
+            #container .sk_text_out{
+              position: absolute;
+              left: 0;
+              right: 0px;
+              bottom: 0;
+              background-color: rgb(79, 79, 79);
+                background-color: rgba(0, 0, 0, 0.6);
+              overflow: hidden;    
+              z-index: 1000;  
+              padding: 10px 12px 15px 14px;
+            }
+
+
+                #container .sk_text {
+                  display: block;              
+                  max-height: 63px;  
+                  overflow: hidden;    
+
+                  font-family: Raleway, sans-serif;
+                  font-size: 14px;
+                  font-weight: 300;
+                  color: #fff !important;
+                  text-decoration: none !important; 
+                }
+
+            #container .list-container-item .image {
+                display: block;
+                border: none;
+                width: 100%;
+                height: auto;
+            }
+        #container .list-container-item .title {
+            display: block;
+        }
+        #container .list-container-item .title a {
+
+        }
+        #container .list-container-item .title a:hover {
+            color: #fff !important;
+            text-decoration: none !important; 
+        }
+        #container .list-container-item .clear {
+            clear: left;
+        }
+    </style>
+</head>
+<body style="max-width: 600px;">
+<div id="container">
+    <!-- <div id="header">Актуальные новости</div> -->
+</div>
+<script type="text/javascript">
+    /* Установка домена */
+//    JsAPI.Config.setDomain('127.0.0.1:8080');
+//    JsAPI.Config.setDomain('outlet.dev.smi2.net');
+
+    /**
+     * Размер страницы (количество) загружаемых элементов
+     *
+     * @type {number}
+     */
+    var page_size = 6;
+
+    /**
+     * Максимальное количество загружаемых страниц элементов
+     *
+     * @type {number}
+     */
+    var max_page_count = Infinity;
+
+    /**
+     * Родительский элемент контейнера
+     *
+     * @type {HTMLElement}
+     */
+    var parent_element = JsAPI.Dom.getElement("container");
+
+    /**
+     * Настройки блока
+     *
+     * @type {*}
+     */
+    var properties = undefined;
+
+    /**
+     * Callback-функция рендера содержимого элемента
+     *
+     * @type {function(HTMLElement, *, number)}
+     */
+    var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'class': 'sk_img',
+                'target': '_blank'
+            }, 
+                JsAPI.Dom.createDom('div', 
+                    {
+                        'class': 'sk_text_out',
+                        'id': 'sk_text_out'
+                    },
+                    JsAPI.Dom.createDom('span', { 'class': 'sk_text' }, model['title'])
+                ),
+            JsAPI.Dom.createDom('img', {
+                'class': 'image',
+                'src': model['image']
+            })),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    /**
+     * Идентификатор блока
+     *
+     * @type {number}
+     */
+    var block_id = 83544;
+
+    /**
+     * Маска требуемых параметров (полей) статей
+     *
+     * @type {number|undefined}
+     */
+    var opt_fields = JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE;
+
+    /**
+     * Создание list-блока
+     */
+    JsAPI.Ui.ListBlock({
+        'page_size': page_size,
+        'max_page_count': max_page_count,
+        'parent_element': parent_element,
+        'properties': properties,
+        'item_content_renderer': item_content_renderer,
+        'block_id': block_id,
+        'fields': opt_fields
+    }, function (block) {}, function (reason) {alert('Error: ' + reason);});
+
+</script>
+</body>
+</html>

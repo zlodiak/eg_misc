@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+#mediametrics-85397 {
+                    margin: 10px 0;
+            }
+
+            #mediametrics-85397 .wrap-85397 {
+              overflow: hidden;
+              position: relative;
+            }
+
+            #mediametrics-85397 .header-85397 {
+                display: block;
+                text-decoration: none;
+                font-size: 14px;
+                color: #000;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin: 0 0px;
+                position: relative;
+                font-family: arial, sans-serif;
+            }
+
+
+            #mediametrics-content-85397{
+                padding: 10px 0px 0;
+                border-top: none;               
+            }
+
+            #mediametrics-85397 .item-85397 {
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 0px 10px; 
+            }
+
+            #mediametrics-85397 .item-85397 .a1-85397 {
+                display: block; 
+                float: left;
+                width: 16px;
+                height: 16px;
+                overflow: hidden;
+            }
+
+            #mediametrics-85397 .image-85397 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0 !important;   
+                width: 16px;
+                height: 16px;
+            }
+
+            #mediametrics-85397 .title-85397:hover {
+            text-decoration: underline;
+            color: rgb(0, 0, 0);
+            }
+
+            #mediametrics-85397 a {
+                text-decoration: none !important;
+                color: #000 !important;
+            }
+
+            #mediametrics-85397 .title-85397 {
+                display: block; 
+                margin-left: 26px;  
+                text-align: left; 
+                 overflow: hidden;
+
+
+                color: rgb(0, 0, 0);
+                font: 14px arial, sans-serif;
+                text-decoration: none;  
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 457px; ">
+<div id="mediametrics-85397">
+            <div class="wrap-85397">
+                <div class="header-85397">Mediametrics</div>
+                <div id="mediametrics-content-85397"></div>
+            </div>
+        </div>
+
+        <script>
+JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 30
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [
+                    'Секс',
+                    'изнасил',
+                    'педофил',
+                    'маньяк',
+                    'фекали',
+                    'говно',
+                    'дерьмо',
+                    'соврат',
+                    'совращ',
+                    'порно',
+                    'обнажен',
+                    'полуобнажен',
+                    'геи',
+                    'гей',
+                    'лесби',
+                    'проститут',
+                    'шлюх',
+                    'девствен',
+                    'мразь',
+                    'урод',
+                    'придур',
+                    'стерв',
+                    'любовн',
+                    'постель',
+                    'голый',
+                    'голая',
+                    'голые',
+                    'голы',
+                    'оголя',
+                    'жлоб',
+                    'презерватив'
+                ];
+                var stop_sources = [
+                    'life.ru',
+                    'tvrain.ru'
+                ];
+
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+
+                    return false;
+                }
+
+                function stopSourcesFilter(stop_sources, source) { 
+                    for (var i = 0, len = stop_sources.length; i < len; i++) {  
+                        if (source.indexOf(stop_sources[i]) != -1) return true;
+                    }
+
+                    return false;
+                }                
+
+                var parent = dom.getElement('mediametrics-content-85397');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 30; i++) {
+                    var model = payload[i];
+                    var link = model['link'].replace(new RegExp("online",'g'),"hour");
+/*                    console.log(model['link']);
+                    console.log(link);*/
+
+                    if(stopWordsFilter(stop_words, model['title'])) continue;
+                    if(stopSourcesFilter(stop_sources, model['source'])) continue;
+                    if(count >= 6) { break };
+
+                    dom.appendChild(parent, dom.createDom('div', 'item-85397', [
+                        dom.createDom('a', {
+                            'href': link,
+                            'class': 'a1-85397',
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image-85397',
+                            'src': model['favicon']
+                        })),
+                        dom.createDom('a', {
+                            'href': link,
+                            'target': '_blank'
+                        }),
+                        dom.createDom('a', {
+                            'href': link,
+                            'class': 'title-85397',
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title-inner-85397', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                    ]));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

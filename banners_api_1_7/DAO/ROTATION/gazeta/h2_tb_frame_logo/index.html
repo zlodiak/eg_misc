@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+    .sk_wrap_outer_86360{
+      margin: 20px 0px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+      outline: 1px solid #EAEAEA;    
+      background: #fff;  
+      clear: both;
+    }
+
+      .sk_wrap_86360{
+        overflow: hidden;
+        padding: 10px 10px 0;
+
+
+      }
+
+
+        .sk_head_86360{
+          margin-bottom: 7px;
+        }
+
+
+
+          .sk_items_86360{
+            overflow: hidden;
+            margin: 0 0px;
+
+          }
+
+
+
+            .sk_item_86360{
+              overflow: hidden;
+              float: left;
+              width: 50%;
+              position: relative;
+              padding-bottom: 10px;
+
+              vertical-align: top;
+            }
+
+              .sk_item_inner_86360 {
+                margin: 0 0px 0px;
+                display: block;
+              }
+
+                .sk_img_86360{
+                  display: block;
+                  float: left;
+                }
+
+                  .sk_img_86360 img{
+                    display: block;
+                    width: 110px;
+                    height: 90px;
+                  }
+
+                .sk_text_86360:hover{
+                  text-decoration: none !important;
+                  color: rgb(51, 51, 51) !important;
+                }
+
+                .sk_text_86360{
+                  display: block;
+                  margin-left: 120px !important;
+                  margin-right: 10px !important;
+
+                  text-decoration: none !important;
+                  color: rgb(51, 51, 51) !important;
+                  font-family: 'PT Serif', serif;
+                  font-size: 16px;
+                  font-weight: normal;
+                  line-height: 20px;   
+                  text-decoration: none;                
+                } 
+
+
+
+
+                  
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 820px; min-width: 680px; ">  
+    <div class="sk_wrap_outer_86360">    
+      <div class="sk_wrap_86360" id="skWrap_86360">
+        <div class="sk_head_86360" id="skHead_86360">
+          <img src="//static.smi2.net/srcimg/2797598.png" width="130px" alt="" />
+        </div>
+
+          <div id="content-86360" class="content-86360 sk_items_86360"></div>
+      </div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+        var percent = 1;
+        var blockId;
+
+        if (Math.random() <= percent) {
+            /*console.log('ria');*/
+            blockId = 84273;
+        } else {
+            /*console.log('RG');*/
+            blockId = 83655;
+        };
+
+        var count = 2;
+
+        var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Dao.getNews({
+            'block_id': blockId,
+            'count': count,
+            'fields': fields
+        }, function (payload) {
+          for (var i = 0, len = payload.length; i < len; i++) {
+            var model = payload[i],
+                id_parent_block = 'content-86360';
+
+            var el = JsAPI.Dom.createDom('div', {
+                    'id': 'it_' + i,
+                    'class': 'sk_item_86360'
+                }, [
+              JsAPI.Dom.createDom('div','sk_item_inner_86360', [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'class': 'sk_img_86360',
+                    'target': '_self'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image-86360',
+                    'src': model['image'],
+                    'width': '110px',
+                    'height': '90px'
+                })),              
+                JsAPI.Dom.createDom('a', {
+                    'class': 'sk_text_86360',
+                    'href': model['url'],
+                    'target': '_self'
+                }, model['title'])
+              ]) 
+            ]);
+
+            JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+          }                
+        }, function (reason) {   });     
+
+        if(blockId == 83655) {  /* Блок RG */
+/*          var headEl = document.getElementById('skHead_86360');
+          headEl.innerHTML = 'Российская газета';    */  
+        } else {  /* Блок ria */ 
+
+
+
+
+        };
+
+    </script>
+  </body>
+</html>

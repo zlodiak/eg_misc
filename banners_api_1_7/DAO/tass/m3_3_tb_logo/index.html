@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+#smi2adblock_77547 .b-other-news .b-other-news-item__title{
+          text-decoration: underline !important;
+        }
+
+        #smi2adblock_77547 .b-other-news .b-other-news-item__title:hover{
+          text-decoration: none !important;
+        }  
+
+
+        #smi2adblock_77547 .b-other-news-item{
+          width: 159px !important;
+        }
+
+        @media (max-width: 768px) {
+          #smi2adblock_77547 .b-other-news-item {
+            width: auto !important; 
+          }
+        }
+
+#smi2adblock_77547 img {
+/*display: block !important;*/
+}
+
+                              
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 700px; margin: 0 auto;">
+<div class="b-other-news">
+         <img src="//static.smi2.net/srcimg/2370180.png" width="70px" alt="" style="float: left; float: right; margin-bottom: 10px; margin-right: 12px;" />
+
+        <div  class=" b-other-news__content" style="clear: both;">
+          <div class="b-other-news__title"> </div>
+             <div class="b-other-news__list content-77547" id="content-77547"></div>
+        </div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>      
+      var blockId = 77547;
+
+      var count = 12;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-77547';
+          
+          var el = JsAPI.Dom.createDom('div', 'b-other-news-item', [
+            JsAPI.Dom.createDom('div','b-other-news-item__l', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'b-other-news-item__pic',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-77547',
+                  'src': model['image'],
+                  'width': '142px',
+                  'height': '97px'
+              }))
+            ]),
+            JsAPI.Dom.createDom('div', 'b-other-news-item__r', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'class': 'b-other-news-item__title', 
+                'target': '_blank'
+            }, model['title']))             
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

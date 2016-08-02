@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            .hblock-86404 {
+                margin: 15px 0;
+                position: relative;
+            }
+
+            .hblock-86404 .header-86404 {
+                font-family: LytigaC, Tahoma, Verdana, Helvetica, Arial, sans-serif;;
+                font-size: 30px;
+                font-style: normal;
+                font-variant: normal;
+                line-height: 36px;
+                color: #383838;
+                text-transform: uppercase;
+
+                position: relative;
+                    padding-bottom: 10px;
+            }
+
+            .hblock-86404 .content-86404 {
+                min-height: 284px;
+            }
+
+            .hblock-86404 .item-86404:hover {
+
+            }
+
+            .hblock-86404 .item-86404 {
+             
+            }
+
+
+            .a1-86404{
+                border-radius: 5px; 
+                border: 1px solid #999;  
+                display: block;   
+                margin-bottom: 7px;
+                overflow: hidden;
+            }
+
+            .hblock-86404 .image-86404 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto ;     
+    
+            }
+            .hblock-86404 .wrapper-86404 {
+            }
+            .hblock-86404 .wrapper-86404 div {
+
+            }
+            .hblock-86404 .title-86404 a {
+                text-decoration: none;
+                display: block;
+                height: 66px;
+                overflow: hidden;
+
+                font-family: BlogSans, Tahoma, Verdana, Helvetica, Arial, sans-serif !important;       
+                font-size: 17px !important;   
+                line-height: 20px;    
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: normal;
+                color: #0f0f0f !important;       
+            }
+            .hblock-86404 .title-86404 a:hover {
+                text-decoration: none !important;       
+                color: #0f0f0f !important;       
+            }
+
+            .hbutton-86404{
+                position: absolute;
+                top: 89px;
+                z-index: 200;   
+
+                font-size: 100px;
+                color: #fff;
+                font-weight: 100;
+                cursor: pointer;
+            }
+
+            .hbutton-forward-86404{
+                left: 20px;
+            }
+
+
+            .hbutton-back-86404{
+                right: 20px;
+            }
+
+        </style>
+
+    </head>
+
+    <body style="max-width: 970px;">
+        <div class="hblock-86404">
+            <div class="header-86404">Новости МирТесен</div>
+            <div id="container-86404" class="content-86404"></div>
+            <div id="hbutton-back-86404" class="hbutton-86404 hbutton-back-86404">&#9002;</div>
+            <div id="hbutton-forward-86404" class="hbutton-86404 hbutton-forward-86404">&#9001;</div>            
+        </div>
+
+        <script>
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-86404");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 250, "height": 250}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 15, "right": 15}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#f0f1f2",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-86404', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'class': 'a1-86404',
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-86404',
+                                'src': model['image'],
+                                'width': '280px',
+                                'height': '200px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-86404', [
+                                JsAPI.Dom.createDom('div', 'title-86404', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 86404;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-86404'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-86404'), 'click', function () {
+                    block.scrollForward();
+                });
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

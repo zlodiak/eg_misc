@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+            .hblock-86445 {
+                margin: 20px 10px;
+                overflow: hidden;
+            }
+
+            .head-86445 {
+              color: #005f91;
+              font: bold 24px 'Roboto Condensed', sans-serif;
+              text-decoration: underline;
+
+              padding-bottom: 20px;
+            }
+
+            .hblock-86445 .content-86445 {
+                /*width: 1000px;*/
+                height: 170px;
+                overflow: hidden;
+                /*border: 1px solid #FBE5C0 !important;*/
+            }
+
+            .hblock-86445 .item-86445:hover {
+
+            }
+
+            .hblock-86445 .item-86445 {
+                font-family: Arial, sans-serif;
+                padding-bottom: 20px;        
+            }
+            .hblock-86445 .image-86445 {
+                float: left;
+                width: 86px;
+                height: 64px;
+                display: block;
+                margin-right: 10px;           
+            }
+            .hblock-86445 .wrapper-86445 {
+            }
+            .hblock-86445 .wrapper-86445 div {
+
+            }
+            .hblock-86445 .title-86445 a {
+                  text-align: left; 
+                  font-size: 14px;
+                  line-height: 20px;
+                  font-family: 'Roboto Condensed', sans-serif;
+                  font-style: normal;
+                  font-weight: normal;
+                  color: #005f91;
+                  text-decoration: none !important;  
+
+                height: 64px;
+                overflow: hidden;
+                display: block;           
+            }
+            .hblock-86445 .title-86445 a:hover {
+                text-decoration: none !important;
+                color: rgb(51, 51, 51) !important;     
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body style="width: 700px; ">        
+        <div class="hblock-86445">                  
+            <div class="head-86445"> Новости СМИ2</div>                
+            <div id="container-86445" class="content-86445"></div>
+        </div>
+<!--         <button id="hbutton-back-86445" class="hbutton-86445">Назад</button>
+        <button id="hbutton-forward-86445" class="hbutton-86445">Вперед</button> -->
+        <script>
+            /*JsAPI.Config.setDomain('news.fark.com');*/
+
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-86445");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 300, "height": 60}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 10}
+                },
+                "scroll": {
+                    "size": 4,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#005f91",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 2, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-86445', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-86445',
+                                'src': model['image'],
+                                'width': '86px',
+                                'height': '64px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-86445', [
+                                JsAPI.Dom.createDom('div', 'title-86445', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 86445;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-86445'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-86445'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

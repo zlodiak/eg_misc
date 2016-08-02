@@ -1,0 +1,114 @@
+5
+100
+90
+
+1.6.4
+
+
+<div></div>
+
+
+
+
+
+
+
+
+
+
+.container_82919 .header {
+        position: relative;
+        border-bottom: 2px solid #000;
+        overflow: hidden;
+        color: #000;
+        font-family: Georgia, Constantia, 'Lucida Bright', 'DejaVu Serif', serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+}
+
+
+
+.container_82919 .list-container-item {
+          overflow: hidden; 
+          text-align: center; 
+          padding: 0 0px 10px; 
+          border-bottom: 1px solid #000;
+          margin-bottom: 10px;
+}
+.container_82919 .list-container-item .image {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0 !important;
+width: 100px;
+height: 90px;
+float: left;
+}
+.container_82919 .list-container-item .title {
+
+}
+.container_82919 .list-container-item .title a {
+            display: block;
+            overflow: hidden;
+            height: 90px;
+            margin-left: 110px;
+            text-align: left !important;
+            color: #000 !important;
+            line-height: 22px;
+            font-family: Curator, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none !important;
+}
+.container_82919 .list-container-item .clear {
+    clear: left;
+}
+
+
+
+
+
+
+
+var parent, container;
+
+JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_82919'),
+        container = JsAPI.Dom.createDom('div', 'container_82919', JsAPI.Dom.createDom('div', 'header', 'Trending News')));
+
+parent.setAttribute('id', 'unit_82919_' + ((Math.random() * 10e6) >> 0));
+
+JsAPI.Ui.ListBlockFactory.create(
+        5,
+        1,
+        container,
+        undefined,
+        function (parent, model, index) {
+            JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image',
+                    'src': model['image']
+                })),
+                JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, model['title'])),
+                JsAPI.Dom.createDom('div', 'clear')
+            ]));
+        },
+        82919,
+        JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+).then(function (block) {}, function (reason) {});
+
+
+
+
+
+

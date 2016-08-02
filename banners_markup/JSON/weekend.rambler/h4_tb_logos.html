@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>rambler horizontal json 83773</title>
+        <meta content='width=device-width' name='viewport'>
+    </head>
+
+    <body>
+        <div>
+            <style>           
+                #sk_wrap_83773{
+                    max-width: 824px;    
+                    overflow: hidden;
+                    margin: 0 -10px;  
+
+                    text-align: center;     
+                } 
+
+                    .sk_item_83773{ 
+                        margin-bottom: 10px;
+                        display: block;          
+                        overflow: hidden;   
+                        width: 25%;
+                        float: left;
+
+                        vertical-align: top;       
+                    }
+
+                        .sk_item_inner_83773{ 
+                            margin: 0 10px;
+                            
+                        }
+
+                            .sk_item_inner_83773 a .title
+                            .sk_item_inner_83773 a{
+                                text-decoration: none;
+                                color: rgb(0, 0, 0);
+                                position: relative;
+                            }
+
+                            .sk_item_inner_83773 a:hover .title
+                            .sk_item_inner_83773 a:hover{
+                                text-decoration: none;
+                                color: rgb(0, 0, 0);
+                                
+                            }                        
+
+
+                                .sk_item_83773 .sk_img_83773{
+                                    display: block;
+                                    float: left;
+                                    position: relative;
+                                }   
+
+                                    .sk_item_83773 .sk_img_83773 img{
+                                        display: block;
+                                        margin-bottom: 12px;
+                                        width: 100%;
+                                        height: auto;
+                                    }
+
+                                .sk_item_83773 .sk_title_83773{
+                                    display: block;    
+
+                                    color: rgb(0, 0, 0);
+                                    font-family: 'Proxima Nova Regular', Arial, sans-serif;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    line-height: normal;
+                                    text-align: left;
+                                    text-decoration: none;
+                                }                                              
+            </style>
+            <div id='sk_wrap_83773'></div>
+        </div>
+
+        <script>
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{
+                // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    var massive = JSON.parse(xmlhttp.responseText),
+                        massiveLength = massive.news.length;
+
+                    //console.log(massive);
+                    //console.log(massiveLength);
+
+                    var _doc = document;   
+                    var _sk_wrap0 = _doc.getElementById('sk_wrap_83773');
+                                
+                    for (var i = 0; i < massiveLength; i++) {
+                        var _sk_wrap = _doc.createElement("div");
+                        _sk_wrap.className = 'sk_item_83773';
+
+                        //console.log(massive.news[i].url);
+                        //console.log(massive.news[i].img);
+                        //console.log(massive.news[i].title);
+
+                        _sk_wrap.innerHTML = '<div class="sk_item_inner_83773"><a href="' + massive.news[i].url + '" class="sk_img_83773"><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '"><img src="//static.smi2.net/static/logo/smi2.png" style="border: 1px solid #fff; position: absolute; left: 15px; bottom: -7px; background: #fff; border-radius: 10px; width: 54px; height: 16px;" /></a><a href="' + massive.news[i].url + '" class="sk_title_83773">' + massive.news[i].title + '</a></div>';      
+
+                        _sk_wrap0.appendChild(_sk_wrap);
+                    }                
+                }
+            }
+
+            xmlhttp.open("GET","//smi2.ru/data/js/86285.js",true);
+            xmlhttp.send();
+        </script>
+    </body>
+</html>

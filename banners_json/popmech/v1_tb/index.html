@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>popmech</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+</head>
+
+<body style="background: #ccc;">
+<div>
+    <style>
+        #sk_wrap0{
+            width: 240px; 
+            background: #fff;
+        }
+
+            #sk_wrap{
+                overflow: hidden;
+            }   
+
+                .sk_item{
+                    overflow: hidden; 
+                    width: 220px;
+                    margin: 10px auto;
+                }
+
+                    .sk_a1{
+                        display: inline-block; 
+                                                
+                    }
+
+                        .sk_a1 img{
+                            width: 220px;
+                            height: 165px;
+                            margin: 0 auto;
+                        }
+
+                    .sk_a2:hover{
+                        text-decoration: none;
+                        color: #f32600!important;
+                    }
+
+                    .sk_a2{
+                        display: block; 
+                        padding-top: 10px;
+                        height: 80px;
+
+                        color: #000;
+                        font-family: 'Ubuntu Condensed', Arial, sans-serif;
+                        font-size: 22px;
+                        line-height: 20px;            
+                        text-decoration: none;         
+                    }   
+
+                                                
+    </style>
+    <div id='sk_wrap0'></div>
+</div>
+
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                var massive = JSON.parse(xmlhttp.responseText);
+
+/*                console.log(massive.news[0].id);
+                console.log(massive.news[0].img);
+                console.log(massive.news[0].title);
+                console.log(massive.news[0].url);*/
+
+                var _doc = document;   
+
+                var _sk_wrap0 = _doc.getElementById('sk_wrap0');
+                
+                var _sk_wrap = _doc.createElement("div");   
+                _sk_wrap.id = 'sk_wrap';      
+                _sk_wrap.innerHTML = '<div class="sk_item" style=""> \
+                    <a class="sk_a1" href="' + massive.news[0].url + '" target="_blank" style="  "> \
+                        <img src="' + massive.news[0].img +'" width="160" height="120" style="" /> \
+                    </a> \
+                    <a class="sk_a2" href="' + massive.news[0].url + '" target="_blank" style=" ">' + massive.news[0].title + '</a> \
+                </div>';      
+
+                _sk_wrap0.appendChild(_sk_wrap);
+            }
+        }
+
+        xmlhttp.open("GET","//smi2.ru/data/js/86222.js",true);
+        xmlhttp.send();
+
+    </script>
+</body>
+</html>

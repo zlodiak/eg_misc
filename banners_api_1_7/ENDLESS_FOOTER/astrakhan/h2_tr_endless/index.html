@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            #container-86226 {
+                max-width: 1140px;
+                border: 1px solid #eee;
+                border-bottom: none;
+            }
+
+/*            #container-86226 #header {
+                background-color: lightslategray;
+                color: white;
+                font-family: Arial, sans-serif;
+                padding: 10px;
+            }*/
+
+            #container-86226 .list-container-item {
+
+                padding: 6px 0;
+                float: left;
+                width: 50%;
+            }
+            #container-86226 .list-container-item-hover {
+                background-color: #f3fafd;
+            }
+            #container-86226 .list-container-item .image-86226 {
+                display: block;
+                float: left;
+                margin-top: 2px;
+                margin-right: 5px;
+                border: none;
+                width: 120px;
+                height: 120px;
+            }
+            #container-86226 .list-container-item .title-86226 {
+                display: block;
+                margin-left: 25px;
+            }
+            #container-86226 .list-container-item .title-86226 a {
+                display: block;
+                overflow: hidden;
+                height: 114px;            
+
+                text-decoration: underline;
+                color: #252525;
+                font: 12px/16px Arial, Helvetica, sans-serif;
+            }
+            #container-86226 .list-container-item .title-86226 a:hover {
+                color: #252525;
+            }
+            #container-86226 .list-container-item .clear-86226 {
+                clear: left;
+            }
+
+    @media (max-width: 768px) {
+        #container-86226 .list-container-item {
+            float: none;
+            width: 100%;
+        }
+    }        
+        </style>
+    </head>
+
+    <body style="max-width: 1140px; margin: 0 auto">
+        <div id="container-86226"></div>
+
+        <script type="text/javascript">
+            /* Установка домена */
+        //    JsAPI.Config.setDomain('127.0.0.1:8080');
+        //    JsAPI.Config.setDomain('outlet.dev.smi2.net');
+
+            /**
+             * Размер страницы (количество) загружаемых элементов
+             *
+             * @type {number}
+             */
+            var page_size = 30;
+
+            /**
+             * Максимальное количество загружаемых страниц элементов
+             *
+             * @type {number}
+             */
+            var max_page_count = Infinity;
+
+            /**
+             * Родительский элемент контейнера
+             *
+             * @type {HTMLElement}
+             */
+            var parent_element = JsAPI.Dom.getElement("container-86226");
+
+            /**
+             * Настройки блока
+             *
+             * @type {*}
+             */
+            var properties = undefined;
+
+            /**
+             * Callback-функция рендера содержимого элемента
+             *
+             * @type {function(HTMLElement, *, number)}
+             */
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-86226',
+                        'src': model['image']
+                    })),
+                    JsAPI.Dom.createDom('div', 'title-86226', JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title'])),
+                    JsAPI.Dom.createDom('div', 'clear-86226')
+                ]));
+            };
+
+            /**
+             * Идентификатор блока
+             *
+             * @type {number}
+             */
+            var block_id = 86226;
+
+            /**
+             * Маска требуемых параметров (полей) статей
+             *
+             * @type {number|undefined}
+             */
+            var opt_fields = JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE;
+
+            /**
+             * Создание list-блока
+             */
+            JsAPI.Ui.ListBlock({
+                'page_size': page_size,
+                'max_page_count': max_page_count,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {}, function (reason) {});
+
+        </script>
+    </body>
+</html>

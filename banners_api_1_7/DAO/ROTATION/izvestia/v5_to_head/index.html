@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+    .sk_wrap_outer_85724{
+      margin: 20px 0px;
+      clear: both;
+      overflow: hidden;
+    }
+
+      .sk_wrap_85724{
+        overflow: hidden;
+
+
+      }
+
+
+        .sk_head_85724{
+          color: #000;
+          font: bold 14px arial, sans-serif;
+          padding: 10px 0;
+          margin: 0;
+          text-transform: uppercase;
+        }
+
+
+
+          .sk_items_85724{
+            overflow: hidden;
+
+          }
+
+
+
+            .sk_item_85724{
+                overflow: hidden;
+                position: relative;
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+              .sk_item_inner_85724 {
+                display: block;
+              }
+
+                .sk_img_85724{
+                  display: none !important;
+                  overflow: hidden;
+                }
+
+                  .sk_img_85724 img{
+                    display: none !important;
+                  }
+
+                .sk_text_85724:hover{
+                  text-decoration: none !important;
+                  color: #000  !important;
+                }
+
+                .sk_text_85724{
+                  display: block;
+                  text-decoration: none !important;
+                  color: #000 !important;
+                  font: 14px arial, sans-serif;
+                  text-decoration: none;
+                  overflow: hidden;                
+                } 
+
+
+
+                  
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 340px; min-width: 100px; ">  
+    <div class="sk_wrap_outer_85724">    
+      <div class="sk_wrap_85724" id="skWrap_85724">
+        <div class="sk_head_85724" id="skHead_85724">Выбор редакции</div>
+          <div id="content-85724" class="content-85724 sk_items_85724"></div>
+      </div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+        var percent = 1;
+        var blockId;
+
+        if (Math.random() <= percent) {
+            /* Блок smi2 */ 
+            /*console.log('smi2');*/
+            blockId = 85723;
+        } else {
+            /* Блок RG */
+            /*console.log('RG');*/
+            blockId = 85724;
+        };
+
+        var count = 5;
+
+        var fields =  JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Dao.getNews({
+            'block_id': blockId,
+            'count': count,
+            'fields': fields
+        }, function (payload) {
+          for (var i = 0, len = payload.length; i < len; i++) {
+            var model = payload[i],
+                id_parent_block = 'content-85724';
+
+            var el = JsAPI.Dom.createDom('div', {
+                    'id': 'it_' + i,
+                    'class': 'sk_item_85724'
+                }, [
+              JsAPI.Dom.createDom('div','sk_item_inner_85724', [             
+                JsAPI.Dom.createDom('a', {
+                    'class': 'sk_text_85724',
+                    'href': model['url'],
+                    'target': '_self'
+                }, model['title'])
+              ]) 
+            ]);
+
+            JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+          }                
+        }, function (reason) {   });     
+
+        if(blockId == 85724) {  /* Блок RG */
+          var headEl = document.getElementById('skHead_85724');
+          headEl.innerHTML = 'Российская газета';  
+        } else {  /* Блок smi2 */ 
+
+        };
+
+    </script>
+  </body>
+</html>

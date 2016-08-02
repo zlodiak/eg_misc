@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <style>
+            .hblock-85292 {
+                margin: 20px auto !important;  
+                overflow: hidden;
+                text-align: center;
+            }
+
+            .header_outer-85292{
+              position: relative;
+              overflow: hidden;
+              padding-bottom: 10px;
+            }
+
+            .header-line-85292{
+              position: absolute;
+              height: 1px;
+              left: 0;
+              right: 0;
+              top: 13px;
+              background-color: #e5e5e5;
+            }
+
+            .hblock-85292 .header-85292 {
+                position: relative;     
+                overflow: hidden;     
+                z-index: 100; 
+
+  
+              
+                font: 27px "DomaineDisplayCyr-BlackItalic", Georgia, serif;
+                line-height: 27px;
+                padding: 0 5px;
+                display: inline-block;
+                position: relative;
+                background-color: #fff;
+                color: #000;
+                text-decoration: none;
+
+            }         
+
+
+
+            .hblock-85292 .content-85292 {
+                margin: 0 -10px;
+            }          
+
+            .hblock-85292 .item-85292 {
+                margin: 0 0px;
+                width: 25%;
+                float: left;
+            }
+
+              .hblock-85292 .item-inner-85292 {
+                margin: 0 10px;
+              }
+
+            .hblock-85292 .image-85292 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+             
+            }
+
+            .hblock-85292 .topic-85292 a{
+                overflow: hidden;
+                display: block;              
+                margin: 0px 0px 10px;
+
+                font: 13px "pt_sansbold", Georgia, serif;
+                line-height: 13px;
+                margin: 18px 0 7px;
+                text-transform: uppercase;
+                display: block;
+                color: #feb9a9;
+                text-decoration: none;
+                text-align: left;
+            }              
+
+            .hblock-85292 .title-85292 a {
+                text-decoration: none;
+                font: 17px "pt_serifregular", Georgia, serif;
+                line-height: 20px;
+                display: block;
+                color: #000;
+                text-decoration: none;
+                text-align: left;
+
+                overflow: hidden;
+                display: block;   
+                padding-top: 10px;  
+            }
+
+            .hblock-85292 a:hover{
+              text-decoration: none !important;
+              color: #de3a3b;
+            }
+
+         
+ 
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 940px; margin: 0 auto;">
+    <div class="hblock-85292">
+        <div class="header_outer-85292">
+          <div class="header-line-85292"></div>
+          <div class="header-85292">СМИ2 Lady</div>
+        </div>
+        <div id="content-85292" class="content-85292"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+      
+      var blockId = 85292;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85292';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-85292', [
+            JsAPI.Dom.createDom('div','item-inner-85292', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-85292',
+                  'src': model['image'],
+                  'width': '300px',
+                  'height': '180px'
+              })),            
+              JsAPI.Dom.createDom('div', 'title-85292', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

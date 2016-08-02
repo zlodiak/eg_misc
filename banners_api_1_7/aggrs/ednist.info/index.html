@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.7.3.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script>-->
+
+    <style>
+
+        #container-85849 {
+            max-width: 400px;
+            border: 1px solid #eee;
+            border-bottom: none;
+            margin: 10px 0;
+                background: #fff;
+                clear: both;
+        }
+
+        #container-85849 #header {
+            background-color: #64709e;
+            color: white;
+            font: 18px/45px Arial, sans-serif;
+            text-align: center;
+
+            height: 45px;
+            padding: 0 10px;
+        }
+
+        #container-85849 .list-container-item {
+                border-bottom: 1px dashed #d4d4d5;
+            padding: 10px 4px;
+        }
+        #container-85849 .list-container-item-hover {
+                background-color: #EFEFEF;
+        }
+        #container-85849 .list-container-item .image {
+            display: block;
+            float: left;
+            margin-top: 2px;
+            border: none;
+            width: 16px;
+            height: 16px;
+        }
+        #container-85849 .list-container-item .title {
+            display: block;
+            margin-left: 25px;
+        }
+        #container-85849 .list-container-item .title a {
+            display: block;
+            text-decoration: none;
+                font: 400 14px/16px "Arial";
+                color: #3E3D40;
+        }
+        #container-85849 .list-container-item .title a:hover {
+
+        }
+        #container-85849 .list-container-item .clear {
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container-85849">
+    <div id="header">Новости в Сети</div>
+</div>
+<script type="text/javascript">
+    /* Установка домена */
+//     JsAPI.Config.setDomain('127.0.0.1:8080');
+//     JsAPI.Config.setDomain('outlet.dev.smi2.net');
+//     JsAPI.Config.setDomain('ads2-1.sfa10.smi2.net:8080');
+
+    /**
+     * Размер страницы (количество) загружаемых элементов
+     *
+     * @type {number}
+     */
+    var page_size = 30;
+
+    /**
+     * Максимальное количество загружаемых страниц элементов
+     *
+     * @type {number}
+     */
+    var max_page_count = Infinity;
+
+    /**
+     * Родительский элемент контейнера
+     *
+     * @type {HTMLElement}
+     */
+    var parent_element = JsAPI.Dom.getElement("container-85849");
+
+    /**
+     * Настройки блока
+     *
+     * @type {*}
+     */
+    var properties = undefined;
+
+    /**
+     * Callback-функция рендера содержимого элемента
+     *
+     * @type {function(HTMLElement, *, number)}
+     */
+    var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image',
+                'src': model['publisher_logo_url']
+            })),
+            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear')
+        ]));
+    };
+
+    /**
+     * Идентификатор блока
+     *
+     * @type {number}
+     */
+    var block_id = 85849;
+
+    /**
+     * Тип сортировки
+     *
+     * @type {JsAPI.Dao.SortType}
+     */
+    var sort_type = JsAPI.Dao.SortType.RANK;
+
+    /**
+     * Маска требуемых параметров (полей) статей
+     *
+     * @type {number|undefined}
+     */
+    var opt_fields = JsAPI.Dao.ArticleField.TITLE | JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL;
+
+    /**
+     * Признак обязательного наличия изображений в статьях
+     *
+     * @type {boolean}
+     */
+    var opt_has_images = false;
+
+    /**
+     * Набор идентификаторов допустимых рубрик (топиков)
+     *
+     * @type {Array<number>|undefined}
+     */
+    var opt_topics = undefined;
+
+    /**
+     * Фильтр идентификаторов площадок (источников)
+     *
+     * @type {Array<number>|undefined}
+     */
+    var opt_filter_publishers = undefined;
+
+    /**
+     * Идентификатор гео-локации (null|undefined - основные новости, 0 - региональные новости с автоматическим определением гео-локации, > 0 - региональные новости с заданной гео-локацией)
+     *
+     * @type {number|undefined}
+     */
+    var opt_loc_id = undefined;
+
+    /**
+     * Создание list-блока
+     */
+    JsAPI.Ui.AggregatorListBlock({
+        'page_size': page_size,
+        'max_page_count': max_page_count,
+        'parent_element': parent_element,
+        'properties': properties,
+        'item_content_renderer': item_content_renderer,
+        'block_id': block_id,
+        'sort_type': sort_type,
+        'fields': opt_fields,
+        'has_images': opt_has_images,
+        'topics': opt_topics,
+        'filter_publishers': opt_filter_publishers,
+        'loc_id': opt_loc_id
+    }, function (block) {}, function (reason) {});
+
+</script>
+</body>
+</html>

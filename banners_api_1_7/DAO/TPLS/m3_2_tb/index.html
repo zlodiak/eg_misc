@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+@font-face {
+                font-family: "Roboto Regular";
+                src: url(//static.smi2.net/static/blocks/fonts/roboto/regular/roboto-regular-webfont.ttf) format("truetype");
+                font-style: normal;
+                font-weight: normal;
+            }
+
+
+
+            .hblock-85516 {
+                min-height: 215px;
+            }
+
+
+            .hblock-85516 .content-85516 {
+                margin: 0 -8px;
+                overflow: hidden;
+            }          
+
+            .hblock-85516 .item-85516 {
+                width: 33.3%;
+                float: left;
+                overflow: hidden;
+
+                font-family: Arial, sans-serif;               
+            }
+
+              .hblock-85516 .item-inner-85516 {
+                margin: 0 8px;
+              }
+
+            .hblock-85516 .image-85516 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+             
+            }
+
+            .hblock-85516 .title-85516 {
+                font-family: 'Roboto Regular', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+                color: #126888 !important;
+                text-decoration: none !important;
+                text-align: left !important;
+
+                cursor: pointer;
+                height: 66px;
+                line-height: 16px;
+                display: block;
+                overflow: hidden;
+
+            }
+
+            .hblock-85516 .domain-85516{
+                font-family: 'Roboto Regular', Arial, sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+                color: #666666 !important;
+                text-decoration: none !important;
+                text-align: left !important;
+
+                display: block;
+                padding-top: 2px;
+                padding-bottom: 7px;
+            }            
+
+            .hblock-85516 a{
+                text-decoration: none !important;
+                color: #4aa3b3 !important;
+            }   
+
+    @media (max-width: 522px) {
+            .hblock-85516 .item-85516 {
+                width: 50%;            
+            }
+
+            .hblock-85516 .item-85516:nth-child(3) {
+              display: none;
+            }
+
+    }
+
+
+    @media (max-width: 365px) {
+           /* .hblock-85516 .item-85516 {
+                width: 100%;            
+            }
+
+            .hblock-85516 .image-85516 {
+                width: 170px;
+                height: 110px;
+             
+            }
+
+            .hblock-85516 .item-85516:nth-child(2) {
+              display: none;
+            }      */      
+    }
+
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                            
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 775px; margin: 0 auto;">
+<div class="hblock-85516 clearfix">
+        <div id="content-85516" class="content-85516"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+
+    <script>
+var blockId = 85516;
+
+      var count = 6;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85516';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-85516', [
+            JsAPI.Dom.createDom('div','item-inner-85516', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-85516',
+                  'src': model['image'],
+                  'width': '170px',
+                  'height': '110px'
+              })),
+              JsAPI.Dom.createDom('a', {
+                  'class': 'domain-85516',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['domain']),              
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-85516',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

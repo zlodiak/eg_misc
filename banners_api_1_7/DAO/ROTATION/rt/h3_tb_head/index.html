@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+      .sk_wrap_outer_83654{
+        padding: 0px 0px;
+        overflow: hidden;
+        clear: both;
+      }
+
+        .sk_head_83654{
+          background: #6e7884;
+          color: #fff;
+          font-family: 'Times New Roman',serif;
+          padding: 0 11px;
+          line-height: 32px;
+          margin: 0;
+          font-weight: 400;
+          font-size: 22px;
+        }
+
+        .sk_wrap_83654{
+          overflow: hidden;
+          
+
+        }
+
+          .sk_items_83654{
+            overflow: hidden;
+            margin: 0 -7px !important;
+
+          }
+
+
+
+            .sk_item_83654{
+              overflow: hidden;
+              width: 33.3%;
+              padding-bottom: 13px;   
+              float: left;
+
+
+              vertical-align: top;
+            }
+
+              .sk_item_inner_83654{
+                margin: 0 7px 10px !important;
+                border: 1px solid #d0d1cc;
+                padding: 10px;
+              }
+
+                .sk_img_83654{
+                  margin: 0 auto 5px;
+                  display: block;
+                }
+
+                  .sk_img_83654 img{
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                  }
+
+                .sk_text_83654:hover{
+                  text-decoration: underline !important;
+                  color: rgb(0, 0, 0) !important;
+                }
+
+                .sk_text_83654{
+                  display: block;
+                  color: rgb(0, 0, 0) !important;
+                  font-family: helvetica, arial, sans-serif;
+                  font-size: 15px;
+                  font-weight: bold;
+                  line-height: 20px;
+                  text-align: left;
+                  text-decoration: none !important;
+                  clear: left;
+                  overflow: hidden;
+                  height: 58px;                  
+                } 
+
+      @media (max-width: 500px) {
+            .sk_item_83654{
+              width: 50%;
+            }
+
+          .sk_items_83654{
+            margin: 0 -4px;
+
+          }
+
+          .sk_item_inner_83654{
+            margin: 0 4px;
+          }    
+
+          .sk_item_83654:first-child{
+            display: none;
+          }
+
+    /*    body{
+          background: lime;
+        }*/
+      }
+
+
+      @media (max-width: 420px) {
+            .sk_item_83654{
+              width: 100%;
+            }
+
+          .sk_items_83654{
+            margin: 0 0px;
+
+          }
+
+          .sk_item_inner_83654{
+            margin: 0 0px;
+          }   
+
+          .sk_item_83654:first-child{
+            display: block;
+          }                
+
+    /*    body{
+          background: red;
+        }*/
+      }
+
+      @media (max-width: 467px) {
+
+
+    /*    body{
+          background: navy;
+        } */  
+      }
+
+      @media (max-width: 399px) {
+    
+
+    /*    body{
+          background: yellow;
+        }*/
+      }                       
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 750px; margin: 0 auto;">    
+    <div class="sk_wrap_outer_83654">    
+      <div class="sk_wrap_83654">
+        <div class="sk_head_83654" id="skHead_83654">СМИ2</div>
+          <div id="content-83654" class="content-83654 sk_items_83654"></div>
+      </div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+
+    <script>
+      //try {
+        var percent = 0.65;
+        var blockId;
+
+        if (Math.random() <= percent) {
+            /* Блок smi2 */ 
+            /*console.log('smi2');*/
+            blockId = 83654;
+        } else {
+            /* Блок RG */
+            /*console.log('RG');*/
+            blockId = 83655;
+        };
+
+        var count = 3;
+
+        var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;
+
+        JsAPI.Dao.getNews({
+            'block_id': blockId,
+            'count': count,
+            'fields': fields
+        }, function (payload) {
+          for (var i = 0, len = payload.length; i < len; i++) {
+            var model = payload[i],
+                id_parent_block = 'content-83654';
+            
+            var el = JsAPI.Dom.createDom('div', 'sk_item_83654', [
+              JsAPI.Dom.createDom('div','sk_item_inner_83654', [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'class': 'sk_img_83654',
+                    'target': '_blank'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image-83654',
+                    'src': model['image'],
+                    'width': '300px',
+                    'height': '210px'
+                })),              
+                JsAPI.Dom.createDom('a', {
+                    'class': 'sk_text_83654',
+                    'href': model['url'],
+                    'target': '_blank'
+                }, model['title'])
+              ]) 
+            ]);
+
+            JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+          }                
+        }, function (reason) {   });     
+
+        if(blockId == 83655) {
+          var headEl = document.getElementById('skHead_83654');
+          headEl.innerHTML = 'Российская газета';
+        };
+      //} catch ( e ) { console.log( e ); }    
+
+
+    </script>
+  </body>
+</html>

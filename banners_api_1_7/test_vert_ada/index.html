@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.2.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+            #smi2adblock_85803-container_title {
+                background: #ebebeb;
+                margin-bottom: 10px;
+                padding: 0px 10px;
+                margin: 0 0px 0px;
+                height: 33px;
+                display: block;
+                border-top: 2px solid #1D1E33;
+
+                color: #4b4d4e;
+                font: 14px/33px BanderaProBold, arial;
+                color: #1D1E33;
+                text-transform: uppercase;
+            }
+            #smi2adblock_85803-container {
+                border-top: none;
+                padding: 10px 0px 0;
+            }
+            #smi2adblock_85803-container .list-container-item {
+                overflow: hidden; 
+                text-align: center; 
+                padding: 0 0px 10px; 
+                border-bottom: 1px solid #e8e8e8;
+                margin-bottom: 10px;
+            }
+            #smi2adblock_85803-container .list-container-item > div > a{
+                float: left;
+                display: block;
+            }
+            #smi2adblock_85803-container .list-container-item .image {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 5px !important;
+              width: 140px;
+              height: 100px;
+            }
+            #smi2adblock_85803-container .list-container-item .title {
+                display: block; 
+                margin-left: 150px; 
+                text-align: left; 
+                overflow: hidden;  
+            }
+            #smi2adblock_85803-container .list-container-item .title a {
+                font: 14px ProximaNovaReg, arial;
+                line-height: 16px;
+                color: #41464b !important;
+                text-decoration: none !important;
+            }
+            #smi2adblock_85803-container .list-container-item .title a:hover {
+                text-decoration: none !important;
+                color: #41464b !important;
+            }
+            #smi2adblock_85803-container .list-container-item .clear {
+                clear: left;
+            }
+
+        </style>
+
+    </head>
+
+    <body style="width: 633px; ">
+        <div id="smi2adblock_85803-container_title">Новости партнеров</div><div id="smi2adblock_85803-container"></div>
+        <script>
+            JsAPI.Ui.ListBlockFactory.create(
+                    10,
+                    Infinity,
+                    JsAPI.Dom.getElement('smi2adblock_85803-container'),
+                    undefined,
+                    function (parent, model, index) {
+                        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': model['image'],
+                                'width': '140px',
+                                'height': '100px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title'])),
+                            JsAPI.Dom.createDom('div', 'clear')
+                        ]));
+                    },
+                    85803,
+                    JsAPI.Dao.NewsField.IMAGE | JsAPI.Dao.NewsField.TITLE
+            ).then(function (block) {}, function (reason) {});
+        </script>
+    </body>
+</html>

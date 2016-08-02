@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Блок с плавающей сеткой новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<script src="../lib/jsapi.v1.7.3.ru_RU.js"></script>-->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+    <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.3.en_IN.js"></script>-->
+
+    <style>
+        body {
+            background: url(//static.smi2.net/static/p/resources/bg.png);
+        }
+
+        #container-85171 .fluidgrid-container {
+        }
+        #container-85171 .fluidgrid-container-item {
+            background-color: white;
+        }
+        #container-85171 .fluidgrid-container-item-hover {
+            box-shadow: 0 0 5px 2px #ccc;
+        }
+        #container-85171 .fluidgrid-container-item .item-85171 {
+            text-decoration: none;
+        }
+        #container-85171 .fluidgrid-container-item .wrapper-85171 {
+        }
+        #container-85171 .fluidgrid-container-item .image-85171 {
+            width: 100% !important;
+            height: auto !important;
+            display: block;
+        }
+        #container-85171 .fluidgrid-container-item .title-85171 {
+            margin: 10px 15px 0px;
+        }
+        #container-85171 .fluidgrid-container-item .title-85171 a {
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: rgb(0, 139, 204);
+            text-decoration: none;
+            display: block;
+        }
+        #container-85171 .fluidgrid-container-item .title-85171 a:hover {
+            text-decoration: underline;
+        }
+        #container-85171 .fluidgrid-container-item .announce-85171 {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: rgb(69, 68, 65);
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+        #container-85171 .fluidgrid-container-item .logo-85171 {
+            margin-right: 5px;
+        }
+        #container-85171 .fluidgrid-container-item .domain-85171 {
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            color: lightgray;
+            margin: 10px 15px 15px;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+<div id="container-85171"></div>
+<script type="text/javascript">
+    /* Установка домена */
+
+    /**
+     * Выравнивание содержимого блока
+     *
+     * @type {JsAPI.Ui.Align}
+     */
+    var align = JsAPI.Ui.Align.CENTER;
+
+    /**
+     * Размер страницы (количество) загружаемых элементов
+     *
+     * @type {number}
+     */
+    var page_size = 50;
+
+    /**
+     * Максимальное количество загружаемых страниц элементов
+     *
+     * @type {number}
+     */
+    var max_page_count = Infinity;
+
+    /**
+     * Родительский элемент контейнера
+     *
+     * @type {HTMLElement}
+     */
+    var parent_element = JsAPI.Dom.getElement("container-85171");
+
+    /**
+     * Настройки блока
+     *
+     * @type {*}
+     */
+    var properties = {
+        'item': {
+            'width': 300,
+            'margin': 15
+        }
+    };;
+
+    /**
+     * Callback-функция рендера содержимого элемента
+     *
+     * @type {function(HTMLElement, *, number)}
+     */
+    var item_content_renderer = function (parent, model, index) {
+        var items = [];
+
+        /* Изображение */
+        if (model['image']) {
+            items.push(JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-85171',
+                'src': model['image'],
+                'width': '300px',
+                'height': '200px'
+            })));
+        }
+
+        /* Заголовок */
+        items.push(JsAPI.Dom.createDom('div', 'title-85171',
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'target': '_blank'
+                }, model['title'])));
+
+        /* Анонс */
+        items.push(JsAPI.Dom.createDom('div', 'announce-85171', model['text']));
+
+        /* Источник */
+        items.push(JsAPI.Dom.createDom('div', 'domain-85171', model['domain']));
+
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-85171', items));
+    };
+
+    /**
+     * Идентификатор блока
+     *
+     * @type {number}
+     */
+    var block_id = 85171;
+
+    /**
+     * Маска требуемых параметров (полей) статей
+     *
+     * @type {number|undefined}
+     */
+    var opt_fields = JsAPI.Dao.NewsField.IMAGE
+            | JsAPI.Dao.NewsField.TITLE
+            | JsAPI.Dao.NewsField.TEXT
+            | JsAPI.Dao.NewsField.DOMAIN
+            ;
+
+    JsAPI.Ui.GridBlock({
+        'align': align,
+        'page_size': page_size,
+        'max_page_count': max_page_count,
+        'parent_element': parent_element,
+        'properties': properties,
+        'item_content_renderer': item_content_renderer,
+        'block_id': block_id,
+        'fields': opt_fields
+    }, function (block) {}, function (reason) {});
+
+</script>
+</body>
+</html>

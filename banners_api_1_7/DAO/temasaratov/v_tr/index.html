@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+            .hblock-86474 {
+              overflow: hidden;
+              margin: 10px 0 10px;
+              padding: 13px 0px 0;
+              clear: both;
+                  background-color: #EFF0F4;
+            }
+
+            .header-86474{
+              color: #000;
+              font-family: Verdana;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: normal;
+
+
+              padding: 0 0px 13px;           
+            }
+
+
+            .hblock-86474 .content-86474 {
+              padding: 0px 0 0px;
+            }          
+
+      
+
+            .item-86474:last-child {
+              border-bottom:none;
+            }
+
+            .item-86474 {
+                overflow: hidden; 
+                text-align: center; 
+                padding: 0 0px 10px; 
+                    border-bottom: 1px dashed #D5D6D9;
+                margin-bottom: 10px;         
+            }
+
+              .hblock-86474 .item-inner-86474 {
+
+              }
+
+              .a1-86474{
+                display: block; 
+                float: left;
+                padding: 3px 2px;
+                background-color: #fff;
+                border: 1px solid #bbb;                 
+              }
+
+            .hblock-86474 .image-86474 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0 !important;
+              width: 75px;
+              height: 56px;
+             
+            }
+
+
+
+            .hblock-86474 .title-86474{
+              display: block; 
+              margin-left: 91px; 
+              text-align: left; 
+
+              font-family: Verdana;
+              font-size: 12px;
+              line-height: 16px;
+              color: #214E99;
+              font-style: normal;
+              text-decoration: none !important;
+            }            
+
+            .hblock-86474 a:hover{
+              text-decoration: none !important;
+              color: #214E99 !important;
+            }   
+
+    @media (max-width: 600px) {
+
+
+    }
+
+
+    @media (max-width: 365px) {
+  
+    }
+
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                            
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 775px; margin: 0 auto;">
+    <div class="hblock-86474 clearfix">
+        <div class="header-86474">Новости партнеров</div>
+        <div id="content-86474" class="content-86474"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script> 
+
+    <script>
+      var blockId = 86474;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86474';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86474', [
+            JsAPI.Dom.createDom('div','item-inner-86474', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86474',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86474',
+                  'src': model['image'],
+                  'width': '75px',
+                  'height': '56px'
+              })),
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-86474',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

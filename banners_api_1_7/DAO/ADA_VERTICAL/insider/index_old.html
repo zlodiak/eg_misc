@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-86407 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-86407 {
+              overflow: hidden;
+              position: relative;
+            }
+
+            .hblock-86407 .header-86407 {
+              font-family: 'PT Sans Caption',Helvetica,Arial,sans-serif;
+              font-size: 1.125rem;
+              font-weight: 700;
+              position: relative;
+              margin-bottom: .625rem;
+              text-align: center;
+            }
+
+            .header-86407 span{
+              z-index: 100;
+              position: relative;
+              display: inline-block;
+              padding: 0 .9375rem;
+              background: #fff;
+
+            }
+
+          .header-86407:after{
+            position: absolute;
+            z-index: 1;
+            top: .75rem;
+            right: 0;
+            left: 0;
+            height: 1px;
+            content: '';
+            border-bottom: 1px solid #888;
+
+          }              
+
+
+
+            .hblock-86407 .content-86407 {
+
+            }          
+
+            .hblock-86407 .item-86407:last-child {
+              border-bottom: none;
+            }
+
+            .hblock-86407 .item-86407 {
+              overflow: hidden; 
+              margin-bottom: 20px;
+            }
+
+              .hblock-86407 .item-inner-86407 {
+                overflow: hidden;
+
+              }
+
+            .hblock-86407 .a1-86407 {
+              display: block; 
+            }
+
+            .hblock-86407 .image-86407 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0px !important;
+              width: 240px;
+              height: 90px;
+              margin: 0 auto 10px;
+                
+             
+            }
+            .hblock-86407 .wrapper-86407 {
+
+            }
+            .hblock-86407 .wrapper-86407 div {
+
+            }
+
+            .hblock-86407 .title-86407 a:hover {
+              text-decoration: underline !important; 
+              color: #000 !important;
+            }
+
+            .hblock-86407 .title-86407 a {
+              display: block; 
+              max-height: 92px;
+              overflow: hidden;
+
+              color: #000 !important;
+              font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+              font-size: 18px;
+              font-weight: bold; 
+              text-decoration: none !important;  
+            }
+
+
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 300px; margin: 0 auto;">
+    <div id="unit_86407" class="hblock-86407 clearfix">
+        <div class="header-86407"><span>У партнеров</span></div>
+        <div id="content-86407" class="content-86407"></div>
+    </div>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>     
+      var mtBlockEl = document.getElementById("unit_86407"),
+
+          wrapBlockEl = document.getElementById("side_91284"),
+          wrapBlockElHeight = wrapBlockEl.offsetHeight,
+
+          BlockEl_1 = wrapBlockEl.getElementsByClassName('stop-ads')[0],
+          BlockEl_1_height = BlockEl_1.offsetHeight,          
+
+          BlockEl_2 = wrapBlockEl.getElementsByClassName('follow-us-buttons')[0],
+          BlockEl_2_height = BlockEl_2.offsetHeight,      
+
+          BlockEl_3 = wrapBlockEl.getElementsByClassName('subscribe-to-us')[0],
+          BlockEl_3_height = BlockEl_3.offsetHeight,                          
+
+          newsCnt = Math.floor((wrapBlockElHeight - BlockEl_1_height - BlockEl_2_height - BlockEl_3_height) / 190) - 2;
+
+          
+          console.log(wrapBlockEl, BlockEl_1, BlockEl_2, BlockEl_3);
+          console.log(wrapBlockElHeight, BlockEl_1_height, BlockEl_2_height, BlockEl_3_height);
+
+      var blockId = 86407;
+
+      var count = newsCnt;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86407';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86407', [
+            JsAPI.Dom.createDom('div','item-inner-86407', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86407',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86407',
+                  'src': model['image'],
+                  'width': '240px',
+                  'height': '90px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86407', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-86514 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-86514 {
+              padding: 0px 0px;
+              overflow: hidden;
+              clear: both;
+            }
+
+            .hblock-86514 .header-86514 {
+              display: block;
+              margin-bottom: 10px;
+
+            }
+
+              
+
+
+
+            .hblock-86514 .content-86514 {
+
+              position: relative;
+              overflow: hidden;
+              margin: 0 -5px;              
+
+            }          
+
+
+
+            .hblock-86514 .item-86514 {
+              overflow: hidden;
+              width: 16.6%; 
+              float: left;
+
+              vertical-align: top;
+            }
+
+              .hblock-86514 .item-inner-86514 {
+                overflow: hidden;
+                margin: 0 5px;
+              }
+
+            .hblock-86514 .a1-86514 {
+                margin: 0 auto 10px;
+                display: block;
+            }
+
+            .hblock-86514 .image-86514 {
+                  display: block;
+                  width: 100%;
+                  height: auto;
+                
+             
+            }
+            .hblock-86514 .wrapper-86514 {
+
+            }
+            .hblock-86514 .wrapper-86514 div {
+
+            }
+
+            .hblock-86514 .title-86514 a {
+                display: block;
+                overflow: hidden;
+
+                color: #000 !important;
+                font-family: Roboto, Verdana, Tahoma, Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                text-decoration: none !important;
+            }
+
+
+
+
+            .hblock-86514 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 1300px; margin: 0 auto;">
+    <div class="hblock-86514 clearfix">
+        <div class="header-86514"><img src="//static.smi2.net/srcimg/2370180.png" width="70px" alt="" /></div>
+        <div id="content-86514" class="content-86514"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.en_IN.js"></script> 
+
+    <script>
+
+      
+      var blockId = 86514;
+
+      var count = 6;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86514';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86514', [
+            JsAPI.Dom.createDom('div','item-inner-86514', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86514',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86514',
+                  'src': model['image'],
+                  'width': '165px',
+                  'height': '140px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86514', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            #mediametrics-85277 {
+                margin: 20px 0px;
+                border: 1px solid #e6e6e6;
+                clear: both;
+                overflow: hidden;
+            }
+
+            #mediametrics-85277 .wrap-85277 {
+                    overflow: hidden;
+                     margin-bottom: -68px;
+
+            }
+
+            #mediametrics-85277 .header-85277 .logo{
+                margin: 15px 0 15px 9px;
+                width: 130px;
+
+                font: bold 22px/34px 'DIN Pro', sans-serif;
+            }
+
+
+            #mediametrics-content-85277{
+               /*margin: 0 -9px;*/
+                   overflow: hidden;
+            }
+
+            #mediametrics-85277 .item-85277 {
+                overflow: hidden;
+                float: left;
+                width: 33.3%;
+                position: relative;
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+                #mediametrics-85277 .item-inner-85277 {
+                    margin: 0 9px;
+                }
+
+            #mediametrics-85277 .item-inner-85277 > a {
+                width: 100%;
+                height: 140px;
+                display: block;
+                overflow: hidden;
+            }
+
+            #mediametrics-85277 .image-85277 {
+                width: 100%;
+                height: auto;
+                display: block;
+/*                position: relative;
+                top: -25%;*/
+            }
+
+            #mediametrics-85277 .title-85277:hover {
+                text-decoration: none !important;
+                color: #c80000  !important;
+            }
+
+            #mediametrics-85277 .title-85277 {
+                display: block;
+                text-decoration: none !important;
+                color: #222 !important;
+                font-family: 'Segoe UI',  serif;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 20px;
+                text-decoration: none;
+                overflow: hidden;
+    
+                padding-top: 3px;                
+            }
+
+            @media (max-width: 400px) {
+
+            }            
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 820px; min-width: 680px; ">
+        <div id="mediametrics-85277">
+            <div class="wrap-85277">
+                <div class="header-85277"><img class="logo" width="130" src="//static.smi2.net/srcimg/2780020.png" alt=""></div>
+                <div id="mediametrics-content-85277"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 3
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-85277');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 3; i++) {
+                    var model = payload[i],
+                        modelImage = model['image'].replace(new RegExp("img/",'g'),"img/b_");
+
+                    /*if (stopWordsFilter(stop_words, model['title'])) continue;*/
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item-85277', 
+                        dom.createDom('div', 'item-inner-85277',
+                        [
+                            dom.createDom('a', {
+                                'href': model['link'],
+                                'class': 'a1-85277',
+                                'target': '_blank'
+                            }, dom.createDom('img', {
+                                'class': 'image-85277',
+                                'src': modelImage
+                            })),                            
+                            dom.createDom('a', {
+                                'href': model['link'],
+                                'class': 'title-85277',
+                                'target': '_blank'
+                            }, dom.createDom('div', 'title-inner-85277', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                        ]
+                        )
+                    ));
+
+                    /*count++;*/
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

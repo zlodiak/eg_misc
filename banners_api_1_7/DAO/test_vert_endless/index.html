@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-85812 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-85812 {
+              overflow: hidden;
+              position: relative;
+              border-top: 2px solid #1D1E33;
+            }
+
+            .hblock-85812 .header-85812 {
+              background: #ebebeb;
+              margin-bottom: 10px;
+              padding: 0px 10px;
+              margin: 0 0px 10px;
+              height: 33px;
+              display: block;
+
+              color: #4b4d4e;
+              font: 14px/33px BanderaProBold, arial;
+              color: #1D1E33;
+              text-transform: uppercase;
+            }
+
+              
+
+
+
+            .hblock-85812 .content-85812 {
+
+            }          
+
+            .hblock-85812 .item-85812:last-child {
+              border-bottom: none;
+            }
+
+            .hblock-85812 .item-85812 {
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 0px 10px; 
+              border-bottom: 1px solid #000;
+              margin-bottom: 10px;
+              height: 100px;
+            }
+
+              .hblock-85812 .item-inner-85812 {
+                overflow: hidden;
+
+              }
+
+            .hblock-85812 .a1-85812 {
+              display: block; 
+              float: left;
+            }
+
+            .hblock-85812 .image-85812 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 5px !important;
+              width: 140px;
+              height: 100px;
+                
+             
+            }
+            .hblock-85812 .wrapper-85812 {
+
+            }
+            .hblock-85812 .wrapper-85812 div {
+
+            }
+
+            .hblock-85812 .title-85812 a:hover {
+              text-decoration: none !important;
+              color: #41464b !important;
+            }
+
+            .hblock-85812 .title-85812 a {
+              display: block; 
+              margin-left: 150px; 
+              text-align: left; 
+              overflow: hidden;          
+
+              font: 14px ProximaNovaReg, arial;
+              line-height: 16px;
+              color: #41464b !important;
+              text-decoration: none !important;
+            }
+
+
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 300px; margin: 0 auto;">
+    <div style="height: 700px; overflow: hidden;">
+      <div id="unit_85812" class="hblock-85812 clearfix">
+          <div class="header-85812">Новости партнеров</div>
+          <div id="content-85812" class="content-85812"></div>
+      </div>
+    </div>
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>     
+      var smiBlockEl = document.getElementById("unit_85812"),
+          parentSmiBlockEl = smiBlockEl.parentElement, 
+          parentSmiBlockElHeight = parentSmiBlockEl.offsetHeight,
+          newsCnt = Math.floor(parentSmiBlockElHeight / 100) - 2;
+
+          
+          /*console.log(smiBlockEl, parentSmiBlockEl, parentSmiBlockElHeight)*/
+
+      var blockId = 85812;
+
+      var count = newsCnt;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85812';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-85812', [
+            JsAPI.Dom.createDom('div','item-inner-85812', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-85812',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-85812',
+                  'src': model['image'],
+                  'width': '140px',
+                  'height': '100px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-85812', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

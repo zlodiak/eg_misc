@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-83570 {
+                margin: 20px auto !important;  
+                overflow: hidden;
+            }
+
+            .hblock-83570 .header-83570 {
+                position: relative;     
+                overflow: hidden;     
+                padding-bottom: 10px;  
+              
+                font-family: arial, serif;
+                font-size: 18px;
+                font-weight: bold;
+                color: rgb(226, 6, 19);
+                color: #3d5afe;
+                color: #000;
+            }
+
+              
+
+
+
+            .hblock-83570 .content-83570 {
+                margin: 0 -13px;
+            }          
+
+            .hblock-83570 .item-83570 {
+                margin: 0 0px 10px;
+                width: 33.3%;
+                float: left;
+                position: relative;
+            }
+
+              .hblock-83570 .item-inner-83570 {
+                margin: 0 13px;
+              }
+
+            .hblock-83570 .image-83570 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 10px;
+             
+            }
+            .hblock-83570 .wrapper-83570 {
+
+            }
+            .hblock-83570 .wrapper-83570 div {
+
+            }
+            .hblock-83570 .topic-83570 a{
+                overflow: hidden;
+                display: block;              
+                padding-bottom: 6px;
+
+                color: #3d5afe;
+                text-transform: uppercase;
+                font: 11px/18px Georgia, serif;
+            }              
+
+            .hblock-83570 .title-83570 a {
+                display: block;
+                font-family: ClearSans, sans-serif;
+                color: #000;
+                font-size: 19px;
+                line-height: 22px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+
+
+
+          
+
+            .hblock-83570 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 400px) {
+      .hblock-83570 .item-83570 {
+          margin: 0 0px 20px;
+          width: 100%;
+      }
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 680px; margin: 0 auto;">
+    <div class="hblock-83570 clearfix">
+        <div class="header-83570">Новости СМИ2</div>
+        <div id="content-83570" class="content-83570"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+      
+      var blockId = 83570;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-83570';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-83570', [
+            JsAPI.Dom.createDom('div','item-inner-83570', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-83570',
+                  'src': model['image'],
+                  'width': '270px',
+                  'height': '180px'
+              })),
+              JsAPI.Dom.createDom('div', 'topic-83570', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['topic_name'])),              
+              JsAPI.Dom.createDom('div', 'title-83570', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

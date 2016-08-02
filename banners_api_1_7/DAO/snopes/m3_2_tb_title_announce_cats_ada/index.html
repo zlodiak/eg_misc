@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-85431 {
+              margin: 20px 10px;
+              overflow: hidden;
+              margin-right: 18px;
+            }
+
+/*            .hblock-85431 .header-85431 {
+                position: relative;     
+                overflow: hidden;       
+              
+                font-family: "FuturaBookC";
+                font-size: 33px;
+                font-weight: lighter;
+                color: #3f3e3e;
+                margin: 13px 0px 18px -1px;
+                line-height: 33px;
+                letter-spacing: -1px;
+            }
+*/
+              
+
+
+
+            .hblock-85431 .content-85431 {
+                margin: 0 -5px;
+            }          
+
+            .hblock-85431 .item-85431 {
+                margin: 0 0px 10px;
+                width: 33.3%;
+                float: left;
+                position: relative;
+            }
+
+              .hblock-85431 .item-inner-85431 {
+                margin: 0 5px;
+              }
+
+            .hblock-85431 .image-85431 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 5px;
+             
+            }
+            .hblock-85431 .wrapper-85431 {
+
+            }
+            .hblock-85431 .wrapper-85431 div {
+
+            }
+            .hblock-85431 .topic-85431 a{
+                overflow: hidden;
+                display: block;   
+                height: 23px;           
+
+                /*padding: 0 7px;*/
+                position: absolute;
+                top: 0;
+                left: 5px;
+                color: white;
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-decoration: none;
+                line-height: 23px;
+                background: rgba(0,0,0,0.75);
+                z-index: 3;
+            }              
+
+            .hblock-85431 .title-85431 a {
+                display: block;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #111;
+                font-size: 15px;
+                line-height: 18px;
+                margin-bottom: 6px;
+                padding: 0 2px;
+                overflow: hidden;
+                height: 54px;                  
+            }
+
+
+            .hblock-85431 .text-85431 a{
+                display: block;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: #555;
+                font-size: 13px;
+                line-height: 18px;
+                margin-bottom: 10px;
+                clear: left;
+                padding: 0 2px;
+                overflow: hidden;
+                height: 52px;                
+            }
+
+          
+
+            .hblock-85431 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 768px) {
+      .hblock-85431 .item-85431 {
+          width: 50%;
+      }
+    }
+
+
+    @media (max-width: 576px) {
+      .hblock-85431 .item-85431 {
+          width: 100%;
+      }
+    }
+
+               
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 670px; margin: 0 auto;">
+    <div class="hblock-85431">
+        <!-- <div class="header-85431"></div> -->
+        <div id="content-85431" class="content-85431"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.en_IN.js"></script> 
+
+    <script>
+      JsAPI.Config.setDomain('news.fark.com');
+      
+      var blockId = 85431;
+
+      var count = 6;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.TEXT
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85431';
+
+          var paddings = 'padding: 0';
+          if(model['topic_name']) { paddings = 'padding: 0 7px' };
+          
+          var el = JsAPI.Dom.createDom('div', 'item-85431', [
+            JsAPI.Dom.createDom('div','item-inner-85431', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-85431',
+                  'src': model['image'],
+                  'width': '220px',
+                  'height': '120px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-85431', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'topic-85431', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'style': paddings,
+                  'target': '_blank'
+              }, model['topic_name'])),              
+              JsAPI.Dom.createDom('div', 'text-85431', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['text'])) 
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

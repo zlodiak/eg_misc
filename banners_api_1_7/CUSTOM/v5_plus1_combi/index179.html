@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+
+        .sk_head_82919{
+                    position: relative;
+                    border-bottom: 2px solid #000;
+                    overflow: hidden;
+                    color: #000;
+                    font-family: Georgia, Constantia, 'Lucida Bright', 'DejaVu Serif', serif;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    padding-bottom: 5px;
+        }
+
+
+
+            .sk_item_82919{
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 0px 10px; 
+              border-bottom: 1px solid #000;
+              margin-bottom: 10px;
+            }
+
+
+
+                .sk_img_82919{
+                  display: block;
+                }
+
+                  .sk_img_82919 img{
+                    display: block !important;
+                    background: none !important;
+                    padding: 0 !important;
+                    border: none !important;
+                    border-radius: 0 !important;
+                    width: 100px;
+                    height: 90px;
+                    float: left;
+                  }
+
+                .sk_text_82919:hover{
+                  text-decoration: none !important;
+                }
+
+                .sk_text_82919{
+                  display: block;
+                  overflow: hidden;
+                  height: 90px;
+                  margin-left: 110px;
+                  text-align: left !important;
+                  color: #000 !important;
+                  line-height: 22px;
+                  font-family: Curator, sans-serif;
+                  font-size: 18px;
+                  font-weight: bold;
+                  text-decoration: none !important;               
+                } 
+
+                     
+    </style>
+
+  </head>
+
+  <body style=" max-width: 300px; margin: 0; padding: 0;">   
+      <div id="unit_82919"></div> <!-- in production delete id attr -->
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.en_IN.js"></script> 
+
+    <script>
+        /* wrapper - begin */
+          var random = (Math.random() * 10e6) >> 0;
+
+          JsAPI.Dom.appendChild (
+                                  parent = 
+                                  JsAPI.Dom.getElement('unit_82919'),
+                                  JsAPI.Dom.createDom('div', {
+                                      'class': 'content-82919-' + random,
+                                      'id': 'content-82919-' + random
+                                  }, JsAPI.Dom.createDom('div', 'sk_head_82919', 'Trending News'))           
+                                );          
+
+          parent.setAttribute('id', 'unit_82919_' + (random));
+        /* wrapper - end */
+
+        /* teasers 82919 - begin */
+          insertEl(82919, 5, 'content-82919-' + random);    
+        /* teasers 82919 - end */
+
+
+        /* teasers 85434 - begin */
+          var el = document.createElement("div");
+          el.id = 'content-85434-' + random;
+          var elWrap = JsAPI.Dom.getElement('content-82919-' + random); 
+          insertAfter(elWrap, el);
+          insertEl(85434, 1, el.id);   
+        /* teasers 85434 - end */
+
+        /* helper - begin */
+          function insertAfter(referenceNode, newNode) {
+            referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          }   
+
+          function insertEl(blockId, count, parentBlockId) {
+            var blockId = blockId;
+            var count = count;
+            var fields = JsAPI.Dao.NewsField.URI
+                    | JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE;        
+
+            JsAPI.Dao.getNews({
+                'block_id': blockId,
+                'count': count,
+                'fields': fields
+            }, function (payload) {
+
+              for (var i = 0, len = payload.length; i < len; i++) {
+                var model = payload[i],
+                    id_parent_block = parentBlockId;
+                            
+                var el = JsAPI.Dom.createDom('div', 'sk_item_82919', [
+                    JsAPI.Dom.createDom('a', {
+                        'href': model['url'],
+                        'class': 'sk_img_82919',
+                        'target': '_blank'
+                    }, JsAPI.Dom.createDom('img', {
+                        'class': 'image-82919',
+                        'src': model['image'],
+                        'width': '100px',
+                        'height': '90px'
+                    })),              
+                    JsAPI.Dom.createDom('a', {
+                        'class': 'sk_text_82919',
+                        'href': model['url'],
+                        'target': '_blank'
+                    }, model['title'])
+                ]);                
+
+                JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+              }            
+
+            }, function (reason) {   }); 
+          };
+        /* helper - end */
+    </script>
+  </body>
+</html>

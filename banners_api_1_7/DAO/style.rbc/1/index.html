@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+                            
+    </style>
+
+  </head>
+
+  <body style="max-width: 860px; margin: 0 auto;">
+    <div class="partners">
+        <div class="partners__title">
+            <div class="partners__title__line">
+                <div class="partners__title__arrow"></div>
+            </div>
+            <div class="partners__title__text">Наши партнеры</div>
+        </div>
+
+        <div id="content-85376" class="partners__wrapper"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+      
+      var blockId = 85376;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85376';
+          
+          var el = JsAPI.Dom.createDom('a', { 'href': model['url'], 'class': 'partners__item', 'target': '_blank' }, 
+                JsAPI.Dom.createDom('span', {
+                    'class': 'partners__image'
+                  }, JsAPI.Dom.createDom('img', {
+                    'src': model['image'],
+                    'width': '50px',
+                    'height': '50px'
+                  })
+                ), 
+                JsAPI.Dom.createDom('span', {
+                  'class': 'partners__text'
+                }, model['title'])                
+              );           
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

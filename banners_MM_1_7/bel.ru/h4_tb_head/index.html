@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.8.ru_RU.js"></script>
+
+        <style>
+
+
+            #mediametrics-85405 {
+              padding: 15px 0px;
+              overflow: hidden;
+              clear: both;
+              margin-right: 20px;
+            }
+
+            #mediametrics-85405 .wrap-85405 {
+                overflow: hidden;
+                /*margin: 0 -11px;*/
+            }
+
+            .header-85405 {
+                margin: 0 0px 10px;
+
+                font: 24px sans-serif, arial;
+                color: #c6262c 
+            }
+
+            #mediametrics-85405 .logo-85405 {
+
+
+            }
+
+            #mediametrics-85405 .item-85405 {
+                overflow: hidden;
+                float: left;
+                width: 25%;
+                position: relative;           
+                padding-bottom: 10px;
+
+                vertical-align: top;
+            }
+
+                #mediametrics-85405 .item-inner-85405 {
+                    margin: 0 11px;
+                }
+
+
+            #mediametrics-85405 .image-85405 {
+                width: 100%;
+                height: 113px;
+                display: block;
+                margin: 0 auto 15px;
+            }
+
+            #mediametrics-85405 .title-85405:hover {
+                text-decoration: none !important;
+                color: #61686a !important; 
+            }
+
+            #mediametrics-85405 .title-85405 {
+                display: block;
+                height: 88px;
+                overflow: hidden;
+                padding-bottom: 5px;
+
+                font-weight: normal; 
+                font-size: 14px;
+                line-height: 24px;
+                font-style: normal;
+                text-decoration: none;
+                color: #61686a !important; 
+                font-family: sans-serif, arial;
+                text-decoration: none !important; 
+                text-align: left !important;
+            }
+
+        @media (max-width: 1024px) {
+            #mediametrics-85405 .item-85405 {
+                width: 33.3%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #mediametrics-85405 .item-85405 {
+                width: 100%;
+            }
+
+            #mediametrics-85405 .image-85405 {
+                width: 100%;
+                height: 100%;
+            }    
+            #mediametrics-85405 {
+              margin-right: 0px;
+            }                    
+        }           
+        </style>
+
+    </head>
+
+    <body style=" max-width: 740px; ">
+        <div id="mediametrics-85405">
+            <div class="header-85405">Mediametrics
+                <!-- <img class="logo" width="130" src="//static.smi2.net/srcimg/2780020.png" alt=""> -->
+            </div>        
+            <div class="wrap-85405">                
+                <div id="mediametrics-content-85405"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 4
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-85405');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 4; i++) {
+                    var model = payload[i];
+
+                    /*if (stopWordsFilter(stop_words, model['title'])) continue;*/
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item-85405', 
+                        dom.createDom('div', 'item-inner-85405', [
+                            dom.createDom('a', {
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, 
+                            dom.createDom('img', {
+                                'class': 'image-85405',
+                                'src': model['image']
+                            })),
+                            dom.createDom('a', {
+                                'class': 'title-85405',
+                                'href': model['link'],
+                                'target': '_blank'
+                            }, model['title'].replace(new RegExp('&quot;', 'g'), '"'))
+                        ]
+                    ))
+                    );
+
+                    /*count++;*/
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

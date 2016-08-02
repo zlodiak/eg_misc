@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            #mediametrics-86193 {
+                    margin: 0px 0;
+            }
+
+            #mediametrics-86193 .wrap-86193 {
+                max-width: 320px;
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+                border-bottom: none;
+                border: 1px solid #eee;
+            }
+
+            #mediametrics-86193 .header-86193 {
+                background: #000;
+                text-align: left;
+                padding: 0 20px;
+                height: 42px;
+                font-size: 15px;
+                line-height: 42px;
+                color: #f7961d;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-family: 'sputnikdisplay', 'Open Sans', sans-serif; 
+            }
+
+
+            #mediametrics-content-86193{
+                padding: 0px 0px 0;
+                border-top: none;               
+            }
+
+            #mediametrics-86193 .item-86193:hover {
+                background-color: #f3fafd;
+            }
+
+            #mediametrics-86193 .item-86193 {
+                border-bottom: 1px solid #eee;
+                padding: 6px;
+            }
+
+            #mediametrics-86193 .item-86193 .a1-86193 {
+                display: block; 
+                float: left;
+                width: 16px;
+                height: 16px;
+                overflow: hidden;
+            }
+
+            #mediametrics-86193 .image-86193 {
+                display: block;
+                float: left;
+                border: none;
+                width: 16px;
+                height: 16px;
+            }
+
+            #mediametrics-86193 .title-86193:hover {
+
+            }
+
+            #mediametrics-86193 a {
+                text-decoration: none !important;
+                color: #000 !important;
+            }
+
+            #mediametrics-86193 .title-86193 {
+                display: block;
+                margin-left: 25px;
+                text-decoration: none;
+                font-size: 13px;
+                font-weight: bold;
+                color: #000;
+                font-family: "Open Sans", sans-serif;  
+            }
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 457px; ">
+        <div id="mediametrics-86193">
+            <div class="wrap-86193">
+                <div class="header-86193">Mediametrics</div>
+                <div id="mediametrics-content-86193"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 8
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-86193');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 8; i++) {
+                    var model = payload[i];
+
+                    /*if (stopWordsFilter(stop_words, model['title'])) continue;*/
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item-86193', [
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'class': 'a1-86193',
+                            'target': '_blank'
+                        }, dom.createDom('img', {
+                            'class': 'image-86193',
+                            'src': model['favicon']
+                        })),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'target': '_blank'
+                        }),
+                        dom.createDom('a', {
+                            'href': model['link'],
+                            'class': 'title-86193',
+                            'target': '_blank'
+                        }, dom.createDom('div', 'title-inner-86193', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                    ]));
+
+                    /*count++;*/
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

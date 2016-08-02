@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            #mediametrics-85736 {
+                padding: 20px 0;
+            }
+
+            #mediametrics-85736 .wrap-85736 {
+
+            }
+
+            #mediametrics-85736 .header-85736 {
+                padding-bottom: 6px;
+                margin-bottom: 11px;
+                border-bottom:1px solid #e5e5e5;
+            }
+
+
+            #mediametrics-content-85736{
+                overflow: hidden;
+              
+            }
+
+            #mediametrics-85736 .item-85736 {
+                overflow: hidden;
+                width: 33.3%; 
+                float: left;
+                padding-bottom: 10px;
+
+
+                vertical-align: top;
+            }
+
+                #mediametrics-85736 .item-inner-85736 {
+                    margin: 0 0px;
+                }
+
+            #mediametrics-85736 .item-85736 .a1-85736 {
+                margin: 0 auto 4px;
+                display: block;
+                float: left;
+                  width: 55px;
+                  height: 39px;  
+                  overflow: hidden;              
+            }
+
+            #mediametrics-85736 .image-85736 {
+                  display: block;
+                  width: 55px;
+                  height: 55px;
+                  margin: 0 auto;
+                  position: relative;
+                  top: -7px;
+            }
+
+            #mediametrics-85736 .title-85736:hover {
+                text-decoration: none !important;
+                color: #cb2127 !important;
+            }
+
+            #mediametrics-85736 .title-85736 {
+                display: block;
+                height: 46px;
+                overflow: hidden;
+                margin-left: 65px;
+                margin-right: 5px;
+
+                font: 13px/16px Arial, sans-serif;
+                color: #666;
+                text-decoration: none;
+                display: block;
+                overflow: hidden;
+                text-decoration: none !important; 
+            }
+
+    @media (max-width: 400px) {
+      #mediametrics-85736 .item-85736{
+        width: 100%;
+      }  
+
+  /*    body{
+        background: lime;
+      }*/
+    }            
+        </style>
+
+    </head>
+
+    <body style="background: #fff; max-width: 600px; ">
+        <div id="mediametrics-85736">
+            <div class="wrap-85736">
+                <div class="header-85736"><img class="logo" width="130" src="//static.smi2.net/srcimg/2780020.png" alt=""></div>
+                <div id="mediametrics-content-85736"></div>
+            </div>
+        </div>
+
+        <script>
+            JsAPI.Dao.MediaMetrics.getArticles({
+                'count': 12
+            }, function (payload) {
+                var dom = JsAPI.Dom;
+                var stop_words = [
+                                    'секс',
+                                    'секса',
+                                    'сексом',
+                                    'сексу',
+                                    'проститутка',
+                                    'изнасилование',
+                                    'изнасиловал',
+                                    'анал',
+                                    'анальный',
+                                    'вагина',
+                                    'задница',
+                                    'педфил',
+                                    'педофилия',
+                                    'извращенец',
+                                    'гей',
+                                    'геем',
+                                    'лесбиянка',
+                                    'рукоблуд',
+                                    'надругался',
+                                    'домогательства',
+                                    'сексуальный',
+                                    'эротика',
+                                    'эротичный',
+                                    'обнаженная',
+                                    'обнаженка',
+                                    'голый',
+                                    'скотина',
+                                    'издевательство',
+                                    'зверски',
+                                    'расчленил',
+                                    'обезглавил',
+                                    'помойка'
+                ];
+
+                function stopWordsFilter(stop_words, title) {
+                    for (var i = 0, len = stop_words.length; i < len; i++) {
+                        if (title.toLowerCase().indexOf(stop_words[i]) != -1) return true;
+                    }
+                    return false;
+                }
+
+                /* Родительский контейнер */
+                var parent = dom.getElement('mediametrics-content-85736');
+
+                for (var i = 0, count = 0, len = payload.length; i < len && count < 6; i++) {
+                    var model = payload[i];
+                    var link = model['link'].replace(new RegExp("online",'g'),"hour");
+
+                    if (stopWordsFilter(stop_words, model['title'])) continue;
+
+                    /* Добавление элемента в родительский контейнер */
+                    dom.appendChild(parent, dom.createDom('div', 'item-85736', 
+                        dom.createDom('div', 'item-inner-85736',
+                        [
+                            dom.createDom('a', {
+                                'href': link,
+                                'class': 'a1-85736',
+                                'target': '_blank'
+                            }, dom.createDom('img', {
+                                'class': 'image-85736',
+                                'src': model['image']
+                            })),
+                            dom.createDom('a', {
+                                'href': link,
+                                'target': '_blank'
+                            }),
+                            dom.createDom('a', {
+                                'href': link,
+                                'class': 'title-85736',
+                                'target': '_blank'
+                            }, dom.createDom('div', 'title-inner-85736', model['title'].replace(new RegExp('&quot;', 'g'), '"')))
+                        ]
+                        )
+                    ));
+
+                    count++;
+                }
+            }, function (reason) {
+            });
+        </script>
+    </body>
+</html>

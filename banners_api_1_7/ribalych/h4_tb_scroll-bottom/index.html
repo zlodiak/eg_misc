@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            .hblock-85987 {
+                margin: 15px 0;
+            }
+
+            .hblock-85987 .header-85987 {
+
+            }
+
+            .hblock-85987 .content-85987 {
+                height: 210px;
+            }
+
+            .hblock-85987 .item-85987:hover {
+
+            }
+
+            .hblock-85987 .item-85987 {
+             
+            }
+            .hblock-85987 .image-85987 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 12px;     
+            }
+            .hblock-85987 .wrapper-85987 {
+            }
+            .hblock-85987 .wrapper-85987 div {
+
+            }
+            .hblock-85987 .title-85987 a {
+                display: block;
+                overflow: hidden;
+                height: 88px;
+
+                color: #2f2f2f;
+                font-family: CalibriRegular, sans-serif;
+                font-size: 18px;
+                text-decoration: none !important;      
+                text-align: left !important;      
+            }
+            .hblock-85987 .title-85987 a:hover {
+                text-decoration: none !important;       
+                color: #2f2f2f !important;       
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body style="max-width: 690px;">
+        <div class="hblock-85987">
+            <!-- <div class="header-85987">СМИ2 Lady</div> -->
+            <div id="container-85987" class="content-85987"></div>
+        </div>
+<!--         <button id="hbutton-back-85987" class="hbutton-85987">Назад</button>
+        <button id="hbutton-forward-85987" class="hbutton-85987">Вперед</button> -->
+        <script>
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-85987");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 140, "height": 210}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 17, "right": 17}
+                },
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#ccc",
+                    "padding": {"top": 2, "bottom": 2, "left": 2, "right": 2},
+                    "margin": {"top": 10, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-85987', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-85987',
+                                'src': model['image'],
+                                'width': '332px',
+                                'height': '190px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-85987', [
+                                JsAPI.Dom.createDom('div', 'title-85987', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 85987;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-85987'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-85987'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

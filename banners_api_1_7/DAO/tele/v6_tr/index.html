@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+            .hblock-80278 {
+              overflow: hidden;
+              background: #fff;
+              padding: 0px 0 !important;
+              clear: both;        
+            }
+
+            .hblock-80278 .header-80278 {
+                padding: 2px 0px 3px;
+                display: inline-block;
+
+                color: #000 !important;
+                font-family: Calibri, Helvetica, Verdana, Arial;
+                font-size: 18px;
+                font-weight: bold;
+
+              color: #000;
+              display: block;
+              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: bold;
+              text-transform: uppercase;
+
+              border-bottom: 1px solid #000;
+              margin-bottom: 15px;
+            }
+
+/*                .hblock-80278 .header-80278 img {
+                  width: 100px;
+                }*/
+
+
+            .hblock-80278 .content-80278 {
+              overflow: hidden; 
+              text-align: left;       
+            }          
+
+            .hblock-80278 .item-80278 {
+              overflow: hidden;
+              width: 100%;
+              display: inline-block;
+              padding-bottom: 10px;
+
+              vertical-align: top;
+            }
+
+              .hblock-80278 .item-inner-80278 {
+                margin: 0px;
+              }
+
+            .hblock-80278 .image-80278 {
+                border: none;
+                width: 75px;
+                height: 75px;
+                display: block;
+                float: left; 
+             
+            }
+            .hblock-80278 .wrapper-80278 {
+
+            }
+            .hblock-80278 .wrapper-80278 div {
+
+            }
+            .hblock-80278 .text-80278 {
+
+            }
+            .hblock-80278 .title-80278 a:hover {
+              text-decoration: none !important;
+              color: #000 !important;
+            }
+
+            .hblock-80278 .title-80278 a {
+              color: #000;
+              font-family: Arial;
+              font-size: 12px;
+              line-height: 14px;
+              overflow: hidden;
+              text-decoration: none; 
+              text-decoration: none !important;
+              text-align: left;
+
+              display: block;
+              margin-left: 85px;
+            }
+         
+
+            .hblock-80278 a{
+                text-decoration: none !important;
+            }   
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 580px; margin: 0 auto;">
+    <div class="hblock-80278 clearfix">
+        <div id="content-80278" class="content-80278"></div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+      
+      var blockId = 80278;
+
+      var count = 6;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-80278';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-80278', [
+            JsAPI.Dom.createDom('div','item-inner-80278', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-80278',
+                  'src': model['image'],
+                  'width': '75px',
+                  'height': '75px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-80278', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))          
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

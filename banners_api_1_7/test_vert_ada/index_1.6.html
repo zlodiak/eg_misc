@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--<script src="../lib/jsapi.v1.7.0.ru_RU.js"></script>-->
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.6.2.ru_RU.js"></script>
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_IN.js"></script>-->
+        <!--<script src="//static.smi2.net/static/jsapi/jsapi.v1.7.0.en_US.js"></script>-->
+
+        <style>
+            #smi2adblock_81690_title {
+            border-top: 3px solid #e8e8e8;
+            text-transform: uppercase;
+            color: #999;
+            font-size: 105%;
+            font-weight: 400;
+            margin: 5px 0 10px;
+            padding: 5px 0;
+            }
+            #smi2adblock_81690 {
+                width: 240px;
+            }
+            #smi2adblock_81690 .list-container-item {
+                font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                margin-bottom: 7px;
+            }
+            #smi2adblock_81690 .list-container-item .image {
+                display: block;
+                float: left;
+                border: none;
+                width: 70px;
+                height: 70px;
+                margin-top: 3px;
+            }
+            #smi2adblock_81690 .list-container-item .title {
+                display: block;
+                margin-left: 75px;
+            }
+            #smi2adblock_81690 .list-container-item .title a {
+                display: block;
+                text-decoration: none;
+                font-size: 15px;
+                color: #003f75;
+            }
+            #smi2adblock_81690 .list-container-item .title a:hover {
+                color: #666;
+            }
+            #smi2adblock_81690 .list-container-item .clear {
+                clear: left;
+            }
+
+        </style>
+
+    </head>
+
+    <body style="width: 633px; ">
+        <div id="smi2adblock_81690_title">Новости партнеров</div><div id="smi2adblock_81690-container"></div>
+        <script>
+            JsAPI.Ui.ListBlockFactory.create(
+                    10,
+                    Infinity,
+                    JsAPI.Dom.getElement('smi2adblock_81690-container'),
+                    undefined,
+                    function (parent, model, index) {
+                        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image',
+                                'src': model['image'],
+                                'width': '70px',
+                                'height': '70px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'title', JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, model['title'])),
+                            JsAPI.Dom.createDom('div', 'clear')
+                        ]));
+                    },
+                    81729,
+                    JsAPI.Dao.NewsField.IMAGE | JsAPI.Dao.NewsField.TITLE
+            ).then(function (block) {}, function (reason) {});
+        </script>
+    </body>
+</html>

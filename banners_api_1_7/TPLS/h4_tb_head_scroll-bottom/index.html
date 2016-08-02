@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            .head-86096{
+                padding: 15px 0px 0px;
+                display: block;
+
+                color: #666;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-size: 13px;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: left;                
+            }
+
+            .hblock-86096 {
+                margin: 15px 0;
+            }
+
+            .hblock-86096 .header-86096 {
+
+            }
+
+            .hblock-86096 .content-86096 {
+                height: 270px;
+            }
+
+            .hblock-86096 .item-86096:hover {
+
+            }
+
+            .hblock-86096 .item-86096 {
+             
+            }
+            .hblock-86096 .image-86096 {
+                border: none;
+                width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto 10px;     
+            }
+            .hblock-86096 .wrapper-86096 {
+            }
+            .hblock-86096 .wrapper-86096 div {
+
+            }
+            .hblock-86096 .title-86096 a {
+                display: block;
+                overflow: hidden;
+                height: 48px;
+
+                color: rgb(27, 26, 26);
+                font-family: MyriadPro, 'lucida grande', Helvetica, arial, sans-serif;
+                font-size: 14px;
+                font-stretch: normal;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: normal;
+                text-decoration: none !important;   
+            }
+            .hblock-86096 .title-86096 a:hover {
+                text-decoration: none !important;       
+                color: #2f2f2f !important;       
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body style="max-width: 815px;">
+        <div class="head-86096">Новости СМИ2</div>
+        <div class="hblock-86096">
+            <div id="container-86096" class="content-86096"></div>
+        </div>
+<!--         <button id="hbutton-back-86096" class="hbutton-86096">Назад</button>
+        <button id="hbutton-forward-86096" class="hbutton-86096">Вперед</button> -->
+        <script>
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-86096");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 160, "height": 270}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 10, "right": 10}
+                },
+                "scroll": {
+                    "size": 6,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#ccc",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 10, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-86096', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-86096',
+                                'src': model['image'],
+                                'width': '190px',
+                                'height': '190px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-86096', [
+                                JsAPI.Dom.createDom('div', 'title-86096', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 86096;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-86096'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-86096'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

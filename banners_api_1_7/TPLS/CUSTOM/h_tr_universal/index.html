@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
+
+        <style>
+            .hblock-85369 {
+                height: 100px;
+                margin: 20px 0;
+            }
+
+            .hblock-85369 .header-85369 {
+                padding-bottom: 10px;
+            }
+
+                .hblock-85369 .header-85369 img{
+                    width: 70px;
+                }
+
+
+            .hblock-85369 .content-85369 {
+                height: 76px;
+                overflow: hidden;
+            }
+
+            .hblock-85369 .scroll-container {
+                top: 0 !important;
+                left: 0 !important;
+            }
+
+            .hblock-85369 .item-85369:hover {
+
+            }
+
+            .hblock-85369 .item-85369 {
+                font-family: Arial, sans-serif;
+           
+            }
+            .hblock-85369 .image-85369 {
+                float: left;
+                border: 1px solid #ccc;
+                width: 60px;
+                height: 60px;
+                display: block;
+                margin-right: 10px;           
+            }
+            .hblock-85369 .wrapper-85369 {
+            }
+            .hblock-85369 .wrapper-85369 div {
+
+            }
+            .hblock-85369 .title-85369 a {
+                color: #000 !important;
+                display: block;
+                font-family: Arial, sans-serif !important;
+                font-size: 13px !important;
+                line-height: 16px !important;
+                text-decoration: none !important;
+
+                height: 64px;
+                overflow: hidden;
+                display: block;       
+                margin-right: 6px;    
+            }
+            .hblock-85369 .title-85369 a:hover {
+                text-decoration: none !important;
+                color: #000 !important;     
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body style="">
+        <div class="hblock-85369">
+        <div class="header-85369"><img src="//static.smi2.net/srcimg/2370180.png" width="70px" alt="" /></div>
+            <div id="container-85369" class="content-85369"></div>
+        </div>
+<!--         <button id="hbutton-back-85369" class="hbutton-85369">Назад</button>
+        <button id="hbutton-forward-85369" class="hbutton-85369">Вперед</button> -->
+        <script>
+            /*JsAPI.Config.setDomain('news.fark.com');*/
+
+            var orientation = JsAPI.Ui.Orientation.HORIZONTAL;
+
+            var parent_element = JsAPI.Dom.getElement("container-85369");
+
+            var properties = {
+                "item": {
+                    "size": {"width": 250, "height": 60}
+                },
+                "hs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "vs": {
+                    "size": 0,
+                    "style": "solid",
+                    "color": "#E3E3E3",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                },
+                "scroll": {
+                    "size": 0,
+                    "rounded": true,
+                    "background": "transparent",
+                    "color": "#000",
+                    "padding": {"top": 0, "bottom": 0, "left": 0, "right": 0},
+                    "margin": {"top": 0, "bottom": 0, "left": 0, "right": 0}
+                }
+            };
+
+            var item_content_renderer = function (parent, model, index) {
+                JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-85369', [
+                            JsAPI.Dom.createDom('a', {
+                                'href': model['url'],
+                                'target': '_blank'
+                            }, JsAPI.Dom.createDom('img', {
+                                'class': 'image-85369',
+                                'src': model['image'],
+                                'width': '100px',
+                                'height': '100px'
+                            })),
+                            JsAPI.Dom.createDom('div', 'wrapper-85369', [
+                                JsAPI.Dom.createDom('div', 'title-85369', JsAPI.Dom.createDom('a', {
+                                    'href': model['url'],
+                                    'target': '_blank'
+                                }, model['title']))
+                            ])
+                        ]
+                ));
+            };
+
+            var block_id = 85369;
+
+            var opt_fields = JsAPI.Dao.NewsField.IMAGE
+                    | JsAPI.Dao.NewsField.TITLE
+                    ;
+
+            JsAPI.Ui.ScrollBlock({
+                'orientation': orientation,
+                'allow_external_touch_scroll': true,
+                'parent_element': parent_element,
+                'properties': properties,
+                'item_content_renderer': item_content_renderer,
+                'block_id': block_id,
+                'fields': opt_fields
+            }, function (block) {
+/*                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-back-85369'), 'click', function () {
+                    block.scrollBack();
+                });
+                JsAPI.Event.listen(JsAPI.Dom.getElement('hbutton-forward-85369'), 'click', function () {
+                    block.scrollForward();
+                });*/
+            }, function (reason) {  });
+
+        </script>
+    </body>
+</html>

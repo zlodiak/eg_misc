@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+
+            .hblock-85777 {
+
+            }
+
+            .logo-85777{
+              margin: 10px 0 10px;
+              display: block;
+            }
+
+
+            .hblock-85777 .content-85777 {
+                margin: 0 -10px;
+                overflow: hidden;
+            }          
+
+            .hblock-85777 .item-85777 {
+                width: 33.3%;
+                float: left;
+                overflow: hidden;
+              
+            }
+
+              .hblock-85777 .item-inner-85777 {
+                margin: 0 10px 20px;
+                position: relative;
+              }
+
+            .hblock-85777 .a2-85777 {
+              /*opacity: 0.3;
+*/              display: block;
+            }
+
+              .hblock-85777 .image-85777 {
+                  border: none;
+                  width: 100%;
+                  height: auto;
+                  display: block;
+                  margin: 0 auto 10px;
+               
+              }
+
+            .hblock-85777 .title-85777 {
+                font-family: 'AA Bebas Neue', Arial, sans-serif;
+                font-size: 16px;
+                color: #005293 !important;
+                text-decoration: none !important;
+                text-align: left !important;
+
+                cursor: pointer;
+                line-height: 18px;
+                display: block;
+                overflow: hidden;
+                letter-spacing: 1.2;
+/*                position: absolute;
+                top: 10px;
+                left: 20px;
+                right: 20px;*/
+
+            }          
+
+            .hblock-85777 a{
+                text-decoration: none !important;
+                color: #005293 !important;
+            }   
+
+    @media (max-width: 522px) {
+
+
+    }
+
+
+    @media (max-width: 365px) {
+   
+    }
+
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                            
+    </style>
+
+  </head>
+
+  <body style=" max-width: 700px; margin: 0 auto;">
+    <div class="hblock-85777 clearfix">
+        <img class="logo-85777" src="//static.smi2.net/srcimg/2370180.png" width="70px" alt="" />
+        <div id="content-85777" class="content-85777"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      var blockId = 85777;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-85777';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-85777', [
+            JsAPI.Dom.createDom('div','item-inner-85777', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a2-85777',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-85777',
+                  'src': model['image'],
+                  'width': '220px',
+                  'height': '100px'
+              })),           
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-85777',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

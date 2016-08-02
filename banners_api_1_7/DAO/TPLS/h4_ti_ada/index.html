@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+            .hblock-86440 {
+                margin: 10px 0;
+            }
+
+/*            .header-86440{
+                position: relative;     
+                overflow: hidden;   
+                padding-bottom: 10px;       
+              
+                font: 24px lev_serifhandcut, sans-serif;
+                color: #444b51;              
+            }*/
+
+
+            .hblock-86440 .content-86440 {
+                overflow: hidden;
+            }          
+
+            .hblock-86440 .item-86440 {
+              overflow: hidden;
+              float: left;
+              width: 25%;
+              position: relative;
+
+              vertical-align: top;            
+            }
+
+              .hblock-86440 .item-inner-86440 {
+                margin-left: 0;
+              }
+
+              .hblock-86440 .item-inner-86440 {
+                margin-left:  1px;
+              }
+
+            .hblock-86440 .image-86440 {
+                border: none;
+                width: 100%;
+                height: auto;
+                max-height: 150px;
+                display: block;
+                margin: 0 auto;
+             
+            }
+
+            .hblock-86440 .title-outer-86440 {
+              display: block;
+              position: absolute;
+              left: 1px;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              background: 0 0;
+              background: -moz-linear-gradient(top,rgba(0,0,0,.1) 0,rgba(0,0,0,.9) 100%);
+              background: -webkit-linear-gradient(top,rgba(0,0,0,.1) 0,rgba(0,0,0,.9) 100%);
+              background: linear-gradient(to bottom,rgba(0,0,0,.1) 0,rgba(0,0,0,.9) 100%);   
+              padding-top: 50px;           
+
+              text-decoration: none !important;
+              color: rgb(255, 255, 255) !important;
+
+            }
+
+            .hblock-86440 .title-86440{
+              display: block;
+              height: 50px;
+              overflow: hidden;
+              padding: 0 15px;
+
+              color: rgb(255, 255, 255) !important;
+              font-family: ALSStory, 'Helvetica CY', Arial, sans-serif !important;
+              font-size: 14px !important;
+              font-weight: bold !important;
+              line-height: 16px !important;
+              text-decoration: none;
+            }      
+
+            .hblock-86440 .label-86440{
+              color: #cdcdcd!important;
+              font: 11px ALSStory, 'Helvetica CY', Arial, sans-serif;
+
+              padding: 7px 15px;
+              display: block;
+            }      
+
+            .item-86440:hover .title-86440{
+              color: #00cd8e !important;
+            }
+
+            .hblock-86440 a{
+              text-decoration: underline !important;
+              color: rgb(255, 255, 255) !important;
+
+              
+            }   
+
+    @media (max-width: 650px) {
+      .hblock-86440 .item-86440 {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+
+      .hblock-86440 .image-86440 {
+        max-height: none;
+      }
+
+      .hblock-86440 .item-inner-86440 {
+        margin-left:  0px;
+      }  
+
+      .hblock-86440 .title-outer-86440 {
+        left: 1px;
+      }          
+    }
+
+
+/*    @media (max-width: 400px) {
+  
+    }*/
+
+                
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                            
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 1000px; margin: 0 auto;">
+    <div class="hblock-86440 clearfix">
+        <!-- <div class="header-86440">From Around the Web</div> -->
+        <div id="content-86440" class="content-86440"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      var blockId = 86440;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86440';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86440', [
+            JsAPI.Dom.createDom('div','item-inner-86440', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86440',
+                  'src': model['image'],
+                  'width': '284px',
+                  'height': '150px'
+              })),
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-outer-86440',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, 
+                JsAPI.Dom.createDom('span', {
+                    'class': 'title-86440'
+                }, model['title']), 
+                JsAPI.Dom.createDom('span', 'label-86440', 'Партнеры')
+              )
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>
