@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script src="//static.smi2.net/static/jsapi/jsapi.v1.8.2.ru_RU.js"></script>
+
+      <style>
+
+
+
+
+        .header-86778 {
+
+        }
+
+
+      
+
+        .container-86778{
+          margin: 15px 26px 15px;
+          max-width: 248px;   
+          clear: both;  
+
+        }
+
+        .list-container {
+          overflow: hidden;
+          margin: 0 -5px;
+        }
+
+        .list-container-item {
+          overflow: hidden; 
+          padding-bottom: 10px;
+
+          vertical-align: top;
+        }
+
+          .item-inner-86778{
+            margin: 0 5px;
+          }
+
+            .list-container-item .a1-86778 {
+              float: left;
+            }
+
+            .list-container-item .image-86778 {
+              display: block;
+              width: 80px;
+              height: 80px;
+            }
+
+            .list-container-item .title-86778 {
+                display: block;
+
+            }
+
+            .list-container-item:hover .title-86778 a {
+              text-decoration: none;
+              color: #d31900;
+            }
+
+            .list-container-item .title-86778 a {
+              display: block; 
+              margin-left: 90px; 
+              text-align: left; 
+
+              color: #000;            
+              font: 15px/20px "MyriadProRegular",sans-serif;   
+              text-decoration: none;    
+            }
+
+        .list-container-item .clear-86778 {
+            clear: left;
+        }
+
+
+/*    @media (max-width: 560px) {
+     
+    } */        
+      </style>
+
+  </head>
+
+  <body style="max-width: 1000px;">
+
+  <div class="unit_86778_wrap" id="unit_86778"></div>
+
+    <script>
+/*      JsAPI.Dom.appendChild(
+        JsAPI.Dom.getElement('unit_86778'), 
+        JsAPI.Dom.createDom('div', 'header-86778', 'Новости партнеров')
+      );*/
+
+      JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_86778'),
+        container = JsAPI.Dom.createDom('div', 'container-86778', undefined)
+      );
+
+      
+
+      var idRandom = 'unit_86778_' + ((Math.random() * 10e6) >> 0);
+
+      parent.setAttribute('id', idRandom);
+
+      var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-inner-86778', [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'class': 'a1-86778',
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-86778',
+                'src': model['image'], 
+                'width': '80px',
+                'height': '80px'                
+            })),
+            JsAPI.Dom.createDom('div', 'title-86778', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear-86778')
+        ]));
+      };  
+
+      JsAPI.Ui.ListBlock({
+          'page_size': 6,
+          'max_page_count': 1,
+          'parent_element': parent.getElementsByClassName('container-86778')[0],
+          'properties': undefined,
+          'item_content_renderer': item_content_renderer,
+          'block_id': 86778,
+          'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+      }, function (block) {}, function (reason) {});  
+
+
+    </script>
+  </body>
+</html>

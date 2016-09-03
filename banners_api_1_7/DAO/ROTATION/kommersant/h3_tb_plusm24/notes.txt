@@ -1,0 +1,4 @@
+ //else if(random > 0.7) {
+            /*console.log('m24');*/
+            //blockId = 86821;
+        //}    

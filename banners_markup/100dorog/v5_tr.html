@@ -1,0 +1,189 @@
+5
+80
+60
+
+
+
+
+
+<div class="hblock-86814 clearfix">
+        <div class="header-86814">Миртесен</div>
+        <div id="content-86814" class="content-86814"></div>
+    </div>
+
+
+.hblock-86814 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-86814 {
+              overflow: hidden;
+              position: relative;
+              max-width: 300px;
+              padding: 0px 0px 0;
+            }
+
+            .hblock-86814 .header-86814 {
+              display: block;
+              margin-bottom: 10px;
+
+                color: #444 !important;
+                font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                text-decoration: none !important;
+            }
+
+              
+
+
+
+            .hblock-86814 .content-86814 {
+              overflow: hidden;
+              position: relative;
+
+            }          
+
+
+
+            .hblock-86814 .item-86814 {
+              overflow: hidden; 
+              text-align: center; 
+              padding: 0 0px 10px; 
+            }
+
+              .hblock-86814 .item-inner-86814 {
+                overflow: hidden;
+              }
+
+            .hblock-86814 .a1-86814 {
+              display: block; 
+              float: left;
+            }
+
+            .hblock-86814 .image-86814 {
+              display: block !important;
+              background: none !important;
+              padding: 0 !important;
+              border: none !important;
+              border-radius: 0 !important;
+                
+             
+            }
+            .hblock-86814 .wrapper-86814 {
+
+            }
+            .hblock-86814 .wrapper-86814 div {
+
+            }
+
+            .hblock-86814 .title-86814 a {
+              display: block; 
+              margin-left: 90px; 
+              text-align: left; 
+              overflow: hidden;     
+              overflow: hidden;     
+
+              color: #444 !important;
+              font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+              font-size: 14px;
+              text-decoration: none !important;
+            }
+
+
+
+
+            .hblock-86814 a{
+                text-decoration: none !important;
+            }   
+
+    @media (max-width: 1200px) {
+
+    }
+
+
+    @media (max-width: 1000px) {
+
+    }
+
+    @media (max-width: 768px) {
+ 
+    }
+
+    @media (max-width: 500px) {
+
+    }                 
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }
+
+
+
+  var blockId = 86814;
+
+      var count = 5;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86814';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86814', [
+            JsAPI.Dom.createDom('div','item-inner-86814', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86814',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86814',
+                  'src': model['image'],
+                  'width': '80px',
+                  'height': '60px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86814', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title']))
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="unit_86814"><a href="http://mirtesen.ru/">Новости mirtesen.ru</a></div>
+<script type="text/javascript" charset="utf-8">
+  (function() {
+    var sc = document.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+    sc.src = '//news.mirtesen.ru/data/js/86814.js'; sc.charset = 'utf-8';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+  }());
+</script>      

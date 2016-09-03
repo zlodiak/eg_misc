@@ -126,6 +126,10 @@
                 'href': model['url'],
                 'target': '_blank'
             }, model['title'])),
+            JsAPI.Dom.createDom('div', 'announce', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['announce'])),            
             JsAPI.Dom.createDom('div', 'clear')
         ]));
     };
@@ -149,7 +153,9 @@
      *
      * @type {number|undefined}
      */
-    var opt_fields = JsAPI.Dao.ArticleField.TITLE | JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL;
+    var opt_fields =    JsAPI.Dao.ArticleField.TITLE | 
+                        JsAPI.Dao.ArticleField.ANNOUNCE | 
+                        JsAPI.Dao.ArticleField.PUBLISHER_LOGO_URL;
 
     /**
      * Признак обязательного наличия изображений в статьях

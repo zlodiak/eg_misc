@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+
+
+
+            .hblock-86568 {
+              padding: 0px 0px 20px;      
+              clear: both;
+              position: relative;
+            }
+
+            .head-86568{
+              padding: 0 6px;
+              position: absolute;
+              left: 16px;
+              z-index: 100;
+              top: -7px;
+              float: left;
+              background: #fff6f1;
+
+              color: #5B5351;
+              font-family: arial, sans-serif;
+              font-size: 12px;
+              font-weight: bold;
+              text-transform: uppercase;              
+            }
+
+            .wrap-86568{
+              overflow: hidden;
+              border-top: 1px solid #e3d1c7;
+              padding: 20px 0px 0;
+              z-index: 50;
+              position: relative;              
+            }
+
+            .hblock-86568 .content-86568 {
+              overflow: hidden;
+              margin: 0 -30px;
+            }          
+
+            .hblock-86568 .item-86568 {
+              overflow: hidden;
+              width: 25%; 
+              float: left;
+              padding-bottom: 0px;
+
+              vertical-align: top;              
+            }
+
+              .hblock-86568 .item-inner-86568 {
+                margin: 0 30px;
+              }
+
+             .a1-86568{
+                margin: 0 auto 4px;
+                display: block;               
+             } 
+
+            .hblock-86568 .image-86568 {
+                  display: block;
+                  width: 195px;
+                  height: 120px;
+                  margin: 0;
+             
+            }
+
+            .hblock-86568 .title-86568 {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+                color: #6e6664;
+                text-decoration: none !important;
+                text-align: left;
+
+                margin: 8px 0 4px;
+                display: block;
+
+            }
+         
+
+            .hblock-86568 .title-86568:hover{
+                text-decoration: none !important;
+                color: #6e6664 !important;
+            }   
+
+                           
+    </style>
+
+  </head>
+
+  <body style="max-width: 1200px; margin: 0 auto;">
+    <div class="hblock-86568 clearfix">
+      <div class="head-86568">Интерфакс</div>
+      <div class="wrap-86568">
+          <div id="content-86568" class="content-86568"></div>
+      </div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+      /*JsAPI.Config.setDomain('news.fark.com');*/
+      
+      var blockId = 86568;
+
+      var count = 4;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86568';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86568', [
+            JsAPI.Dom.createDom('div','item-inner-86568', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86568',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86568',
+                  'src': model['image'],
+                  'width': '195px',
+                  'height': '120px'
+              })),              
+              JsAPI.Dom.createDom('a', {
+                  'class': 'title-86568',
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

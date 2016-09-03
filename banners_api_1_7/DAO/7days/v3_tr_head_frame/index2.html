@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+    <style>
+
+
+            .hblock-86746 *{
+              box-sizing: content-box !important;
+             -webkit box-sizing: content-box !important;
+            }
+
+            .hblock-86746 {
+              padding: 0px 10px 0;
+              position: relative;
+              border: 1px solid #fdc5c5;
+              position: relative;
+              margin: 20px 0;
+
+              text-align: center;
+            }
+
+            .wrap-86746{
+
+            }
+
+            .hblock-86746 .header-86746 {
+              background: #f73e3e;
+              position: relative;
+              top: -14px;
+              padding: 0px 10px;
+              height: 27px;
+              display: inline-block;
+              color: #fff;
+              font: 700 14px/27px Ubuntu, Arial, Helvetica, sans-serif;
+              text-transform: uppercase;
+            }
+
+              
+
+
+
+            .hblock-86746 .content-86746 {
+              overflow: hidden;
+              margin: 0 0px;         
+            }          
+
+
+
+            .hblock-86746 .item-86746 {
+              overflow: hidden;
+              text-align: center;
+              padding: 0 0px 20px;
+            }
+
+              .hblock-86746 .item-inner-86746 {
+
+              }
+
+            .hblock-86746 .a1-86746 {
+              display: block; 
+              float: left;
+            }
+
+            .hblock-86746 .image-86746 {
+                border: none;
+                width: 60px;
+                height: 60px;
+                display: block !important;
+                background: none !important;
+                padding: 0 !important;
+                border: none !important;
+                border-radius: 0 !important;
+                
+             
+            }
+
+            .hblock-86746 .title-86746:hover{
+              text-decoration: none !important;
+              color: #333!important;
+            }
+
+
+
+            .hblock-86746 .title-86746 {
+              display: block;
+              margin-left: 70px;
+              text-align: left;
+              overflow: hidden;
+              color: #333 !important;
+              font: bold 14px/14px Play, Ubuntu, Arial, Helvetica, sans-serif;
+              text-decoration: none !important;
+              text-align: left;
+            }
+
+             
+
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    zoom:1;
+  }                               
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 300px; margin: 0 auto;">
+    <div class="hblock-86746">
+      <div class="wrap-86746">
+          <div class="header-86746">Новости Миртесен</div>
+          <div id="content-86746" class="content-86746"></div>
+      </div>
+    </div>
+
+
+    <!-- <script src="//static.smi2.net/static/jsapi/jsapi.v1.5.2.ru_RU.js"></script> -->
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.8.2.ru_RU.js"></script> 
+
+    <script>      
+      var blockId = 86746;
+
+      var count = 50;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86746';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86746', [
+            JsAPI.Dom.createDom('div','item-inner-86746', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'a1-86746',
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86746',
+                  'src': model['image'],
+                  'width': '60px',
+                  'height': '60px'
+              })),
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'class': 'title-86746',
+                  'target': '_blank'
+              }, model['title'])
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>

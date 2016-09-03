@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+        .sk_wrap_outer_85435{
+          overflow: hidden;
+          clear: both;
+          margin-bottom: 20px;
+        }
+
+          .sk_head_85435{
+                color: #999 !important;
+              font-family:  Arial, sans-serif;
+              font-size: 16px;
+              text-decoration: none;  
+              font-weight: bold;
+              text-align: right;
+
+              padding: 8px 0px;
+              border-top: 1px solid #999;
+              border-bottom: 1px solid #999;
+              margin-bottom: 30px;
+          }
+
+          .sk_wrap_85435{
+            overflow: hidden;
+            
+
+          }
+
+            .sk_items_85435{
+
+
+            }
+
+
+              .sk_item_85435:nth-child(1){
+                width: 35%;
+              }
+
+              .sk_item_85435:nth-child(2){
+                width: 35%;
+              }
+
+              .sk_item_85435:nth-child(3){
+                width: 30%;
+              }    
+
+              .sk_item_85435:last-child{
+                margin-right: 0;
+              }
+
+              .sk_item_85435{
+                overflow: hidden;
+                width: 33.3%;
+                float: left;
+                padding-bottom: 10px;
+              }
+
+
+
+                  .sk_img_85435{
+                    display: block;
+                  }
+
+                    .sk_img_85435 img{
+                      display: block;
+                      margin-bottom: 5px;
+                      width: 100px;
+                      height: 56px;
+                    }
+
+                  .sk_text_85435:hover{
+                    text-decoration: none !important;
+                  }
+
+                  .sk_text_85435{
+                    margin-right: 10px;
+                    display: block;
+                    overflow: hidden;
+                    height: 48px;
+
+                    color: #333;
+                    font-family: Georgia, serif;
+                    font-size: 14px;
+                    font-style: normal;
+                    line-height: 16px;
+                    text-decoration: none !important;                
+                  } 
+
+      @media (max-width: 1200px) {
+        .sk_img_85435 img{
+          width: 120px;
+          height: 67px;
+        } 
+      }
+
+      @media (max-width: 980px) {
+            .sk_item_85435:nth-child(1),
+            .sk_item_85435:nth-child(2),
+            .sk_item_85435:nth-child(3),
+            .sk_item_85435{
+              width: 100%;
+            }
+
+            .sk_img_85435{
+              float: left;
+              margin: 0 14px 0 0;
+              width: 31%;
+            }
+
+              .sk_img_85435 img{
+                width: 100%;
+                height: auto;
+              }      
+
+            .sk_text_85435{
+              
+            }
+
+      }
+
+      @media (max-width: 480px) {
+        #sk_wrap_outer_85435{
+          margin-left: -15px;
+        }
+      }                    
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 605px; margin: 0 auto;">    
+    <div class="sk_wrap_outer_85435">   
+      <div class="sk_head_85435" id="skHead_85435"></div> 
+
+      <div class="sk_wrap_85435">
+        <div id="content-85435" class="content-85435"></div>
+      </div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script> 
+
+    <script>
+        var blockId;
+        var random = Math.random();
+        var count = 3;
+        var fields = JsAPI.Dao.NewsField.URI
+                | JsAPI.Dao.NewsField.IMAGE
+                | JsAPI.Dao.NewsField.TITLE;        
+
+        /*randoms*/
+        if(random <= 0.5) {
+            /*console.log('tass');*/
+            blockId = 85408;
+        } else if((random > 0.5)) {
+            /*console.log('interfax');*/
+            blockId = 85198;
+        } else if(random > 0.7) {
+            /*console.log('rambler');*/
+            blockId = 86443;
+        };
+
+        /*teasers*/
+        JsAPI.Dao.getNews({
+            'block_id': blockId,
+            'count': count,
+            'fields': fields
+        }, function (payload) {
+          for (var i = 0, len = payload.length; i < len; i++) {
+            var model = payload[i],
+                id_parent_block = 'content-85435';
+            
+            var el = JsAPI.Dom.createDom('div', 'sk_item_85435', [
+                JsAPI.Dom.createDom('a', {
+                    'href': model['url'],
+                    'class': 'sk_img_85435',
+                    'target': '_blank'
+                }, JsAPI.Dom.createDom('img', {
+                    'class': 'image-85435',
+                    'src': model['image'],
+                    'width': '228px',
+                    'height': '128px'
+                })),              
+                JsAPI.Dom.createDom('a', {
+                    'class': 'sk_text_85435',
+                    'href': model['url'],
+                    'target': '_blank'
+                }, model['title'])
+            ]);
+
+            JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+          }                
+        }, function (reason) {   });     
+
+        /*headers*/
+        var headEl = document.getElementById('skHead_85435');
+        var agency = '';
+
+        if(blockId == 85408) { agency = 'тасс' } 
+        else if(blockId == 85198) { agency = 'интерфакс' } 
+        else if(blockId == 86443) {agency = 'рамблер' };
+
+        headEl.innerHTML = agency;
+    </script>
+  </body>
+</html>

@@ -9,7 +9,7 @@
       <script src="//static.smi2.net/static/jsapi/jsapi.v1.7.9.ru_RU.js"></script>
 
       <style>
-      .unit_86407_wrap{
+.unit_86407_wrap{
 
       }
 
@@ -76,7 +76,7 @@
 
         .list-container-item .title-86407 a {
           display: block; 
-          max-height: 68px;
+          height: 68px;
           overflow: hidden;
 
           color: #000 !important;
@@ -167,14 +167,14 @@
             <div class="follow-us-buttons__head"><span>Следите за нами в</span></div>
             <div class="follow-us-buttons__buttons"><a class="follow-us-buttons__button follow-us-buttons__button--vk" href="https://vk.com/club77541775" target="_blank" sl-processed="1"><svg class="ico _vkontakte" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#vkontakte"></use></svg>Vkontakte</a> <a class="follow-us-buttons__button follow-us-buttons__button--fb" href="https://www.facebook.com/www.insider.pro" target="_blank" sl-processed="1"><svg class="ico _facebook" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#facebook"></use></svg>Facebook</a> <a class="follow-us-buttons__button follow-us-buttons__button--tw" href="https://twitter.com/InsiderPro_Ru" target="_blank" sl-processed="1"><svg class="ico _twitter" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#twitter"></use></svg>Twitter</a></div>
         </div>
-        <div class="subscribe-to-us">
+        <!-- <div class="subscribe-to-us">
             <div class="subscribe-to-us__icon"><svg class="ico _envelope" role="img"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#envelope"></use></svg></div>
             <div class="subscribe-to-us__heading">Получайте авторскую подборку материалов на ваш email</div>
             <form action="/ru/subscribe/" class="subscribe-to-us__form js-subscribe-form is-inited" method="POST" novalidate="">
                 <div class="subscribe-to-us__email-wrapper"><input class="subscribe-to-us__email" name="email" placeholder="Адрес электронной почты" required="" type="email" value=""></div>
                 <div class="subscribe-to-us__btn-wrapper"><button class="subscribe-to-us__btn" type="submit">Подписаться</button></div>
             </form>
-        </div>
+        </div> -->
         <div class="article__recommended" data-status="" style="height:800px; width:250px;">
 
             <div class="unit_86407_wrap" id="unit_86407"></div>
@@ -186,6 +186,39 @@
     
 
     <script>
+    var newsCntCalculate = function(idRandom) {   
+      var mtBlockEl = document.getElementById(idRandom),
+
+          wrapBlockEl = mtBlockEl.parentNode.parentNode,
+          wrapBlockElHeight = wrapBlockEl.offsetHeight,
+
+          blocksSidebar = wrapBlockEl.childNodes,
+          blocksSidebarClear = [],
+          blocksSidebarClear_heightArr = 0;             
+
+      for(i = 0; i < blocksSidebar.length; i++) {
+        if(blocksSidebar[i].nodeType == 1) {
+          blocksSidebarClear.push(blocksSidebar[i]);
+        };
+      }  
+
+      blocksSidebarClear.pop();
+
+      for(i = 0; i < blocksSidebarClear.length; i++) {
+        blocksSidebarClear_heightArr += blocksSidebarClear[i].offsetHeight;
+      }
+
+      newsCnt = Math.floor((wrapBlockElHeight - blocksSidebarClear_heightArr) / 167) - 4; 
+
+      /*console.log('newsCnt(idRandom)', newsCnt);*/
+
+      if( newsCnt <= 0) {   
+        mtBlockEl.getElementsByClassName('header-86407')[0].style.display='none';
+      };        
+
+      return newsCnt;
+    };
+
       JsAPI.Dom.appendChild(
         parent = JsAPI.Dom.getElement('unit_86407'),
         container = JsAPI.Dom.createDom('div', 'container-86407', 
@@ -198,25 +231,7 @@
 
       parent.setAttribute('id', idRandom);
 
-      var mtBlockEl = document.getElementById(idRandom),
 
-          wrapBlockEl = mtBlockEl.parentNode.parentNode,
-          wrapBlockElHeight = wrapBlockEl.offsetHeight,
-
-          BlockEl_1 = wrapBlockEl.getElementsByClassName('stop-ads')[0],
-          BlockEl_1_height = BlockEl_1.offsetHeight,          
-
-          BlockEl_2 = wrapBlockEl.getElementsByClassName('follow-us-buttons')[0],
-          BlockEl_2_height = BlockEl_2.offsetHeight,      
-
-          BlockEl_3 = wrapBlockEl.getElementsByClassName('subscribe-to-us')[0],
-          BlockEl_3_height = BlockEl_3.offsetHeight,                          
-
-          newsCnt = Math.floor((wrapBlockElHeight - BlockEl_1_height - BlockEl_2_height - BlockEl_3_height) / 167) - 2;   
-
-      if(newsCnt <= 0) {   
-        mtBlockEl.getElementsByClassName('header-86407')[0].style.display='none';
-      };  
 
       var item_content_renderer = function (parent, model, index) {
         JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', undefined, [
@@ -238,15 +253,14 @@
       };  
 
       JsAPI.Ui.ListBlock({
-          'page_size': newsCnt,
+          'page_size': newsCntCalculate(idRandom),
           'max_page_count': 1,
           'parent_element': parent,
           'properties': undefined,
           'item_content_renderer': item_content_renderer,
           'block_id': 86407,
           'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
-      }, function (block) {}, function (reason) {});  
-
+      }, function (block) {}, function (reason) {});
 
     </script>
   </body>

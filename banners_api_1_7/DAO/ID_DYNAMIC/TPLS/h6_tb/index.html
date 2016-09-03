@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <title></title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script src="//static.smi2.net/static/jsapi/jsapi.v1.8.2.ru_RU.js"></script>
+
+      <style>
+
+
+
+
+        .header-86593 {
+          display: block;
+          position: relative;
+          float: left;
+          top: 15px;
+          background: #fff;
+          padding-right: 10px;
+
+
+          font-family: "PT Sans", Helvetica, Arial;
+          font-weight: bold;
+          font-size: 22px;
+          color: #f00;
+        }
+
+
+      
+
+        .container-86593{
+          overflow: hidden;
+          margin-bottom: 10px;     
+          clear: both;  
+          border-top: 7px solid red;
+          padding-top: 10px;
+        }
+
+        .list-container {
+          overflow: hidden;
+          margin: 0 -5px;
+        }
+
+        .list-container-item {
+          overflow: hidden;
+          width: 16.6%; 
+          float: left;
+          padding-bottom: 10px;
+
+          vertical-align: top;
+        }
+
+          .item-inner-86593{
+            margin: 0 5px;
+          }
+
+            .list-container-item .image-86593 {
+              display: block;
+              width: 111px;
+              height: 111px;
+            }
+
+            .list-container-item .title-86593 {
+                display: block;
+
+            }
+
+            .list-container-item:hover .title-86593 a {
+              text-decoration: none !important;
+              color: #000 !important;
+            }
+
+            .list-container-item .title-86593 a {
+              display: block;
+              overflow: hidden;
+              margin-top: 6px;
+
+              color: #000;
+              font-family: "PT Sans", Helvetica, Arial;
+              font-size: 14px;
+              font-style: normal;
+              font-variant: normal;
+              font-weight: bold;
+              text-decoration: none !important; 
+              text-align: left;
+              line-height: 16px;
+            }
+
+        .list-container-item .clear-86593 {
+            clear: left;
+        }
+
+
+/*    @media (max-width: 560px) {
+     
+    } */        
+      </style>
+
+  </head>
+
+  <body style="max-width: 1000px;">
+
+  <div class="unit_86593_wrap" id="unit_86593"></div>
+
+    <script>
+      JsAPI.Dom.appendChild(
+        JsAPI.Dom.getElement('unit_86593'), 
+        JsAPI.Dom.createDom('div', 'header-86593', 'Новости партнеров')
+      );
+
+      JsAPI.Dom.appendChild(
+        parent = JsAPI.Dom.getElement('unit_86593'),
+        container = JsAPI.Dom.createDom('div', 'container-86593', undefined)
+      );
+
+      
+
+      var idRandom = 'unit_86593_' + ((Math.random() * 10e6) >> 0);
+
+      parent.setAttribute('id', idRandom);
+
+      var item_content_renderer = function (parent, model, index) {
+        JsAPI.Dom.appendChild(parent, JsAPI.Dom.createDom('div', 'item-inner-86593', [
+            JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, JsAPI.Dom.createDom('img', {
+                'class': 'image-86593',
+                'src': model['image'], 
+                'width': '160px',
+                'height': '160px'                
+            })),
+            JsAPI.Dom.createDom('div', 'title-86593', JsAPI.Dom.createDom('a', {
+                'href': model['url'],
+                'target': '_blank'
+            }, model['title'])),
+            JsAPI.Dom.createDom('div', 'clear-86593')
+        ]));
+      };  
+
+      JsAPI.Ui.ListBlock({
+          'page_size': 6,
+          'max_page_count': 1,
+          'parent_element': parent.getElementsByClassName('container-86593')[0],
+          'properties': undefined,
+          'item_content_renderer': item_content_renderer,
+          'block_id': 86593,
+          'fields': JsAPI.Dao.NewsField.TITLE | JsAPI.Dao.NewsField.IMAGE
+      }, function (block) {}, function (reason) {});  
+
+
+    </script>
+  </body>
+</html>

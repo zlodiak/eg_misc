@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        
+        <link rel="apple-touch-icon" href="http://l-stat.livejournal.net/img/apple-touch-icon.png?v=14991">
+        <meta name="msapplication-TileImage" content="http://www.livejournal.com/mstile-144x144.png?v=49565">
+        <meta name="msapplication-TileColor" content="#004359">
+        <link rel="shortcut icon" type="image/x-icon" href="http://l-stat.livejournal.net/img/userinfo.ico">
+        <link rel="icon" type="image/gif" href="http://l-files.livejournal.net/userhead/1124?v=1364300988">
+        <!-- http://joxi.ru/YmEqQqLuZLqMDm -->
+    </head>
+
+    <body>
+        <div>
+            <style>           
+              .sk_wrap_outer_84320{
+                padding: 15px 0px;
+                overflow: hidden;
+                clear: both;
+                max-width: 320px;
+              }
+
+                .sk_head_84320{
+                  color: rgb(51, 51, 51);
+                  font-family: 'Open Sans', sans-serif;
+                  font-size: 18px;
+                  font-stretch: normal;
+                  font-style: normal;
+                  font-variant: normal;
+                  font-weight: normal;                 
+
+                  border-bottom: 1px solid #ea6639;
+                  margin: 11px 0;
+                  padding: 5px 0;
+                }
+
+                .sk_wrap_84320{
+                  overflow: hidden;                  
+                }
+
+                  .sk_items_84320{
+                    overflow: hidden;
+
+                    text-align: center;
+                  }
+
+                    .sk_item_84320{
+                      overflow: hidden;
+                      padding-bottom: 7px;   
+                      margin-bottom: 10px;   
+                      display: block;
+                      border-bottom: 1px dotted #ddd;
+                      
+                      vertical-align: top;
+                    }
+
+                      .sk_img_84320{
+                        margin: 0 0px;
+                        display: block; 
+                        float: left;           
+                      }
+
+                        .sk_img_84320 img{
+                          display: inline-block;
+                          width: 100px !important;
+                          height: 70px !important;
+                          
+                        }
+
+                      .sk_text_84320:hover{
+                        text-decoration: none !important;
+                        color: rgb(70, 72, 75) !important;
+                      }
+
+                      .sk_text_84320{
+                        display: block;
+                        margin-left: 110px;
+                        height: 70px;                        
+
+                        color: rgb(51, 51, 51);
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: normal;
+                        line-height: 23px;
+                        text-decoration: none !important;
+                      }                        
+            </style>
+            <div class="sk_wrap_outer_84320">
+                <div class='sk_head_84320'>Новости СМИ2</div>
+                <div id='sk_wrap_84320'></div>
+            </div>
+        </div>
+
+        <script>
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else{
+                // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    var massive = JSON.parse(xmlhttp.responseText),
+                        massiveLength = massive.news.length;
+
+                    //console.log(massive);
+                    //console.log(massiveLength);
+
+                    var _doc = document;   
+                    var _sk_wrap0 = _doc.getElementById('sk_wrap_84320');
+                                
+                    for (var i = 0; i < massiveLength; i++) {
+                        var _sk_wrap = _doc.createElement("div");
+                        _sk_wrap.className = 'sk_item_84320';
+
+                        //console.log(massive.news[i].url);
+                        //console.log(massive.news[i].img);
+                        //console.log(massive.news[i].title);
+
+                        _sk_wrap.innerHTML = '<a href="' + massive.news[i].url + '" class="sk_img_84320" style=""><img src="' + massive.news[i].img +'" alt="' + massive.news[i].title + '" style="" /></a><a href="' + massive.news[i].url + '" class="sk_text_84320">' + massive.news[i].title + '</a>';      
+
+                        _sk_wrap0.appendChild(_sk_wrap);
+                    }                
+                }
+            }
+
+            xmlhttp.open("GET","//smi2.ru/data/js/86830.js",true);
+            xmlhttp.send();
+        </script>
+    </body>
+</html>

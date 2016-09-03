@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <style>
+                  .hblock-86852 {
+                      margin: 20px auto !important;  
+                      padding: 0px 0 0px;
+                      
+
+                      /*overflow: hidden;*/
+                  }
+
+                  .hblock-86852 .header-86852 {
+                      position: relative;     
+          
+
+                      padding-bottom: 6px;      
+   
+                    
+                      font-family: "Exo 2";
+                      font-size: 20px;
+                      font-weight: bold;
+                      color: #231f20;
+
+
+                  }
+
+
+                   
+
+
+
+                  .hblock-86852 .content-86852 {
+                      margin: 0 -8px;
+                  }          
+
+                  .hblock-86852 .item-86852 {
+                      margin: 0 0px 10px;
+                      width: 33.3%;
+                      float: left;
+                  }
+
+                    .hblock-86852 .item-inner-86852 {
+                      margin: 0 8px;
+                    }
+
+                  .hblock-86852 .image-86852 {
+                      border: none;
+                      width: 100%;
+                      height: auto;
+                      display: block;
+                      margin: 0 auto;
+                      margin-bottom: 5px;
+                      overflow: hidden;                      
+                   
+                  }
+                  .hblock-86852 .wrapper-86852 {
+
+                  }
+                  .hblock-86852 .wrapper-86852 div {
+                      padding-top: 5px;
+                  }
+                  .hblock-86852 .topic-86852 {
+                      font-size: 11px;
+                      color: #999;
+                      font-weight: bold;
+                  }
+                  .hblock-86852 .title-86852 a {
+                      text-decoration: none;
+                      font-size: 15px;
+                      font-weight: bold;
+                      color: #231f20;
+                      line-height: 20px;
+                      font-family:Arial, Helvetica, sans-serif;
+
+                      overflow: hidden;
+                      display: block;     
+                      /*max-height: 66px;  */
+                  }
+                  .hblock-86852 .topic-86852 a{
+                      overflow: hidden;
+                      display: block;              
+                      /*max-height: 24px;*/
+
+                      color: #999;
+                      font-family:  Arial, Helvetica, sans-serif;
+                      font-weight: bold;
+                      font-size: 11px;
+                      line-height: 20px;
+                      text-decoration: none;
+                  }
+
+
+          
+
+                  .hblock-86852 a{
+                      text-decoration: none !important;
+                  }   
+
+          @media (max-width: 1200px) {
+
+          }
+
+
+          @media (max-width: 1000px) {
+
+          }
+
+          @media (max-width: 768px) {
+       
+          }
+
+          @media (max-width: 400px) {
+            .hblock-86852 .item-86852 {
+                width: 100%;
+            }
+
+          
+          }                 
+
+        .clearfix:after {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+          zoom:1;
+        }                           
+    </style>
+
+  </head>
+
+  <body style="background: #fff; max-width: 775px; margin: 0 auto;">
+    <div class="hblock-86852 clearfix">
+      <div class="header-86852 clearfix">Trending News</div>
+        <div id="content-86852" class="content-86852"></div>
+    </div>
+
+
+    <script src="//static.smi2.net/static/jsapi/jsapi.v1.8.2.ru_RU.js"></script> 
+
+    <script>
+      var blockId = 86852;
+
+      var count = 3;
+
+      var fields = JsAPI.Dao.NewsField.URI
+              | JsAPI.Dao.NewsField.IMAGE
+              | JsAPI.Dao.NewsField.TOPIC
+              | JsAPI.Dao.NewsField.DOMAIN
+              | JsAPI.Dao.NewsField.TITLE;
+
+      JsAPI.Dao.getNews({
+          'block_id': blockId,
+          'count': count,
+          'fields': fields
+      }, function (payload) {
+        for (var i = 0, len = payload.length; i < len; i++) {
+          var model = payload[i],
+              id_parent_block = 'content-86852';
+          
+          var el = JsAPI.Dom.createDom('div', 'item-86852', [
+            JsAPI.Dom.createDom('div','item-inner-86852', [
+              JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, JsAPI.Dom.createDom('img', {
+                  'class': 'image-86852',
+                  'src': model['image'],
+                  'width': '240px',
+                  'height': '200px'
+              })),
+              JsAPI.Dom.createDom('div', 'title-86852', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['title'])),
+              JsAPI.Dom.createDom('div', 'topic-86852', JsAPI.Dom.createDom('a', {
+                  'href': model['url'],
+                  'target': '_blank'
+              }, model['topic_name'])) 
+            ]) 
+          ]);
+
+          JsAPI.Dom.appendChild(JsAPI.Dom.getElement(id_parent_block), el);
+        }                
+      }, function (reason) {   });
+    </script>
+  </body>
+</html>
